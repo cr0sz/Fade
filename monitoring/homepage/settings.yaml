@@ -1,0 +1,23 @@
+title: Market Intelligence
+favicon:
+headerStyle: clean
+theme: dark
+color: slate
+cardBlur: sm
+useEqualHeights: true
+
+layout:
+  Trading:
+    style: row
+    columns: 3
+  Research:
+    style: row
+    columns: 3
+  Infrastructure:
+    style: row
+    columns: 3
+
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: true
+  hideVisitURL: false

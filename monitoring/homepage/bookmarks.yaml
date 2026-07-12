@@ -1,0 +1,7 @@
+- Quick Links:
+    - Binance:
+        - abbr: BN
+          href: https://www.binance.com/en/my/orders/futures/closedOrders
+    - Dashboard:
+        - abbr: MI
+          href: http://localhost:8000

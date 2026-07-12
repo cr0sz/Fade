@@ -1,0 +1,944 @@
+x-common-env: &common-env
+  env_file: .env
+  environment:
+    POSTGRES_HOST: postgres
+    REDIS_HOST: redis
+
+# ── Restart policies ────────────────────────────────────────────────────────
+# infra / APIs:  unless-stopped  (always bring back, even after explicit stop)
+# workers:       on-failure      (only restart on crash; clean exit = done)
+x-restart: &restart
+  restart: unless-stopped
+
+x-restart-worker: &restart-worker
+  restart: on-failure
+
+x-logging: &logging
+  logging:
+    driver: json-file
+    options:
+      max-size: "50m"
+      max-file: "5"
+
+services:
+  # ─── Infrastructure ───────────────────────────────────────────────────────────
+
+  # In-network Ollama for the weekly LLM lessons/governance pipeline.
+  # The host's Ollama binds to 127.0.0.1 and the host firewall drops
+  # container→host traffic, so containers could never reach it (the pipeline
+  # timed out on every run). This service shares the host's model store
+  # (read-write bind mount; never `ollama pull` from inside the container
+  # while the host daemon is pulling) so no models are re-downloaded.
+  ollama:
+    image: ollama/ollama:latest
+    <<: [*restart, *logging]
+    volumes:
+      - /usr/share/ollama/.ollama:/root/.ollama
+    expose:
+      - "11434"
+    environment:
+      OLLAMA_KEEP_ALIVE: "2m"   # 7GB-RAM host: unload models quickly after use
+
+  postgres:
+    image: postgres:16-alpine
+    <<: [*restart, *logging]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mktintel}
+      POSTGRES_USER: ${POSTGRES_USER:-mktintel}
+      # Empty default here is intentional: compose must never crash with
+      # interpolation errors. The preflight script (make preflight) and the
+      # Python model_validator both enforce this is non-empty before startup.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mktintel} -d ${POSTGRES_DB:-mktintel}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  redis:
+    image: redis:7-alpine
+    <<: [*restart, *logging]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+    command:
+      - sh
+      - -c
+      - |
+        redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru &
+        SPID=$$!
+        until redis-cli ping 2>/dev/null | grep -q PONG; do sleep 0.1; done
+        if [ -n "$$REDIS_PASSWORD" ]; then
+          redis-cli ACL SETUSER default on ">$$REDIS_PASSWORD" '~*' '&*' '+@all'
+        fi
+        wait $$SPID
+    volumes:
+      - redis_data:/data
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ${REDIS_PASSWORD:+-a $REDIS_PASSWORD} ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ─── Application Services ────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    <<:
+      - *restart
+      - *logging
+      - *common-env
+    ports:
+      - "127.0.0.1:8000:8000"
+      # Optional second bind for remote access (e.g. a Tailscale/VPN IP, so
+      # you can reach the dashboard from your phone without exposing it to
+      # the public internet). Set BIND_HOST in .env and uncomment below.
+      # Binding a specific interface IP (never 0.0.0.0) matters: Docker-
+      # published ports bypass ufw/iptables, so 0.0.0.0 would expose the API
+      # publicly regardless of your firewall rules. The dashboard itself is
+      # token-gated (DASHBOARD_TOKEN) as a second layer either way.
+      # - "${BIND_HOST}:8000:8000"
+    volumes:
+      - ./graphify-out:/app/graphify-out:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      sh -c "python -m src.db.migrate &&
+             uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --workers 2"
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/worker.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    expose:
+      - "8009"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8009/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.scheduler.worker
+
+  discord-bot:
+    build:
+      context: .
+      dockerfile: docker/bot.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "kill -0 1 2>/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    environment:
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN:-}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID:-}
+      DISCORD_ADMIN_USER_ID: ${DISCORD_ADMIN_USER_ID:-}
+    command: python -m src.discord_bot.bot
+
+  # ─── Level 4: Validation Infrastructure ─────────────────────────────────────
+
+  validation-api:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart
+      - *logging
+      - *common-env
+    ports:
+      - "127.0.0.1:8010:8010"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8010/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: >
+      sh -c "python -m src.db.migrate &&
+             uvicorn src.api.validation_main:app --host 0.0.0.0 --port 8010 --workers 1"
+
+  backtest-worker:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8011"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8011/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.validation.backtest_engine
+    environment:
+      BACKTEST_EVAL_INTERVAL: ${BACKTEST_EVAL_INTERVAL:-900}
+      BACKTEST_WINDOW_DAYS: ${BACKTEST_WINDOW_DAYS:-30}
+
+  signal-archiver:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8012"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8012/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: python -m src.validation.signal_archiver
+    environment:
+      ARCHIVER_POLL_INTERVAL: ${ARCHIVER_POLL_INTERVAL:-30}
+      ARCHIVER_BATCH_SIZE: ${ARCHIVER_BATCH_SIZE:-500}
+
+  # ─── Phase 2: Replay System ──────────────────────────────────────────────────
+
+  replay-scheduler:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8015"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      outcome-tracker:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8015/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: python -m src.engines.replay_scheduler
+    environment:
+      REPLAY_POLL_INTERVAL: ${REPLAY_POLL_INTERVAL:-5}
+      REPLAY_AUTO_SCHEDULE: ${REPLAY_AUTO_SCHEDULE:-true}
+      REPLAY_HTTP_PORT: "8015"
+
+  # ─── Phase 1: Signal Truth Layer ─────────────────────────────────────────────
+
+  outcome-tracker:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8013"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      signal-archiver:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8013/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: python -m src.engines.outcome_tracking_engine
+    environment:
+      OUTCOME_EVAL_INTERVAL: ${OUTCOME_EVAL_INTERVAL:-300}
+      OUTCOME_HTTP_PORT: "8013"
+
+  signal-scorer:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8014"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      outcome-tracker:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8014/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.engines.signal_scoring_engine
+    environment:
+      SCORER_INTERVAL: ${SCORER_INTERVAL:-3600}
+      SCORER_PERIOD_DAYS: ${SCORER_PERIOD_DAYS:-30}
+      SCORER_MIN_SAMPLES: ${SCORER_MIN_SAMPLES:-20}
+      SCORER_HTTP_PORT: "8014"
+
+  # ─── Phase 4: Adaptive Governance Layer ──────────────────────────────────────
+
+  governance-engine:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8017"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      outcome-tracker:
+        condition: service_started
+      replay-scheduler:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8017/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.engines.engine_governance_engine
+    environment:
+      GOVERNANCE_INTERVAL: ${GOVERNANCE_INTERVAL:-3600}
+      GOVERNANCE_PERIOD_DAYS: ${GOVERNANCE_PERIOD_DAYS:-90}
+      GOVERNANCE_HTTP_PORT: "8017"
+
+  # ─── Phase 5: Meta-Intelligence + Strategic Memory Layer ────────────────────
+
+  meta-intelligence:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8018"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      governance-engine:
+        condition: service_started
+      replay-scheduler:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8018/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.engines.strategic_memory_engine
+    environment:
+      META_INTERVAL: ${META_INTERVAL:-3600}
+      META_HTTP_PORT: "8018"
+      META_MEMORY_WINDOW_DAYS: ${META_MEMORY_WINDOW_DAYS:-180}
+
+  # ─── Phase 3: Validation Intelligence Platform ───────────────────────────────
+
+  validation-alert:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8016"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      outcome-tracker:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8016/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.engines.validation_alert_engine
+    environment:
+      ALERT_CHECK_INTERVAL: ${ALERT_CHECK_INTERVAL:-900}
+      ALERT_COOLDOWN_HOURS: ${ALERT_COOLDOWN_HOURS:-4}
+      ALERT_PRECISION_DROP_HIGH: ${ALERT_PRECISION_DROP_HIGH:-0.20}
+      ALERT_PRECISION_DROP_CRITICAL: ${ALERT_PRECISION_DROP_CRITICAL:-0.30}
+      ALERT_CALIBRATION_DRIFT_THRESHOLD: ${ALERT_CALIBRATION_DRIFT_THRESHOLD:-0.20}
+      ALERT_FP_RATE_THRESHOLD: ${ALERT_FP_RATE_THRESHOLD:-0.40}
+      ALERT_REPLAY_FAILURE_HIGH: ${ALERT_REPLAY_FAILURE_HIGH:-2}
+      ALERT_REPLAY_FAILURE_CRITICAL: ${ALERT_REPLAY_FAILURE_CRITICAL:-5}
+      ALERT_COVERAGE_GAP_HIGH: ${ALERT_COVERAGE_GAP_HIGH:-0.40}
+      ALERT_COVERAGE_GAP_CRITICAL: ${ALERT_COVERAGE_GAP_CRITICAL:-0.20}
+      ALERT_HTTP_PORT: "8016"
+
+  # ─── Phase 6: Signal Feedback Loop ──────────────────────────────────────────
+
+  signal-evaluator:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8019"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8019/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.engines.signal_evaluation_engine
+    environment:
+      EVAL_HTTP_PORT: "8019"
+      EVAL_INTERVAL: ${EVAL_INTERVAL:-900}
+
+  feedback-aggregator:
+    build:
+      context: .
+      dockerfile: docker/validation.Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8020"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      signal-evaluator:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8020/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.engines.feedback_aggregator
+    environment:
+      AGGREGATOR_HTTP_PORT: "8020"
+      AGGREGATOR_INTERVAL: ${AGGREGATOR_INTERVAL:-3600}
+
+  # ─── Paper Trading Engine ────────────────────────────────────────────────────
+
+  paper-trading-engine:
+    build: ./paper_trading_engine
+    <<:
+      - *restart
+      - *logging
+      - *common-env
+    expose:
+      - "8021"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      signal-archiver:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8021/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    environment:
+      PAPER_TRADING_HTTP_PORT: "8021"
+      PAPER_TRADING_POLL_INTERVAL: ${PAPER_TRADING_POLL_INTERVAL:-30}
+      TRADING_MODE: ${TRADING_MODE:-paper}
+      MAX_DAILY_LOSS: ${MAX_DAILY_LOSS:-150}
+      # Binance (crypto live trading — testnet by default)
+      BINANCE_API_KEY: ${BINANCE_API_KEY:-}
+      BINANCE_API_SECRET: ${BINANCE_API_SECRET:-}
+      BINANCE_TESTNET: ${BINANCE_TESTNET:-true}
+      # Sprint 39: USDT-M futures execution (shorts!) — the validated edge is
+      # short-heavy and Spot cannot short. Leverage pinned explicitly (1x).
+      BINANCE_FUTURES: ${BINANCE_FUTURES:-true}
+      BINANCE_FUTURES_LEVERAGE: ${BINANCE_FUTURES_LEVERAGE:-1}
+      # Alpaca (US equities �� paper URL by default)
+      ALPACA_API_KEY: ${ALPACA_API_KEY:-}
+      ALPACA_API_SECRET: ${ALPACA_API_SECRET:-}
+      ALPACA_BASE_URL: ${ALPACA_BASE_URL:-https://paper-api.alpaca.markets}
+      # Risk controls
+      # CRYPTO hard stop disabled in engine.py (0% historical win rate).
+      # STOP_LOSS_PCT applies only to non-CRYPTO positions (currently BIST).
+      STOP_LOSS_PCT: ${STOP_LOSS_PCT:-2.0}
+      # Blind-flatten: close a LIVE position whose price feed is stale > this many
+      # seconds. Past the 600s suspend window we can't see flash moves; broker close
+      # fills at the true exchange price even when the local feed is dead. Must exceed
+      # 600 (the suspend) so a transient hiccup never triggers it. 0 disables.
+      STALE_FLATTEN_S: ${STALE_FLATTEN_S:-1200}
+      # Assets the user holds manually (BNB = futures fee discount). The hourly
+      # reconcile orphan sweep will NEVER auto-close a futures position in one of
+      # these — it's the user's, not an engine orphan. Comma-separated; empty = off.
+      RECONCILE_IGNORE_ASSETS: ${RECONCILE_IGNORE_ASSETS:-BNB}
+      # Maker take-profit exits: T1/T2 partials rest a post-only LIMIT (0.02%
+      # maker) before falling back to MARKET (0.05% taker). Exit leg is ~71% of
+      # fee cost; on a fee-bound account this flips net P&L positive. Stops/time/
+      # emergency exits stay taker MARKET regardless (must fill now). MAKER_EXIT=
+      # false reverts to taker exits everywhere.
+      MAKER_EXIT: ${MAKER_EXIT:-true}
+      MAKER_EXIT_WAIT_SEC: ${MAKER_EXIT_WAIT_SEC:-10}
+      # Trail arms at 0.5% gain, closes if price retreats 1.5% from peak (Sprint 33).
+      # Trail exits show 64.7% WR vs 29.5% for max_hold — earlier arming converts
+      # more positions to trail_stop exits. Defaults match engine.py code defaults.
+      TRAIL_STOP_PCT: ${TRAIL_STOP_PCT:-1.5}
+      TRAIL_ACTIVATE_PCT: ${TRAIL_ACTIVATE_PCT:-0.5}
+      # GPT signal validation (set to true to enable)
+      GPT_SIGNAL_VALIDATION: ${GPT_SIGNAL_VALIDATION:-false}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Sprint 38 — Truth Router: route signals by measured price-truth edge.
+      # ROUTER_INVERT=false disables fading; ROUTER_ENABLED=false restores legacy behaviour.
+      ROUTER_ENABLED: ${ROUTER_ENABLED:-true}
+      ROUTER_INVERT: ${ROUTER_INVERT:-true}
+      ROUTER_WINDOW_H: ${ROUTER_WINDOW_H:-24}
+      ROUTER_LOOKBACK_DAYS: ${ROUTER_LOOKBACK_DAYS:-30}
+      ROUTER_MIN_EDGE: ${ROUTER_MIN_EDGE:-0.05}
+      # Long confirms need a far wider bar (walk-forward: long confirms -1.7%/trade)
+      ROUTER_CONFIRM_LONG_EDGE: ${ROUTER_CONFIRM_LONG_EDGE:-0.15}
+      ROUTER_INVERT_MIN_EDGE: ${ROUTER_INVERT_MIN_EDGE:-0.05}
+      # Sprint 38 — shadow-mode LLM trade auditor (logs verdicts, no authority)
+      LLM_AUDIT_ENABLED: ${LLM_AUDIT_ENABLED:-true}
+      LLM_AUDIT_MODEL: ${LLM_AUDIT_MODEL:-qwen2.5:3b}
+      OLLAMA_BASE_URL: "http://ollama:11434"
+      INITIAL_BALANCE: ${INITIAL_BALANCE:-10000}
+      # Discord bot (read-only ref for engine alerts)
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN:-}
+      DISCORD_ADMIN_USER_ID: ${DISCORD_ADMIN_USER_ID:-}
+      # Sprint 64: allow CONFIRM trades in live mode — OOS gate already blocks
+      # unproven segments; fades-only restriction was blocking ICE short-confirm
+      # (n=164, 62%WR) and ETF long-confirm (n=31, 81%WR), the only OOS-proven paths.
+      LIVE_PILOT_FADES_ONLY: "false"
+
+  # ─── Paper Trading Sim (unrestricted — data collection only, never touches Binance) ───
+
+  paper-trading-engine-sim:
+    build: ./paper_trading_engine
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8023"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      signal-archiver:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8023/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    environment:
+      PAPER_TRADING_HTTP_PORT: "8023"
+      PAPER_TRADING_POLL_INTERVAL: ${PAPER_TRADING_POLL_INTERVAL:-30}
+      # Hardcoded paper — must never inherit live from .env
+      TRADING_MODE: paper
+      # Isolated Redis namespace — no key conflicts with live engine
+      ENGINE_REDIS_PREFIX: paper_sim
+      # Separate Discord channel for sim trades
+      DISCORD_WEBHOOK_ENV: DISCORD_WEBHOOK_PAPER_TRADES
+      DISCORD_WEBHOOK_PAPER_TRADES: ${DISCORD_WEBHOOK_PAPER_TRADES:-}
+      # Trade everything — no OOS gate, no long ban, no live whitelist
+      ROUTER_PASSTHROUGH_POLICY: legacy
+      DISABLE_LONGS: "false"
+      # Risk / sizing (same as live so PnL is comparable)
+      STOP_LOSS_PCT: ${STOP_LOSS_PCT:-2.0}
+      TRAIL_STOP_PCT: ${TRAIL_STOP_PCT:-1.5}
+      TRAIL_ACTIVATE_PCT: ${TRAIL_ACTIVATE_PCT:-0.5}
+      MAX_DAILY_LOSS: ${MAX_DAILY_LOSS:-150}
+      INITIAL_BALANCE: ${INITIAL_BALANCE:-10000}
+      # Router / truth (shared read-only infra)
+      ROUTER_ENABLED: ${ROUTER_ENABLED:-true}
+      ROUTER_INVERT: ${ROUTER_INVERT:-true}
+      ROUTER_WINDOW_H: ${ROUTER_WINDOW_H:-24}
+      ROUTER_LOOKBACK_DAYS: ${ROUTER_LOOKBACK_DAYS:-30}
+      ROUTER_MIN_EDGE: ${ROUTER_MIN_EDGE:-0.05}
+      ROUTER_CONFIRM_LONG_EDGE: ${ROUTER_CONFIRM_LONG_EDGE:-0.15}
+      ROUTER_INVERT_MIN_EDGE: ${ROUTER_INVERT_MIN_EDGE:-0.05}
+      # Conviction gate off — sim trades even without news/social signal
+      CONVICTION_GATE_ENABLED: "false"
+      # LLM auditor disabled — saves Ollama load
+      LLM_AUDIT_ENABLED: "false"
+      OLLAMA_BASE_URL: "http://ollama:11434"
+      GPT_SIGNAL_VALIDATION: "false"
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+
+  # ─── Signal Edge Analyzer ────────────────────────────────────────────────────
+
+  signal-edge-analyzer:
+    build:
+      context: .
+      dockerfile: signal_edge_analyzer/Dockerfile
+    <<:
+      - *restart-worker
+      - *logging
+      - *common-env
+    expose:
+      - "8022"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      signal-archiver:
+        condition: service_started
+      outcome-tracker:
+        condition: service_started
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./.claude/architecture.md:/workspace/architecture.md:ro
+      - ./scripts:/app/scripts:ro
+      # Governance engine persists threshold changes to .env (path resolves to
+      # /app/.env from /app/scripts). Without this mount every governance .env
+      # write silently failed with "not found in .env".
+      - ./.env:/app/.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8022/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    environment:
+      EDGE_ANALYZER_HTTP_PORT: "8022"
+      OLLAMA_BASE_URL: "http://ollama:11434"
+      EDGE_ANALYZER_OUTCOME_INTERVAL: ${EDGE_ANALYZER_OUTCOME_INTERVAL:-300}
+      EDGE_ANALYZER_METRICS_INTERVAL: ${EDGE_ANALYZER_METRICS_INTERVAL:-3600}
+      EDGE_ANALYZER_AGGREGATION_INTERVAL: ${EDGE_ANALYZER_AGGREGATION_INTERVAL:-86400}
+      CLAUDE_MD_PATH: "/workspace/architecture.md"
+      EDGE_HEALTH_MAX_FAILURES: "3"
+      EDGE_HEALTH_RESTART_COOLDOWN: "3600"
+
+  # ─── Market data accumulation ─────────────────────────────────────────────────
+
+  # Passive Binance USDT-perp funding-rate & liquidation logger. Public
+  # endpoints only (no API keys). Must run 24/7 to catch liquidation cascades,
+  # so it uses *restart (unless-stopped), not the worker on-failure policy.
+  # Tiny by design (target <100MB RSS); capped at 256m.
+  market-data-logger:
+    build:
+      context: .
+      dockerfile: docker/market_data_logger.Dockerfile
+    <<:
+      - *restart
+      - *logging
+      - *common-env
+    mem_limit: 256m
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; os.kill(1, 0)"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.market_data_logger.main
+
+  # Free-time fade-sweep researcher (Sprint 48). Backtests fade-strategy
+  # parameter variants in spare compute and YIELDS to Ollama: before every
+  # work unit it checks /api/ps and host loadavg, pausing if either is busy.
+  # RECOMMEND-ONLY — never touches live config. Capped at 2 cores / 1g so it
+  # cannot starve the weekly LLM governance pipeline on this 7.6GB host.
+  freetime-researcher:
+    build:
+      context: .
+      dockerfile: docker/freetime_researcher.Dockerfile
+    <<:
+      - *restart
+      - *logging
+      - *common-env
+    mem_limit: 1g
+    cpus: 2
+    profiles:
+      - research
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; os.kill(1, 0)"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.freetime_researcher.main
+
+  # Infra watchdog + daily Telegram digest (Sprint 49). Polls every 120s for
+  # dead containers, silent data feeds, and a dead API; sends a phone-glanceable
+  # digest at 07:00 UTC. Writes infra_* rows to validation_alerts for the
+  # dashboard and a heartbeat to redis watchdog:last_run.
+  watchdog:
+    build:
+      context: .
+      dockerfile: docker/watchdog.Dockerfile
+    <<:
+      - *restart
+      - *logging
+      - *common-env
+    mem_limit: 128m
+    restart: unless-stopped
+    volumes:
+      # Read-only docker socket: used ONLY for GET /containers/json to detect
+      # crashed compose services. NOTE: even :ro, mounting the socket grants
+      # effectively-root control of the host docker daemon — this service must
+      # never call anything but list-containers (see src/watchdog/docker_client.py).
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; os.kill(1, 0)"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: python -m src.watchdog.main
+
+  # ─── Observability ────────────────────────────────────────────────────────────
+
+  prometheus:
+    image: prom/prometheus:v2.51.2
+    <<: [*restart, *logging]
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "127.0.0.1:9091:9090"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=${PROMETHEUS_RETENTION:-15d}"
+      - "--web.enable-lifecycle"
+    depends_on:
+      api:
+        condition: service_healthy
+      validation-api:
+        condition: service_healthy
+      worker:
+        condition: service_healthy
+      backtest-worker:
+        condition: service_started
+      signal-archiver:
+        condition: service_started
+      validation-alert:
+        condition: service_started
+      meta-intelligence:
+        condition: service_started
+
+
+  # ─── Backtest Playground (on-demand only) ────────────────────────────────────
+
+  # Zero cost when not in use: only starts with `--profile analysis`.
+  # Normal `docker compose up -d` never touches this service.
+  # Access: http://127.0.0.1:8888  (SSH tunnel: ssh -L 8888:127.0.0.1:8888 user@server)
+  # Token: set in .env as JUPYTER_TOKEN
+  # DB role: analyst (read-only) — credentials in .env as ANALYST_DB_PASSWORD
+  jupyter:
+    build:
+      context: .
+      dockerfile: docker/jupyter.Dockerfile
+    <<: *logging
+    profiles:
+      - analysis
+    mem_limit: 1g
+    ports:
+      - "127.0.0.1:8888:8888"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./notebooks:/home/work/notebooks
+    environment:
+      JUPYTER_TOKEN: ${JUPYTER_TOKEN:-}
+      # Analyst DB credentials (read-only role)
+      ANALYST_DB_PASSWORD: ${ANALYST_DB_PASSWORD:-}
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-mktintel}
+      POSTGRES_PORT: "5432"
+
+
+  miniflux:
+    image: miniflux/miniflux:latest
+    <<:
+      - *restart
+      - *logging
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${BIND_HOST:-127.0.0.1}:4000:8080"
+    environment:
+      DATABASE_URL: postgres://mktintel:${POSTGRES_PASSWORD}@postgres/miniflux?sslmode=disable
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: ${MINIFLUX_USER:-admin}
+      ADMIN_PASSWORD: ${MINIFLUX_PASSWORD:-changeme}
+      BASE_URL: http://${BIND_HOST:-localhost}:4000
+
+  # ─── Postgres nightly backup ──────────────────────────────────────────────
+  postgres-backup:
+    image: prodrigestivill/postgres-backup-local:16
+    <<:
+      - *restart
+      - *logging
+    mem_limit: 128m
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backups:/backups
+      - ./scripts/backup_hooks:/hooks:ro
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-mktintel}
+      POSTGRES_USER: ${POSTGRES_USER:-mktintel}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}
+      POSTGRES_EXTRA_OPTS: "-Z6 --blobs"
+      SCHEDULE: "@daily"
+      BACKUP_KEEP_DAYS: "7"
+      BACKUP_KEEP_WEEKS: "4"
+      BACKUP_KEEP_MONTHS: "0"
+      HEALTHCHECK_PORT: "8082"
+      DISCORD_WEBHOOK_ALERTS: ${DISCORD_WEBHOOK_ALERTS:-}
+
+
+  # ─── Qdrant vector store (internal only — reached as http://qdrant:6333) ─
+  qdrant:
+    image: qdrant/qdrant:latest
+    <<:
+      - *restart
+      - *logging
+    mem_limit: 512m
+    ports:
+      - "${BIND_HOST:-127.0.0.1}:6333:6333"
+      - "${BIND_HOST:-127.0.0.1}:6334:6334"
+    volumes:
+      - qdrant-storage:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__HTTP_PORT: "6333"
+      QDRANT__SERVICE__GRPC_PORT: "6334"
+
+  # ─── Homepage — navigation launcher ──────────────────────────────────────
+  homepage:
+    image: nginx:alpine
+    <<: [*restart, *logging]
+    mem_limit: 64m
+    ports:
+      - "${BIND_HOST:-127.0.0.1}:3001:80"
+    volumes:
+      - ./monitoring/homepage:/usr/share/nginx/html:ro
+
+
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+
+
+  qdrant-storage:
+    driver: local

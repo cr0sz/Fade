@@ -1,0 +1,72 @@
+# ─── Market Intelligence — Homepage Services ─────────────────────────────────
+
+- Trading:
+    - Dashboard:
+        href: http://localhost:8000/dashboard
+        description: Positions · signals · news · autopsy
+        siteMonitor: http://api:8000/health
+        icon: mdi-chart-line-variant
+    - Engine Intel:
+        href: http://localhost:8000/dashboard#engine-intel
+        description: Trust scores · accuracy · win rates
+        siteMonitor: http://paper-trading-engine:8021/health
+        icon: mdi-robot-happy-outline
+    - Signal Flow:
+        href: http://localhost:8000/dashboard#signals
+        description: Live signal trace · dedup · scoring
+        siteMonitor: http://api:8000/health
+        icon: mdi-sine-wave
+    - News:
+        href: http://localhost:8000/dashboard#news
+        description: Impact-scored articles · 7-day window
+        siteMonitor: http://api:8000/health
+        icon: mdi-newspaper-variant-outline
+    - Trade Autopsy:
+        href: http://localhost:8000/dashboard#autopsy
+        description: Click any trade — full entry/exit breakdown
+        siteMonitor: http://api:8000/health
+        icon: mdi-magnify-expand
+    - Backtest:
+        href: http://localhost:8000/dashboard#backtest
+        description: Engine replay · OOS walk-forward proof
+        siteMonitor: http://validation-api:8010/health
+        icon: mdi-history
+
+- Research:
+    - Knowledge Graph:
+        href: http://localhost:8000/graphify
+        description: Codebase brain · 3223 nodes · 211 communities
+        siteMonitor: http://api:8000/health
+        icon: mdi-graph-outline
+    - Open WebUI:
+        href: http://localhost:3003
+        description: Local LLM chat — qwen2.5:7b
+        siteMonitor: http://localhost:3003
+        icon: mdi-robot-happy
+    - Miniflux:
+        href: http://localhost:4000
+        description: RSS reader — market & crypto feeds
+        siteMonitor: http://miniflux:8080/healthcheck
+        icon: miniflux
+    - Job Scraper:
+        href: http://localhost:8000/dashboard
+        description: 15-source job scraper · Discord alerts
+        siteMonitor: http://api:8000/health
+        icon: mdi-briefcase-search-outline
+
+- Infrastructure:
+    - Uptime Kuma:
+        href: http://localhost:3002
+        description: Service uptime · alerting
+        siteMonitor: http://localhost:3002
+        icon: uptime-kuma
+    - Qdrant:
+        href: http://localhost:6333/dashboard
+        description: Vector store · 21k news articles
+        siteMonitor: http://qdrant:6333/healthz
+        icon: mdi-database-search
+    - Binance:
+        href: https://www.binance.com/en/my/orders/futures/closedOrders
+        description: Futures closed orders
+        siteMonitor: https://api.binance.com/api/v3/ping
+        icon: mdi-currency-usd

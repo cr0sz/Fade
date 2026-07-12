@@ -1,0 +1,134 @@
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+  external_labels:
+    env: 'market-intelligence'
+
+scrape_configs:
+
+  # ── Main API ────────────────────────────────────────────────────────────────
+  - job_name: 'api'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['api:8000']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'api'
+
+  # ── Scheduler Worker ────────────────────────────────────────────────────────
+  - job_name: 'worker'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['worker:8009']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'worker'
+
+  # ── Validation API ──────────────────────────────────────────────────────────
+  - job_name: 'validation-api'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['validation-api:8010']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'validation-api'
+
+  # ── Backtest Worker ─────────────────────────────────────────────────────────
+  # Worker exposes Prometheus metrics on port 8011 (internal Docker network)
+  - job_name: 'backtest-worker'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['backtest-worker:8011']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'backtest-worker'
+
+  # ── Signal Archiver ─────────────────────────────────────────────────────────
+  # Archiver exposes metrics on port 8012 (internal Docker network)
+  - job_name: 'signal-archiver'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['signal-archiver:8012']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'signal-archiver'
+
+  # ── Replay Scheduler (Replay System) ────────────────────────────────────────
+  - job_name: 'replay-scheduler'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['replay-scheduler:8015']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'replay-scheduler'
+
+  # ── Outcome Tracker (Signal Truth Layer) ────────────────────────────────────
+  - job_name: 'outcome-tracker'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['outcome-tracker:8013']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'outcome-tracker'
+
+  # ── Signal Scorer (Signal Truth Layer) ──────────────────────────────────────
+  - job_name: 'signal-scorer'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['signal-scorer:8014']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'signal-scorer'
+
+  # ── Governance Engine (Phase 4) ─────────────────────────────────────────────
+  - job_name: 'governance-engine'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['governance-engine:8017']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'governance-engine'
+
+  # ── Validation Alert Engine (Phase 3) ───────────────────────────────────────
+  - job_name: 'validation-alert'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['validation-alert:8016']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'validation-alert'
+
+  # ── Meta-Intelligence Engine (Phase 5) ─────────────────────────────────────
+  - job_name: 'meta-intelligence'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['meta-intelligence:8018']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'meta-intelligence'
+
+  # ── Signal Edge Analyzer ────────────────────────────────────────────────────
+  - job_name: 'signal-edge-analyzer'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['signal-edge-analyzer:8022']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'signal-edge-analyzer'
+
+  # ── Prometheus self-monitoring ───────────────────────────────────────────────
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']

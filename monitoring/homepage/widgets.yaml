@@ -1,0 +1,19 @@
+- resources:
+    label: host
+    cpu: true
+    memory: true
+    disk: /
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short
+      dateStyle: short
+      hour12: false
+
+- search:
+    provider: custom
+    url: http://localhost:8000/dashboard#
+    target: _self
+    focus: true
+    suggestionUrl: false

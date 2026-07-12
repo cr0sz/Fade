@@ -1,0 +1,429 @@
+/* ── Market Intelligence — Trading Dashboard (matches Stitch reference) ── */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+
+/* ── Design tokens ── */
+:root {
+  --bg:           #080c0a;
+  --sidebar-bg:   #070a08;
+  --card:         rgba(255,255,255,.022);
+  --card-trading: linear-gradient(160deg, rgba(30,80,55,.32), rgba(255,255,255,.02));
+  --card-trading2:linear-gradient(160deg, rgba(40,55,48,.30), rgba(255,255,255,.015));
+  --border:       rgba(120,200,160,.10);
+  --border-active:rgba(120,230,170,.16);
+  --border-hover: rgba(120,230,170,.32);
+  --accent:       #52e08c;
+  --accent-dim:   #7ff0ad;
+  --text:         #e6ede8;
+  --text-dim:     #92a69a;
+  --label:        #6f877b;
+  --label-dim:    #778a7f;
+  --radius-card:  18px;
+  --font-head:    'Space Grotesk', sans-serif;
+  --font-body:    'Manrope', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+}
+
+/* ── Reset / base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--font-body) !important;
+  min-height: 100vh;
+}
+
+::placeholder { color: #5c6b62; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(120,200,160,.12); border-radius: 8px; }
+
+/* ── App shell — flex, NEVER absolute sidebar ── */
+#mi-app {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+#mi-sidebar {
+  width: 248px;
+  flex: none;                          /* never shrinks */
+  background: var(--sidebar-bg);
+  border-right: 1px solid rgba(120,200,160,.07);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+#mi-sidebar .mi-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 8px 26px;
+}
+
+#mi-sidebar .mi-logo {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 11px;
+  background: linear-gradient(150deg, #1d6b46, #0e3a26);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 18px;
+  color: #7ff0ad;
+  border: 1px solid rgba(127,240,173,.25);
+  box-shadow: 0 0 22px rgba(64,200,130,.25);
+}
+
+#mi-sidebar .mi-brand-name {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 15.5px;
+  letter-spacing: -.2px;
+  color: var(--text);
+}
+
+#mi-sidebar .mi-brand-sub {
+  font-size: 11.5px;
+  color: #71857a;
+  margin-top: 2px;
+}
+
+#mi-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#mi-sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 14px;
+  border-radius: 11px;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #8a9a90;
+  border: 1px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+
+#mi-sidebar nav a:hover {
+  color: #cfe0d6;
+  background: rgba(255,255,255,.03);
+}
+
+#mi-sidebar nav a.active {
+  font-weight: 600;
+  color: #9af0c0;
+  background: rgba(80,210,140,.10);
+  border-color: rgba(120,230,170,.16);
+}
+
+#mi-sidebar .mi-status {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 14px;
+  border-radius: 11px;
+  background: rgba(80,210,140,.06);
+  border: 1px solid rgba(120,230,170,.12);
+}
+
+#mi-sidebar .mi-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: mi-pulse 2s ease-in-out infinite;
+}
+
+#mi-sidebar .mi-status-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #84c9a3;
+}
+
+@keyframes mi-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(82,224,140,.7); }
+  50%       { box-shadow: 0 0 0 5px rgba(82,224,140,.0); }
+}
+
+/* ── Main content area ── */
+#mi-main {
+  flex: 1;
+  min-width: 0;                        /* prevent overflow */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glows */
+#mi-main .mi-glow-a {
+  position: absolute;
+  top: -120px;
+  left: 38%;
+  width: 760px;
+  height: 620px;
+  background: radial-gradient(ellipse at center,
+    rgba(52,200,120,.20),
+    rgba(52,200,120,.05) 42%,
+    transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#mi-main .mi-glow-b {
+  position: absolute;
+  top: 300px;
+  left: 8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(ellipse at center,
+    rgba(40,170,110,.10),
+    transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content wrapper */
+#mi-content {
+  position: relative;
+  z-index: 1;
+  padding: 26px 38px 40px;
+}
+
+/* ── Top bar ── */
+#mi-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.mi-metric {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 16px;
+  border-radius: 13px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(120,200,160,.09);
+  flex: none;
+}
+
+.mi-metric-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(120,230,170,.18);
+  flex: none;
+}
+
+.mi-metric-ring.r1 { border-top-color: var(--accent); }
+.mi-metric-ring.r2 { border-top-color: var(--accent); border-right-color: var(--accent); }
+.mi-metric-ring.r3 { border-bottom-color: var(--accent); }
+
+.mi-metric-lbl {
+  font-size: 11px;
+  color: var(--label-dim);
+  letter-spacing: .4px;
+}
+
+.mi-metric-val {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: #dfeee6;
+}
+
+/* ── Section labels ── */
+.mi-section-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  color: var(--label);
+  margin-bottom: 15px;
+  margin-top: 34px;
+}
+
+.mi-section-label:first-of-type {
+  margin-top: 0;
+}
+
+/* ── Card grid ── */
+.mi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+/* ── Cards ── */
+.mi-card {
+  border-radius: var(--radius-card);
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  min-height: 138px;
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.mi-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+}
+
+.mi-card.trading-1 {
+  background: var(--card-trading);
+  border-color: var(--border-active);
+}
+
+.mi-card.trading-2 {
+  background: var(--card-trading2);
+}
+
+.mi-card.research {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+}
+
+.mi-card.infra {
+  min-height: 150px;
+}
+
+.mi-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.mi-card-title {
+  font-family: var(--font-head);
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -.4px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.mi-card-title.sm {
+  font-size: 21px;
+}
+
+.mi-card-sub {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin-top: 7px;
+}
+
+.mi-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: #84e0a6;
+  background: rgba(80,210,140,.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex: none;
+}
+
+.mi-badge.yellow {
+  color: #e8c06a;
+  background: rgba(220,180,90,.12);
+}
+
+/* ── Sparklines ── */
+.mi-spark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  opacity: .45;
+  pointer-events: none;
+}
+
+.mi-spark.h40 { height: 40px; }
+
+/* ── Research icon ── */
+.mi-card-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .7;
+}
+
+/* ── Quick links ── */
+.mi-ql-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  min-width: 230px;
+  transition: border-color .18s;
+}
+
+.mi-ql-link:hover { border-color: var(--border-hover); }
+
+.mi-ql-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.mi-ql-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.mi-ql-url {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--label-dim);
+}
+
+/* ── Footer ── */
+#mi-footer {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #566459;
+  text-align: right;
+  margin-top: 26px;
+}
+
+/* ── Hide the original Homepage skeleton while we render ── */
+#page-wrapper > *:not(#mi-app) {
+  display: none !important;
+}

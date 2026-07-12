@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# pre-push hook for market-intelligence.
+#
+# Runs SQL schema check then unit tests before every push.
+# A non-zero exit blocks the push.
+#
+# INSTALLATION (run once from repo root):
+#   cp scripts/git-hooks/pre-push .git/hooks/pre-push
+#   chmod +x .git/hooks/pre-push
+#
+# Or use the automated installer in scripts/install-hooks.sh if present.
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+echo "── pre-push: SQL schema check ──────────────────────────────────────────"
+if ! make check-sql; then
+    echo ""
+    echo "ERROR: SQL schema check failed. Push blocked."
+    echo "Fix the schema issues above, then re-push."
+    exit 1
+fi
+
+echo ""
+echo "── pre-push: unit tests ────────────────────────────────────────────────"
+if ! make test; then
+    echo ""
+    echo "ERROR: Unit tests failed. Push blocked."
+    echo "Fix the failing tests above, then re-push."
+    exit 1
+fi
+
+echo ""
+echo "── pre-push: refresh graphify graph ────────────────────────────────────"
+if command -v graphify >/dev/null 2>&1; then
+    graphify "$REPO_ROOT" --update --no-viz 2>/dev/null || echo "WARN: graphify update failed (non-blocking)"
+else
+    echo "graphify not on PATH — skipping"
+fi
+
+echo ""
+echo "── pre-push: all checks passed ─────────────────────────────────────────"
+exit 0

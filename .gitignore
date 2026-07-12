@@ -1,0 +1,145 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# AI Market Intelligence Platform — .gitignore
+#
+# Rule: if it contains secrets, credentials, or runtime state → never commit.
+# Rule: if it can be regenerated → never commit.
+# Rule: when in doubt, exclude.
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Environment / Secrets ─────────────────────────────────────────────────────
+# The real .env is NEVER committed. .env.example contains only placeholders.
+.env
+.env.*
+*.env
+!.env.example
+
+# ── Claude Code local settings (may contain allowlisted commands w/ secrets) ──
+.claude/settings.local.json
+.claude/state.md
+
+# ── Deploy runtime state (server-local, non-reproducible) ────────────────────
+.last_good_commit
+.deploy.lock
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.eggs/
+*.egg-info/
+*.egg
+dist/
+build/
+.installed.cfg
+lib/
+lib64/
+
+# ── Testing / Coverage ────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# ── Type checkers ─────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+logs/
+*.log
+*.log.*
+log/
+
+# ── Data / Backups / Dumps ────────────────────────────────────────────────────
+data/
+backups/
+dumps/
+*.dump
+*.sql.gz
+*.tar.gz
+*.bak
+*.backup
+
+# ── Databases ─────────────────────────────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# ── Docker overrides (host-local only) ────────────────────────────────────────
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.*.local.yml
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+
+# ── Build artefacts ───────────────────────────────────────────────────────────
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# ── OS artefacts ──────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Secrets / Certificates ───────────────────────────────────────────────────
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*.pub
+secrets/
+certs/
+credentials/
+
+# Generated analysis artifacts
+aggregated_stats.json
+graphify-out/
+reports/

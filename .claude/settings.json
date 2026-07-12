@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/market-intelligence/.claude/hooks/guard_env_pre.sh",
+            "timeout": 10,
+            "statusMessage": "Checking trading-config guard..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/market-intelligence/.claude/hooks/guard_live_pre.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/market-intelligence/.claude/hooks/check_sql_post.sh",
+            "timeout": 30,
+            "statusMessage": "Running make check-sql..."
+          }
+        ]
+      }
+    ]
+  }
+}

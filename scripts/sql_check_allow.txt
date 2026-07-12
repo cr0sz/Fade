@@ -1,0 +1,4 @@
+# Allowlist for scripts/check_sql_schema.py
+# One entry per line: either `table` or `table.column`.
+# Use ONLY for verified false positives the heuristics cannot resolve.
+# Comments start with #.

@@ -1,0 +1,46 @@
+# ── Web Framework ─────────────────────────────────────────────────────────────
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.4
+pydantic-settings==2.7.0
+
+# ── Database ──────────────────────────────────────────────────────────────────
+asyncpg==0.30.0
+
+# ── Cache ─────────────────────────────────────────────────────────────────────
+redis[asyncio]==5.2.1
+
+# ── HTTP Client ───────────────────────────────────────────────────────────────
+aiohttp==3.11.11
+httpx==0.28.1
+
+# ── Task Scheduler ────────────────────────────────────────────────────────────
+APScheduler==3.10.4
+
+# ── Discord Bot ──────────────────────────────────────────────────────────────
+discord.py==2.4.0
+
+# ── AI / NLP ─────────────────────────────────────────────────────────────────
+vaderSentiment==3.3.2
+openai==1.57.4
+anthropic==0.42.0
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+structlog==24.4.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+
+# ── Market Data ───────────────────────────────────────────────────────────────
+yfinance==0.2.54
+
+# ── Level 1 Extension: resilience + dedup ─────────────────────────────────────
+# No new heavy dependencies needed:
+# - Circuit breaker: pure Python (src/providers/resilience.py)
+# - Fuzzy dedup level-2: pure Python token sort + SHA256 (stdlib)
+# - Semantic dedup level-3: uses existing aiohttp + OpenAI API key
+# - RSS parsing: stdlib xml.etree.ElementTree (no feedparser needed)
+# - Vector math: pure Python struct + math (no numpy needed for cosine)
+
+# ── Level 4 Extension: validation + observability ─────────────────────────────
+prometheus-client==0.21.0

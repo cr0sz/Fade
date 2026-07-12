@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:           #080c0a;
+  --sidebar-bg:   #070a08;
+  --card:         rgba(255,255,255,.022);
+  --card-trading: linear-gradient(160deg, rgba(30,80,55,.32), rgba(255,255,255,.02));
+  --border:       rgba(120,200,160,.10);
+  --border-hover: rgba(120,230,170,.32);
+  --accent:       #52e08c;
+  --text:         #e6ede8;
+  --text-dim:     #92a69a;
+  --label:        #6f877b;
+  --label-dim:    #778a7f;
+  --radius:       18px;
+  --font-head:    'Space Grotesk', sans-serif;
+  --font-body:    'Manrope', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+::placeholder { color: #5c6b62; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: rgba(120,200,160,.14); border-radius: 6px; }
+
+/* ── App shell ── */
+#app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+#sidebar {
+  width: 240px;
+  flex: none;
+  background: var(--sidebar-bg);
+  border-right: 1px solid rgba(120,200,160,.07);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 24px;
+  border-bottom: 1px solid rgba(120,200,160,.06);
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 10px;
+  background: linear-gradient(150deg, #1d6b46, #0e3a26);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 17px;
+  color: #7ff0ad;
+  border: 1px solid rgba(127,240,173,.22);
+  box-shadow: 0 0 20px rgba(64,200,130,.20);
+}
+
+.brand-name {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: -.2px;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: #71857a;
+  margin-top: 2px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8a9a90;
+  border: 1px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+
+nav a:hover {
+  color: #cfe0d6;
+  background: rgba(255,255,255,.03);
+}
+
+nav a.active {
+  font-weight: 600;
+  color: #9af0c0;
+  background: rgba(80,210,140,.10);
+  border-color: rgba(120,230,170,.15);
+}
+
+nav a svg { flex: none; opacity: .7; }
+nav a.active svg { opacity: 1; }
+
+.status {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  background: rgba(80,210,140,.06);
+  border: 1px solid rgba(120,230,170,.10);
+  margin-top: 24px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+  flex: none;
+}
+
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(82,224,140,.7); }
+  50%      { box-shadow: 0 0 0 4px rgba(82,224,140,.0); }
+}
+
+.status-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: #84c9a3;
+}
+
+/* ── Hamburger (mobile only) ── */
+#menu-btn {
+  display: none;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 100;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(120,200,160,.14);
+  border-radius: 9px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: #9af0c0;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 50;
+}
+
+/* ── Main ── */
+#main {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-a {
+  position: absolute;
+  top: -100px;
+  left: 35%;
+  width: 700px;
+  height: 580px;
+  background: radial-gradient(ellipse at center, rgba(52,200,120,.18), rgba(52,200,120,.05) 42%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-b {
+  position: absolute;
+  top: 280px;
+  left: 5%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(ellipse at center, rgba(40,170,110,.09), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#content {
+  position: relative;
+  z-index: 1;
+  padding: 28px 36px 40px;
+}
+
+/* ── Section labels ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 2.5px;
+  color: var(--label);
+  margin-bottom: 14px;
+  margin-top: 32px;
+}
+
+.section-label:first-child { margin-top: 0; }
+
+/* ── Card grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* ── Cards ── */
+.card {
+  border-radius: var(--radius);
+  padding: 20px 20px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  min-height: 130px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: 0 6px 28px rgba(0,0,0,.3);
+}
+
+.card.primary {
+  background: linear-gradient(160deg, rgba(30,80,55,.32), rgba(255,255,255,.02));
+  border-color: rgba(120,230,170,.16);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 7px;
+}
+
+.card-title {
+  font-family: var(--font-head);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.3px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.card-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #84e0a6;
+  background: rgba(80,210,140,.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex: none;
+}
+
+.card-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.card-arrow {
+  font-size: 18px;
+  color: rgba(120,200,160,.35);
+  margin-top: auto;
+  transition: color .15s;
+}
+
+.card:hover .card-arrow { color: rgba(120,230,170,.7); }
+
+/* ── Footer ── */
+footer {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #566459;
+  text-align: right;
+  margin-top: 24px;
+}
+
+/* ── Responsive: 2-col at 900px ── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Responsive: mobile at 640px ── */
+@media (max-width: 640px) {
+  #menu-btn { display: flex; }
+
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    height: 100%;
+    z-index: 60;
+    transition: left .22s ease;
+    width: 240px;
+  }
+
+  #sidebar.open {
+    left: 0;
+  }
+
+  #overlay.open { display: block; }
+
+  #content {
+    padding: 72px 14px 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card { min-height: 100px; }
+
+  .card-title { font-size: 18px; }
+
+  .glow-a, .glow-b { display: none; }
+
+  footer { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<button id="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<div id="app">
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="logo">Mi</div>
+      <div>
+        <div class="brand-name">Market Intelligence</div>
+        <div class="brand-sub">Trading System v3</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="http://localhost:8000/dashboard" class="active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a href="http://localhost:8000/graphify">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><line x1="6.5" y1="7" x2="10" y2="10.5"/><line x1="17.5" y1="7" x2="14" y2="10.5"/><line x1="6.5" y1="17" x2="10" y2="13.5"/><line x1="17.5" y1="17" x2="14" y2="13.5"/></svg>
+        Knowledge Graph
+      </a>
+      <a href="http://localhost:3002">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+        Uptime Kuma
+      </a>
+      <a href="http://localhost:6333/dashboard">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+        Qdrant
+      </a>
+      <a href="http://localhost:3003">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Open WebUI
+      </a>
+      <a href="http://localhost:4000">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Miniflux
+      </a>
+      <a href="https://www.binance.com/en/futures" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>
+        Binance
+      </a>
+    </nav>
+
+    <div class="status">
+      <div class="status-dot"></div>
+      <span class="status-label">SYSTEM ONLINE</span>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div class="glow-a"></div>
+    <div class="glow-b"></div>
+    <div id="content">
+
+      <div class="section-label">TRADING</div>
+      <div class="grid">
+        <a href="http://localhost:8000/dashboard" class="card primary">
+          <div class="card-header">
+            <div class="card-title">Dashboard</div>
+            <span class="card-badge">LIVE</span>
+          </div>
+          <div class="card-sub">Positions · signals · news · autopsy</div>
+          <div id="live-stats" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#92a69a;margin-top:6px;">—</div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="http://localhost:8000/dashboard#engine-intel" class="card">
+          <div class="card-header">
+            <div class="card-title">Engine Intel</div>
+          </div>
+          <div class="card-sub">Trust scores · accuracy · win rates</div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="https://www.binance.com/en/my/orders/futures/closedOrders" target="_blank" rel="noopener" class="card">
+          <div class="card-header">
+            <div class="card-title">Binance</div>
+            <span class="card-badge" style="color:#e8c06a;background:rgba(220,180,90,.12);">EXT</span>
+          </div>
+          <div class="card-sub">Futures closed orders</div>
+          <div class="card-arrow">→</div>
+        </a>
+      </div>
+
+      <div class="section-label">RESEARCH</div>
+      <div class="grid">
+        <a href="http://localhost:8000/graphify" class="card">
+          <div class="card-header">
+            <div class="card-title">Knowledge Graph</div>
+          </div>
+          <div class="card-sub">Codebase brain · nodes · communities</div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="http://localhost:3003" class="card">
+          <div class="card-header">
+            <div class="card-title">Open WebUI</div>
+          </div>
+          <div class="card-sub">Local LLM chat · qwen2.5:7b</div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="http://localhost:4000" class="card">
+          <div class="card-header">
+            <div class="card-title">Miniflux</div>
+          </div>
+          <div class="card-sub">News feed · market signals</div>
+          <div class="card-arrow">→</div>
+        </a>
+      </div>
+
+      <div class="section-label">INFRASTRUCTURE</div>
+      <div class="grid">
+        <a href="http://localhost:3002" class="card">
+          <div class="card-header">
+            <div class="card-title">Uptime Kuma</div>
+          </div>
+          <div class="card-sub">Service uptime · alerting</div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="http://localhost:6333/dashboard" class="card">
+          <div class="card-header">
+            <div class="card-title">Qdrant</div>
+          </div>
+          <div class="card-sub">Vector store · news articles</div>
+          <div class="card-arrow">→</div>
+        </a>
+        <div class="card" style="opacity:.35;cursor:default;">
+          <div class="card-header">
+            <div class="card-title">Prometheus</div>
+          </div>
+          <div class="card-sub">Metrics · internal only</div>
+        </div>
+      </div>
+
+      <footer>Market Intelligence v3 · Trading System</footer>
+    </div>
+  </main>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+(function(){
+  var tok = new URLSearchParams(location.search).get('token')
+           || localStorage.getItem('DASHBOARD_TOKEN');
+  if (!tok) return;
+  var c = new AbortController();
+  var t = setTimeout(function(){ c.abort(); }, 3000);
+  fetch('http://localhost:8000/dashboard/summary?token=' + encodeURIComponent(tok),
+        { signal: c.signal })
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){
+      clearTimeout(t);
+      var L = d.live || {};
+      var wr  = L.win_rate != null ? (L.win_rate * 100).toFixed(0) + '%' : '—';
+      var pnl = L.today_pnl || 0;
+      var el  = document.getElementById('live-stats');
+      el.textContent = 'WR ' + wr + ' · today ' + (pnl >= 0 ? '+' : '') + pnl.toFixed(2) + ' · ' + (L.total_trades || 0) + ' trades';
+      el.style.color = pnl >= 0 ? '#52e08c' : '#e0728c';
+    })
+    .catch(function(){ clearTimeout(t); });
+})();
+</script>
+</body>
+</html>

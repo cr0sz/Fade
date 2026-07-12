@@ -1,0 +1,87 @@
+<svg viewBox="0 0 920 1180" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6472"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="1180" rx="16" fill="#f7f8fa"/>
+
+  <!-- Stage 1: Ingestion -->
+  <text x="460" y="40" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">DATA INGESTION</text>
+  <g font-size="13" fill="#1c2430">
+    <rect x="40" y="56" width="160" height="52" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="120" y="87" text-anchor="middle">News</text>
+    <rect x="220" y="56" width="160" height="52" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="300" y="87" text-anchor="middle">Social</text>
+    <rect x="400" y="56" width="160" height="52" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="480" y="87" text-anchor="middle">Smart Money</text>
+    <rect x="580" y="56" width="160" height="52" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="660" y="79" text-anchor="middle">Market Data</text>
+    <text x="660" y="95" text-anchor="middle" font-size="10" fill="#4a5568">macro / technical</text>
+    <rect x="760" y="56" width="120" height="52" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="820" y="87" text-anchor="middle">Providers</text>
+  </g>
+
+  <line x1="460" y1="108" x2="460" y2="150" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Signal Engines -->
+  <text x="460" y="178" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">SIGNAL ENGINES</text>
+  <rect x="40" y="194" width="840" height="56" rx="10" fill="#e0e7ff" stroke="#a5b4fc"/>
+  <text x="460" y="227" text-anchor="middle" font-size="13" fill="#1c2430">sentiment · trend detection · technical · macro regime · smart money</text>
+
+  <line x1="460" y1="250" x2="460" y2="292" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Immutable archive -->
+  <text x="460" y="320" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">IMMUTABLE ARCHIVE</text>
+  <rect x="220" y="336" width="480" height="56" rx="10" fill="#cffafe" stroke="#67e8f9"/>
+  <text x="460" y="369" text-anchor="middle" font-size="13" fill="#1c2430">signals_registry — every signal, archived, never edited</text>
+
+  <line x1="460" y1="392" x2="460" y2="434" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Truth tracking -->
+  <text x="460" y="462" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">OUTCOME TRUTH TRACKING</text>
+  <rect x="120" y="478" width="680" height="56" rx="10" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="460" y="511" text-anchor="middle" font-size="13" fill="#1c2430">real forward price movement — not engine self-reported accuracy</text>
+
+  <line x1="460" y1="534" x2="460" y2="576" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 5: Scoring / backtest / replay -->
+  <text x="460" y="604" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">SCORING · CALIBRATION · BACKTEST · REPLAY</text>
+  <rect x="40" y="620" width="840" height="56" rx="10" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="460" y="653" text-anchor="middle" font-size="13" fill="#1c2430">signal_scoring_engine · backtesting_engine · replay_scheduler</text>
+
+  <line x1="460" y1="676" x2="460" y2="718" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 6: Governance -->
+  <text x="460" y="746" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">GOVERNANCE &amp; ADAPTIVE WEIGHTING</text>
+  <rect x="120" y="762" width="680" height="56" rx="10" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="460" y="795" text-anchor="middle" font-size="13" fill="#1c2430">engine trust scores — fade or mute engines that stop earning their keep</text>
+
+  <line x1="460" y1="818" x2="460" y2="860" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 7: Truth router -->
+  <text x="460" y="888" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">TRUTH ROUTER</text>
+  <rect x="280" y="904" width="360" height="56" rx="10" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="460" y="937" text-anchor="middle" font-size="13" fill="#1c2430">can invert or fade a signal on measured edge</text>
+
+  <line x1="460" y1="960" x2="460" y2="1002" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 8: Execution -->
+  <text x="460" y="1030" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="2" fill="#5b6472">EXECUTION</text>
+  <rect x="140" y="1046" width="300" height="56" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="290" y="1071" text-anchor="middle" font-size="13" fill="#1c2430">Paper trading engine</text>
+  <text x="290" y="1088" text-anchor="middle" font-size="10" fill="#4a5568">default, no real orders</text>
+
+  <rect x="480" y="1046" width="300" height="56" rx="10" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="630" y="1071" text-anchor="middle" font-size="13" fill="#1c2430">Live: Binance / Alpaca</text>
+  <text x="630" y="1088" text-anchor="middle" font-size="10" fill="#4a5568">gated · MAX_DAILY_LOSS · kill switch</text>
+
+  <line x1="460" y1="960" x2="290" y2="1044" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="460" y1="960" x2="630" y2="1044" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Discord -->
+  <line x1="630" y1="1102" x2="630" y2="1140" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="480" y="1140" width="300" height="30" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="630" y="1160" text-anchor="middle" font-size="12" fill="#1c2430">Discord bot — alerts, /pnl, /kill</text>
+</svg>
