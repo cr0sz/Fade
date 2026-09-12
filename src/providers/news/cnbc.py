@@ -75,7 +75,14 @@ class CNBCProvider(ResilientProviderMixin, BaseProvider):
                         operation="fetch_rss",
                     )
                     results.extend(items)
-                    logger.info("cnbc_feed_fetched", feed=feed_url.split("id=")[1][:9], count=len(items))
+                    # Feed ids live in the path (/id/<n>/), not a query
+                    # string. Splitting on "id=" raised IndexError here, and
+                    # because that happens after results.extend() every
+                    # successful CNBC fetch was logged as cnbc_feed_error.
+                    feed_id = next(
+                        (seg for seg in feed_url.split("/") if seg.isdigit()), feed_url
+                    )
+                    logger.info("cnbc_feed_fetched", feed=feed_id, count=len(items))
                 except Exception as exc:
                     logger.error("cnbc_feed_error", feed=feed_url, error=str(exc))
 
