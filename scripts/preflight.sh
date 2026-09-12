@@ -23,7 +23,7 @@ echo -e "${BOLD}  Fade — Preflight Check${RESET}"
 echo -e "${BOLD}══════════════════════════════════════════════════${RESET}"
 
 # ── 1. Tool availability ──────────────────────────────────────────────────────
-section "1/5  Tools"
+section "1/6  Tools"
 
 if command -v docker &>/dev/null; then
     pass "docker found: $(docker --version | head -1)"
@@ -46,7 +46,7 @@ else
 fi
 
 # ── 2. .env file ──────────────────────────────────────────────────────────────
-section "2/5  Environment file"
+section "2/6  Environment file"
 
 ENV_FILE="$PROJECT_DIR/.env"
 EXAMPLE_FILE="$PROJECT_DIR/.env.example"
@@ -66,18 +66,38 @@ pass ".env found"
 
 # Safe .env parser: handles unquoted values with spaces, skips comments.
 # "source .env" would try to execute "Intelligence" from APP_NAME=Market Intelligence Platform.
+_SQ="'"   # a bare ' inside [[ =~ ]] would be stripped as a shell quote
 while IFS= read -r line || [ -n "$line" ]; do
     [[ "$line" =~ ^[[:space:]]*# ]] && continue   # skip comments
     [[ -z "${line//[[:space:]]/}" ]] && continue   # skip blank lines
     [[ "$line" != *=* ]] && continue               # skip lines without =
     key="${line%%=*}"
+    key="${key#"${key%%[![:space:]]*}"}"           # trim leading space on key
     value="${line#*=}"
     [[ "$key" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || continue  # skip invalid keys
+
+    # Inline comments MUST be stripped the same way Docker Compose strips them
+    # (whitespace then #). Without this, a line copied verbatim from
+    # .env.example --
+    #     POSTGRES_PASSWORD=CHANGE_ME_STRONG_PASSWORD   # [REQUIRED] ...
+    # -- parses as "CHANGE_ME_STRONG_PASSWORD   # [REQUIRED] ...", which never
+    # equals the placeholder sentinel below, so the "you left the placeholder
+    # in" check silently passes on a completely unedited .env.
+    # A quoted value is taken verbatim: a # inside quotes belongs to the value.
+    if [[ "$value" =~ ^[[:space:]]*\"(.*)\"[[:space:]]*(#.*)?$ ]]; then
+        value="${BASH_REMATCH[1]}"
+    elif [[ "$value" =~ ^[[:space:]]*${_SQ}(.*)${_SQ}[[:space:]]*(#.*)?$ ]]; then
+        value="${BASH_REMATCH[1]}"
+    else
+        value="${value%%[[:space:]]#*}"             # drop inline comment
+        value="${value#"${value%%[![:space:]]*}"}"  # trim leading whitespace
+        value="${value%"${value##*[![:space:]]}"}"  # trim trailing whitespace
+    fi
     export "$key=$value"
 done < "$ENV_FILE"
 
 # ── 3. Required variables ─────────────────────────────────────────────────────
-section "3/5  Required variables"
+section "3/6  Required variables"
 
 # Format: "VAR_NAME|placeholder_sentinel|description"
 REQUIRED_VARS=(
@@ -108,7 +128,10 @@ OPTIONAL_WARN=(
 for entry in "${OPTIONAL_WARN[@]}"; do
     IFS='|' read -r var_name notice <<< "$entry"
     val="${!var_name:-}"
-    if [ -z "$val" ] || [[ "$val" == *"your_"* ]] || [[ "$val" == "sk-..."* ]]; then
+    # .env.example uses the YOUR_<NAME>_HERE convention. The old check only
+    # looked for lowercase "your_", so every untouched placeholder reported as
+    # "is set".
+    if [ -z "$val" ] || [[ "$val" == YOUR_*_HERE ]] || [[ "$val" == *[Yy][Oo][Uu][Rr]_* ]]        || [[ "$val" == CHANGE_ME* ]] || [[ "$val" == "sk-..."* ]]; then
         warn "$var_name not configured — $notice"
     else
         pass "$var_name is set"
@@ -116,7 +139,7 @@ for entry in "${OPTIONAL_WARN[@]}"; do
 done
 
 # ── 4. Compose file validation ────────────────────────────────────────────────
-section "4/5  Compose file"
+section "4/6  Compose file"
 
 cd "$PROJECT_DIR"
 
@@ -129,15 +152,41 @@ fi
 # ── 5. Port availability ──────────────────────────────────────────────────────
 section "5/6  Host ports"
 
-# Map host-port → service-name (from docker-compose.yml port bindings)
-declare -A PORTS=(
-    [5432]="postgres"
-    [6379]="redis"
-    [8000]="api"
-    [8010]="validation-api"
-    [9091]="prometheus"
-    [3001]="grafana"
-)
+# Every host port published in docker-compose.yml, as "port:service".
+# A plain list, not an associative array: "declare -A" needs bash 4 and macOS
+# still ships bash 3.2, where it aborts the whole script under "set -e".
+PORTS="
+3001:homepage
+4000:miniflux
+5432:postgres
+6333:qdrant
+6334:qdrant-grpc
+6379:redis
+8000:api
+8010:validation-api
+8888:jupyter
+9091:prometheus
+"
+
+# Is anything listening on $1? ss on Linux, netstat/lsof elsewhere (macOS has
+# no ss). Returns non-zero when no tool exists, so a missing binary is never
+# reported as a port conflict.
+port_in_use() {
+    local port="$1"
+    if command -v ss &>/dev/null; then
+        ss -tln 2>/dev/null | grep -qE "[:.]${port}[[:space:]]"
+    elif command -v netstat &>/dev/null; then
+        netstat -an 2>/dev/null | grep -qE "[:.]${port}[[:space:]].*LISTEN"
+    elif command -v lsof &>/dev/null; then
+        lsof -nP -iTCP:"${port}" -sTCP:LISTEN &>/dev/null
+    else
+        return 1
+    fi
+}
+
+if ! command -v ss &>/dev/null && ! command -v netstat &>/dev/null && ! command -v lsof &>/dev/null; then
+    warn "no ss/netstat/lsof found - port availability not checked"
+fi
 
 # Detect if our compose stack is already running
 COMPOSE_RUNNING=false
@@ -145,9 +194,10 @@ if docker compose ps --services --filter status=running 2>/dev/null | grep -q .;
     COMPOSE_RUNNING=true
 fi
 
-for port in $(echo "${!PORTS[@]}" | tr ' ' '\n' | sort -n); do
-    service="${PORTS[$port]}"
-    if ss -tlnp 2>/dev/null | grep -q ":${port}[[:space:]]"; then
+for entry in $PORTS; do
+    port="${entry%%:*}"
+    service="${entry#*:}"
+    if port_in_use "$port"; then
         if [ "$COMPOSE_RUNNING" = "true" ]; then
             pass "Port $port ($service) in use by running stack"
         else
