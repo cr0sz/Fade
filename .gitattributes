@@ -1,0 +1,26 @@
+# Normalize line endings. Without this, a clone on Windows with
+# core.autocrlf=true checks out shell scripts with CRLF, and every one of them
+# then dies under Linux/WSL/Docker with: bash: $'\r': command not found
+* text=auto eol=lf
+
+*.sh        text eol=lf
+*.bash      text eol=lf
+*.py        text eol=lf
+*.sql       text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.json      text eol=lf
+*.md        text eol=lf
+*.txt       text eol=lf
+*.Dockerfile text eol=lf
+Dockerfile  text eol=lf
+Makefile    text eol=lf
+.env.example text eol=lf
+.gitignore  text eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary

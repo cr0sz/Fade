@@ -147,7 +147,7 @@ def build_schema_from_migrations(
             )
 
     for f in files:
-        sql = _strip_sql_comments(f.read_text())
+        sql = _strip_sql_comments(f.read_text(encoding="utf-8"))
         _apply_migration(sql, schema)
 
     return schema, warnings
@@ -283,7 +283,7 @@ def extract_sql_strings(path: Path) -> list[tuple[int, str, bool]]:
     name could be (so we should not column/table check it).
     """
     try:
-        tree = ast.parse(path.read_text(), filename=str(path))
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     except (SyntaxError, UnicodeDecodeError):
         return []
 
@@ -496,7 +496,7 @@ def load_allowlist(path: Path) -> set[str]:
     allow: set[str] = set()
     if not path.exists():
         return allow
-    for line in path.read_text().splitlines():
+    for line in path.read_text(encoding="utf-8").splitlines():
         line = line.split("#", 1)[0].strip()
         if line:
             allow.add(line.lower())

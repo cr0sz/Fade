@@ -17,10 +17,18 @@ import os
 import subprocess
 import time
 import urllib.request
+from pathlib import Path
 
-ENGINE = "market-intelligence-paper-trading-engine-1"
-PG = "market-intelligence-postgres-1"
-STATE_FILE = "/opt/market-intelligence/reports/watchdog_state.json"
+# Repo root, resolved from this file, so the script works in any clone.
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# Docker Compose names containers "<project>-<service>-<n>" and defaults the
+# project to the directory name. Override with COMPOSE_PROJECT_NAME if you
+# started the stack under a different project name.
+PROJECT = os.environ.get("COMPOSE_PROJECT_NAME", REPO_ROOT.name)
+ENGINE = f"{PROJECT}-paper-trading-engine-1"
+PG = f"{PROJECT}-postgres-1"
+STATE_FILE = str(REPO_ROOT / "reports" / "watchdog_state.json")
 COOLDOWN_S = 3600          # don't re-DM the same active condition within 1h
 UA = "DiscordBot (https://github.com/cr0sz/market-ai, 1.0)"
 MONEY_FLOOR = -8.0         # live realized PnL today at/below this $ = crash (cap is -$10)
@@ -103,7 +111,7 @@ def dm(token: str, user_id: str, content: str) -> None:
 def main():
     env = {}
     try:
-        for line in open("/opt/market-intelligence/.env"):
+        for line in open(REPO_ROOT / ".env", encoding="utf-8"):
             line = line.strip()
             if line and not line.startswith("#") and "=" in line:
                 k, v = line.split("=", 1)

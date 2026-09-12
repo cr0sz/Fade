@@ -7,7 +7,7 @@ Deploy or update the market intelligence platform on Ubuntu Server.
 - [ ] Ubuntu Server 22.04+ with Docker Engine 24+ and Docker Compose v2
 - [ ] All `.env` values populated (see `.env.example`)
 - [ ] DNS/firewall configured for API port (default: 8000)
-- [ ] Git repo cloned to `/opt/market-intelligence`
+- [ ] Git repo cloned to your deploy path (examples below use `/opt/fade`; adjust to match yours)
 - [ ] Read `.claude/state.md` — no pending breaking changes
 
 ## Step-by-Step Execution
@@ -106,7 +106,7 @@ After=docker.service
 Requires=docker.service
 
 [Service]
-WorkingDirectory=/opt/market-intelligence
+WorkingDirectory=/opt/fade
 ExecStart=/usr/bin/docker compose up
 ExecStop=/usr/bin/docker compose down
 Restart=always
@@ -123,7 +123,7 @@ sudo systemctl start market-intelligence
 ## Updating Production
 
 ```bash
-cd /opt/market-intelligence
+cd /opt/fade
 git pull origin main
 
 # If code changes only (no schema change):

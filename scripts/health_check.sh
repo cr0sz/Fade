@@ -85,7 +85,10 @@ container_check "validation-alert"  "validation-alert"
 # ── Observability ──────────────────────────────────────────────────────────────
 echo -e "\n${BOLD}Observability${RESET}"
 http_check "prometheus" "http://localhost:9091/-/healthy"
-http_check "grafana"    "http://localhost:3001/api/health"
+# The service on 3001 is the nginx "homepage" status dashboard, not Grafana.
+# /api/health is a Grafana route and 404s here, which made "make health"
+# exit 1 on a perfectly healthy stack.
+http_check "status-dashboard" "http://localhost:3001/"
 
 # ── Summary ───────────────────────────────────────────────────────────────────
 echo ""

@@ -65,7 +65,8 @@ log/
 
 # ── Data / Backups / Dumps ────────────────────────────────────────────────────
 data/
-backups/
+backups/*
+!backups/.gitkeep
 dumps/
 *.dump
 *.sql.gz
@@ -141,5 +142,6 @@ credentials/
 
 # Generated analysis artifacts
 aggregated_stats.json
-graphify-out/
+graphify-out/*
+!graphify-out/.gitkeep
 reports/

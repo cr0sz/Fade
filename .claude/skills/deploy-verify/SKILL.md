@@ -11,7 +11,7 @@ History lesson: multiple "deployed" fixes never actually landed (max_hold reset 
 ## 1. Pre-flight
 
 ```bash
-cd /opt/market-intelligence
+cd "${CLAUDE_PROJECT_DIR:-.}"
 make check-sql
 git status --short   # know exactly what is being deployed
 ```

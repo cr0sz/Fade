@@ -3,8 +3,17 @@
 # Runs the /diagnose skill, saves the full report, posts summary to Discord #watchdog.
 # Installed in crontab: 30 3 * * * (UTC server time).
 set -u
-export PATH="/home/bekir/.local/bin:/usr/local/bin:/usr/bin:/bin"
-cd /opt/market-intelligence || exit 1
+# cron runs with a minimal PATH; prepend the usual install locations plus
+# ~/.local/bin for whoever owns the crontab entry.
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
+# Repo root resolved from this script, so the cron entry works in any clone.
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT" || exit 1
+
+# Compose names containers "<project>-<service>-<n>"; project defaults to the
+# directory name. Override with COMPOSE_PROJECT_NAME if yours differs.
+PROJECT="${COMPOSE_PROJECT_NAME:-$(basename "$REPO_ROOT")}"
 
 mkdir -p reports/nightly
 day=$(date +%F)
@@ -12,7 +21,7 @@ out="reports/nightly/diagnose-${day}.md"
 
 claude -p "Run the /diagnose skill for the market-intelligence system and output the complete report in markdown. Start the report with a single verdict line: VERDICT: TRADING | QUIET-BY-DESIGN | DEGRADED | BROKEN. Then add a 'DEPOSIT-READINESS' section reporting, for live mode: (1) 7d net PnL = SUM(pnl)-SUM(fee); (2) count of close_reason='no_momentum' exits in 7d and their total pnl (proves the stalled-short cut is working); (3) count of 'live_orphan_auto_closed' and 'live_reconcile_drift' log events in 24h (should trend to 0 — proves the execution leak stays plugged); (4) count of 'binance_futures_maker_filled' vs market fallbacks in 24h (maker fill rate). Flag NOT-READY if 7d net PnL is negative or orphan/drift events are still recurring." \
   --model claude-sonnet-4-6 \
-  --allowedTools "Read,Grep,Glob,Skill,Bash(docker logs *),Bash(docker compose ps*),Bash(docker exec market-intelligence-postgres-1 psql *),Bash(docker exec * psql *),Bash(make check-sql),Bash(python3 scripts/show_effective_config.py*)" \
+  --allowedTools "Read,Grep,Glob,Skill,Bash(docker logs *),Bash(docker compose ps*),Bash(docker exec ${PROJECT}-postgres-1 psql *),Bash(docker exec * psql *),Bash(make check-sql),Bash(python3 scripts/show_effective_config.py*)" \
   > "$out" 2>"reports/nightly/diagnose-${day}.err"
 rc=$?
 

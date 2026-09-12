@@ -132,15 +132,21 @@ Real orders only fire when **all** of these are true: `TRADING_MODE=live` in `.e
 
 ### Running tests
 
+The suite imports the real engine modules, so install both requirement files
+(Python 3.11+; the images use 3.12):
+
 ```bash
+pip install -r requirements.txt -r requirements-dev.txt
 make test
 ```
+
+No Docker, Postgres, Redis, or network needed — 124 tests, all offline.
 
 Coverage today is concentrated in `paper_trading_engine/` (portfolio, risk, execution, exit logic, reconciliation). The signal/engine pipeline under `src/engines/` doesn't have automated tests yet — see [Known gaps](#known-gaps).
 
 ### Troubleshooting
 
-- **`make preflight` fails on a port**: something else on your machine is already using 5432/6379/8000/8010/9091/3001. Stop it or change the host-side port in `docker-compose.yml`.
+- **`make preflight` fails on a port**: something else on your machine is already using one of the published ports — 3001 (status dashboard), 4000 (miniflux), 5432 (postgres), 6333/6334 (qdrant), 6379 (redis), 8000 (api), 8010 (validation api), 8888 (jupyter), 9091 (prometheus). Stop it or change the host-side port in `docker-compose.yml`.
 - **`docker compose up` hangs on `ollama`**: it's the heaviest service and only needed for the weekly LLM lessons/governance job. Comment it out of `docker-compose.yml` if you're on a small machine — nothing else depends on it at startup.
 - **Discord bot restart-loops**: almost always a missing/invalid `DISCORD_BOT_TOKEN`. Check `make logs SERVICE=discord-bot`.
 - **Dashboard returns 401**: `DASHBOARD_TOKEN` isn't set (fails closed by design), or you're not sending it as `X-Dashboard-Token` / `?token=`.

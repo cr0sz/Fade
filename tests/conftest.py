@@ -23,10 +23,11 @@ if str(ENGINE_DIR) not in sys.path:
 if str(REPO_ROOT / "src") not in sys.path:
     sys.path.append(str(REPO_ROOT / "src"))
 
-# Stub heavy optional modules before anything imports them so that
-# `import structlog` / `import asyncpg` / `import prometheus_client`
-# all resolve even on the test host (no Docker, no Postgres).
-# The stubs are minimal shims — just enough to satisfy `from X import Y`.
+# Stub the one module that is genuinely optional at test time.
+# Everything else the engine imports (asyncpg, httpx, fastapi, structlog) is a
+# real dependency of the suite — install BOTH requirement files before running:
+#     pip install -r requirements.txt -r requirements-dev.txt
+# The stub is a minimal shim — just enough to satisfy `from X import Y`.
 import types
 
 def _make_stub(name: str) -> types.ModuleType:

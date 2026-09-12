@@ -66,7 +66,7 @@ async def run_migration(pool: asyncpg.Pool) -> None:
     """Apply migration 013 if not already applied."""
     if not MIGRATION_FILE.exists():
         return
-    sql = MIGRATION_FILE.read_text()
+    sql = MIGRATION_FILE.read_text(encoding="utf-8")
     async with pool.acquire() as conn:
         await conn.execute(sql)
 

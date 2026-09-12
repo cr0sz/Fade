@@ -1,3 +1,6 @@
 # Development / testing dependencies — NOT for production images.
-# Install with: pip install -r requirements-dev.txt
+#
+# ADDITIVE: the test suite imports the real engine modules (asyncpg, httpx,
+# fastapi, pydantic...), so requirements.txt is required too:
+#     pip install -r requirements.txt -r requirements-dev.txt
 pytest>=8.0

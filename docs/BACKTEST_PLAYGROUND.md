@@ -27,7 +27,7 @@ Then navigate to `http://127.0.0.1:8888` locally.
 **Token**: set in `.env` as `JUPYTER_TOKEN`. Copy it from there:
 
 ```bash
-grep JUPYTER_TOKEN /opt/market-intelligence/.env
+grep JUPYTER_TOKEN .env
 ```
 
 ---
@@ -76,12 +76,12 @@ To verify:
 
 ```bash
 # SELECT works
-docker exec market-intelligence-postgres-1 \
+docker exec fade-postgres-1 \
   psql "postgresql://analyst:<password>@localhost/mktintel" \
   -c "SELECT count(*) FROM ticker_quotes"
 
 # INSERT is rejected
-docker exec market-intelligence-postgres-1 \
+docker exec fade-postgres-1 \
   psql "postgresql://analyst:<password>@localhost/mktintel" \
   -c "INSERT INTO ticker_quotes (symbol, price, change_pct, volume, exchange) \
       VALUES ('TEST', 1.0, 0.0, 0.0, 'CRYPTO')"
@@ -100,8 +100,8 @@ NEW_PW=$(openssl rand -base64 20 | tr -d '/+=')
 # Update ANALYST_DB_PASSWORD in .env manually, then:
 
 # 2. Re-apply the SQL
-docker cp sql/create_analyst_role.sql market-intelligence-postgres-1:/tmp/
-docker exec market-intelligence-postgres-1 \
+docker cp sql/create_analyst_role.sql fade-postgres-1:/tmp/
+docker exec fade-postgres-1 \
   psql -U mktintel -d mktintel \
   -v "password=${NEW_PW}" \
   -f /tmp/create_analyst_role.sql

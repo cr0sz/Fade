@@ -17,7 +17,7 @@ Anything not `running`/`healthy` → top finding. Then check that container's la
 ## 2. Trade performance (price truth, not engine opinion)
 
 ```bash
-docker exec market-intelligence-postgres-1 psql -U mktintel -d mktintel -c "
+docker exec fade-postgres-1 psql -U mktintel -d mktintel -c "
 SELECT asset, direction, close_reason, COUNT(*) n,
        ROUND(AVG(pnl)::numeric,2) avg_pnl, ROUND(SUM(pnl)::numeric,2) total_pnl,
        ROUND(100.0*COUNT(*) FILTER (WHERE pnl>0)/COUNT(*),1) win_pct
@@ -41,7 +41,7 @@ If zero signals reach the router, check signal generation: recent rows in `signa
 ## 5. Engine truth metrics
 
 ```bash
-docker exec market-intelligence-postgres-1 psql -U mktintel -d mktintel -c "
+docker exec fade-postgres-1 psql -U mktintel -d mktintel -c "
 SELECT engine, direction, COUNT(*) n, ROUND(AVG(price_return_24h)::numeric*100,3) avg_ret_pct
 FROM signal_outcomes WHERE created_at > NOW() - INTERVAL '7 days'
 GROUP BY 1,2 ORDER BY 1,2;"

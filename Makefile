@@ -26,6 +26,7 @@ help:
 	@echo -e "  $(CYAN)make build$(RESET)      Rebuild all images without cache"
 	@echo -e "  $(CYAN)make verify$(RESET)     Run end-to-end pipeline verification report"
 	@echo -e "  $(CYAN)make check-sql$(RESET)  Static-check embedded SQL against migration schema"
+	@echo -e "  $(CYAN)make test$(RESET)       Run the unit test suite (no Docker needed)"
 	@echo ""
 
 # ── Preflight ─────────────────────────────────────────────────────────────────
@@ -46,7 +47,7 @@ up: preflight
 	@echo -e "  API:        http://localhost:8000"
 	@echo -e "  Validation: http://localhost:8010"
 	@echo -e "  Prometheus: http://localhost:9091"
-	@echo -e "  Grafana:    http://localhost:3001"
+	@echo -e "  Dashboard:  http://localhost:3001"
 	@echo ""
 	@echo -e "Run $(CYAN)make health$(RESET) to verify all services are responding."
 
@@ -82,8 +83,9 @@ verify:
 	@POSTGRES_HOST=localhost python3 scripts/pipeline_report.py
 
 # ── Unit tests ────────────────────────────────────────────────────────────────
-# Pure unit tests: no Docker, Postgres, Redis, or network required.
-# Add -r requirements-dev.txt first if pytest is missing.
+# Pure unit tests: no Docker, Postgres, Redis, or network required — but the
+# tests import the real engine modules, so BOTH requirement files are needed:
+#   pip install -r requirements.txt -r requirements-dev.txt
 test:
 	@echo -e "\n$(BOLD)Running unit tests...$(RESET)"
 	python3 -m pytest tests/ -q
@@ -92,7 +94,7 @@ test:
 reset:
 	@echo ""
 	@echo -e "\033[0;31m$(BOLD)WARNING: This will permanently delete ALL data volumes.$(RESET)"
-	@echo -e "\033[0;31mPostgres data, Redis cache, Prometheus metrics, and Grafana dashboards$(RESET)"
+	@echo -e "\033[0;31mPostgres data, Redis cache, Prometheus metrics, and dashboard state$(RESET)"
 	@echo -e "\033[0;31mwill all be erased and cannot be recovered.$(RESET)"
 	@echo ""
 	@printf "Type 'yes' to confirm: " && \
