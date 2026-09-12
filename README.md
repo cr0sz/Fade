@@ -34,10 +34,10 @@ A second, unrestricted `paper-trading-engine-sim` instance runs in parallel pure
 
 ## Stack
 
-- **Runtime**: Python (FastAPI, asyncio), PostgreSQL, Redis, Docker Compose (~20 services)
+- **Runtime**: Python (FastAPI, asyncio), PostgreSQL, Redis, Docker Compose (27 services)
 - **Trading**: Binance Futures + Alpaca via direct REST/WebSocket clients (`httpx`/`aiohttp`), no broker SDK dependency
 - **Bot / alerting**: Discord (`discord.py`)
-- **Observability**: Prometheus + a homepage-style status dashboard (`GRAFANA_PASSWORD` is legacy naming from an earlier Grafana setup — no Grafana service ships today, see [Setup](#setup))
+- **Observability**: Prometheus + a homepage-style status dashboard (nginx on port 3001)
 - **AI**: OpenAI (primary) with Anthropic Claude as fallback, cost-capped via a daily budget guard
 - **Local LLM**: in-network Ollama for scheduled lessons/governance analysis
 
@@ -46,10 +46,28 @@ A second, unrestricted `paper-trading-engine-sim` instance runs in parallel pure
 ### Prerequisites
 
 - Docker + Docker Compose v2 (`docker compose version` should work — the old standalone `docker-compose` binary also works as a fallback)
-- ~4GB free RAM for the full stack (the `ollama` service is memory-hungry; skip it — see below — on smaller machines)
-- `git`
+- `make`, `bash`, `curl`, `git`
+- ~8GB RAM for the full stack. Skipping `ollama` (see [Troubleshooting](#troubleshooting)) brings the other 26 services comfortably inside an 8GB VM; `ollama` is the memory-hungry one and is only needed for the weekly LLM job.
 
 Everything else (Postgres, Redis, Prometheus, etc.) runs in containers. You don't need Python installed locally unless you want to run `pytest` outside Docker.
+
+**On Windows**: every command in this README is a `make` target, and Windows has neither `make` nor `bash`. Run the whole thing from WSL2 instead — it is the tested path:
+
+```powershell
+wsl --install -d Ubuntu-22.04      # skip if you already have a distro
+```
+
+Then, inside the WSL shell, install Docker Engine and the Compose plugin (Ubuntu's own repos don't carry Compose v2):
+
+```bash
+curl -fsSL https://get.docker.com | sudo sh
+sudo usermod -aG docker $USER
+sudo systemctl enable --now docker
+```
+
+Run `wsl --shutdown` from PowerShell afterwards so the group membership applies, then clone and work inside WSL. Docker Desktop for Windows works too, but you still need a WSL or Git Bash shell for the `make` targets.
+
+Cloning onto the Windows filesystem (`/mnt/c/...`) works but is slow — WSL reaches it over a 9p mount. Cloning inside the WSL filesystem (`~/fade`) is noticeably faster.
 
 ### 1. Clone and configure
 
@@ -64,7 +82,7 @@ Open `.env` and set the **three variables that are actually required** to start 
 | Variable | What it's for |
 |---|---|
 | `POSTGRES_PASSWORD` | Database password — pick anything, just not the placeholder |
-| `GRAFANA_PASSWORD` | Admin password checked at preflight (see note below — no Grafana service currently ships, this is legacy naming for the status dashboard's basic auth path; set it anyway, preflight enforces it) |
+| `GRAFANA_PASSWORD` | Legacy name from an earlier Grafana setup; no Grafana ships today, but preflight still requires it — set it to anything non-placeholder |
 | `DASHBOARD_TOKEN` | Bearer token for the `/api/v1/dashboard/*` endpoints — generate one with `openssl rand -hex 32` |
 
 Everything else in `.env.example` is optional and degrades gracefully:
@@ -102,6 +120,33 @@ curl -H "X-Dashboard-Token: <your DASHBOARD_TOKEN>" http://localhost:8000/api/v1
 All of these bind to `127.0.0.1` only by default — nothing is exposed outside your machine unless you explicitly set `BIND_HOST` in `.env` (e.g. to a Tailscale/VPN IP for remote/phone access) and uncomment the matching line in `docker-compose.yml`.
 
 Trading defaults to **paper mode** — no real orders are possible until you deliberately edit `.env`. See [Going live](#going-live) before you touch that switch.
+
+### 4. What "working" looks like
+
+Give it half an hour, then:
+
+```bash
+make verify      # end-to-end pipeline report, straight from Postgres
+make check-sql   # static check of embedded SQL against the migrations
+```
+
+On a first run with **no API keys at all**, roughly the first 30 minutes should produce something like:
+
+| Table | Typical after ~30 min | Meaning |
+|---|---|---|
+| `news` | several hundred rows | free RSS sources are being ingested |
+| `signals_registry` | tens of rows | engines are scoring and emitting signals |
+| `signal_trace` | tracks `signals_registry` | routing decisions are being recorded |
+| `tickers`, `market_trends` | ~60+ each | market data is flowing |
+| `signal_outcomes` | **0** | correct — outcomes measure *forward* price movement and need hours to elapse |
+| `paper_trades` | **0** | correct — see below |
+
+**Zero trades is the expected result, not a failure.** The out-of-sample guardrail deliberately blocks almost everything: only ICE short-confirm and ETF long-confirm signals are allowed through, and neither can clear the gate until there is scored history behind them. A brand-new database has none. Low trade frequency is the design, not a bug.
+
+Two things that look broken and aren't:
+
+- **`discord-bot` restart-looping** — expected without a valid `DISCORD_BOT_TOKEN`.
+- **`news_analyze_error` with a DNS failure** in the worker log — the news summariser is reaching for the `ollama` service. Harmless if you skipped it.
 
 ## Usage
 
@@ -174,7 +219,7 @@ This project was developed with Claude Code as a standing collaborator, and the 
 
 - `.claude/architecture.md` — architecture reference kept in sync with the actual system
 - `.claude/runbooks/` — step-by-step procedures for common changes (add a data source, debug the pipeline, deploy, analyze governance)
-- `.claude/hooks/` — enforcement, not documentation: a pre-tool-use hook blocks any edit that would silently flip live trading on or touch `.env` without explicit confirmation, and a post-edit hook statically checks embedded SQL against the actual migrations
+- `.claude/hooks/` — enforcement, not documentation: a pre-tool-use hook blocks any edit that would silently flip live trading on or touch `.env` without explicit confirmation, and a post-edit hook statically checks embedded SQL against the actual migrations. Paths resolve from `$CLAUDE_PROJECT_DIR`, so they fire in any clone
 - `.claude/agents/` — scoped subagents for mechanical work (log/SQL greps) and SQL-diff review
 
 ## License
