@@ -1,0 +1,9 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "signal_edge_analyzer/Dockerfile", "language": "dockerfile", "sizeLines": 26, "fileCategory": "infra"}
+  ],
+  "batchImportData": {
+    "signal_edge_analyzer/Dockerfile": []
+  }
+}

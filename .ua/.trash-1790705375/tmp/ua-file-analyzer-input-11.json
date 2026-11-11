@@ -1,0 +1,50 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {
+      "path": "scripts/aggregate_stats.py",
+      "language": "python",
+      "sizeLines": 421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/governance_engine.py",
+      "language": "python",
+      "sizeLines": 536,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/lessons_learned.py",
+      "language": "python",
+      "sizeLines": 1876,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/pipeline_smoke_test.py",
+      "language": "python",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/run_lessons_pipeline.py",
+      "language": "python",
+      "sizeLines": 182,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "scripts/aggregate_stats.py": [],
+    "scripts/governance_engine.py": [],
+    "scripts/lessons_learned.py": [],
+    "scripts/pipeline_smoke_test.py": [
+      "scripts/aggregate_stats.py",
+      "scripts/governance_engine.py",
+      "scripts/lessons_learned.py"
+    ],
+    "scripts/run_lessons_pipeline.py": [
+      "scripts/aggregate_stats.py",
+      "scripts/governance_engine.py",
+      "scripts/lessons_learned.py"
+    ]
+  }
+}

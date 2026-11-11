@@ -1,0 +1,13 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "docs/BACKTEST_PLAYGROUND.md", "language": "markdown", "sizeLines": 119, "fileCategory": "docs"},
+    {"path": "docs/OBSERVABILITY.md", "language": "markdown", "sizeLines": 335, "fileCategory": "docs"},
+    {"path": "docs/RETROSPECTIVE_FROM_SCRATCH.md", "language": "markdown", "sizeLines": 76, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "docs/BACKTEST_PLAYGROUND.md": [],
+    "docs/OBSERVABILITY.md": [],
+    "docs/RETROSPECTIVE_FROM_SCRATCH.md": []
+  }
+}

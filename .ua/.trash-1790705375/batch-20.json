@@ -1,0 +1,148 @@
+{
+  "nodes": [
+    {
+      "id": "file:scripts/deploy.sh",
+      "type": "file",
+      "name": "deploy.sh",
+      "filePath": "scripts/deploy.sh",
+      "summary": "Production deployment script with multi-step orchestration, automatic rollback, and trading safety layer validation. Handles Docker Compose stack lifecycle with database reset and environment validation.",
+      "tags": ["deployment", "automation", "safety-critical", "production", "ci-cd"],
+      "complexity": "complex",
+      "languageNotes": "Shell script using safe .env parsing (no sourcing) and deploy-step tracking for fault recovery."
+    },
+    {
+      "id": "file:scripts/health_check.sh",
+      "type": "file",
+      "name": "health_check.sh",
+      "filePath": "scripts/health_check.sh",
+      "summary": "Comprehensive health probe for all running services in the stack—infrastructure, APIs, scheduler, bot, validation engines, and observability components. Provides colored output and exit code signaling.",
+      "tags": ["monitoring", "health-check", "observability", "validation", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/install_autopush.sh",
+      "type": "file",
+      "name": "install_autopush.sh",
+      "filePath": "scripts/install_autopush.sh",
+      "summary": "Idempotent git hook installer that sets up automatic push-to-origin on commit and fallback cron-based push every 30 minutes, preserving existing crontab entries.",
+      "tags": ["automation", "git-hooks", "ci-cd", "setup", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/nightly_claude_diagnose.sh",
+      "type": "file",
+      "name": "nightly_claude_diagnose.sh",
+      "filePath": "scripts/nightly_claude_diagnose.sh",
+      "summary": "Nightly autonomous diagnostic runner that invokes the /diagnose skill headless via Claude Code, generates system health reports in markdown, and posts verdicts to Discord watchdog channel.",
+      "tags": ["monitoring", "automation", "reporting", "ci-cd", "ai-driven"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Claude Code headless with restricted tool set for autonomous diagnostics; Discord webhook integration for alert delivery."
+    },
+    {
+      "id": "file:scripts/preflight.sh",
+      "type": "file",
+      "name": "preflight.sh",
+      "filePath": "scripts/preflight.sh",
+      "summary": "Pre-deployment validation gating all stack starts: verifies Docker/Compose installation, .env presence and required secrets, compose config validity, port availability, and SQL schema consistency.",
+      "tags": ["validation", "deployment", "infrastructure", "safety-critical", "pre-flight"],
+      "complexity": "complex",
+      "languageNotes": "Defensive .env parsing handles unquoted values with spaces and inline comments exactly as Docker Compose does."
+    },
+    {
+      "id": "document:scripts/sql_check_allow.txt",
+      "type": "document",
+      "name": "sql_check_allow.txt",
+      "filePath": "scripts/sql_check_allow.txt",
+      "summary": "Configuration file for SQL schema validation allowlist, permitting verified false positives from static SQL checker to be suppressed.",
+      "tags": ["configuration", "validation", "database", "schema-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/deploy.sh:_rollback",
+      "type": "function",
+      "name": "_rollback",
+      "filePath": "scripts/deploy.sh",
+      "lineRange": [66, 94],
+      "summary": "Handles deployment failure recovery by rolling back to the last successfully deployed commit and restarting the service stack.",
+      "tags": ["error-recovery", "deployment", "critical"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/deploy.sh:_load_env",
+      "type": "function",
+      "name": "_load_env",
+      "filePath": "scripts/deploy.sh",
+      "lineRange": [124, 135],
+      "summary": "Safe .env file parser that exports key-value pairs without executing arbitrary shell code from environment variable values.",
+      "tags": ["utility", "security", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/health_check.sh:http_check",
+      "type": "function",
+      "name": "http_check",
+      "filePath": "scripts/health_check.sh",
+      "lineRange": [12, 28],
+      "summary": "HTTP endpoint probe with curl that reports status and extracts health status field from JSON response when present.",
+      "tags": ["monitoring", "http", "health-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/health_check.sh:container_check",
+      "type": "function",
+      "name": "container_check",
+      "filePath": "scripts/health_check.sh",
+      "lineRange": [30, 54],
+      "summary": "Docker container health status reporter using docker compose ps, interpreting health states (healthy, unhealthy, starting) with color-coded output.",
+      "tags": ["monitoring", "docker", "health-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/preflight.sh:port_in_use",
+      "type": "function",
+      "name": "port_in_use",
+      "filePath": "scripts/preflight.sh",
+      "lineRange": [174, 185],
+      "summary": "Cross-platform port-availability checker using ss/netstat/lsof in order of precedence to detect listening sockets on a given port.",
+      "tags": ["utility", "validation", "networking"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/deploy.sh",
+      "target": "function:scripts/deploy.sh:_rollback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/deploy.sh",
+      "target": "function:scripts/deploy.sh:_load_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/health_check.sh",
+      "target": "function:scripts/health_check.sh:http_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/health_check.sh",
+      "target": "function:scripts/health_check.sh:container_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/preflight.sh",
+      "target": "function:scripts/preflight.sh:port_in_use",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

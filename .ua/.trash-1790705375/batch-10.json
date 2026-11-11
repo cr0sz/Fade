@@ -1,0 +1,1430 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/api/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "src/api/main.py",
+      "summary": "FastAPI application factory and lifespan context manager that initializes database, Redis, and cost control systems on startup.",
+      "tags": [
+        "entry-point",
+        "app-factory",
+        "initialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/main.py:lifespan",
+      "type": "function",
+      "name": "lifespan",
+      "filePath": "src/api/main.py",
+      "lineRange": [
+        23,
+        41
+      ],
+      "summary": "Async context manager handling application startup and shutdown, configuring logging, databases, and cost controllers.",
+      "tags": [
+        "lifecycle",
+        "initialization",
+        "context-manager"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/main.py:create_app",
+      "type": "function",
+      "name": "create_app",
+      "filePath": "src/api/main.py",
+      "lineRange": [
+        44,
+        101
+      ],
+      "summary": "Creates and configures FastAPI application with CORS, Prometheus metrics middleware, and route handlers for all API endpoints.",
+      "tags": [
+        "app-factory",
+        "configuration",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/api/routes/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/api/routes/__init__.py",
+      "summary": "Empty module marker for the routes package.",
+      "tags": [
+        "barrel",
+        "package-init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/routes/dashboard.py",
+      "type": "file",
+      "name": "dashboard.py",
+      "filePath": "src/api/routes/dashboard.py",
+      "summary": "Comprehensive dashboard API endpoints providing trading performance, positions, trades, research data, and system health metrics.",
+      "tags": [
+        "api-handler",
+        "dashboard",
+        "monitoring"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:require_dashboard_token",
+      "type": "function",
+      "name": "require_dashboard_token",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        39,
+        52
+      ],
+      "summary": "Dependency injection function validating dashboard API token from header or query parameter.",
+      "tags": [
+        "security",
+        "validation",
+        "dependency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:_proxy_validation",
+      "type": "function",
+      "name": "_proxy_validation",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        99,
+        108
+      ],
+      "summary": "Validates HTTP requests to external services with error handling and logging.",
+      "tags": [
+        "utility",
+        "validation",
+        "http-client"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:_latest_quotes",
+      "type": "function",
+      "name": "_latest_quotes",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        116,
+        131
+      ],
+      "summary": "Fetches latest market quotes from database for given assets.",
+      "tags": [
+        "utility",
+        "market-data",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_summary",
+      "type": "function",
+      "name": "get_summary",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        137,
+        203
+      ],
+      "summary": "API endpoint returning dashboard summary with positions, trades, funding, and liquidation data aggregated by trading mode.",
+      "tags": [
+        "api-handler",
+        "aggregation",
+        "monitoring"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_positions",
+      "type": "function",
+      "name": "get_positions",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        216,
+        269
+      ],
+      "summary": "API endpoint returning current trading positions with latest quotes and staleness checks.",
+      "tags": [
+        "api-handler",
+        "portfolio-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_trades",
+      "type": "function",
+      "name": "get_trades",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        275,
+        334
+      ],
+      "summary": "API endpoint returning closed trades filtered by mode with optional limit, calculating PnL metrics.",
+      "tags": [
+        "api-handler",
+        "performance-metrics"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_fades",
+      "type": "function",
+      "name": "get_fades",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        340,
+        410
+      ],
+      "summary": "API endpoint returning historical fade strategy trades with normalized metrics and optional limit.",
+      "tags": [
+        "api-handler",
+        "strategy-analysis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_router",
+      "type": "function",
+      "name": "get_router",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        416,
+        450
+      ],
+      "summary": "API endpoint returning router verdicts for signal-based trade routing decisions.",
+      "tags": [
+        "api-handler",
+        "signal-routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_daily",
+      "type": "function",
+      "name": "get_daily",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        456,
+        483
+      ],
+      "summary": "API endpoint returning daily performance aggregates grouped by date.",
+      "tags": [
+        "api-handler",
+        "time-series-data"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:_alert_summary",
+      "type": "function",
+      "name": "_alert_summary",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        488,
+        506
+      ],
+      "summary": "Formats alert details dictionary into human-readable summary string.",
+      "tags": [
+        "utility",
+        "formatting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_alerts",
+      "type": "function",
+      "name": "get_alerts",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        510,
+        552
+      ],
+      "summary": "API endpoint returning recent alerts with details and timestamps, filtering by mode.",
+      "tags": [
+        "api-handler",
+        "alerts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_funding",
+      "type": "function",
+      "name": "get_funding",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        558,
+        593
+      ],
+      "summary": "API endpoint returning funding rates for perpetual futures positions with next funding time.",
+      "tags": [
+        "api-handler",
+        "market-data"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_liquidations",
+      "type": "function",
+      "name": "get_liquidations",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        599,
+        672
+      ],
+      "summary": "API endpoint returning historical liquidation events with aggregates and 24-hour breakdown.",
+      "tags": [
+        "api-handler",
+        "risk-monitoring"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_system",
+      "type": "function",
+      "name": "get_system",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        678,
+        726
+      ],
+      "summary": "API endpoint returning system health with service checks, database pool stats, and configuration status.",
+      "tags": [
+        "api-handler",
+        "health-check",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_research",
+      "type": "function",
+      "name": "get_research",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        732,
+        805
+      ],
+      "summary": "API endpoint returning LLM research results with parsed metrics and aggregate statistics.",
+      "tags": [
+        "api-handler",
+        "research-analysis"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_trade_autopsy",
+      "type": "function",
+      "name": "get_trade_autopsy",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        842,
+        1023
+      ],
+      "summary": "API endpoint providing comprehensive post-trade analysis including signal context, outcome evaluation, and LLM audit.",
+      "tags": [
+        "api-handler",
+        "trade-analysis",
+        "debugging"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:_probe_service",
+      "type": "function",
+      "name": "_probe_service",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1101,
+        1117
+      ],
+      "summary": "Probes health of a service endpoint measuring response time.",
+      "tags": [
+        "utility",
+        "health-check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_graveyard",
+      "type": "function",
+      "name": "get_graveyard",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1029,
+        1068
+      ],
+      "summary": "API endpoint returning retired strategy lifecycle with reactivation history and performance at retirement.",
+      "tags": [
+        "api-handler",
+        "strategy-lifecycle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_finance",
+      "type": "function",
+      "name": "get_finance",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1140,
+        1163
+      ],
+      "summary": "API endpoint returning transaction journal and balance summary.",
+      "tags": [
+        "api-handler",
+        "accounting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:add_transaction",
+      "type": "function",
+      "name": "add_transaction",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1167,
+        1182
+      ],
+      "summary": "API endpoint for manual transaction entry with date validation and category sorting.",
+      "tags": [
+        "api-handler",
+        "accounting",
+        "input-validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_journal",
+      "type": "function",
+      "name": "get_journal",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1188,
+        1203
+      ],
+      "summary": "API endpoint returning weekly trading journals with metrics and timestamps.",
+      "tags": [
+        "api-handler",
+        "reporting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_signals",
+      "type": "function",
+      "name": "get_signals",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1209,
+        1270
+      ],
+      "summary": "API endpoint returning active signals with computed scores, confluence levels, and outcome history.",
+      "tags": [
+        "api-handler",
+        "signal-monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/dashboard.py:get_brief",
+      "type": "function",
+      "name": "get_brief",
+      "filePath": "src/api/routes/dashboard.py",
+      "lineRange": [
+        1276,
+        1297
+      ],
+      "summary": "API endpoint returning latest market intelligence brief with sentiment and event scores.",
+      "tags": [
+        "api-handler",
+        "market-intelligence"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/routes/edge_intelligence.py",
+      "type": "file",
+      "name": "edge_intelligence.py",
+      "filePath": "src/api/routes/edge_intelligence.py",
+      "summary": "API endpoint providing edge intelligence metrics aggregating smart money positions and cluster-based performance analysis.",
+      "tags": [
+        "api-handler",
+        "intelligence"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/edge_intelligence.py:require_dashboard_token",
+      "type": "function",
+      "name": "require_dashboard_token",
+      "filePath": "src/api/routes/edge_intelligence.py",
+      "lineRange": [
+        21,
+        33
+      ],
+      "summary": "Dependency injection function validating dashboard API token from header or query parameter.",
+      "tags": [
+        "security",
+        "validation",
+        "dependency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/edge_intelligence.py:get_edge_intelligence",
+      "type": "function",
+      "name": "get_edge_intelligence",
+      "filePath": "src/api/routes/edge_intelligence.py",
+      "lineRange": [
+        89,
+        198
+      ],
+      "summary": "Aggregates position data and computes cluster-based intelligence metrics for institutional smart money analysis.",
+      "tags": [
+        "api-handler",
+        "intelligence",
+        "aggregation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/edge_intelligence.py:_empty_aggregate",
+      "type": "function",
+      "name": "_empty_aggregate",
+      "filePath": "src/api/routes/edge_intelligence.py",
+      "lineRange": [
+        201,
+        213
+      ],
+      "summary": "Returns empty aggregate structure for no-data edge intelligence responses.",
+      "tags": [
+        "utility",
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/routes/sentiment.py",
+      "type": "file",
+      "name": "sentiment.py",
+      "filePath": "src/api/routes/sentiment.py",
+      "summary": "Lightweight route module for sentiment engine and trend detection API endpoints.",
+      "tags": [
+        "api-handler",
+        "sentiment-analysis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/core/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "src/core/metrics.py",
+      "summary": "Prometheus metrics definitions for API request rates, latencies, and database pool monitoring.",
+      "tags": [
+        "monitoring",
+        "metrics",
+        "instrumentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_autopsy.py",
+      "type": "file",
+      "name": "test_autopsy.py",
+      "filePath": "tests/test_autopsy.py",
+      "summary": "Test suite for trade autopsy endpoint validating signal context, outcome evaluation, and LLM audit blocks.",
+      "tags": [
+        "test",
+        "api-testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/test_autopsy.py:FakeConn",
+      "type": "class",
+      "name": "FakeConn",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        38,
+        73
+      ],
+      "summary": "Mock database connection object for testing that tracks SQL queries and returns configurable results.",
+      "tags": [
+        "test-fixture",
+        "mock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_autopsy.py:FakeDB",
+      "type": "class",
+      "name": "FakeDB",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        76,
+        87
+      ],
+      "summary": "Mock database pool returning FakeConn instances for async context manager protocol.",
+      "tags": [
+        "test-fixture",
+        "mock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:make_trade_row",
+      "type": "function",
+      "name": "make_trade_row",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        115,
+        143
+      ],
+      "summary": "Factory function generating trade record fixtures with customizable fields for test scenarios.",
+      "tags": [
+        "test-fixture",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:make_signal_row",
+      "type": "function",
+      "name": "make_signal_row",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        146,
+        163
+      ],
+      "summary": "Factory function generating signal record fixtures with customizable fields for test scenarios.",
+      "tags": [
+        "test-fixture",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:make_trace_row",
+      "type": "function",
+      "name": "make_trace_row",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        177,
+        187
+      ],
+      "summary": "Factory function generating signal trace record fixtures with customizable fields for test scenarios.",
+      "tags": [
+        "test-fixture",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:test_no_signal_id_skips_signal_and_trace_queries",
+      "type": "function",
+      "name": "test_no_signal_id_skips_signal_and_trace_queries",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        200,
+        216
+      ],
+      "summary": "Verifies that autopsy endpoint skips signal and trace database queries when signal_id is null.",
+      "tags": [
+        "test",
+        "edge-case"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:test_with_signal_id_populates_signal_block",
+      "type": "function",
+      "name": "test_with_signal_id_populates_signal_block",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        219,
+        255
+      ],
+      "summary": "Verifies that autopsy endpoint populates signal and trace arrays when signal_id is present.",
+      "tags": [
+        "test",
+        "behavior-verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:test_llm_audit_block_populated",
+      "type": "function",
+      "name": "test_llm_audit_block_populated",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        258,
+        279
+      ],
+      "summary": "Verifies that autopsy endpoint correctly parses and returns LLM audit analysis block.",
+      "tags": [
+        "test",
+        "data-parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:test_reflections_array_populated",
+      "type": "function",
+      "name": "test_reflections_array_populated",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        282,
+        299
+      ],
+      "summary": "Verifies that autopsy endpoint retrieves and returns trade reflections array.",
+      "tags": [
+        "test",
+        "data-retrieval"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:test_pnl_pct_calculated_correctly",
+      "type": "function",
+      "name": "test_pnl_pct_calculated_correctly",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        302,
+        311
+      ],
+      "summary": "Verifies PnL percentage calculation accuracy in autopsy endpoint response.",
+      "tags": [
+        "test",
+        "calculation-verification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_autopsy.py:test_pnl_pct_none_when_notional_zero_or_none",
+      "type": "function",
+      "name": "test_pnl_pct_none_when_notional_zero_or_none",
+      "filePath": "tests/test_autopsy.py",
+      "lineRange": [
+        314,
+        324
+      ],
+      "summary": "Verifies that PnL percentage is null when trade notional value is zero or missing.",
+      "tags": [
+        "test",
+        "edge-case"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_dashboard_proxy.py",
+      "type": "file",
+      "name": "test_dashboard_proxy.py",
+      "filePath": "tests/test_dashboard_proxy.py",
+      "summary": "Test suite for dashboard proxy endpoints validating external service resilience and response merging.",
+      "tags": [
+        "test",
+        "api-testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_dashboard_proxy.py:_fake_async_client",
+      "type": "function",
+      "name": "_fake_async_client",
+      "filePath": "tests/test_dashboard_proxy.py",
+      "lineRange": [
+        32,
+        51
+      ],
+      "summary": "Fixture creating mock AsyncClient for testing proxy endpoints with configurable side effects.",
+      "tags": [
+        "test-fixture",
+        "mock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dashboard_proxy.py:test_engine_accuracy_merges_both_sources",
+      "type": "function",
+      "name": "test_engine_accuracy_merges_both_sources",
+      "filePath": "tests/test_dashboard_proxy.py",
+      "lineRange": [
+        93,
+        114
+      ],
+      "summary": "Verifies that engine accuracy endpoint correctly merges accuracy data from multiple proxy services.",
+      "tags": [
+        "test",
+        "data-merging"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dashboard_proxy.py:test_meta_risk_handles_missing_keys",
+      "type": "function",
+      "name": "test_meta_risk_handles_missing_keys",
+      "filePath": "tests/test_dashboard_proxy.py",
+      "lineRange": [
+        119,
+        140
+      ],
+      "summary": "Verifies that meta risk endpoint gracefully handles missing keys in proxy responses.",
+      "tags": [
+        "test",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dashboard_proxy.py:test_proxy_validation_returns_error_marker_on_http_error",
+      "type": "function",
+      "name": "test_proxy_validation_returns_error_marker_on_http_error",
+      "filePath": "tests/test_dashboard_proxy.py",
+      "lineRange": [
+        145,
+        161
+      ],
+      "summary": "Verifies that proxy validation function returns error marker on HTTP client failures.",
+      "tags": [
+        "test",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_graveyard.py",
+      "type": "file",
+      "name": "test_graveyard.py",
+      "filePath": "tests/test_graveyard.py",
+      "summary": "Test suite for graveyard endpoint verifying retired strategy lifecycle, reactivation, and data serialization.",
+      "tags": [
+        "test",
+        "api-testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_graveyard.py:_row",
+      "type": "function",
+      "name": "_row",
+      "filePath": "tests/test_graveyard.py",
+      "lineRange": [
+        28,
+        57
+      ],
+      "summary": "Factory function generating graveyard row fixtures with customizable strategy retirement parameters.",
+      "tags": [
+        "test-fixture",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_graveyard.py:_request_returning",
+      "type": "function",
+      "name": "_request_returning",
+      "filePath": "tests/test_graveyard.py",
+      "lineRange": [
+        60,
+        75
+      ],
+      "summary": "Fixture creating mock request and database for graveyard tests.",
+      "tags": [
+        "test-fixture",
+        "mock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_graveyard.py:test_all_retired_still_retired_equals_count",
+      "type": "function",
+      "name": "test_all_retired_still_retired_equals_count",
+      "filePath": "tests/test_graveyard.py",
+      "lineRange": [
+        87,
+        99
+      ],
+      "summary": "Verifies that strategies with no reactivation remain in retired state.",
+      "tags": [
+        "test",
+        "behavior-verification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_graveyard.py:test_reactivated_entry",
+      "type": "function",
+      "name": "test_reactivated_entry",
+      "filePath": "tests/test_graveyard.py",
+      "lineRange": [
+        102,
+        114
+      ],
+      "summary": "Verifies correct serialization of reactivated strategy entries with timestamps.",
+      "tags": [
+        "test",
+        "data-serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_graveyard.py:test_all_retired_still_retired_equals_count",
+      "type": "function",
+      "name": "test_all_retired_still_retired_equals_count",
+      "filePath": "tests/test_graveyard.py",
+      "lineRange": [
+        87,
+        99
+      ],
+      "summary": "Verifies that strategies with no reactivation remain in retired state.",
+      "tags": [
+        "test",
+        "behavior-verification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_graveyard.py:test_ordering_still_retired_before_reactivated",
+      "type": "function",
+      "name": "test_ordering_still_retired_before_reactivated",
+      "filePath": "tests/test_graveyard.py",
+      "lineRange": [
+        135,
+        153
+      ],
+      "summary": "Verifies that graveyard endpoint maintains correct ordering with permanently retired strategies first.",
+      "tags": [
+        "test",
+        "ordering-verification"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/api/main.py",
+      "target": "function:src/api/main.py:lifespan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "function:src/api/main.py:create_app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/dashboard.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/edge_intelligence.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/health.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/intelligence.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/sentiment.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/api/routes/trends.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/cache/redis_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/core/cost_control.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/core/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/main.py",
+      "target": "file:src/db/connection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/__init__.py",
+      "target": "file:src/api/main.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:require_dashboard_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:_proxy_validation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:_latest_quotes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_positions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_trades",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_fades",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_router",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_daily",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:_alert_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_alerts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_funding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_liquidations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_system",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_research",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_trade_autopsy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:_probe_service",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_graveyard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_finance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:add_transaction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_journal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "function:src/api/routes/dashboard.py:get_brief",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/edge_intelligence.py",
+      "target": "function:src/api/routes/edge_intelligence.py:require_dashboard_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/edge_intelligence.py",
+      "target": "function:src/api/routes/edge_intelligence.py:get_edge_intelligence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/edge_intelligence.py",
+      "target": "function:src/api/routes/edge_intelligence.py:_empty_aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/edge_intelligence.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/sentiment.py",
+      "target": "file:src/engines/sentiment_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "class:tests/test_autopsy.py:FakeConn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "class:tests/test_autopsy.py:FakeDB",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:make_trade_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:make_signal_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:make_trace_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:test_no_signal_id_skips_signal_and_trace_queries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:test_with_signal_id_populates_signal_block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:test_llm_audit_block_populated",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:test_reflections_array_populated",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:test_pnl_pct_calculated_correctly",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "function:tests/test_autopsy.py:test_pnl_pct_none_when_notional_zero_or_none",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_autopsy.py",
+      "target": "file:src/api/routes/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_dashboard_proxy.py",
+      "target": "function:tests/test_dashboard_proxy.py:_fake_async_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_dashboard_proxy.py",
+      "target": "function:tests/test_dashboard_proxy.py:test_engine_accuracy_merges_both_sources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_dashboard_proxy.py",
+      "target": "function:tests/test_dashboard_proxy.py:test_meta_risk_handles_missing_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_dashboard_proxy.py",
+      "target": "function:tests/test_dashboard_proxy.py:test_proxy_validation_returns_error_marker_on_http_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_dashboard_proxy.py",
+      "target": "file:src/api/routes/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_dashboard_proxy.py",
+      "target": "file:src/api/routes/dashboard.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_graveyard.py",
+      "target": "function:tests/test_graveyard.py:_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_graveyard.py",
+      "target": "function:tests/test_graveyard.py:_request_returning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_graveyard.py",
+      "target": "function:tests/test_graveyard.py:test_all_retired_still_retired_equals_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_graveyard.py",
+      "target": "function:tests/test_graveyard.py:test_reactivated_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_graveyard.py",
+      "target": "function:tests/test_graveyard.py:test_ordering_still_retired_before_reactivated",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_graveyard.py",
+      "target": "file:src/api/routes/dashboard.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "file:tests/test_autopsy.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "file:tests/test_dashboard_proxy.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/api/routes/dashboard.py",
+      "target": "file:tests/test_graveyard.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

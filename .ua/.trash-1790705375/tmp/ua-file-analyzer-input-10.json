@@ -1,0 +1,25 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "src/api/main.py", "language": "python", "sizeLines": 104, "fileCategory": "code"},
+    {"path": "src/api/routes/__init__.py", "language": "python", "sizeLines": 0, "fileCategory": "code"},
+    {"path": "src/api/routes/dashboard.py", "language": "python", "sizeLines": 1340, "fileCategory": "code"},
+    {"path": "src/api/routes/edge_intelligence.py", "language": "python", "sizeLines": 213, "fileCategory": "code"},
+    {"path": "src/api/routes/sentiment.py", "language": "python", "sizeLines": 25, "fileCategory": "code"},
+    {"path": "src/core/metrics.py", "language": "python", "sizeLines": 80, "fileCategory": "code"},
+    {"path": "tests/test_autopsy.py", "language": "python", "sizeLines": 324, "fileCategory": "code"},
+    {"path": "tests/test_dashboard_proxy.py", "language": "python", "sizeLines": 161, "fileCategory": "code"},
+    {"path": "tests/test_graveyard.py", "language": "python", "sizeLines": 153, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/api/main.py": ["src/api/routes/__init__.py", "src/api/routes/dashboard.py", "src/api/routes/edge_intelligence.py", "src/api/routes/health.py", "src/api/routes/intelligence.py", "src/api/routes/market.py", "src/api/routes/news.py", "src/api/routes/sentiment.py", "src/api/routes/trends.py", "src/cache/redis_client.py", "src/core/config.py", "src/core/cost_control.py", "src/core/logging.py", "src/core/metrics.py", "src/db/connection.py"],
+    "src/api/routes/__init__.py": [],
+    "src/api/routes/dashboard.py": ["src/core/logging.py"],
+    "src/api/routes/edge_intelligence.py": ["src/core/logging.py"],
+    "src/api/routes/sentiment.py": ["src/engines/sentiment_engine.py"],
+    "src/core/metrics.py": [],
+    "tests/test_autopsy.py": ["src/api/routes/__init__.py"],
+    "tests/test_dashboard_proxy.py": ["src/api/routes/__init__.py", "src/api/routes/dashboard.py"],
+    "tests/test_graveyard.py": ["src/api/routes/dashboard.py"]
+  }
+}

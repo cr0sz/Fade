@@ -1,0 +1,230 @@
+{
+  "nodes": [
+    {
+      "id": "document:.claude/runbooks/add_ai_model.md",
+      "type": "document",
+      "name": "add_ai_model.md",
+      "filePath": ".claude/runbooks/add_ai_model.md",
+      "summary": "Runbook for integrating new LLM providers into the AI Analyst Engine, covering provider implementation, pricing configuration, routing setup, and validation procedures.",
+      "tags": ["documentation", "runbook", "ai-integration", "setup", "provider-setup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/add_news_source.md",
+      "type": "document",
+      "name": "add_news_source.md",
+      "filePath": ".claude/runbooks/add_news_source.md",
+      "summary": "Operational guide for adding new news data providers to the News Intelligence Engine, including provider file creation, configuration, registry registration, and testing procedures.",
+      "tags": ["documentation", "runbook", "data-source", "setup", "news-intelligence"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/add_provider.md",
+      "type": "document",
+      "name": "add_provider.md",
+      "filePath": ".claude/runbooks/add_provider.md",
+      "summary": "Generic runbook template for adding any provider category (news, social, AI, ticker) to the platform, with routing between category-specific guides and common integration patterns.",
+      "tags": ["documentation", "runbook", "provider-setup", "meta-guide", "integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/add_social_source.md",
+      "type": "document",
+      "name": "add_social_source.md",
+      "filePath": ".claude/runbooks/add_social_source.md",
+      "summary": "Runbook for onboarding social media intelligence sources, covering provider implementation, community tracking, sentiment engine integration, rate limiting, and authentication setup.",
+      "tags": ["documentation", "runbook", "data-source", "setup", "social-intelligence"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/add_ticker_source.md",
+      "type": "document",
+      "name": "add_ticker_source.md",
+      "filePath": ".claude/runbooks/add_ticker_source.md",
+      "summary": "Guide for populating ticker/symbol data for US equities and BIST, including schema design, data source integration (Polygon.io, Finnhub), sector mapping, and verification procedures.",
+      "tags": ["documentation", "runbook", "data-source", "setup", "market-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/backtesting_replay.md",
+      "type": "document",
+      "name": "backtesting_replay.md",
+      "filePath": ".claude/runbooks/backtesting_replay.md",
+      "summary": "Complete operational guide for the backtesting and replay system, covering manual replay execution via API/Redis/Python, monitoring, auto-scheduling, troubleshooting, and rollback procedures.",
+      "tags": ["documentation", "runbook", "backtesting", "signal-validation", "operations"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.claude/runbooks/calibration_governance.md",
+      "type": "document",
+      "name": "calibration_governance.md",
+      "filePath": ".claude/runbooks/calibration_governance.md",
+      "summary": "Runbook for managing signal confidence calibration across engines, including diagnosis of miscalibration, confidence tier analysis, trend review, and recovery procedures for over/underconfident engines.",
+      "tags": ["documentation", "runbook", "signal-quality", "governance", "calibration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/debug_pipeline.md",
+      "type": "document",
+      "name": "debug_pipeline.md",
+      "filePath": ".claude/runbooks/debug_pipeline.md",
+      "summary": "Diagnostic guide for troubleshooting pipeline issues using a decision tree, with targeted debugging procedures for service health, providers, database, normalization, engines, and cost tracking.",
+      "tags": ["documentation", "runbook", "troubleshooting", "operations", "debugging"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/deploy_production.md",
+      "type": "document",
+      "name": "deploy_production.md",
+      "filePath": ".claude/runbooks/deploy_production.md",
+      "summary": "Complete production deployment guide covering server setup, configuration, Docker build/start, verification, log rotation, systemd service, and update procedures for the market intelligence platform.",
+      "tags": ["documentation", "runbook", "deployment", "operations", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/governance_optimization.md",
+      "type": "document",
+      "name": "governance_optimization.md",
+      "filePath": ".claude/runbooks/governance_optimization.md",
+      "summary": "Operational guide for the Governance Optimization Engine that filters signals with a trust score formula, including components, recommendation types, monitoring, acknowledgment procedures, and alert types.",
+      "tags": ["documentation", "runbook", "governance", "signal-filtering", "operations"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.claude/runbooks/improve_sentiment_engine.md",
+      "type": "document",
+      "name": "improve_sentiment_engine.md",
+      "filePath": ".claude/runbooks/improve_sentiment_engine.md",
+      "summary": "Runbook for tuning the sentiment analysis system, covering VADER lexicon optimization, FinBERT replacement, LLM prompt improvement, contrarian signal detection, and velocity calculation enhancements.",
+      "tags": ["documentation", "runbook", "sentiment-engine", "tuning", "optimization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/regime_transition_analysis.md",
+      "type": "document",
+      "name": "regime_transition_analysis.md",
+      "filePath": ".claude/runbooks/regime_transition_analysis.md",
+      "summary": "Runbook for analyzing market regime transitions and engine fragility, including key metrics, dangerous transition pairs, investigation procedures for instability warnings, and post-transition monitoring.",
+      "tags": ["documentation", "runbook", "market-analysis", "regime-detection", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/strategic_memory.md",
+      "type": "document",
+      "name": "strategic_memory.md",
+      "filePath": ".claude/runbooks/strategic_memory.md",
+      "summary": "Operational guide for the Strategic Memory and Meta-Intelligence system covering components, API endpoints, monitoring dashboards, alert types, key metrics interpretation, and operational procedures.",
+      "tags": ["documentation", "runbook", "meta-intelligence", "monitoring", "operations"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/runbooks/validation_alert.md",
+      "type": "document",
+      "name": "validation_alert.md",
+      "filePath": ".claude/runbooks/validation_alert.md",
+      "summary": "Runbook for the Validation Alert Engine that monitors signal quality and system health, defining 8 alert types (precision collapse, calibration drift, replay failure, coverage gaps), configuration, and resolution procedures.",
+      "tags": ["documentation", "runbook", "signal-validation", "alerting", "monitoring"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.claude/runbooks/add_provider.md",
+      "target": "document:.claude/runbooks/add_ai_model.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/add_provider.md",
+      "target": "document:.claude/runbooks/add_news_source.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/add_provider.md",
+      "target": "document:.claude/runbooks/add_social_source.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/add_provider.md",
+      "target": "document:.claude/runbooks/add_ticker_source.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/add_ai_model.md",
+      "target": "document:.claude/runbooks/improve_sentiment_engine.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/backtesting_replay.md",
+      "target": "document:.claude/runbooks/validation_alert.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.claude/runbooks/backtesting_replay.md",
+      "target": "document:.claude/runbooks/calibration_governance.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.claude/runbooks/calibration_governance.md",
+      "target": "document:.claude/runbooks/governance_optimization.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.claude/runbooks/governance_optimization.md",
+      "target": "document:.claude/runbooks/strategic_memory.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/improve_sentiment_engine.md",
+      "target": "document:.claude/runbooks/calibration_governance.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/regime_transition_analysis.md",
+      "target": "document:.claude/runbooks/strategic_memory.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/debug_pipeline.md",
+      "target": "document:.claude/runbooks/validation_alert.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/deploy_production.md",
+      "target": "document:.claude/runbooks/debug_pipeline.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/runbooks/validation_alert.md",
+      "target": "document:.claude/runbooks/regime_transition_analysis.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

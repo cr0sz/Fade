@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "service:signal_edge_analyzer/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "signal_edge_analyzer/Dockerfile",
+      "summary": "Multi-stage Python 3.12 container build for the signal edge analyzer service, with dependency installation, shared strategy code injection, and database migration initialization.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Alpine-equivalent slim image reduces container size while including curl for health checks and system utilities; environment variables optimize Python runtime behavior in containerized context."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:signal_edge_analyzer/Dockerfile",
+      "target": "file:signal_edge_analyzer/requirements.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:signal_edge_analyzer/Dockerfile",
+      "target": "file:signal_edge_analyzer/main.py",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "service:signal_edge_analyzer/Dockerfile",
+      "target": "file:paper_trading_engine/meta_strategy.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:signal_edge_analyzer/Dockerfile",
+      "target": "table:migrations/013_signal_edge_analyzer.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "Configuration template defining 107 environment variables for the trading pipeline, covering application settings, trading credentials (Binance/Alpaca), external API keys, database/cache configuration, monitoring parameters, and scheduler intervals.",
+      "tags": ["configuration", "environment", "settings", "credentials"],
+      "complexity": "moderate",
+      "languageNotes": "Environment configuration uses key=value pairs organized by functional groups with inline documentation for each variable's purpose and expected values."
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Claude Code project instructions covering model economy strategies, hard rules for trading safety (TRADING_MODE guardrails), database/CLI quick facts, and knowledge graph usage via Graphify.",
+      "tags": ["documentation", "guidelines", "development", "safety"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:Makefile",
+      "type": "pipeline",
+      "name": "Makefile",
+      "filePath": "Makefile",
+      "summary": "Build automation with 12 targets orchestrating Docker Compose operations: preflight validation, service lifecycle (up/down/restart), deployment verification, SQL schema checking, health monitoring, and test execution.",
+      "tags": ["build-system", "infrastructure", "ci-cd", "automation"],
+      "complexity": "moderate",
+      "languageNotes": "Makefile uses POSIX shell (bash) for service management and prefixes commands with explanatory echo statements for user feedback."
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Comprehensive project documentation describing the market intelligence pipeline architecture (6 engine layers), tech stack, setup guide for macOS/Linux/Windows (WSL), usage instructions, troubleshooting, and repository structure.",
+      "tags": ["documentation", "entry-point", "architecture", "setup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "Multi-container orchestration configuration deploying 27 services including API, validation, Postgres, Redis, Prometheus, Discord bot, and specialized engines for news ingestion, sentiment analysis, smart money tracking, and signal validation.",
+      "tags": ["infrastructure", "orchestration", "deployment", "containerization"],
+      "complexity": "complex",
+      "languageNotes": "YAML-based Docker Compose v2 with reusable anchors (x-common-env, x-restart, x-logging) for configuration consistency across 27 services."
+    },
+    {
+      "id": "document:requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "requirements.txt",
+      "summary": "Production Python dependencies including FastAPI/uvicorn (web framework), asyncpg/redis (persistence), aiohttp/httpx (networking), Discord.py (bot), OpenAI/Anthropic (AI), and market data clients (yfinance).",
+      "tags": ["dependencies", "package-management", "production"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:requirements-dev.txt",
+      "type": "document",
+      "name": "requirements-dev.txt",
+      "filePath": "requirements-dev.txt",
+      "summary": "Development testing dependencies with pytest as the unit test framework, intended to be installed alongside requirements.txt for local test execution without Docker.",
+      "tags": ["dependencies", "testing", "development"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:README.md",
+      "target": "service:docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:.env.example",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "pipeline:Makefile",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "pipeline:Makefile",
+      "target": "service:docker-compose.yml",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "pipeline:Makefile",
+      "target": "document:requirements.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:docker-compose.yml",
+      "target": "document:requirements.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:requirements.txt",
+      "target": "document:requirements-dev.txt",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:.env.example",
+      "target": "service:docker-compose.yml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "service:docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,1637 @@
+{
+  "nodes": [
+    {
+      "id": "file:paper_trading_engine/adaptive_sizer.py",
+      "type": "file",
+      "name": "adaptive_sizer.py",
+      "filePath": "paper_trading_engine/adaptive_sizer.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/adaptive_sizer.py:AdaptiveSizer",
+      "type": "class",
+      "name": "AdaptiveSizer",
+      "filePath": "paper_trading_engine/adaptive_sizer.py",
+      "lineRange": [
+        31,
+        149
+      ],
+      "summary": "AdaptiveSizer class with 7 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/broker_factory.py",
+      "type": "file",
+      "name": "broker_factory.py",
+      "filePath": "paper_trading_engine/broker_factory.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/broker_factory.py:get_broker",
+      "type": "function",
+      "name": "get_broker",
+      "filePath": "paper_trading_engine/broker_factory.py",
+      "lineRange": [
+        37,
+        75
+      ],
+      "summary": "Function get_broker in broker_factory.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "paper_trading_engine/brokers/__init__.py",
+      "summary": "Broker module initialization exposing broker implementations and factory functions.",
+      "tags": [
+        "entry-point",
+        "module-init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/alpaca.py",
+      "type": "file",
+      "name": "alpaca.py",
+      "filePath": "paper_trading_engine/brokers/alpaca.py",
+      "summary": "Alpaca equity broker adapter for US equities trading with real-time market data integration.",
+      "tags": [
+        "broker-adapter",
+        "equity-trading",
+        "alpaca"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/brokers/alpaca.py:AlpacaBroker",
+      "type": "class",
+      "name": "AlpacaBroker",
+      "filePath": "paper_trading_engine/brokers/alpaca.py",
+      "lineRange": [
+        34,
+        225
+      ],
+      "summary": "AlpacaBroker class with 10 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/base.py",
+      "type": "file",
+      "name": "base.py",
+      "filePath": "paper_trading_engine/brokers/base.py",
+      "summary": "Abstract base class defining the broker interface for unified exchange connectivity.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration",
+        "interface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/brokers/base.py:AbstractBroker",
+      "type": "class",
+      "name": "AbstractBroker",
+      "filePath": "paper_trading_engine/brokers/base.py",
+      "lineRange": [
+        27,
+        64
+      ],
+      "summary": "AbstractBroker class with 4 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/binance.py",
+      "type": "file",
+      "name": "binance.py",
+      "filePath": "paper_trading_engine/brokers/binance.py",
+      "summary": "Binance spot exchange adapter providing order placement, execution, and account management.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/brokers/binance.py:BinanceBroker",
+      "type": "class",
+      "name": "BinanceBroker",
+      "filePath": "paper_trading_engine/brokers/binance.py",
+      "lineRange": [
+        109,
+        370
+      ],
+      "summary": "BinanceBroker class with 12 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/brokers/binance.py:_fee_in_usdt",
+      "type": "function",
+      "name": "_fee_in_usdt",
+      "filePath": "paper_trading_engine/brokers/binance.py",
+      "lineRange": [
+        87,
+        106
+      ],
+      "summary": "Function _fee_in_usdt in binance.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/binance_futures.py",
+      "type": "file",
+      "name": "binance_futures.py",
+      "filePath": "paper_trading_engine/brokers/binance_futures.py",
+      "summary": "Binance Futures broker implementation with leveraged trading and risk management for crypto derivatives.",
+      "tags": [
+        "broker-adapter",
+        "futures-trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/brokers/binance_futures.py:BinanceFuturesBroker",
+      "type": "class",
+      "name": "BinanceFuturesBroker",
+      "filePath": "paper_trading_engine/brokers/binance_futures.py",
+      "lineRange": [
+        75,
+        774
+      ],
+      "summary": "BinanceFuturesBroker class with 23 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/paper.py",
+      "type": "file",
+      "name": "paper.py",
+      "filePath": "paper_trading_engine/brokers/paper.py",
+      "summary": "Paper trading broker simulating fills and tracking portfolio without real capital.",
+      "tags": [
+        "paper-trading",
+        "simulation",
+        "broker-adapter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/brokers/paper.py:PaperBroker",
+      "type": "class",
+      "name": "PaperBroker",
+      "filePath": "paper_trading_engine/brokers/paper.py",
+      "lineRange": [
+        18,
+        66
+      ],
+      "summary": "PaperBroker class with 5 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/capital_growth.py",
+      "type": "file",
+      "name": "capital_growth.py",
+      "filePath": "paper_trading_engine/capital_growth.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/capital_growth.py:CapitalGrowthFramework",
+      "type": "class",
+      "name": "CapitalGrowthFramework",
+      "filePath": "paper_trading_engine/capital_growth.py",
+      "lineRange": [
+        51,
+        176
+      ],
+      "summary": "CapitalGrowthFramework class with 5 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/discord_notifier.py",
+      "type": "file",
+      "name": "discord_notifier.py",
+      "filePath": "paper_trading_engine/discord_notifier.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/discord_notifier.py:DiscordNotifier",
+      "type": "class",
+      "name": "DiscordNotifier",
+      "filePath": "paper_trading_engine/discord_notifier.py",
+      "lineRange": [
+        62,
+        170
+      ],
+      "summary": "DiscordNotifier class with 9 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/discord_notifier.py:_post",
+      "type": "function",
+      "name": "_post",
+      "filePath": "paper_trading_engine/discord_notifier.py",
+      "lineRange": [
+        31,
+        43
+      ],
+      "summary": "Function _post in discord_notifier.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/discord_status.py",
+      "type": "file",
+      "name": "discord_status.py",
+      "filePath": "paper_trading_engine/discord_status.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/discord_status.py:_send_embed",
+      "type": "function",
+      "name": "_send_embed",
+      "filePath": "paper_trading_engine/discord_status.py",
+      "lineRange": [
+        18,
+        29
+      ],
+      "summary": "Function _send_embed in discord_status.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/discord_status.py:build_status_fields",
+      "type": "function",
+      "name": "build_status_fields",
+      "filePath": "paper_trading_engine/discord_status.py",
+      "lineRange": [
+        32,
+        85
+      ],
+      "summary": "Function build_status_fields in discord_status.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/discord_status.py:push_status",
+      "type": "function",
+      "name": "push_status",
+      "filePath": "paper_trading_engine/discord_status.py",
+      "lineRange": [
+        88,
+        99
+      ],
+      "summary": "Function push_status in discord_status.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/engine.py",
+      "type": "file",
+      "name": "engine.py",
+      "filePath": "paper_trading_engine/engine.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/engine.py:PaperTradingEngine",
+      "type": "class",
+      "name": "PaperTradingEngine",
+      "filePath": "paper_trading_engine/engine.py",
+      "lineRange": [
+        178,
+        4603
+      ],
+      "summary": "PaperTradingEngine class with 68 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/equity_tracker.py",
+      "type": "file",
+      "name": "equity_tracker.py",
+      "filePath": "paper_trading_engine/equity_tracker.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/equity_tracker.py:write_snapshot",
+      "type": "function",
+      "name": "write_snapshot",
+      "filePath": "paper_trading_engine/equity_tracker.py",
+      "lineRange": [
+        10,
+        41
+      ],
+      "summary": "Function write_snapshot in equity_tracker.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/executor.py",
+      "type": "file",
+      "name": "executor.py",
+      "filePath": "paper_trading_engine/executor.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/executor.py:_max_hold_hours",
+      "type": "function",
+      "name": "_max_hold_hours",
+      "filePath": "paper_trading_engine/executor.py",
+      "lineRange": [
+        41,
+        53
+      ],
+      "summary": "Function _max_hold_hours in executor.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/executor.py:open_trade",
+      "type": "function",
+      "name": "open_trade",
+      "filePath": "paper_trading_engine/executor.py",
+      "lineRange": [
+        63,
+        100
+      ],
+      "summary": "Function open_trade in executor.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/executor.py:close_trade",
+      "type": "function",
+      "name": "close_trade",
+      "filePath": "paper_trading_engine/executor.py",
+      "lineRange": [
+        103,
+        128
+      ],
+      "summary": "Function close_trade in executor.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/gpt_validator.py",
+      "type": "file",
+      "name": "gpt_validator.py",
+      "filePath": "paper_trading_engine/gpt_validator.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/gpt_validator.py:_fetch_headlines",
+      "type": "function",
+      "name": "_fetch_headlines",
+      "filePath": "paper_trading_engine/gpt_validator.py",
+      "lineRange": [
+        26,
+        39
+      ],
+      "summary": "Function _fetch_headlines in gpt_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/gpt_validator.py:validate_signal",
+      "type": "function",
+      "name": "validate_signal",
+      "filePath": "paper_trading_engine/gpt_validator.py",
+      "lineRange": [
+        42,
+        112
+      ],
+      "summary": "Function validate_signal in gpt_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/llm_auditor.py",
+      "type": "file",
+      "name": "llm_auditor.py",
+      "filePath": "paper_trading_engine/llm_auditor.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/llm_auditor.py:LLMTradeAuditor",
+      "type": "class",
+      "name": "LLMTradeAuditor",
+      "filePath": "paper_trading_engine/llm_auditor.py",
+      "lineRange": [
+        92,
+        429
+      ],
+      "summary": "LLMTradeAuditor class with 8 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/llm_auditor.py:_parse_json",
+      "type": "function",
+      "name": "_parse_json",
+      "filePath": "paper_trading_engine/llm_auditor.py",
+      "lineRange": [
+        432,
+        443
+      ],
+      "summary": "Function _parse_json in llm_auditor.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "paper_trading_engine/models.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/models.py:Signal",
+      "type": "class",
+      "name": "Signal",
+      "filePath": "paper_trading_engine/models.py",
+      "lineRange": [
+        10,
+        37
+      ],
+      "summary": "Signal class with 0 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/models.py:PaperTrade",
+      "type": "class",
+      "name": "PaperTrade",
+      "filePath": "paper_trading_engine/models.py",
+      "lineRange": [
+        41,
+        67
+      ],
+      "summary": "PaperTrade class with 0 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/notifier.py",
+      "type": "file",
+      "name": "notifier.py",
+      "filePath": "paper_trading_engine/notifier.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/oos_validator.py",
+      "type": "file",
+      "name": "oos_validator.py",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/oos_validator.py:_build_lift",
+      "type": "function",
+      "name": "_build_lift",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "lineRange": [
+        109,
+        125
+      ],
+      "summary": "Function _build_lift in oos_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/oos_validator.py:_route",
+      "type": "function",
+      "name": "_route",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "lineRange": [
+        128,
+        148
+      ],
+      "summary": "Function _route in oos_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/oos_validator.py:_walk_forward",
+      "type": "function",
+      "name": "_walk_forward",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "lineRange": [
+        151,
+        195
+      ],
+      "summary": "Function _walk_forward in oos_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/oos_validator.py:compute_oos_stats",
+      "type": "function",
+      "name": "compute_oos_stats",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "lineRange": [
+        198,
+        218
+      ],
+      "summary": "Function compute_oos_stats in oos_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/oos_validator.py:tradeable_segments",
+      "type": "function",
+      "name": "tradeable_segments",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "lineRange": [
+        221,
+        237
+      ],
+      "summary": "Function tradeable_segments in oos_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/oos_validator.py:run_refresh_loop",
+      "type": "function",
+      "name": "run_refresh_loop",
+      "filePath": "paper_trading_engine/oos_validator.py",
+      "lineRange": [
+        240,
+        269
+      ],
+      "summary": "Function run_refresh_loop in oos_validator.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/portfolio.py",
+      "type": "file",
+      "name": "portfolio.py",
+      "filePath": "paper_trading_engine/portfolio.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/portfolio.py:Portfolio",
+      "type": "class",
+      "name": "Portfolio",
+      "filePath": "paper_trading_engine/portfolio.py",
+      "lineRange": [
+        19,
+        195
+      ],
+      "summary": "Portfolio class with 11 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/risk.py",
+      "type": "file",
+      "name": "risk.py",
+      "filePath": "paper_trading_engine/risk.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/risk.py:_min_confidence",
+      "type": "function",
+      "name": "_min_confidence",
+      "filePath": "paper_trading_engine/risk.py",
+      "lineRange": [
+        91,
+        114
+      ],
+      "summary": "Function _min_confidence in risk.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/risk.py:equity_based_notional",
+      "type": "function",
+      "name": "equity_based_notional",
+      "filePath": "paper_trading_engine/risk.py",
+      "lineRange": [
+        123,
+        142
+      ],
+      "summary": "Function equity_based_notional in risk.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/risk.py:regime_filter",
+      "type": "function",
+      "name": "regime_filter",
+      "filePath": "paper_trading_engine/risk.py",
+      "lineRange": [
+        154,
+        190
+      ],
+      "summary": "Function regime_filter in risk.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/risk.py:evaluate",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "paper_trading_engine/risk.py",
+      "lineRange": [
+        193,
+        329
+      ],
+      "summary": "Function evaluate in risk.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/risk_governor.py",
+      "type": "file",
+      "name": "risk_governor.py",
+      "filePath": "paper_trading_engine/risk_governor.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/risk_governor.py:DrawdownGovernor",
+      "type": "class",
+      "name": "DrawdownGovernor",
+      "filePath": "paper_trading_engine/risk_governor.py",
+      "lineRange": [
+        75,
+        156
+      ],
+      "summary": "DrawdownGovernor class with 4 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/risk_governor.py:ClusterEdgeCalculator",
+      "type": "class",
+      "name": "ClusterEdgeCalculator",
+      "filePath": "paper_trading_engine/risk_governor.py",
+      "lineRange": [
+        164,
+        208
+      ],
+      "summary": "ClusterEdgeCalculator class with 2 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/risk_governor.py:_decision",
+      "type": "function",
+      "name": "_decision",
+      "filePath": "paper_trading_engine/risk_governor.py",
+      "lineRange": [
+        62,
+        72
+      ],
+      "summary": "Function _decision in risk_governor.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/risk_guard.py",
+      "type": "file",
+      "name": "risk_guard.py",
+      "filePath": "paper_trading_engine/risk_guard.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/risk_guard.py:RiskGuard",
+      "type": "class",
+      "name": "RiskGuard",
+      "filePath": "paper_trading_engine/risk_guard.py",
+      "lineRange": [
+        27,
+        164
+      ],
+      "summary": "RiskGuard class with 6 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:paper_trading_engine/truth_router.py",
+      "type": "file",
+      "name": "truth_router.py",
+      "filePath": "paper_trading_engine/truth_router.py",
+      "summary": "Python module in the paper trading engine.",
+      "tags": [
+        "broker-adapter",
+        "trading",
+        "exchange-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/truth_router.py:TruthRouter",
+      "type": "class",
+      "name": "TruthRouter",
+      "filePath": "paper_trading_engine/truth_router.py",
+      "lineRange": [
+        95,
+        540
+      ],
+      "summary": "TruthRouter class with 14 methods.",
+      "tags": [
+        "class",
+        "stateful"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/cluster_analytics.py",
+      "type": "file",
+      "name": "cluster_analytics.py",
+      "filePath": "scripts/cluster_analytics.py",
+      "summary": "Analytics tool for clustering and analyzing signal outcomes to identify patterns in trading results.",
+      "tags": [
+        "analytics",
+        "data-analysis",
+        "signal-analysis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/cluster_analytics.py:compute_cluster_pnl",
+      "type": "function",
+      "name": "compute_cluster_pnl",
+      "filePath": "scripts/cluster_analytics.py",
+      "lineRange": [
+        28,
+        68
+      ],
+      "summary": "Function compute_cluster_pnl in cluster_analytics.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/cluster_analytics.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/cluster_analytics.py",
+      "lineRange": [
+        71,
+        110
+      ],
+      "summary": "Function main in cluster_analytics.py.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:paper_trading_engine/adaptive_sizer.py",
+      "target": "class:paper_trading_engine/adaptive_sizer.py:AdaptiveSizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/adaptive_sizer.py",
+      "target": "class:paper_trading_engine/adaptive_sizer.py:AdaptiveSizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/broker_factory.py",
+      "target": "function:paper_trading_engine/broker_factory.py:get_broker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/alpaca.py",
+      "target": "class:paper_trading_engine/brokers/alpaca.py:AlpacaBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/alpaca.py",
+      "target": "class:paper_trading_engine/brokers/alpaca.py:AlpacaBroker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/base.py",
+      "target": "class:paper_trading_engine/brokers/base.py:AbstractBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/base.py",
+      "target": "class:paper_trading_engine/brokers/base.py:AbstractBroker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance.py",
+      "target": "class:paper_trading_engine/brokers/binance.py:BinanceBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance.py",
+      "target": "function:paper_trading_engine/brokers/binance.py:_fee_in_usdt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance.py",
+      "target": "class:paper_trading_engine/brokers/binance.py:BinanceBroker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance_futures.py",
+      "target": "class:paper_trading_engine/brokers/binance_futures.py:BinanceFuturesBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance_futures.py",
+      "target": "class:paper_trading_engine/brokers/binance_futures.py:BinanceFuturesBroker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/paper.py",
+      "target": "class:paper_trading_engine/brokers/paper.py:PaperBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/paper.py",
+      "target": "class:paper_trading_engine/brokers/paper.py:PaperBroker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/capital_growth.py",
+      "target": "class:paper_trading_engine/capital_growth.py:CapitalGrowthFramework",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/capital_growth.py",
+      "target": "class:paper_trading_engine/capital_growth.py:CapitalGrowthFramework",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/discord_notifier.py",
+      "target": "class:paper_trading_engine/discord_notifier.py:DiscordNotifier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/discord_notifier.py",
+      "target": "function:paper_trading_engine/discord_notifier.py:_post",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/discord_notifier.py",
+      "target": "class:paper_trading_engine/discord_notifier.py:DiscordNotifier",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/discord_status.py",
+      "target": "function:paper_trading_engine/discord_status.py:_send_embed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/discord_status.py",
+      "target": "function:paper_trading_engine/discord_status.py:build_status_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/discord_status.py",
+      "target": "function:paper_trading_engine/discord_status.py:push_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "class:paper_trading_engine/engine.py:PaperTradingEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "class:paper_trading_engine/engine.py:PaperTradingEngine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/equity_tracker.py",
+      "target": "function:paper_trading_engine/equity_tracker.py:write_snapshot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/executor.py",
+      "target": "function:paper_trading_engine/executor.py:_max_hold_hours",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/executor.py",
+      "target": "function:paper_trading_engine/executor.py:open_trade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/executor.py",
+      "target": "function:paper_trading_engine/executor.py:close_trade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/gpt_validator.py",
+      "target": "function:paper_trading_engine/gpt_validator.py:_fetch_headlines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/gpt_validator.py",
+      "target": "function:paper_trading_engine/gpt_validator.py:validate_signal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/llm_auditor.py",
+      "target": "class:paper_trading_engine/llm_auditor.py:LLMTradeAuditor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/llm_auditor.py",
+      "target": "function:paper_trading_engine/llm_auditor.py:_parse_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/llm_auditor.py",
+      "target": "class:paper_trading_engine/llm_auditor.py:LLMTradeAuditor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/models.py",
+      "target": "class:paper_trading_engine/models.py:Signal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/models.py",
+      "target": "class:paper_trading_engine/models.py:PaperTrade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/models.py",
+      "target": "class:paper_trading_engine/models.py:Signal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/models.py",
+      "target": "class:paper_trading_engine/models.py:PaperTrade",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/oos_validator.py",
+      "target": "function:paper_trading_engine/oos_validator.py:_build_lift",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/oos_validator.py",
+      "target": "function:paper_trading_engine/oos_validator.py:_route",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/oos_validator.py",
+      "target": "function:paper_trading_engine/oos_validator.py:_walk_forward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/oos_validator.py",
+      "target": "function:paper_trading_engine/oos_validator.py:compute_oos_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/oos_validator.py",
+      "target": "function:paper_trading_engine/oos_validator.py:tradeable_segments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/oos_validator.py",
+      "target": "function:paper_trading_engine/oos_validator.py:run_refresh_loop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/portfolio.py",
+      "target": "class:paper_trading_engine/portfolio.py:Portfolio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/portfolio.py",
+      "target": "class:paper_trading_engine/portfolio.py:Portfolio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/risk.py",
+      "target": "function:paper_trading_engine/risk.py:_min_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk.py",
+      "target": "function:paper_trading_engine/risk.py:equity_based_notional",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk.py",
+      "target": "function:paper_trading_engine/risk.py:regime_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk.py",
+      "target": "function:paper_trading_engine/risk.py:evaluate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk_governor.py",
+      "target": "class:paper_trading_engine/risk_governor.py:DrawdownGovernor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk_governor.py",
+      "target": "class:paper_trading_engine/risk_governor.py:ClusterEdgeCalculator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk_governor.py",
+      "target": "function:paper_trading_engine/risk_governor.py:_decision",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk_governor.py",
+      "target": "class:paper_trading_engine/risk_governor.py:DrawdownGovernor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/risk_governor.py",
+      "target": "class:paper_trading_engine/risk_governor.py:ClusterEdgeCalculator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/risk_guard.py",
+      "target": "class:paper_trading_engine/risk_guard.py:RiskGuard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/risk_guard.py",
+      "target": "class:paper_trading_engine/risk_guard.py:RiskGuard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/truth_router.py",
+      "target": "class:paper_trading_engine/truth_router.py:TruthRouter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/truth_router.py",
+      "target": "class:paper_trading_engine/truth_router.py:TruthRouter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/cluster_analytics.py",
+      "target": "function:scripts/cluster_analytics.py:compute_cluster_pnl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scripts/cluster_analytics.py",
+      "target": "function:scripts/cluster_analytics.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:paper_trading_engine/broker_factory.py",
+      "target": "file:paper_trading_engine/brokers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/broker_factory.py",
+      "target": "file:paper_trading_engine/brokers/binance.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/broker_factory.py",
+      "target": "file:paper_trading_engine/brokers/binance_futures.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/broker_factory.py",
+      "target": "file:paper_trading_engine/brokers/paper.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/__init__.py",
+      "target": "file:paper_trading_engine/brokers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/__init__.py",
+      "target": "file:paper_trading_engine/brokers/binance.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/__init__.py",
+      "target": "file:paper_trading_engine/brokers/paper.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/alpaca.py",
+      "target": "file:paper_trading_engine/brokers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance.py",
+      "target": "file:paper_trading_engine/brokers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/binance_futures.py",
+      "target": "file:paper_trading_engine/brokers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/brokers/paper.py",
+      "target": "file:paper_trading_engine/brokers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/adaptive_sizer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/broker_factory.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/capital_growth.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/discord_status.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/equity_tracker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/gpt_validator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/llm_auditor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/notifier.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/oos_validator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/portfolio.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/risk.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/risk_governor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/risk_guard.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/engine.py",
+      "target": "file:paper_trading_engine/truth_router.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/executor.py",
+      "target": "file:paper_trading_engine/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/executor.py",
+      "target": "file:paper_trading_engine/risk.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/notifier.py",
+      "target": "file:paper_trading_engine/discord_notifier.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/portfolio.py",
+      "target": "file:paper_trading_engine/executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:paper_trading_engine/portfolio.py",
+      "target": "file:paper_trading_engine/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/cluster_analytics.py",
+      "target": "file:paper_trading_engine/risk_governor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

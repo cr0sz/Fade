@@ -1,0 +1,43 @@
+Found 26 batch files (24 logical batches, 2 multi-part):
+  batch-1.json: 68 nodes, 92 edges
+  batch-2.json: 89 nodes, 67 edges
+  batch-3-part-1.json: 51 nodes, 68 edges
+  batch-3-part-2.json: 25 nodes, 38 edges
+  batch-4.json: 84 nodes, 114 edges
+  batch-5.json: 48 nodes, 87 edges
+  batch-6.json: 49 nodes, 96 edges
+  batch-7.json: 35 nodes, 84 edges
+  batch-8.json: 48 nodes, 104 edges
+  batch-9.json: 36 nodes, 58 edges
+  batch-10.json: 58 nodes, 74 edges
+  batch-11.json: 31 nodes, 72 edges
+  batch-12.json: 1 nodes, 1 edges
+  batch-13.json: 1 nodes, 4 edges
+  batch-14-part-1.json: 58 nodes, 39 edges
+  batch-14-part-2.json: 45 nodes, 18 edges
+  batch-15.json: 3 nodes, 0 edges
+  batch-16.json: 14 nodes, 14 edges
+  batch-17.json: 7 nodes, 9 edges
+  batch-18.json: 3 nodes, 0 edges
+  batch-19.json: 9 nodes, 9 edges
+  batch-20.json: 11 nodes, 5 edges
+  batch-21.json: 5 nodes, 5 edges
+  batch-22.json: 38 nodes, 31 edges
+  batch-23.json: 92 nodes, 67 edges
+  batch-24.json: 48 nodes, 39 edges
+
+Input: 957 nodes, 1195 edges
+
+Fixed (1 corrections):
+     1 × duplicate node IDs removed (kept last)
+
+Tested-by linker:
+     0 × tested_by edges produced (path-convention supplement, production \u2192 test)
+     1 × production nodes tagged "tested"
+
+Output: 956 nodes, 1195 edges
+
+Imports edge recovery:
+  Recovered 38 `imports` edges from importMap (342 entries scanned)
+
+Written to C:\Users\bekir\Documents\projeler\Fade\.ua\intermediate\assembled-graph.json (685 KB)

@@ -1,0 +1,31 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "src/api/routes/feedback.py", "language": "python", "sizeLines": 87, "fileCategory": "code"},
+    {"path": "src/api/routes/intelligence.py", "language": "python", "sizeLines": 98, "fileCategory": "code"},
+    {"path": "src/core/signal_tracer.py", "language": "python", "sizeLines": 101, "fileCategory": "code"},
+    {"path": "src/engines/feedback_aggregator.py", "language": "python", "sizeLines": 435, "fileCategory": "code"},
+    {"path": "src/engines/institutional_confluence_engine.py", "language": "python", "sizeLines": 463, "fileCategory": "code"},
+    {"path": "src/engines/macro_regime_engine.py", "language": "python", "sizeLines": 455, "fileCategory": "code"},
+    {"path": "src/engines/mean_reversion_engine.py", "language": "python", "sizeLines": 146, "fileCategory": "code"},
+    {"path": "src/engines/signal_scoring_engine.py", "language": "python", "sizeLines": 496, "fileCategory": "code"},
+    {"path": "src/scheduler/jobs/daily_brief.py", "language": "python", "sizeLines": 142, "fileCategory": "code"},
+    {"path": "src/scheduler/jobs/executive_report.py", "language": "python", "sizeLines": 357, "fileCategory": "code"},
+    {"path": "src/scheduler/jobs/trading_journal.py", "language": "python", "sizeLines": 137, "fileCategory": "code"},
+    {"path": "src/scheduler/worker.py", "language": "python", "sizeLines": 722, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/api/routes/feedback.py": ["src/engines/feedback_aggregator.py"],
+    "src/api/routes/intelligence.py": ["src/engines/institutional_confluence_engine.py", "src/engines/institutional_flow_engine.py", "src/engines/macro_regime_engine.py"],
+    "src/core/signal_tracer.py": ["src/core/logging.py"],
+    "src/engines/feedback_aggregator.py": ["src/core/__init__.py", "src/core/logging.py"],
+    "src/engines/institutional_confluence_engine.py": ["src/core/logging.py", "src/core/signal_tracer.py", "src/models/market.py"],
+    "src/engines/macro_regime_engine.py": ["src/core/logging.py", "src/core/signal_tracer.py", "src/models/market.py"],
+    "src/engines/mean_reversion_engine.py": ["src/core/logging.py"],
+    "src/engines/signal_scoring_engine.py": ["src/core/__init__.py", "src/core/logging.py", "src/core/signal_tracer.py"],
+    "src/scheduler/jobs/daily_brief.py": [],
+    "src/scheduler/jobs/executive_report.py": [],
+    "src/scheduler/jobs/trading_journal.py": [],
+    "src/scheduler/worker.py": ["src/cache/redis_client.py", "src/core/config.py", "src/core/cost_control.py", "src/core/logging.py", "src/core/metrics.py", "src/db/connection.py", "src/engines/feedback_aggregator.py", "src/engines/institutional_confluence_engine.py", "src/engines/institutional_flow_engine.py", "src/engines/macro_regime_engine.py", "src/engines/mean_reversion_engine.py", "src/engines/news_intelligence.py", "src/engines/sentiment_engine.py", "src/engines/signal_evaluation_engine.py", "src/engines/smart_money.py", "src/engines/trend_detection.py", "src/providers/market/coingecko.py", "src/providers/market/finnhub.py", "src/scheduler/jobs/daily_brief.py", "src/scheduler/jobs/executive_report.py", "src/scheduler/jobs/trading_journal.py"]
+  }
+}

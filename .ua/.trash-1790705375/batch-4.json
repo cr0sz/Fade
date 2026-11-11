@@ -1,0 +1,2109 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/engines/validation_alert_engine.py",
+      "type": "file",
+      "name": "validation_alert_engine.py",
+      "filePath": "src/engines/validation_alert_engine.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "service",
+        "monitoring",
+        "alert-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/engines/validation_alert_engine.py:_format_telegram_message",
+      "type": "function",
+      "name": "_format_telegram_message",
+      "filePath": "src/engines/validation_alert_engine.py",
+      "lineRange": [
+        1238,
+        1259
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/engines/validation_alert_engine.py:_main",
+      "type": "function",
+      "name": "_main",
+      "filePath": "src/engines/validation_alert_engine.py",
+      "lineRange": [
+        1264,
+        1284
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/validation_alert_engine.py:AlertConfig",
+      "type": "class",
+      "name": "AlertConfig",
+      "filePath": "src/engines/validation_alert_engine.py",
+      "lineRange": [
+        77,
+        103
+      ],
+      "summary": "Class defining structure and behavior.",
+      "tags": [
+        "class",
+        "model",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/validation_alert_engine.py:ValidationAlertEngine",
+      "type": "class",
+      "name": "ValidationAlertEngine",
+      "filePath": "src/engines/validation_alert_engine.py",
+      "lineRange": [
+        108,
+        1230
+      ],
+      "summary": "Class defining structure and behavior.",
+      "tags": [
+        "class",
+        "model",
+        "engine",
+        "orchestrator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/freetime_researcher/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/freetime_researcher/__init__.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "barrel",
+        "research",
+        "analysis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/freetime_researcher/arbitration.py",
+      "type": "file",
+      "name": "arbitration.py",
+      "filePath": "src/freetime_researcher/arbitration.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "research",
+        "analysis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/freetime_researcher/arbitration.py:ollama_busy",
+      "type": "function",
+      "name": "ollama_busy",
+      "filePath": "src/freetime_researcher/arbitration.py",
+      "lineRange": [
+        22,
+        49
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/arbitration.py:load_high",
+      "type": "function",
+      "name": "load_high",
+      "filePath": "src/freetime_researcher/arbitration.py",
+      "lineRange": [
+        52,
+        61
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/freetime_researcher/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "src/freetime_researcher/main.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "entry-point",
+        "research",
+        "analysis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_set_status",
+      "type": "function",
+      "name": "_set_status",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        44,
+        45
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_wait_until_clear",
+      "type": "function",
+      "name": "_wait_until_clear",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        48,
+        61
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_load_quotes",
+      "type": "function",
+      "name": "_load_quotes",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        64,
+        75
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_reap_stuck_running",
+      "type": "function",
+      "name": "_reap_stuck_running",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        78,
+        98
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_claim_combo",
+      "type": "function",
+      "name": "_claim_combo",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        101,
+        121
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_finalize_combo",
+      "type": "function",
+      "name": "_finalize_combo",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        124,
+        138
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_is_promising",
+      "type": "function",
+      "name": "_is_promising",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        141,
+        149
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:_maybe_notify",
+      "type": "function",
+      "name": "_maybe_notify",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        152,
+        162
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        165,
+        228
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/freetime_researcher/main.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/freetime_researcher/main.py",
+      "lineRange": [
+        231,
+        232
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/freetime_researcher/notify.py",
+      "type": "file",
+      "name": "notify.py",
+      "filePath": "src/freetime_researcher/notify.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "research",
+        "analysis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/notify.py:send_telegram",
+      "type": "function",
+      "name": "send_telegram",
+      "filePath": "src/freetime_researcher/notify.py",
+      "lineRange": [
+        10,
+        17
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/notify.py:format_find",
+      "type": "function",
+      "name": "format_find",
+      "filePath": "src/freetime_researcher/notify.py",
+      "lineRange": [
+        20,
+        30
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/freetime_researcher/sweep.py",
+      "type": "file",
+      "name": "sweep.py",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "research",
+        "analysis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:params_hash",
+      "type": "function",
+      "name": "params_hash",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        49,
+        55
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:enumerate_grid",
+      "type": "function",
+      "name": "enumerate_grid",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        58,
+        69
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:grid_size",
+      "type": "function",
+      "name": "grid_size",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        72,
+        73
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:_nearest",
+      "type": "function",
+      "name": "_nearest",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        77,
+        84
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:build_series",
+      "type": "function",
+      "name": "build_series",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        87,
+        100
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:_vol_avg_24h",
+      "type": "function",
+      "name": "_vol_avg_24h",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        104,
+        108
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:_trades_for_combo",
+      "type": "function",
+      "name": "_trades_for_combo",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        111,
+        163
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:_metrics",
+      "type": "function",
+      "name": "_metrics",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        166,
+        196
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/freetime_researcher/sweep.py:run_combo",
+      "type": "function",
+      "name": "run_combo",
+      "filePath": "src/freetime_researcher/sweep.py",
+      "lineRange": [
+        199,
+        217
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pipeline/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/pipeline/__init__.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "barrel",
+        "event-driven",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pipeline/event_bus.py",
+      "type": "file",
+      "name": "event_bus.py",
+      "filePath": "src/pipeline/event_bus.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "event-driven",
+        "pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pipeline/event_bus.py:subscribe",
+      "type": "function",
+      "name": "subscribe",
+      "filePath": "src/pipeline/event_bus.py",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/event_bus.py:publish",
+      "type": "function",
+      "name": "publish",
+      "filePath": "src/pipeline/event_bus.py",
+      "lineRange": [
+        39,
+        42
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/event_bus.py:dispatch_loop",
+      "type": "function",
+      "name": "dispatch_loop",
+      "filePath": "src/pipeline/event_bus.py",
+      "lineRange": [
+        45,
+        70
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/event_bus.py:queue_size",
+      "type": "function",
+      "name": "queue_size",
+      "filePath": "src/pipeline/event_bus.py",
+      "lineRange": [
+        73,
+        74
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pipeline/tasks.py",
+      "type": "file",
+      "name": "tasks.py",
+      "filePath": "src/pipeline/tasks.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "event-driven",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/tasks.py:fetch_news",
+      "type": "function",
+      "name": "fetch_news",
+      "filePath": "src/pipeline/tasks.py",
+      "lineRange": [
+        21,
+        30
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/tasks.py:generate_signals",
+      "type": "function",
+      "name": "generate_signals",
+      "filePath": "src/pipeline/tasks.py",
+      "lineRange": [
+        33,
+        48
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/tasks.py:score_assets",
+      "type": "function",
+      "name": "score_assets",
+      "filePath": "src/pipeline/tasks.py",
+      "lineRange": [
+        51,
+        59
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pipeline/worker.py",
+      "type": "file",
+      "name": "worker.py",
+      "filePath": "src/pipeline/worker.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "event-driven",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/worker.py:start_pipeline_worker",
+      "type": "function",
+      "name": "start_pipeline_worker",
+      "filePath": "src/pipeline/worker.py",
+      "lineRange": [
+        34,
+        41
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/worker.py:trigger",
+      "type": "function",
+      "name": "trigger",
+      "filePath": "src/pipeline/worker.py",
+      "lineRange": [
+        44,
+        46
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pipeline/worker.py:_demo",
+      "type": "function",
+      "name": "_demo",
+      "filePath": "src/pipeline/worker.py",
+      "lineRange": [
+        49,
+        58
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/smart_money/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/providers/smart_money/__init__.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "barrel",
+        "data-provider",
+        "integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/smart_money/funding_flow.py",
+      "type": "file",
+      "name": "funding_flow.py",
+      "filePath": "src/providers/smart_money/funding_flow.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "data-provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/smart_money/funding_flow.py:FundingFlowProvider",
+      "type": "class",
+      "name": "FundingFlowProvider",
+      "filePath": "src/providers/smart_money/funding_flow.py",
+      "lineRange": [
+        51,
+        131
+      ],
+      "summary": "Class defining structure and behavior.",
+      "tags": [
+        "class",
+        "model",
+        "provider",
+        "data-source"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/smart_money/options_flow.py",
+      "type": "file",
+      "name": "options_flow.py",
+      "filePath": "src/providers/smart_money/options_flow.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "data-provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/providers/smart_money/options_flow.py:_fetch_options_sync",
+      "type": "function",
+      "name": "_fetch_options_sync",
+      "filePath": "src/providers/smart_money/options_flow.py",
+      "lineRange": [
+        132,
+        168
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/providers/smart_money/options_flow.py:OptionsFlowProvider",
+      "type": "class",
+      "name": "OptionsFlowProvider",
+      "filePath": "src/providers/smart_money/options_flow.py",
+      "lineRange": [
+        43,
+        129
+      ],
+      "summary": "Class defining structure and behavior.",
+      "tags": [
+        "class",
+        "model",
+        "provider",
+        "data-source"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/smart_money/sec_edgar.py",
+      "type": "file",
+      "name": "sec_edgar.py",
+      "filePath": "src/providers/smart_money/sec_edgar.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "data-provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/smart_money/sec_edgar.py:SECEdgarProvider",
+      "type": "class",
+      "name": "SECEdgarProvider",
+      "filePath": "src/providers/smart_money/sec_edgar.py",
+      "lineRange": [
+        62,
+        185
+      ],
+      "summary": "Class defining structure and behavior.",
+      "tags": [
+        "class",
+        "model",
+        "provider",
+        "data-source"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/smart_money/whale_alert.py",
+      "type": "file",
+      "name": "whale_alert.py",
+      "filePath": "src/providers/smart_money/whale_alert.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "monitoring",
+        "alert-handler",
+        "data-provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/smart_money/whale_alert.py:WhaleAlertProvider",
+      "type": "class",
+      "name": "WhaleAlertProvider",
+      "filePath": "src/providers/smart_money/whale_alert.py",
+      "lineRange": [
+        16,
+        102
+      ],
+      "summary": "Class defining structure and behavior.",
+      "tags": [
+        "class",
+        "model",
+        "provider",
+        "data-source"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/watchdog/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/watchdog/__init__.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "barrel",
+        "monitoring",
+        "system-health"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/watchdog/alerts.py",
+      "type": "file",
+      "name": "alerts.py",
+      "filePath": "src/watchdog/alerts.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "monitoring",
+        "alert-handler",
+        "system-health"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/watchdog/alerts.py:severity_for",
+      "type": "function",
+      "name": "severity_for",
+      "filePath": "src/watchdog/alerts.py",
+      "lineRange": [
+        46,
+        47
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/alerts.py:send_discord",
+      "type": "function",
+      "name": "send_discord",
+      "filePath": "src/watchdog/alerts.py",
+      "lineRange": [
+        50,
+        60
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/alerts.py:_insert_validation_alert",
+      "type": "function",
+      "name": "_insert_validation_alert",
+      "filePath": "src/watchdog/alerts.py",
+      "lineRange": [
+        67,
+        83
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/alerts.py:fire",
+      "type": "function",
+      "name": "fire",
+      "filePath": "src/watchdog/alerts.py",
+      "lineRange": [
+        86,
+        107
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/alerts.py:_resolve_validation_alerts",
+      "type": "function",
+      "name": "_resolve_validation_alerts",
+      "filePath": "src/watchdog/alerts.py",
+      "lineRange": [
+        110,
+        123
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/alerts.py:clear",
+      "type": "function",
+      "name": "clear",
+      "filePath": "src/watchdog/alerts.py",
+      "lineRange": [
+        126,
+        141
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/watchdog/checks.py",
+      "type": "file",
+      "name": "checks.py",
+      "filePath": "src/watchdog/checks.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "monitoring",
+        "system-health"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:_age_seconds",
+      "type": "function",
+      "name": "_age_seconds",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        40,
+        45
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:check_containers",
+      "type": "function",
+      "name": "check_containers",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        49,
+        73
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:check_funding_freshness",
+      "type": "function",
+      "name": "check_funding_freshness",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        77,
+        84
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:measure_quote_cadence_sec",
+      "type": "function",
+      "name": "measure_quote_cadence_sec",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        88,
+        111
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:check_quote_freshness",
+      "type": "function",
+      "name": "check_quote_freshness",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        114,
+        127
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:check_liq_stream",
+      "type": "function",
+      "name": "check_liq_stream",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        131,
+        187
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/watchdog/checks.py:check_api_health",
+      "type": "function",
+      "name": "check_api_health",
+      "filePath": "src/watchdog/checks.py",
+      "lineRange": [
+        191,
+        201
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/watchdog/digest.py",
+      "type": "file",
+      "name": "digest.py",
+      "filePath": "src/watchdog/digest.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "monitoring",
+        "system-health"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/watchdog/digest.py:_fmt_money",
+      "type": "function",
+      "name": "_fmt_money",
+      "filePath": "src/watchdog/digest.py",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/digest.py:build_digest",
+      "type": "function",
+      "name": "build_digest",
+      "filePath": "src/watchdog/digest.py",
+      "lineRange": [
+        25,
+        139
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/watchdog/digest.py:maybe_send_digest",
+      "type": "function",
+      "name": "maybe_send_digest",
+      "filePath": "src/watchdog/digest.py",
+      "lineRange": [
+        142,
+        168
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/watchdog/docker_client.py",
+      "type": "file",
+      "name": "docker_client.py",
+      "filePath": "src/watchdog/docker_client.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "monitoring",
+        "system-health"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/docker_client.py:list_containers",
+      "type": "function",
+      "name": "list_containers",
+      "filePath": "src/watchdog/docker_client.py",
+      "lineRange": [
+        24,
+        41
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/watchdog/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "src/watchdog/main.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline.",
+      "tags": [
+        "entry-point",
+        "monitoring",
+        "system-health"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/watchdog/main.py:_run_check",
+      "type": "function",
+      "name": "_run_check",
+      "filePath": "src/watchdog/main.py",
+      "lineRange": [
+        33,
+        44
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/main.py:_cycle",
+      "type": "function",
+      "name": "_cycle",
+      "filePath": "src/watchdog/main.py",
+      "lineRange": [
+        47,
+        64
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/main.py:_self_test",
+      "type": "function",
+      "name": "_self_test",
+      "filePath": "src/watchdog/main.py",
+      "lineRange": [
+        67,
+        81
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic",
+        "private",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/watchdog/main.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/watchdog/main.py",
+      "lineRange": [
+        84,
+        111
+      ],
+      "summary": "Function implementing core business logic.",
+      "tags": [
+        "function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/engines/validation_alert_engine.py",
+      "target": "function:src/engines/validation_alert_engine.py:_format_telegram_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/validation_alert_engine.py",
+      "target": "function:src/engines/validation_alert_engine.py:_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/validation_alert_engine.py",
+      "target": "class:src/engines/validation_alert_engine.py:AlertConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/validation_alert_engine.py",
+      "target": "class:src/engines/validation_alert_engine.py:ValidationAlertEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/arbitration.py",
+      "target": "function:src/freetime_researcher/arbitration.py:ollama_busy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/arbitration.py",
+      "target": "function:src/freetime_researcher/arbitration.py:load_high",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_set_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_wait_until_clear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_load_quotes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_reap_stuck_running",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_claim_combo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_finalize_combo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_is_promising",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:_maybe_notify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "function:src/freetime_researcher/main.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/notify.py",
+      "target": "function:src/freetime_researcher/notify.py:send_telegram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/notify.py",
+      "target": "function:src/freetime_researcher/notify.py:format_find",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:params_hash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:enumerate_grid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:grid_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:_nearest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:build_series",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:_vol_avg_24h",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:_trades_for_combo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/freetime_researcher/sweep.py",
+      "target": "function:src/freetime_researcher/sweep.py:run_combo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/event_bus.py",
+      "target": "function:src/pipeline/event_bus.py:subscribe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/event_bus.py",
+      "target": "function:src/pipeline/event_bus.py:publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/event_bus.py",
+      "target": "function:src/pipeline/event_bus.py:dispatch_loop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/event_bus.py",
+      "target": "function:src/pipeline/event_bus.py:queue_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/tasks.py",
+      "target": "function:src/pipeline/tasks.py:fetch_news",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/tasks.py",
+      "target": "function:src/pipeline/tasks.py:generate_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/tasks.py",
+      "target": "function:src/pipeline/tasks.py:score_assets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "function:src/pipeline/worker.py:start_pipeline_worker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "function:src/pipeline/worker.py:trigger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "function:src/pipeline/worker.py:_demo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/smart_money/funding_flow.py",
+      "target": "class:src/providers/smart_money/funding_flow.py:FundingFlowProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/smart_money/options_flow.py",
+      "target": "function:src/providers/smart_money/options_flow.py:_fetch_options_sync",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/smart_money/options_flow.py",
+      "target": "class:src/providers/smart_money/options_flow.py:OptionsFlowProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/smart_money/sec_edgar.py",
+      "target": "class:src/providers/smart_money/sec_edgar.py:SECEdgarProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/smart_money/whale_alert.py",
+      "target": "class:src/providers/smart_money/whale_alert.py:WhaleAlertProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "function:src/watchdog/alerts.py:severity_for",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "function:src/watchdog/alerts.py:send_discord",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "function:src/watchdog/alerts.py:_insert_validation_alert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "function:src/watchdog/alerts.py:fire",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "function:src/watchdog/alerts.py:_resolve_validation_alerts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "function:src/watchdog/alerts.py:clear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:_age_seconds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:check_containers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:check_funding_freshness",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:measure_quote_cadence_sec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:check_quote_freshness",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:check_liq_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "function:src/watchdog/checks.py:check_api_health",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/digest.py",
+      "target": "function:src/watchdog/digest.py:_fmt_money",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/digest.py",
+      "target": "function:src/watchdog/digest.py:build_digest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/digest.py",
+      "target": "function:src/watchdog/digest.py:maybe_send_digest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/docker_client.py",
+      "target": "function:src/watchdog/docker_client.py:list_containers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "function:src/watchdog/main.py:_run_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "function:src/watchdog/main.py:_cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "function:src/watchdog/main.py:_self_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "function:src/watchdog/main.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/validation_alert_engine.py",
+      "target": "file:src/core/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/validation_alert_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/arbitration.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/cache/redis_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/db/connection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/freetime_researcher/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/freetime_researcher/arbitration.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/freetime_researcher/notify.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/main.py",
+      "target": "file:src/freetime_researcher/sweep.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/notify.py",
+      "target": "file:src/core/discord.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/freetime_researcher/notify.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/event_bus.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/tasks.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/tasks.py",
+      "target": "file:src/pipeline/event_bus.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "file:src/pipeline/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "file:src/pipeline/event_bus.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pipeline/worker.py",
+      "target": "file:src/pipeline/tasks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/__init__.py",
+      "target": "file:src/providers/smart_money/funding_flow.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/__init__.py",
+      "target": "file:src/providers/smart_money/options_flow.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/__init__.py",
+      "target": "file:src/providers/smart_money/sec_edgar.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/__init__.py",
+      "target": "file:src/providers/smart_money/whale_alert.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/funding_flow.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/funding_flow.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/funding_flow.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/options_flow.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/options_flow.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/options_flow.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/sec_edgar.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/sec_edgar.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/sec_edgar.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/sec_edgar.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/whale_alert.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/whale_alert.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/whale_alert.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/smart_money/whale_alert.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "file:src/core/discord.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/alerts.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/checks.py",
+      "target": "file:src/watchdog/docker_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/digest.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/digest.py",
+      "target": "file:src/watchdog/alerts.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/docker_client.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/cache/redis_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/db/connection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/watchdog/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/watchdog/alerts.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/watchdog/checks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/watchdog/main.py",
+      "target": "file:src/watchdog/digest.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

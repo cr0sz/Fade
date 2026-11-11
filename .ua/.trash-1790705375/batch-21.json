@@ -1,0 +1,91 @@
+{
+  "nodes": [
+    {
+      "id": "file:sql/verification/01_provider_activity.sql",
+      "type": "file",
+      "name": "01_provider_activity.sql",
+      "filePath": "sql/verification/01_provider_activity.sql",
+      "summary": "Verification query that monitors provider ingestion activity over the last 2 hours, tracking fetch counts, error rates, latency, and duplicate detection ratios to ensure data sources are healthy and responsive.",
+      "tags": ["verification", "monitoring", "health-check", "provider-data", "operational-query"],
+      "complexity": "simple",
+      "languageNotes": "Aggregates provider_ingestion_log with time-windowed metrics; calculates noise ratio to detect data quality issues."
+    },
+    {
+      "id": "file:sql/verification/02_signal_generation.sql",
+      "type": "file",
+      "name": "02_signal_generation.sql",
+      "filePath": "sql/verification/02_signal_generation.sql",
+      "summary": "Verification query that tracks signal generation rates and characteristics across engines and signal types in the last 24 hours, including signal strength distributions and directional breakdowns.",
+      "tags": ["verification", "monitoring", "signal-generation", "health-check", "operational-query"],
+      "complexity": "simple",
+      "languageNotes": "Queries signal_trace with FILTER clauses to categorize signals by direction (bullish/bearish/risk_on/risk_off)."
+    },
+    {
+      "id": "file:sql/verification/03_signal_evaluation.sql",
+      "type": "file",
+      "name": "03_signal_evaluation.sql",
+      "filePath": "sql/verification/03_signal_evaluation.sql",
+      "summary": "Verification query that reports signal evaluation outcomes grouped by engine, signal type, and evaluation window, calculating win rates and average PnL scores to assess signal quality and predictive accuracy.",
+      "tags": ["verification", "monitoring", "signal-evaluation", "health-check", "win-rate"],
+      "complexity": "moderate",
+      "languageNotes": "Uses FILTER clauses to count outcome types and compute win_rate_pct as wins/(wins+losses) excluding neutral and pending outcomes."
+    },
+    {
+      "id": "file:sql/verification/04_feedback_metrics.sql",
+      "type": "file",
+      "name": "04_feedback_metrics.sql",
+      "filePath": "sql/verification/04_feedback_metrics.sql",
+      "summary": "Verification query that aggregates the latest performance metrics for both engines and data providers, reporting win rates at multiple time windows (1h, 24h, 7d) and average PnL scores.",
+      "tags": ["verification", "monitoring", "performance-metrics", "health-check", "union-query"],
+      "complexity": "moderate",
+      "languageNotes": "Uses DISTINCT ON and ORDER BY to fetch latest metrics per engine/provider, then UNIONs engine and provider metric sets."
+    },
+    {
+      "id": "file:sql/verification/05_pipeline_integrity.sql",
+      "type": "file",
+      "name": "05_pipeline_integrity.sql",
+      "filePath": "sql/verification/05_pipeline_integrity.sql",
+      "summary": "Verification query that traces the full lifecycle of data processing cycles across ingestion, signal generation, and evaluation stages, using CTEs and outer joins to identify stalled or incomplete pipelines.",
+      "tags": ["verification", "monitoring", "pipeline-integrity", "lifecycle-tracking", "cte-query"],
+      "complexity": "complex",
+      "languageNotes": "Uses three CTEs to stage ingestion, signal, and feedback cycles, then outer joins to detect which cycles reach 'complete' stage vs stalling at intermediate stages."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sql/verification/02_signal_generation.sql",
+      "target": "file:sql/verification/03_signal_evaluation.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sql/verification/03_signal_evaluation.sql",
+      "target": "file:sql/verification/04_feedback_metrics.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sql/verification/01_provider_activity.sql",
+      "target": "file:sql/verification/05_pipeline_integrity.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sql/verification/02_signal_generation.sql",
+      "target": "file:sql/verification/05_pipeline_integrity.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sql/verification/03_signal_evaluation.sql",
+      "target": "file:sql/verification/05_pipeline_integrity.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

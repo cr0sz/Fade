@@ -1,0 +1,2887 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 15,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/engines/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/market_data_logger/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/scheduler/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/scheduler/jobs/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/validation/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/validation/models.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 62,
+      "classes": [
+        {
+          "name": "SignalRecord",
+          "startLine": 11,
+          "endLine": 23,
+          "methods": [],
+          "properties": [
+            "id",
+            "signal_type",
+            "engine_name",
+            "ticker",
+            "direction",
+            "composite_score",
+            "confidence_level",
+            "signal_data",
+            "source_table",
+            "source_id",
+            "emitted_at",
+            "archived_at"
+          ]
+        },
+        {
+          "name": "SignalOutcome",
+          "startLine": 26,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "id",
+            "signal_id",
+            "ticker",
+            "evaluation_window_h",
+            "predicted_direction",
+            "actual_direction",
+            "direction_correct",
+            "predicted_score",
+            "outcome_score_delta",
+            "evaluated_at"
+          ]
+        },
+        {
+          "name": "BacktestRun",
+          "startLine": 39,
+          "endLine": 52,
+          "methods": [],
+          "properties": [
+            "id",
+            "run_id",
+            "engine_name",
+            "window_days",
+            "started_at",
+            "completed_at",
+            "status",
+            "total_signals",
+            "evaluated_signals",
+            "accuracy_4h",
+            "accuracy_24h",
+            "accuracy_72h",
+            "parameters"
+          ]
+        },
+        {
+          "name": "EnginePerformance",
+          "startLine": 55,
+          "endLine": 64,
+          "methods": [],
+          "properties": [
+            "engine_name",
+            "metric_date",
+            "total_signals",
+            "accuracy_4h",
+            "accuracy_24h",
+            "accuracy_72h",
+            "avg_confidence",
+            "high_conf_accuracy",
+            "signal_count_by_type"
+          ]
+        },
+        {
+          "name": "AccuracySummary",
+          "startLine": 67,
+          "endLine": 74,
+          "methods": [],
+          "properties": [
+            "engine_name",
+            "accuracy_4h",
+            "accuracy_24h",
+            "accuracy_72h",
+            "total_evaluated",
+            "high_conf_accuracy",
+            "period_days"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SignalRecord",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "SignalOutcome",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "BacktestRun",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "EnginePerformance",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "AccuracySummary",
+          "line": 67,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "tests/conftest.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "_make_stub",
+          "startLine": 33,
+          "endLine": 37,
+          "params": [
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_make_stub",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_make_stub",
+          "callee": "types.ModuleType",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_binance_futures.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 285,
+      "nonEmptyLines": 220,
+      "functions": [
+        {
+          "name": "_fresh",
+          "startLine": 39,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "_av",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "v"
+          ]
+        },
+        {
+          "name": "_happy_post",
+          "startLine": 60,
+          "endLine": 69,
+          "params": [
+            "posts"
+          ]
+        },
+        {
+          "name": "test_floor_to_step_pure",
+          "startLine": 74,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "test_min_notional_bump",
+          "startLine": 81,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "test_qty_step_rounding",
+          "startLine": 99,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "test_hedge_mode_rejected",
+          "startLine": 116,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "test_leverage_failure_blocks",
+          "startLine": 133,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "test_isolated_margin_before_order",
+          "startLine": 157,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "test_close_zero_qty_is_failure",
+          "startLine": 175,
+          "endLine": 185,
+          "params": []
+        },
+        {
+          "name": "test_maker_close_pays_maker_fee",
+          "startLine": 190,
+          "endLine": 217,
+          "params": []
+        },
+        {
+          "name": "test_cancel_stop_graceful",
+          "startLine": 222,
+          "endLine": 234,
+          "params": []
+        },
+        {
+          "name": "test_close_full_exit_uses_exchange_qty",
+          "startLine": 239,
+          "endLine": 260,
+          "params": []
+        },
+        {
+          "name": "test_maker_disabled_market_fallback",
+          "startLine": 265,
+          "endLine": 285,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_fresh",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "_av",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "_happy_post",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "test_floor_to_step_pure",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "test_min_notional_bump",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "test_qty_step_rounding",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "test_hedge_mode_rejected",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "test_leverage_failure_blocks",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "test_isolated_margin_before_order",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "test_close_zero_qty_is_failure",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "test_maker_close_pays_maker_fee",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "test_cancel_stop_graceful",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "test_close_full_exit_uses_exchange_qty",
+          "line": 239,
+          "isDefault": false
+        },
+        {
+          "name": "test_maker_disabled_market_fallback",
+          "line": 265,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_fresh",
+          "callee": "_bf._FILTER_CACHE.clear",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_fresh",
+          "callee": "_bf._LEVERAGE_SET.clear",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_fresh",
+          "callee": "_bf._DUAL_SIDE_CHECKED.clear",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_fresh",
+          "callee": "os.environ.update",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_fresh",
+          "callee": "os.environ.pop",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_fresh",
+          "callee": "_bf.BinanceFuturesBroker",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_post",
+          "callee": "posts.append",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_floor_to_step_pure",
+          "callee": "_bf._floor_to_step",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_floor_to_step_pure",
+          "callee": "_bf._floor_to_step",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "_fresh",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "_av",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "_av",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "_av",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "_happy_post",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "asyncio.run",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "b.place_order",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test_min_notional_bump",
+          "callee": "len",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "_fresh",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "_av",
+          "lineNumber": 102
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "_av",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "_av",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "_happy_post",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "asyncio.run",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_qty_step_rounding",
+          "callee": "b.place_order",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "_fresh",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "_av",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "_av",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "_av",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "_happy_post",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "asyncio.run",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_hedge_mode_rejected",
+          "callee": "b.place_order",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_leverage_failure_blocks",
+          "callee": "_fresh",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_leverage_failure_blocks",
+          "callee": "_av",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_leverage_failure_blocks",
+          "callee": "_av",
+          "lineNumber": 137
+        },
+        {
+          "caller": "test_leverage_failure_blocks",
+          "callee": "_av",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_post",
+          "callee": "posts.append",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_post",
+          "callee": "Exception",
+          "lineNumber": 143
+        },
+        {
+          "caller": "test_leverage_failure_blocks",
+          "callee": "asyncio.run",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_leverage_failure_blocks",
+          "callee": "b.place_order",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "_fresh",
+          "lineNumber": 158
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "_av",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "_av",
+          "lineNumber": 161
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "_av",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "_happy_post",
+          "lineNumber": 163
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "asyncio.run",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "b.place_order",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "paths.index",
+          "lineNumber": 170
+        },
+        {
+          "caller": "test_isolated_margin_before_order",
+          "callee": "paths.index",
+          "lineNumber": 170
+        },
+        {
+          "caller": "test_close_zero_qty_is_failure",
+          "callee": "_fresh",
+          "lineNumber": 176
+        },
+        {
+          "caller": "test_close_zero_qty_is_failure",
+          "callee": "_av",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_close_zero_qty_is_failure",
+          "callee": "_av",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_close_zero_qty_is_failure",
+          "callee": "_av",
+          "lineNumber": 179
+        },
+        {
+          "caller": "test_close_zero_qty_is_failure",
+          "callee": "asyncio.run",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_close_zero_qty_is_failure",
+          "callee": "b.close_position",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "_fresh",
+          "lineNumber": 191
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "_av",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "_av",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_post",
+          "callee": "posts.append",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "asyncio.run",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "b.close_position",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "len",
+          "lineNumber": 212
+        },
+        {
+          "caller": "test_maker_close_pays_maker_fee",
+          "callee": "abs",
+          "lineNumber": 217
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "_fresh",
+          "lineNumber": 224
+        },
+        {
+          "caller": "_del_fail",
+          "callee": "Exception",
+          "lineNumber": 227
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "asyncio.run",
+          "lineNumber": 229
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "b.cancel_stop_order",
+          "lineNumber": 229
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "_fresh",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "_av",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "asyncio.run",
+          "lineNumber": 234
+        },
+        {
+          "caller": "test_cancel_stop_graceful",
+          "callee": "b2.cancel_stop_order",
+          "lineNumber": 234
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "_fresh",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "_av",
+          "lineNumber": 244
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "_av",
+          "lineNumber": 245
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "_av",
+          "lineNumber": 246
+        },
+        {
+          "caller": "_capture_post",
+          "callee": "posted_params.append",
+          "lineNumber": 251
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "asyncio.run",
+          "lineNumber": 256
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "b.close_position",
+          "lineNumber": 256
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "next",
+          "lineNumber": 258
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "p.get",
+          "lineNumber": 258
+        },
+        {
+          "caller": "test_close_full_exit_uses_exchange_qty",
+          "callee": "float",
+          "lineNumber": 260
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "_fresh",
+          "lineNumber": 271
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "_av",
+          "lineNumber": 273
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "_av",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "_av",
+          "lineNumber": 275
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "_happy_post",
+          "lineNumber": 276
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "asyncio.run",
+          "lineNumber": 278
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "b.place_order",
+          "lineNumber": 278
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "len",
+          "lineNumber": 282
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "len",
+          "lineNumber": 282
+        },
+        {
+          "caller": "test_maker_disabled_market_fallback",
+          "callee": "os.environ.pop",
+          "lineNumber": 285
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 14,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 241,
+      "nonEmptyLines": 200,
+      "functions": [
+        {
+          "name": "_signal",
+          "startLine": 33,
+          "endLine": 54,
+          "params": [
+            "direction",
+            "exchange",
+            "price",
+            "confidence",
+            "asset"
+          ]
+        },
+        {
+          "name": "_portfolio",
+          "startLine": 57,
+          "endLine": 60,
+          "params": [
+            "balance"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestMaxHoldHours",
+          "startLine": 65,
+          "endLine": 100,
+          "methods": [
+            "test_crypto_short_returns_correct_hold",
+            "test_crypto_long_returns_correct_hold",
+            "test_stock_hold",
+            "test_bist_hold",
+            "test_empty_exchange_defaults_to_crypto",
+            "test_crypto_short_not_same_as_long",
+            "test_open_trade_carries_correct_max_hold"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestSizingGuards",
+          "startLine": 105,
+          "endLine": 189,
+          "methods": [
+            "test_below_min_notional_returns_none",
+            "test_zero_price_returns_none",
+            "test_negative_price_returns_none",
+            "test_volume_cap_limits_notional",
+            "test_vol_scale_applied",
+            "test_vol_scale_capped_at_1_5",
+            "test_vol_scale_tiny_skipped_by_min_notional",
+            "test_slippage_direction_long",
+            "test_slippage_direction_short"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestCloseTrade",
+          "startLine": 194,
+          "endLine": 241,
+          "methods": [
+            "_make_trade",
+            "test_long_profit",
+            "test_long_loss",
+            "test_short_profit",
+            "test_short_loss",
+            "test_close_trade_sets_exit_price",
+            "test_close_trade_sets_pnl"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_signal",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "_portfolio",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "TestMaxHoldHours",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "TestSizingGuards",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "TestCloseTrade",
+          "line": 194,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_signal",
+          "callee": "Signal",
+          "lineNumber": 40
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "Portfolio",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_crypto_short_returns_correct_hold",
+          "callee": "_max_hold_hours",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_crypto_long_returns_correct_hold",
+          "callee": "_max_hold_hours",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_stock_hold",
+          "callee": "_max_hold_hours",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_stock_hold",
+          "callee": "_max_hold_hours",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_bist_hold",
+          "callee": "_max_hold_hours",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test_empty_exchange_defaults_to_crypto",
+          "callee": "_max_hold_hours",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_empty_exchange_defaults_to_crypto",
+          "callee": "_max_hold_hours",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_crypto_short_not_same_as_long",
+          "callee": "_max_hold_hours",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_crypto_short_not_same_as_long",
+          "callee": "_max_hold_hours",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_open_trade_carries_correct_max_hold",
+          "callee": "_signal",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_open_trade_carries_correct_max_hold",
+          "callee": "_portfolio",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_open_trade_carries_correct_max_hold",
+          "callee": "open_trade",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_below_min_notional_returns_none",
+          "callee": "_signal",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_below_min_notional_returns_none",
+          "callee": "_portfolio",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_below_min_notional_returns_none",
+          "callee": "open_trade",
+          "lineNumber": 111
+        },
+        {
+          "caller": "test_zero_price_returns_none",
+          "callee": "_signal",
+          "lineNumber": 115
+        },
+        {
+          "caller": "test_zero_price_returns_none",
+          "callee": "_portfolio",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_zero_price_returns_none",
+          "callee": "open_trade",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_negative_price_returns_none",
+          "callee": "_signal",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_negative_price_returns_none",
+          "callee": "_portfolio",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_negative_price_returns_none",
+          "callee": "open_trade",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_volume_cap_limits_notional",
+          "callee": "_signal",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_volume_cap_limits_notional",
+          "callee": "_portfolio",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_volume_cap_limits_notional",
+          "callee": "open_trade",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "_signal",
+          "lineNumber": 137
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "_portfolio",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "open_trade",
+          "lineNumber": 140
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "_signal",
+          "lineNumber": 142
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "_portfolio",
+          "lineNumber": 144
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "open_trade",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_vol_scale_applied",
+          "callee": "abs",
+          "lineNumber": 148
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "_signal",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "_portfolio",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "open_trade",
+          "lineNumber": 155
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "_signal",
+          "lineNumber": 157
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "_portfolio",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "open_trade",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_vol_scale_capped_at_1_5",
+          "callee": "abs",
+          "lineNumber": 163
+        },
+        {
+          "caller": "test_vol_scale_tiny_skipped_by_min_notional",
+          "callee": "_signal",
+          "lineNumber": 169
+        },
+        {
+          "caller": "test_vol_scale_tiny_skipped_by_min_notional",
+          "callee": "_portfolio",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_vol_scale_tiny_skipped_by_min_notional",
+          "callee": "open_trade",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_slippage_direction_long",
+          "callee": "_signal",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_slippage_direction_long",
+          "callee": "_portfolio",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_slippage_direction_long",
+          "callee": "open_trade",
+          "lineNumber": 179
+        },
+        {
+          "caller": "test_slippage_direction_short",
+          "callee": "_signal",
+          "lineNumber": 185
+        },
+        {
+          "caller": "test_slippage_direction_short",
+          "callee": "_portfolio",
+          "lineNumber": 186
+        },
+        {
+          "caller": "test_slippage_direction_short",
+          "callee": "open_trade",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_make_trade",
+          "callee": "PaperTrade",
+          "lineNumber": 196
+        },
+        {
+          "caller": "test_long_profit",
+          "callee": "self._make_trade",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_long_profit",
+          "callee": "close_trade",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_long_profit",
+          "callee": "abs",
+          "lineNumber": 211
+        },
+        {
+          "caller": "test_long_loss",
+          "callee": "self._make_trade",
+          "lineNumber": 214
+        },
+        {
+          "caller": "test_long_loss",
+          "callee": "close_trade",
+          "lineNumber": 215
+        },
+        {
+          "caller": "test_long_loss",
+          "callee": "abs",
+          "lineNumber": 217
+        },
+        {
+          "caller": "test_short_profit",
+          "callee": "self._make_trade",
+          "lineNumber": 221
+        },
+        {
+          "caller": "test_short_profit",
+          "callee": "close_trade",
+          "lineNumber": 222
+        },
+        {
+          "caller": "test_short_profit",
+          "callee": "abs",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_short_loss",
+          "callee": "self._make_trade",
+          "lineNumber": 228
+        },
+        {
+          "caller": "test_short_loss",
+          "callee": "close_trade",
+          "lineNumber": 229
+        },
+        {
+          "caller": "test_short_loss",
+          "callee": "abs",
+          "lineNumber": 231
+        },
+        {
+          "caller": "test_close_trade_sets_exit_price",
+          "callee": "self._make_trade",
+          "lineNumber": 234
+        },
+        {
+          "caller": "test_close_trade_sets_exit_price",
+          "callee": "close_trade",
+          "lineNumber": 235
+        },
+        {
+          "caller": "test_close_trade_sets_pnl",
+          "callee": "self._make_trade",
+          "lineNumber": 239
+        },
+        {
+          "caller": "test_close_trade_sets_pnl",
+          "callee": "close_trade",
+          "lineNumber": 240
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 2,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "tests/test_exit_priority.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 241,
+      "nonEmptyLines": 197,
+      "functions": [
+        {
+          "name": "_trade",
+          "startLine": 31,
+          "endLine": 53,
+          "params": [
+            "asset",
+            "direction",
+            "entry",
+            "size",
+            "exchange",
+            "max_hold_hours",
+            "age_hours"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestExitPriority",
+          "startLine": 58,
+          "endLine": 163,
+          "methods": [
+            "test_partial_t1_threshold",
+            "test_partial_t2_threshold",
+            "test_trail_activate_at_0_5_pct",
+            "test_trail_not_triggered_before_activate",
+            "test_short_trail_triggers_on_price_rise",
+            "test_age_out_fires_when_hold_exceeded",
+            "test_age_out_not_fired_when_within_hold",
+            "test_partial_must_not_remove_position",
+            "test_stop_loss_closes_position"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestTrailPeakRestart",
+          "startLine": 168,
+          "endLine": 213,
+          "methods": [
+            "test_default_peak_is_entry_price",
+            "test_restored_peak_above_entry_gives_tighter_trail",
+            "test_lost_peak_does_not_corrupt_pnl"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestMaxHoldOnTrade",
+          "startLine": 218,
+          "endLine": 241,
+          "methods": [
+            "test_crypto_short_hold_via_executor",
+            "test_crypto_long_hold_via_executor",
+            "test_stock_hold_independent_of_confidence"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_trade",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "TestExitPriority",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "TestTrailPeakRestart",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "TestMaxHoldOnTrade",
+          "line": 218,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_trade",
+          "callee": "datetime.now",
+          "lineNumber": 40
+        },
+        {
+          "caller": "_trade",
+          "callee": "timedelta",
+          "lineNumber": 40
+        },
+        {
+          "caller": "_trade",
+          "callee": "PaperTrade",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_age_out_fires_when_hold_exceeded",
+          "callee": "Portfolio",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_age_out_fires_when_hold_exceeded",
+          "callee": "_trade",
+          "lineNumber": 132
+        },
+        {
+          "caller": "test_age_out_fires_when_hold_exceeded",
+          "callee": "p.aged_positions",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_age_out_not_fired_when_within_hold",
+          "callee": "Portfolio",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_age_out_not_fired_when_within_hold",
+          "callee": "_trade",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test_age_out_not_fired_when_within_hold",
+          "callee": "p.aged_positions",
+          "lineNumber": 141
+        },
+        {
+          "caller": "test_partial_must_not_remove_position",
+          "callee": "Portfolio",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_partial_must_not_remove_position",
+          "callee": "_trade",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_partial_must_not_remove_position",
+          "callee": "p.partial_close_position",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_stop_loss_closes_position",
+          "callee": "Portfolio",
+          "lineNumber": 156
+        },
+        {
+          "caller": "test_stop_loss_closes_position",
+          "callee": "_trade",
+          "lineNumber": 157
+        },
+        {
+          "caller": "test_stop_loss_closes_position",
+          "callee": "p.close_position",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_lost_peak_does_not_corrupt_pnl",
+          "callee": "Portfolio",
+          "lineNumber": 205
+        },
+        {
+          "caller": "test_lost_peak_does_not_corrupt_pnl",
+          "callee": "_trade",
+          "lineNumber": 206
+        },
+        {
+          "caller": "test_lost_peak_does_not_corrupt_pnl",
+          "callee": "p.close_position",
+          "lineNumber": 211
+        },
+        {
+          "caller": "test_crypto_short_hold_via_executor",
+          "callee": "_max_hold_hours",
+          "lineNumber": 231
+        },
+        {
+          "caller": "test_crypto_short_hold_via_executor",
+          "callee": "_max_hold_hours",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_crypto_long_hold_via_executor",
+          "callee": "_max_hold_hours",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_stock_hold_independent_of_confidence",
+          "callee": "_max_hold_hours",
+          "lineNumber": 241
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 1,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "tests/test_portfolio.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 241,
+      "nonEmptyLines": 195,
+      "functions": [
+        {
+          "name": "_open_trade",
+          "startLine": 22,
+          "endLine": 40,
+          "params": [
+            "asset",
+            "direction",
+            "entry",
+            "size",
+            "exchange"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestEquityCalculation",
+          "startLine": 45,
+          "endLine": 140,
+          "methods": [
+            "_portfolio_with_short",
+            "test_short_equity_rises_when_price_falls",
+            "test_short_unrealized_pnl_positive_on_price_fall",
+            "test_short_unrealized_pnl_negative_on_price_rise",
+            "test_long_unrealized_pnl_positive_on_price_rise",
+            "test_equity_equals_balance_plus_notional_when_no_price",
+            "test_short_equity_symmetry_with_long",
+            "test_close_position_returns_notional_plus_pnl",
+            "test_close_short_profit_credited"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestPartialExits",
+          "startLine": 145,
+          "endLine": 241,
+          "methods": [
+            "test_partial_close_reduces_size",
+            "test_partial_close_credits_pnl",
+            "test_partial_close_does_not_remove_position",
+            "test_partial_close_fraction_0_returns_none",
+            "test_partial_close_fraction_1_returns_none",
+            "test_sequential_partials_dont_double_count_pnl",
+            "test_partial_close_missing_asset_returns_none",
+            "test_realized_pnl_accumulates_across_partials",
+            "test_full_close_after_partials_removes_position"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_open_trade",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "TestEquityCalculation",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "TestPartialExits",
+          "line": 145,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_open_trade",
+          "callee": "PaperTrade",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_portfolio_with_short",
+          "callee": "Portfolio",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_portfolio_with_short",
+          "callee": "_open_trade",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_portfolio_with_short",
+          "callee": "p.update_prices",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_short_equity_rises_when_price_falls",
+          "callee": "self._portfolio_with_short",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_short_unrealized_pnl_positive_on_price_fall",
+          "callee": "self._portfolio_with_short",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_short_unrealized_pnl_negative_on_price_rise",
+          "callee": "self._portfolio_with_short",
+          "lineNumber": 73
+        },
+        {
+          "caller": "test_long_unrealized_pnl_positive_on_price_rise",
+          "callee": "Portfolio",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_long_unrealized_pnl_positive_on_price_rise",
+          "callee": "_open_trade",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_long_unrealized_pnl_positive_on_price_rise",
+          "callee": "p.update_prices",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_equity_equals_balance_plus_notional_when_no_price",
+          "callee": "Portfolio",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_equity_equals_balance_plus_notional_when_no_price",
+          "callee": "_open_trade",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_equity_equals_balance_plus_notional_when_no_price",
+          "callee": "abs",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "Portfolio",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "_open_trade",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "long_p.update_prices",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "Portfolio",
+          "lineNumber": 102
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "_open_trade",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "short_p.update_prices",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_short_equity_symmetry_with_long",
+          "callee": "abs",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_close_position_returns_notional_plus_pnl",
+          "callee": "Portfolio",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_close_position_returns_notional_plus_pnl",
+          "callee": "_open_trade",
+          "lineNumber": 113
+        },
+        {
+          "caller": "test_close_position_returns_notional_plus_pnl",
+          "callee": "p.close_position",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_close_position_returns_notional_plus_pnl",
+          "callee": "abs",
+          "lineNumber": 125
+        },
+        {
+          "caller": "test_close_short_profit_credited",
+          "callee": "Portfolio",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_close_short_profit_credited",
+          "callee": "_open_trade",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_close_short_profit_credited",
+          "callee": "p.close_position",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_close_short_profit_credited",
+          "callee": "abs",
+          "lineNumber": 140
+        },
+        {
+          "caller": "test_partial_close_reduces_size",
+          "callee": "Portfolio",
+          "lineNumber": 147
+        },
+        {
+          "caller": "test_partial_close_reduces_size",
+          "callee": "_open_trade",
+          "lineNumber": 148
+        },
+        {
+          "caller": "test_partial_close_reduces_size",
+          "callee": "p.partial_close_position",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_partial_close_reduces_size",
+          "callee": "abs",
+          "lineNumber": 155
+        },
+        {
+          "caller": "test_partial_close_credits_pnl",
+          "callee": "Portfolio",
+          "lineNumber": 158
+        },
+        {
+          "caller": "test_partial_close_credits_pnl",
+          "callee": "_open_trade",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_partial_close_credits_pnl",
+          "callee": "p.partial_close_position",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_partial_close_does_not_remove_position",
+          "callee": "Portfolio",
+          "lineNumber": 173
+        },
+        {
+          "caller": "test_partial_close_does_not_remove_position",
+          "callee": "_open_trade",
+          "lineNumber": 174
+        },
+        {
+          "caller": "test_partial_close_does_not_remove_position",
+          "callee": "p.partial_close_position",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_partial_close_fraction_0_returns_none",
+          "callee": "Portfolio",
+          "lineNumber": 182
+        },
+        {
+          "caller": "test_partial_close_fraction_0_returns_none",
+          "callee": "_open_trade",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_partial_close_fraction_0_returns_none",
+          "callee": "p.partial_close_position",
+          "lineNumber": 185
+        },
+        {
+          "caller": "test_partial_close_fraction_1_returns_none",
+          "callee": "Portfolio",
+          "lineNumber": 190
+        },
+        {
+          "caller": "test_partial_close_fraction_1_returns_none",
+          "callee": "_open_trade",
+          "lineNumber": 191
+        },
+        {
+          "caller": "test_partial_close_fraction_1_returns_none",
+          "callee": "p.partial_close_position",
+          "lineNumber": 193
+        },
+        {
+          "caller": "test_sequential_partials_dont_double_count_pnl",
+          "callee": "Portfolio",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_sequential_partials_dont_double_count_pnl",
+          "callee": "_open_trade",
+          "lineNumber": 200
+        },
+        {
+          "caller": "test_sequential_partials_dont_double_count_pnl",
+          "callee": "p.partial_close_position",
+          "lineNumber": 205
+        },
+        {
+          "caller": "test_sequential_partials_dont_double_count_pnl",
+          "callee": "p.partial_close_position",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_partial_close_missing_asset_returns_none",
+          "callee": "Portfolio",
+          "lineNumber": 215
+        },
+        {
+          "caller": "test_partial_close_missing_asset_returns_none",
+          "callee": "p.partial_close_position",
+          "lineNumber": 216
+        },
+        {
+          "caller": "test_realized_pnl_accumulates_across_partials",
+          "callee": "Portfolio",
+          "lineNumber": 220
+        },
+        {
+          "caller": "test_realized_pnl_accumulates_across_partials",
+          "callee": "_open_trade",
+          "lineNumber": 221
+        },
+        {
+          "caller": "test_realized_pnl_accumulates_across_partials",
+          "callee": "p.partial_close_position",
+          "lineNumber": 225
+        },
+        {
+          "caller": "test_realized_pnl_accumulates_across_partials",
+          "callee": "p.partial_close_position",
+          "lineNumber": 229
+        },
+        {
+          "caller": "test_full_close_after_partials_removes_position",
+          "callee": "Portfolio",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_full_close_after_partials_removes_position",
+          "callee": "_open_trade",
+          "lineNumber": 234
+        },
+        {
+          "caller": "test_full_close_after_partials_removes_position",
+          "callee": "p.partial_close_position",
+          "lineNumber": 238
+        },
+        {
+          "caller": "test_full_close_after_partials_removes_position",
+          "callee": "p.close_position",
+          "lineNumber": 239
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "tests/test_reconcile_ignore.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "test_parse_ignore_assets",
+          "startLine": 9,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "test_parse_ignore_assets",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_parse_ignore_assets",
+          "callee": "p",
+          "lineNumber": 11
+        },
+        {
+          "caller": "test_parse_ignore_assets",
+          "callee": "p",
+          "lineNumber": 12
+        },
+        {
+          "caller": "test_parse_ignore_assets",
+          "callee": "p",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test_parse_ignore_assets",
+          "callee": "set",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test_parse_ignore_assets",
+          "callee": "p",
+          "lineNumber": 14
+        },
+        {
+          "caller": "test_parse_ignore_assets",
+          "callee": "set",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_risk.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 213,
+      "nonEmptyLines": 184,
+      "functions": [
+        {
+          "name": "_signal",
+          "startLine": 28,
+          "endLine": 52,
+          "params": [
+            "direction",
+            "exchange",
+            "confidence",
+            "asset",
+            "news",
+            "social",
+            "volume",
+            "has_meta"
+          ]
+        },
+        {
+          "name": "_open_trade",
+          "startLine": 55,
+          "endLine": 62,
+          "params": [
+            "asset",
+            "exchange"
+          ]
+        },
+        {
+          "name": "_portfolio",
+          "startLine": 65,
+          "endLine": 77,
+          "params": [
+            "n_crypto",
+            "n_us",
+            "n_bist",
+            "balance"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestEvaluate",
+          "startLine": 82,
+          "endLine": 190,
+          "methods": [
+            "test_valid_crypto_short_accepted",
+            "test_us_exchange_rejected",
+            "test_unknown_exchange_rejected",
+            "test_low_confidence_rejected",
+            "test_no_conviction_rejected",
+            "test_meta_conviction_bypasses_component_check",
+            "test_below_min_balance_rejected",
+            "test_duplicate_asset_rejected",
+            "test_max_open_trades_rejected",
+            "test_max_crypto_sub_limit_rejected",
+            "test_risk_off_penalty_tightens_long_threshold",
+            "test_pump_chasing_cap_blocks_high_conf_crypto_long"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestTradeFraction",
+          "startLine": 195,
+          "endLine": 213,
+          "methods": [
+            "test_crypto_fraction_smaller_than_stock",
+            "test_high_confidence_fraction_larger_than_medium",
+            "test_low_confidence_fraction_smaller_than_medium"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_signal",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "_open_trade",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "_portfolio",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "TestEvaluate",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "TestTradeFraction",
+          "line": 195,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_signal",
+          "callee": "Signal",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_open_trade",
+          "callee": "PaperTrade",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "Portfolio",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "range",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "_open_trade",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "range",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "_open_trade",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "range",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_portfolio",
+          "callee": "_open_trade",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_valid_crypto_short_accepted",
+          "callee": "_signal",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_valid_crypto_short_accepted",
+          "callee": "_portfolio",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_valid_crypto_short_accepted",
+          "callee": "evaluate",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_us_exchange_rejected",
+          "callee": "_signal",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_us_exchange_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_us_exchange_rejected",
+          "callee": "evaluate",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_us_exchange_rejected",
+          "callee": "reason.lower",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_unknown_exchange_rejected",
+          "callee": "_signal",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_unknown_exchange_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_unknown_exchange_rejected",
+          "callee": "evaluate",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_low_confidence_rejected",
+          "callee": "_signal",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_low_confidence_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_low_confidence_rejected",
+          "callee": "evaluate",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_no_conviction_rejected",
+          "callee": "_signal",
+          "lineNumber": 113
+        },
+        {
+          "caller": "test_no_conviction_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_no_conviction_rejected",
+          "callee": "evaluate",
+          "lineNumber": 118
+        },
+        {
+          "caller": "test_meta_conviction_bypasses_component_check",
+          "callee": "_signal",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_meta_conviction_bypasses_component_check",
+          "callee": "_portfolio",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_meta_conviction_bypasses_component_check",
+          "callee": "evaluate",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_below_min_balance_rejected",
+          "callee": "_signal",
+          "lineNumber": 133
+        },
+        {
+          "caller": "test_below_min_balance_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_below_min_balance_rejected",
+          "callee": "evaluate",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_duplicate_asset_rejected",
+          "callee": "_signal",
+          "lineNumber": 140
+        },
+        {
+          "caller": "test_duplicate_asset_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 142
+        },
+        {
+          "caller": "test_duplicate_asset_rejected",
+          "callee": "_open_trade",
+          "lineNumber": 143
+        },
+        {
+          "caller": "test_duplicate_asset_rejected",
+          "callee": "evaluate",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_max_open_trades_rejected",
+          "callee": "_signal",
+          "lineNumber": 150
+        },
+        {
+          "caller": "test_max_open_trades_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_max_open_trades_rejected",
+          "callee": "evaluate",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_max_open_trades_rejected",
+          "callee": "reason.lower",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_max_open_trades_rejected",
+          "callee": "reason.lower",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_max_crypto_sub_limit_rejected",
+          "callee": "_signal",
+          "lineNumber": 157
+        },
+        {
+          "caller": "test_max_crypto_sub_limit_rejected",
+          "callee": "_portfolio",
+          "lineNumber": 158
+        },
+        {
+          "caller": "test_max_crypto_sub_limit_rejected",
+          "callee": "evaluate",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_max_crypto_sub_limit_rejected",
+          "callee": "reason.lower",
+          "lineNumber": 161
+        },
+        {
+          "caller": "test_max_crypto_sub_limit_rejected",
+          "callee": "reason.lower",
+          "lineNumber": 161
+        },
+        {
+          "caller": "test_risk_off_penalty_tightens_long_threshold",
+          "callee": "_signal",
+          "lineNumber": 166
+        },
+        {
+          "caller": "test_risk_off_penalty_tightens_long_threshold",
+          "callee": "_portfolio",
+          "lineNumber": 170
+        },
+        {
+          "caller": "test_risk_off_penalty_tightens_long_threshold",
+          "callee": "evaluate",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_risk_off_penalty_tightens_long_threshold",
+          "callee": "evaluate",
+          "lineNumber": 173
+        },
+        {
+          "caller": "test_risk_off_penalty_tightens_long_threshold",
+          "callee": "reason_risk_off.lower",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_pump_chasing_cap_blocks_high_conf_crypto_long",
+          "callee": "_signal",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_pump_chasing_cap_blocks_high_conf_crypto_long",
+          "callee": "os.environ.pop",
+          "lineNumber": 186
+        },
+        {
+          "caller": "test_pump_chasing_cap_blocks_high_conf_crypto_long",
+          "callee": "_portfolio",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_pump_chasing_cap_blocks_high_conf_crypto_long",
+          "callee": "evaluate",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_pump_chasing_cap_blocks_high_conf_crypto_long",
+          "callee": "reason.lower",
+          "lineNumber": 190
+        },
+        {
+          "caller": "test_crypto_fraction_smaller_than_stock",
+          "callee": "trade_fraction",
+          "lineNumber": 198
+        },
+        {
+          "caller": "test_crypto_fraction_smaller_than_stock",
+          "callee": "trade_fraction",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_high_confidence_fraction_larger_than_medium",
+          "callee": "trade_fraction",
+          "lineNumber": 205
+        },
+        {
+          "caller": "test_high_confidence_fraction_larger_than_medium",
+          "callee": "trade_fraction",
+          "lineNumber": 206
+        },
+        {
+          "caller": "test_low_confidence_fraction_smaller_than_medium",
+          "callee": "trade_fraction",
+          "lineNumber": 211
+        },
+        {
+          "caller": "test_low_confidence_fraction_smaller_than_medium",
+          "callee": "trade_fraction",
+          "lineNumber": 212
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "tests/test_stale_flatten.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "test_blind_flatten_due",
+          "startLine": 9,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "test_blind_flatten_due",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_blind_flatten_due",
+          "callee": "f",
+          "lineNumber": 11
+        },
+        {
+          "caller": "test_blind_flatten_due",
+          "callee": "f",
+          "lineNumber": 12
+        },
+        {
+          "caller": "test_blind_flatten_due",
+          "callee": "f",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test_blind_flatten_due",
+          "callee": "f",
+          "lineNumber": 14
+        },
+        {
+          "caller": "test_blind_flatten_due",
+          "callee": "f",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_truth_router.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 244,
+      "nonEmptyLines": 201,
+      "functions": [
+        {
+          "name": "_router_with_lift",
+          "startLine": 23,
+          "endLine": 28,
+          "params": [
+            "lift_table"
+          ]
+        },
+        {
+          "name": "_good_oos_payload",
+          "startLine": 31,
+          "endLine": 43,
+          "params": [
+            "engine",
+            "bucket",
+            "exch",
+            "action"
+          ]
+        },
+        {
+          "name": "_load_oos",
+          "startLine": 46,
+          "endLine": 55,
+          "params": [
+            "router",
+            "payload"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestPassthroughBlocking",
+          "startLine": 60,
+          "endLine": 78,
+          "methods": [
+            "test_no_lift_data_gives_passthrough",
+            "test_disabled_router_gives_passthrough",
+            "test_stale_router_gives_passthrough"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestOOSGateStale",
+          "startLine": 83,
+          "endLine": 113,
+          "methods": [
+            "test_stale_oos_blocks_confirm",
+            "test_stale_oos_blocks_invert",
+            "test_not_loaded_oos_is_stale",
+            "test_fresh_oos_is_not_stale"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestOOSTradeable",
+          "startLine": 118,
+          "endLine": 153,
+          "methods": [
+            "test_tradeable_with_14d_only",
+            "test_not_tradeable_below_min_n",
+            "test_not_tradeable_negative_avg_net",
+            "test_7d_veto_overrides_14d_pass",
+            "test_7d_ignored_when_n_below_10",
+            "test_missing_segment_returns_false"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestRoutingLogic",
+          "startLine": 158,
+          "endLine": 244,
+          "methods": [
+            "_make_router_with_oos",
+            "test_confirm_short_with_oos",
+            "test_invert_long_to_short",
+            "test_reject_when_edge_insufficient",
+            "test_confirm_long_suppressed_by_high_bar",
+            "test_oos_unlocks_long_confirm_at_lower_bar",
+            "test_conf_scale_boosted_on_wide_edge",
+            "test_passthrough_has_zero_edge",
+            "test_bucket_score_long_path",
+            "test_has_stats_true_when_engine_in_lift",
+            "test_has_stats_false_for_unknown_engine"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_router_with_lift",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "_good_oos_payload",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "_load_oos",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "TestPassthroughBlocking",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "TestOOSGateStale",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "TestOOSTradeable",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "TestRoutingLogic",
+          "line": 158,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_router_with_lift",
+          "callee": "TruthRouter",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_router_with_lift",
+          "callee": "time.monotonic",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_good_oos_payload",
+          "callee": "_dt.now(_tz.utc).strftime",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_good_oos_payload",
+          "callee": "_dt.now",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_load_oos",
+          "callee": "payload.get",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_load_oos",
+          "callee": "windows.get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_load_oos",
+          "callee": "windows.get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_load_oos",
+          "callee": "payload.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_load_oos",
+          "callee": "_dt.fromisoformat(ca).timestamp",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_load_oos",
+          "callee": "_dt.fromisoformat",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_no_lift_data_gives_passthrough",
+          "callee": "_router_with_lift",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_no_lift_data_gives_passthrough",
+          "callee": "r.route",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_disabled_router_gives_passthrough",
+          "callee": "TruthRouter",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_disabled_router_gives_passthrough",
+          "callee": "r.route",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test_stale_router_gives_passthrough",
+          "callee": "_router_with_lift",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_stale_router_gives_passthrough",
+          "callee": "time.monotonic",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_stale_router_gives_passthrough",
+          "callee": "r.route",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_stale_oos_blocks_confirm",
+          "callee": "_router_with_lift",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_stale_oos_blocks_confirm",
+          "callee": "time.time",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test_stale_oos_blocks_confirm",
+          "callee": "r.route",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_stale_oos_blocks_invert",
+          "callee": "_router_with_lift",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_stale_oos_blocks_invert",
+          "callee": "time.time",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_stale_oos_blocks_invert",
+          "callee": "r.route",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_not_loaded_oos_is_stale",
+          "callee": "TruthRouter",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_not_loaded_oos_is_stale",
+          "callee": "r._oos_is_stale",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_fresh_oos_is_not_stale",
+          "callee": "TruthRouter",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_fresh_oos_is_not_stale",
+          "callee": "time.time",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_fresh_oos_is_not_stale",
+          "callee": "r._oos_is_stale",
+          "lineNumber": 113
+        },
+        {
+          "caller": "test_tradeable_with_14d_only",
+          "callee": "TruthRouter",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_tradeable_with_14d_only",
+          "callee": "r._oos_tradeable",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_not_tradeable_below_min_n",
+          "callee": "TruthRouter",
+          "lineNumber": 126
+        },
+        {
+          "caller": "test_not_tradeable_below_min_n",
+          "callee": "r._oos_tradeable",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_not_tradeable_negative_avg_net",
+          "callee": "TruthRouter",
+          "lineNumber": 132
+        },
+        {
+          "caller": "test_not_tradeable_negative_avg_net",
+          "callee": "r._oos_tradeable",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_7d_veto_overrides_14d_pass",
+          "callee": "TruthRouter",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_7d_veto_overrides_14d_pass",
+          "callee": "r._oos_tradeable",
+          "lineNumber": 141
+        },
+        {
+          "caller": "test_7d_ignored_when_n_below_10",
+          "callee": "TruthRouter",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_7d_ignored_when_n_below_10",
+          "callee": "r._oos_tradeable",
+          "lineNumber": 148
+        },
+        {
+          "caller": "test_missing_segment_returns_false",
+          "callee": "TruthRouter",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_missing_segment_returns_false",
+          "callee": "r._oos_tradeable",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_make_router_with_oos",
+          "callee": "_router_with_lift",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_make_router_with_oos",
+          "callee": "_good_oos_payload",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_make_router_with_oos",
+          "callee": "_load_oos",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_confirm_short_with_oos",
+          "callee": "self._make_router_with_oos",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_confirm_short_with_oos",
+          "callee": "r.route",
+          "lineNumber": 174
+        },
+        {
+          "caller": "test_invert_long_to_short",
+          "callee": "_router_with_lift",
+          "lineNumber": 184
+        },
+        {
+          "caller": "test_invert_long_to_short",
+          "callee": "r.route",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_reject_when_edge_insufficient",
+          "callee": "_router_with_lift",
+          "lineNumber": 194
+        },
+        {
+          "caller": "test_reject_when_edge_insufficient",
+          "callee": "r.route",
+          "lineNumber": 196
+        },
+        {
+          "caller": "test_confirm_long_suppressed_by_high_bar",
+          "callee": "_router_with_lift",
+          "lineNumber": 201
+        },
+        {
+          "caller": "test_confirm_long_suppressed_by_high_bar",
+          "callee": "r.route",
+          "lineNumber": 204
+        },
+        {
+          "caller": "test_oos_unlocks_long_confirm_at_lower_bar",
+          "callee": "_router_with_lift",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_oos_unlocks_long_confirm_at_lower_bar",
+          "callee": "_load_oos",
+          "lineNumber": 210
+        },
+        {
+          "caller": "test_oos_unlocks_long_confirm_at_lower_bar",
+          "callee": "_good_oos_payload",
+          "lineNumber": 210
+        },
+        {
+          "caller": "test_oos_unlocks_long_confirm_at_lower_bar",
+          "callee": "r.route",
+          "lineNumber": 213
+        },
+        {
+          "caller": "test_conf_scale_boosted_on_wide_edge",
+          "callee": "_router_with_lift",
+          "lineNumber": 218
+        },
+        {
+          "caller": "test_conf_scale_boosted_on_wide_edge",
+          "callee": "r.route",
+          "lineNumber": 220
+        },
+        {
+          "caller": "test_bucket_score_long_path",
+          "callee": "_router_with_lift",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_bucket_score_long_path",
+          "callee": "r.route",
+          "lineNumber": 234
+        },
+        {
+          "caller": "test_has_stats_true_when_engine_in_lift",
+          "callee": "_router_with_lift",
+          "lineNumber": 239
+        },
+        {
+          "caller": "test_has_stats_true_when_engine_in_lift",
+          "callee": "r.has_stats",
+          "lineNumber": 240
+        },
+        {
+          "caller": "test_has_stats_false_for_unknown_engine",
+          "callee": "_router_with_lift",
+          "lineNumber": 243
+        },
+        {
+          "caller": "test_has_stats_false_for_unknown_engine",
+          "callee": "r.has_stats",
+          "lineNumber": 244
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 3,
+        "classCount": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,1148 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/engines/trend_detection.py",
+      "type": "file",
+      "name": "trend_detection.py",
+      "filePath": "src/engines/trend_detection.py",
+      "summary": "Core trend detection engine that ingests news, social, and technical indicators to compute composite market trend scores and signal quality metrics.",
+      "tags": ["engine", "signal-analysis", "multi-source"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/trend_detection.py:TrendDetectionEngine",
+      "type": "class",
+      "name": "TrendDetectionEngine",
+      "filePath": "src/engines/trend_detection.py",
+      "lineRange": [106, 452],
+      "summary": "Main engine orchestrating trend computation by combining news, social, technical, and confidence signals; persists trends to database and traces signal lineage.",
+      "tags": ["orchestrator", "signal-scoring", "multi-modal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/engines/trend_detection.py:_weighted_impact_score",
+      "type": "function",
+      "name": "_weighted_impact_score",
+      "filePath": "src/engines/trend_detection.py",
+      "lineRange": [47, 90],
+      "summary": "Computes recency-weighted impact scores from news data, scaling recent headlines higher than older ones.",
+      "tags": ["scoring", "news-analysis", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/engines/trend_detection.py:_volatility_regime",
+      "type": "function",
+      "name": "_volatility_regime",
+      "filePath": "src/engines/trend_detection.py",
+      "lineRange": [93, 103],
+      "summary": "Classifies volatility regime from composite scores; returns coefficient measuring volatility intensity.",
+      "tags": ["volatility-analysis", "regime-detection", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/models/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/models/__init__.py",
+      "summary": "Package barrel file importing and re-exporting core market, news, and social data models.",
+      "tags": ["barrel", "entry-point", "models"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/models/market.py",
+      "type": "file",
+      "name": "market.py",
+      "filePath": "src/models/market.py",
+      "summary": "Defines 9 Pydantic data models for market structures including TickerQuote, MarketTrend, SmartMoneyEvent, MacroRegime, and confluence signals.",
+      "tags": ["data-model", "type-definition", "market-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/models/market.py:TickerQuote",
+      "type": "class",
+      "name": "TickerQuote",
+      "filePath": "src/models/market.py",
+      "lineRange": [9, 22],
+      "summary": "Data model representing a single ticker quote with price, volume, and exchange details.",
+      "tags": ["data-model", "market-quote", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:MarketTrend",
+      "type": "class",
+      "name": "MarketTrend",
+      "filePath": "src/models/market.py",
+      "lineRange": [25, 45],
+      "summary": "Comprehensive market trend model combining news, social, technical, and confidence scores with signal quality and narrative clustering.",
+      "tags": ["data-model", "trend-scoring", "type-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/models/market.py:NarrativeCluster",
+      "type": "class",
+      "name": "NarrativeCluster",
+      "filePath": "src/models/market.py",
+      "lineRange": [48, 57],
+      "summary": "Groups related news and social narratives by theme, tracking momentum and contributing sources.",
+      "tags": ["data-model", "narrative-analysis", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:SmartMoneyEvent",
+      "type": "class",
+      "name": "SmartMoneyEvent",
+      "filePath": "src/models/market.py",
+      "lineRange": [60, 70],
+      "summary": "Models institutional investor activity: whale purchases, insider trades, and options flows.",
+      "tags": ["data-model", "smart-money", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:MacroIndicator",
+      "type": "class",
+      "name": "MacroIndicator",
+      "filePath": "src/models/market.py",
+      "lineRange": [73, 80],
+      "summary": "Macroeconomic indicator snapshot with release date and country context.",
+      "tags": ["data-model", "macro", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:InstitutionalFlow",
+      "type": "class",
+      "name": "InstitutionalFlow",
+      "filePath": "src/models/market.py",
+      "lineRange": [85, 97],
+      "summary": "Aggregates institutional cash and options flow direction with persistence and acceleration metrics.",
+      "tags": ["data-model", "flow-analysis", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:ETFRotation",
+      "type": "class",
+      "name": "ETFRotation",
+      "filePath": "src/models/market.py",
+      "lineRange": [100, 109],
+      "summary": "Tracks sector rotation via ETF momentum, classifying leading/lagging rotations.",
+      "tags": ["data-model", "sector-rotation", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:MacroRegime",
+      "type": "class",
+      "name": "MacroRegime",
+      "filePath": "src/models/market.py",
+      "lineRange": [112, 122],
+      "summary": "Classifies macro regime (risk-on, risk-off, etc.) with narrative and proxy score justification.",
+      "tags": ["data-model", "macro-regime", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/market.py:ConfluenceSignal",
+      "type": "class",
+      "name": "ConfluenceSignal",
+      "filePath": "src/models/market.py",
+      "lineRange": [125, 134],
+      "summary": "High-conviction signal when multiple engines align on direction and narrative coherence is high.",
+      "tags": ["data-model", "confluence", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/models/social.py",
+      "type": "file",
+      "name": "social.py",
+      "filePath": "src/models/social.py",
+      "summary": "Defines Pydantic models for social posts and sentiment summaries extracted from Reddit, Twitter, and CryptoPanic.",
+      "tags": ["data-model", "social-media", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/social.py:SocialPost",
+      "type": "class",
+      "name": "SocialPost",
+      "filePath": "src/models/social.py",
+      "lineRange": [9, 22],
+      "summary": "Represents a single social media post with ticker mentions, sentiment, engagement metrics, and raw data.",
+      "tags": ["data-model", "social-post", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/models/social.py:SentimentSummary",
+      "type": "class",
+      "name": "SentimentSummary",
+      "filePath": "src/models/social.py",
+      "lineRange": [25, 34],
+      "summary": "Aggregates sentiment metrics across a ticker over a time window with hype and panic signals.",
+      "tags": ["data-model", "sentiment-summary", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/providers/__init__.py",
+      "summary": "Package barrel importing AI, market, news, smart-money, and social data providers.",
+      "tags": ["barrel", "entry-point", "providers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/ai/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/providers/ai/__init__.py",
+      "summary": "Barrel file exporting Anthropic, OpenAI, and Ollama LLM provider implementations.",
+      "tags": ["barrel", "entry-point", "ai-providers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/ai/anthropic_provider.py",
+      "type": "file",
+      "name": "anthropic_provider.py",
+      "filePath": "src/providers/ai/anthropic_provider.py",
+      "summary": "Anthropic Claude API integration for text completion, with rate-limiting and cost estimation.",
+      "tags": ["ai-provider", "llm", "api-integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/ai/anthropic_provider.py:AnthropicProvider",
+      "type": "class",
+      "name": "AnthropicProvider",
+      "filePath": "src/providers/ai/anthropic_provider.py",
+      "lineRange": [16, 103],
+      "summary": "Manages Anthropic API calls with prompt completion, rate limiting, and cost tracking.",
+      "tags": ["api-handler", "ai-provider", "llm"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/ai/ollama_provider.py",
+      "type": "file",
+      "name": "ollama_provider.py",
+      "filePath": "src/providers/ai/ollama_provider.py",
+      "summary": "Local Ollama LLM endpoint integration supporting on-device model inference with timing.",
+      "tags": ["ai-provider", "llm", "local-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/providers/ai/ollama_provider.py:OllamaProvider",
+      "type": "class",
+      "name": "OllamaProvider",
+      "filePath": "src/providers/ai/ollama_provider.py",
+      "lineRange": [16, 36],
+      "summary": "Wraps Ollama HTTP endpoint for text completion with response timing.",
+      "tags": ["api-handler", "ai-provider", "local-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/ai/openai_provider.py",
+      "type": "file",
+      "name": "openai_provider.py",
+      "filePath": "src/providers/ai/openai_provider.py",
+      "summary": "OpenAI GPT integration with structured response parsing, rate-limiting, and usage tracking.",
+      "tags": ["ai-provider", "llm", "api-integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/ai/openai_provider.py:AIResponse",
+      "type": "class",
+      "name": "AIResponse",
+      "filePath": "src/providers/ai/openai_provider.py",
+      "lineRange": [15, 28],
+      "summary": "Data model for AI provider responses including text, token usage, and cost.",
+      "tags": ["data-model", "ai-response", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/providers/ai/openai_provider.py:OpenAIProvider",
+      "type": "class",
+      "name": "OpenAIProvider",
+      "filePath": "src/providers/ai/openai_provider.py",
+      "lineRange": [31, 128],
+      "summary": "Manages OpenAI API calls with prompt completion, structured JSON parsing, rate limiting, and cost estimation.",
+      "tags": ["api-handler", "ai-provider", "llm"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/market/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/providers/market/__init__.py",
+      "summary": "Barrel file exporting market data providers: AlphaVantage, CoinGecko, Finnhub, Polygon, yfinance.",
+      "tags": ["barrel", "entry-point", "market-providers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/market/alpha_vantage.py",
+      "type": "file",
+      "name": "alpha_vantage.py",
+      "filePath": "src/providers/market/alpha_vantage.py",
+      "summary": "AlphaVantage API integration for US equity quote data with global quote endpoint and health checks.",
+      "tags": ["market-provider", "api-integration", "us-equities"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/market/alpha_vantage.py:AlphaVantageProvider",
+      "type": "class",
+      "name": "AlphaVantageProvider",
+      "filePath": "src/providers/market/alpha_vantage.py",
+      "lineRange": [16, 103],
+      "summary": "Fetches US equity quotes via AlphaVantage global quote API with rate limiting and normalization.",
+      "tags": ["api-handler", "market-provider", "us-equities"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/market/coingecko.py",
+      "type": "file",
+      "name": "coingecko.py",
+      "filePath": "src/providers/market/coingecko.py",
+      "summary": "CoinGecko cryptocurrency market data integration with symbol mapping, pagination, and timeout handling.",
+      "tags": ["market-provider", "api-integration", "cryptocurrency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/market/coingecko.py:CoinGeckoProvider",
+      "type": "class",
+      "name": "CoinGeckoProvider",
+      "filePath": "src/providers/market/coingecko.py",
+      "lineRange": [30, 180],
+      "summary": "Retrieves crypto market data from CoinGecko with pagination, symbol lookup, and comprehensive quote normalization.",
+      "tags": ["api-handler", "market-provider", "cryptocurrency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/market/finnhub.py",
+      "type": "file",
+      "name": "finnhub.py",
+      "filePath": "src/providers/market/finnhub.py",
+      "summary": "Finnhub API integration for US equity quotes and macroeconomic indicator feeds with forbidden symbol tracking.",
+      "tags": ["market-provider", "api-integration", "macro-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/market/finnhub.py:FinnhubProvider",
+      "type": "class",
+      "name": "FinnhubProvider",
+      "filePath": "src/providers/market/finnhub.py",
+      "lineRange": [16, 140],
+      "summary": "Fetches US quotes and macro indicators via Finnhub with symbol caching and graceful degradation on denied symbols.",
+      "tags": ["api-handler", "market-provider", "macro-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/market/polygon.py",
+      "type": "file",
+      "name": "polygon.py",
+      "filePath": "src/providers/market/polygon.py",
+      "summary": "Polygon market data integration for ticker snapshots and all-tickers endpoint with async pagination.",
+      "tags": ["market-provider", "api-integration", "us-equities"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/market/polygon.py:PolygonProvider",
+      "type": "class",
+      "name": "PolygonProvider",
+      "filePath": "src/providers/market/polygon.py",
+      "lineRange": [16, 132],
+      "summary": "Retrieves ticker snapshots and full ticker list from Polygon with rate-limiting and normalized output.",
+      "tags": ["api-handler", "market-provider", "us-equities"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/market/yfinance_provider.py",
+      "type": "file",
+      "name": "yfinance_provider.py",
+      "filePath": "src/providers/market/yfinance_provider.py",
+      "summary": "yfinance-based provider for equity and crypto OHLCV data with market-hours detection and rate limiting.",
+      "tags": ["market-provider", "ohlcv-data", "multi-asset"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/providers/market/yfinance_provider.py:YFinanceProvider",
+      "type": "class",
+      "name": "YFinanceProvider",
+      "filePath": "src/providers/market/yfinance_provider.py",
+      "lineRange": [46, 248],
+      "summary": "Fetches OHLCV bars from yfinance with market-hours awareness, executor-based sync, and symbol mapping.",
+      "tags": ["api-handler", "market-provider", "ohlcv-data"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/providers/social/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/providers/social/__init__.py",
+      "summary": "Barrel file exporting social media providers: CryptoPanic, Fear & Greed, Reddit, Twitter.",
+      "tags": ["barrel", "entry-point", "social-providers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/social/cryptopanic_social.py",
+      "type": "file",
+      "name": "cryptopanic_social.py",
+      "filePath": "src/providers/social/cryptopanic_social.py",
+      "summary": "CryptoPanic news platform integration extracting sentiment scores from cryptocurrency headlines.",
+      "tags": ["social-provider", "sentiment-analysis", "cryptocurrency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/social/cryptopanic_social.py:CryptoPanicSocialProvider",
+      "type": "class",
+      "name": "CryptoPanicSocialProvider",
+      "filePath": "src/providers/social/cryptopanic_social.py",
+      "lineRange": [27, 107],
+      "summary": "Aggregates CryptoPanic news sentiment by ticker with positive/negative vote tanh-scaling.",
+      "tags": ["api-handler", "sentiment-analysis", "cryptocurrency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/social/fear_greed.py",
+      "type": "file",
+      "name": "fear_greed.py",
+      "filePath": "src/providers/social/fear_greed.py",
+      "summary": "Crypto Fear & Greed Index API integration providing daily sentiment index for market regime detection.",
+      "tags": ["social-provider", "sentiment-index", "cryptocurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/providers/social/fear_greed.py:FearGreedProvider",
+      "type": "class",
+      "name": "FearGreedProvider",
+      "filePath": "src/providers/social/fear_greed.py",
+      "lineRange": [30, 86],
+      "summary": "Fetches daily crypto sentiment index and caches results with error handling.",
+      "tags": ["api-handler", "sentiment-index", "cryptocurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/social/reddit.py",
+      "type": "file",
+      "name": "reddit.py",
+      "filePath": "src/providers/social/reddit.py",
+      "summary": "Reddit RSS feed scraper extracting ticker mentions and sentiment from subreddit discussions.",
+      "tags": ["social-provider", "sentiment-analysis", "ticker-extraction"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/providers/social/reddit.py:_extract_tickers",
+      "type": "function",
+      "name": "_extract_tickers",
+      "filePath": "src/providers/social/reddit.py",
+      "lineRange": [79, 93],
+      "summary": "Extracts US, crypto, and BIST ticker symbols from text using regex patterns.",
+      "tags": ["utility", "ticker-extraction", "regex"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/providers/social/reddit.py:_parse_atom_entries",
+      "type": "function",
+      "name": "_parse_atom_entries",
+      "filePath": "src/providers/social/reddit.py",
+      "lineRange": [100, 142],
+      "summary": "Parses Atom feed XML from Reddit extracting post metadata and normalized social posts.",
+      "tags": ["utility", "xml-parsing", "feed-parsing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/social/reddit.py:RedditProvider",
+      "type": "class",
+      "name": "RedditProvider",
+      "filePath": "src/providers/social/reddit.py",
+      "lineRange": [145, 244],
+      "summary": "Fetches Reddit posts via RSS feed from specified subreddits with HTML stripping and sentiment extraction.",
+      "tags": ["api-handler", "social-provider", "sentiment-analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/social/twitter.py",
+      "type": "file",
+      "name": "twitter.py",
+      "filePath": "src/providers/social/twitter.py",
+      "summary": "Twitter API v2 integration extracting ticker mentions and engagement metrics from tweets.",
+      "tags": ["social-provider", "sentiment-analysis", "ticker-extraction"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/social/twitter.py:TwitterProvider",
+      "type": "class",
+      "name": "TwitterProvider",
+      "filePath": "src/providers/social/twitter.py",
+      "lineRange": [24, 141],
+      "summary": "Searches Twitter for ticker mentions with engagement normalization and timestamp parsing.",
+      "tags": ["api-handler", "social-provider", "sentiment-analysis"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/core/signal_tracer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/engines/confidence_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/engines/narrative_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/engines/technical_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "file:src/providers/social/fear_greed.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "class:src/engines/trend_detection.py:TrendDetectionEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "function:src/engines/trend_detection.py:_weighted_impact_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/trend_detection.py",
+      "target": "function:src/engines/trend_detection.py:_volatility_regime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/__init__.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/models/__init__.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/models/__init__.py",
+      "target": "file:src/models/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:TickerQuote",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:MarketTrend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:NarrativeCluster",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:SmartMoneyEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:MacroIndicator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:InstitutionalFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:ETFRotation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:MacroRegime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/market.py",
+      "target": "class:src/models/market.py:ConfluenceSignal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/social.py",
+      "target": "class:src/models/social.py:SocialPost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/models/social.py",
+      "target": "class:src/models/social.py:SentimentSummary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/__init__.py",
+      "target": "file:src/providers/ai/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/__init__.py",
+      "target": "file:src/providers/market/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/__init__.py",
+      "target": "file:src/providers/news/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/__init__.py",
+      "target": "file:src/providers/smart_money/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/__init__.py",
+      "target": "file:src/providers/social/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/__init__.py",
+      "target": "file:src/providers/ai/anthropic_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/__init__.py",
+      "target": "file:src/providers/ai/ollama_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/__init__.py",
+      "target": "file:src/providers/ai/openai_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/anthropic_provider.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/anthropic_provider.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/anthropic_provider.py",
+      "target": "file:src/providers/ai/openai_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/anthropic_provider.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/anthropic_provider.py",
+      "target": "class:src/providers/ai/anthropic_provider.py:AnthropicProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/ai/ollama_provider.py",
+      "target": "file:src/providers/ai/openai_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/ollama_provider.py",
+      "target": "class:src/providers/ai/ollama_provider.py:OllamaProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/ai/openai_provider.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/openai_provider.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/openai_provider.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/ai/openai_provider.py",
+      "target": "class:src/providers/ai/openai_provider.py:AIResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/ai/openai_provider.py",
+      "target": "class:src/providers/ai/openai_provider.py:OpenAIProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/market/__init__.py",
+      "target": "file:src/providers/market/alpha_vantage.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/__init__.py",
+      "target": "file:src/providers/market/coingecko.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/__init__.py",
+      "target": "file:src/providers/market/finnhub.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/__init__.py",
+      "target": "file:src/providers/market/polygon.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/__init__.py",
+      "target": "file:src/providers/market/yfinance_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/alpha_vantage.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/alpha_vantage.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/alpha_vantage.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/alpha_vantage.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/alpha_vantage.py",
+      "target": "class:src/providers/market/alpha_vantage.py:AlphaVantageProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/market/coingecko.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/coingecko.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/coingecko.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/coingecko.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/coingecko.py",
+      "target": "class:src/providers/market/coingecko.py:CoinGeckoProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/market/finnhub.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/finnhub.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/finnhub.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/finnhub.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/finnhub.py",
+      "target": "class:src/providers/market/finnhub.py:FinnhubProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/market/polygon.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/polygon.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/polygon.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/polygon.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/polygon.py",
+      "target": "class:src/providers/market/polygon.py:PolygonProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/market/yfinance_provider.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/yfinance_provider.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/yfinance_provider.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/yfinance_provider.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/market/yfinance_provider.py",
+      "target": "class:src/providers/market/yfinance_provider.py:YFinanceProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/social/__init__.py",
+      "target": "file:src/providers/social/cryptopanic_social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/__init__.py",
+      "target": "file:src/providers/social/fear_greed.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/__init__.py",
+      "target": "file:src/providers/social/reddit.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/__init__.py",
+      "target": "file:src/providers/social/twitter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/cryptopanic_social.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/cryptopanic_social.py",
+      "target": "class:src/providers/social/cryptopanic_social.py:CryptoPanicSocialProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/social/fear_greed.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/fear_greed.py",
+      "target": "class:src/providers/social/fear_greed.py:FearGreedProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "file:src/models/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "function:src/providers/social/reddit.py:_extract_tickers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "function:src/providers/social/reddit.py:_parse_atom_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/social/reddit.py",
+      "target": "class:src/providers/social/reddit.py:RedditProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/social/twitter.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/twitter.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/twitter.py",
+      "target": "file:src/models/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/twitter.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/social/twitter.py",
+      "target": "class:src/providers/social/twitter.py:TwitterProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

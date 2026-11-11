@@ -1,0 +1,4921 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 17,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 17,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "scripts/backfill_news.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "_get_remaining",
+          "startLine": 26,
+          "endLine": 33,
+          "params": [
+            "pool"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 36,
+          "endLine": 83,
+          "params": [
+            "dry_run"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_get_remaining",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_get_remaining",
+          "callee": "pool.acquire",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_get_remaining",
+          "callee": "conn.fetchrow",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_get_remaining",
+          "callee": "int",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "get_db_pool",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "_get_remaining",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "close_db_pool",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "close_db_pool",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "OllamaProvider",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "NewsIntelligenceEngine",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "engine.batch_analyze",
+          "lineNumber": 59
+        },
+        {
+          "caller": "main",
+          "callee": "_get_remaining",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 64
+        },
+        {
+          "caller": "main",
+          "callee": "logger.info",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "asyncio.sleep",
+          "lineNumber": 77
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 79
+        },
+        {
+          "caller": "main",
+          "callee": "close_db_pool",
+          "lineNumber": 81
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/engines/deduplication.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 224,
+      "nonEmptyLines": 180,
+      "functions": [
+        {
+          "name": "_normalize_title",
+          "startLine": 50,
+          "endLine": 54,
+          "params": [
+            "title"
+          ]
+        },
+        {
+          "name": "fuzzy_title_hash",
+          "startLine": 57,
+          "endLine": 58,
+          "params": [
+            "title"
+          ]
+        },
+        {
+          "name": "_cosine_similarity",
+          "startLine": 61,
+          "endLine": 67,
+          "params": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "_pack_vector",
+          "startLine": 70,
+          "endLine": 72,
+          "params": [
+            "vec"
+          ]
+        },
+        {
+          "name": "_unpack_vector",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "data"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HybridDeduplicator",
+          "startLine": 80,
+          "endLine": 224,
+          "methods": [
+            "__init__",
+            "is_fuzzy_duplicate",
+            "register_fuzzy",
+            "_get_embedding",
+            "is_semantic_duplicate",
+            "check"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_normalize_title",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "fuzzy_title_hash",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "_cosine_similarity",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "_pack_vector",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "_unpack_vector",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "HybridDeduplicator",
+          "line": 80,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_normalize_title",
+          "callee": "_PUNCT_RE.sub",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_normalize_title",
+          "callee": "title.lower",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_normalize_title",
+          "callee": "_SPACE_RE.sub(\" \", clean).strip",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_normalize_title",
+          "callee": "_SPACE_RE.sub",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_normalize_title",
+          "callee": "\" \".join",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_normalize_title",
+          "callee": "sorted",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_normalize_title",
+          "callee": "clean.split",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fuzzy_title_hash",
+          "callee": "hashlib.sha256(_normalize_title(title).encode()).hexdigest",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fuzzy_title_hash",
+          "callee": "hashlib.sha256",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fuzzy_title_hash",
+          "callee": "_normalize_title(title).encode",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fuzzy_title_hash",
+          "callee": "_normalize_title",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "sum",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "zip",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "sum",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "sum",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_pack_vector",
+          "callee": "struct.pack",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_pack_vector",
+          "callee": "len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_unpack_vector",
+          "callee": "len",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_unpack_vector",
+          "callee": "list",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_unpack_vector",
+          "callee": "struct.unpack",
+          "lineNumber": 77
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 95
+        },
+        {
+          "caller": "is_fuzzy_duplicate",
+          "callee": "fuzzy_title_hash",
+          "lineNumber": 100
+        },
+        {
+          "caller": "is_fuzzy_duplicate",
+          "callee": "self._r.exists",
+          "lineNumber": 102
+        },
+        {
+          "caller": "is_fuzzy_duplicate",
+          "callee": "bool",
+          "lineNumber": 103
+        },
+        {
+          "caller": "register_fuzzy",
+          "callee": "fuzzy_title_hash",
+          "lineNumber": 106
+        },
+        {
+          "caller": "register_fuzzy",
+          "callee": "self._r.setex",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_get_embedding",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_get_embedding",
+          "callee": "session.post",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_get_embedding",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_get_embedding",
+          "callee": "resp.json",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_get_embedding",
+          "callee": "logger.warning",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_get_embedding",
+          "callee": "str",
+          "lineNumber": 138
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "getattr",
+          "lineNumber": 148
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "self._get_embedding",
+          "lineNumber": 150
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "self._r.scan",
+          "lineNumber": 161
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "self._r.get",
+          "lineNumber": 165
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "_unpack_vector",
+          "lineNumber": 169
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "_cosine_similarity",
+          "lineNumber": 170
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "logger.info",
+          "lineNumber": 172
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "round",
+          "lineNumber": 174
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "self._r.setex",
+          "lineNumber": 189
+        },
+        {
+          "caller": "is_semantic_duplicate",
+          "callee": "_pack_vector",
+          "lineNumber": 189
+        },
+        {
+          "caller": "check",
+          "callee": "self.is_fuzzy_duplicate",
+          "lineNumber": 211
+        },
+        {
+          "caller": "check",
+          "callee": "logger.debug",
+          "lineNumber": 212
+        },
+        {
+          "caller": "check",
+          "callee": "self.is_semantic_duplicate",
+          "lineNumber": 217
+        },
+        {
+          "caller": "check",
+          "callee": "self.register_fuzzy",
+          "lineNumber": 222
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/engines/news_intelligence.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 571,
+      "nonEmptyLines": 501,
+      "classes": [
+        {
+          "name": "CycleResult",
+          "startLine": 103,
+          "endLine": 113,
+          "methods": [],
+          "properties": [
+            "fetched",
+            "new_items",
+            "duplicates",
+            "fuzzy_dupes",
+            "semantic_dupes",
+            "errors",
+            "providers_ok",
+            "providers_failed",
+            "providers_circuit_open",
+            "total_latency_ms"
+          ]
+        },
+        {
+          "name": "NewsIntelligenceEngine",
+          "startLine": 116,
+          "endLine": 571,
+          "methods": [
+            "__init__",
+            "_get_dedup",
+            "_load_known_symbols",
+            "_extract_tickers",
+            "_classify_sector",
+            "_vader_score",
+            "run_cycle",
+            "_write_ingestion_log",
+            "_process_item",
+            "_source_authority",
+            "batch_ai_summarize",
+            "batch_analyze",
+            "_analyze_one",
+            "_emit_breaking_news_signals",
+            "get_circuit_statuses"
+          ],
+          "properties": [
+            "_SOURCE_AUTHORITY"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CycleResult",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "NewsIntelligenceEngine",
+          "line": 116,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "NewsRepository",
+          "lineNumber": 124
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 125
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_get_dedup",
+          "callee": "HybridDeduplicator",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_load_known_symbols",
+          "callee": "self._pool.acquire",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_load_known_symbols",
+          "callee": "conn.fetch",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "set",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "text.upper",
+          "lineNumber": 143
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "text.lower",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "TICKER_RE.findall",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "t.endswith",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "found.add",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_NAME_TO_TICKER.items",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "found.add",
+          "lineNumber": 154
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "list",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_classify_sector",
+          "callee": "f\"{title} {content}\".lower",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_classify_sector",
+          "callee": "self._settings.SECTOR_KEYWORDS.items",
+          "lineNumber": 160
+        },
+        {
+          "caller": "_classify_sector",
+          "callee": "any",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_classify_sector",
+          "callee": "kw.lower",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_vader_score",
+          "callee": "SentimentIntensityAnalyzer().polarity_scores",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_vader_score",
+          "callee": "SentimentIntensityAnalyzer",
+          "lineNumber": 168
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "CycleResult",
+          "lineNumber": 177
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 178
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._load_known_symbols",
+          "lineNumber": 179
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._get_dedup",
+          "lineNumber": 181
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "bool",
+          "lineNumber": 182
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "NEWS_PROVIDERS.items",
+          "lineNumber": 184
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "provider_cls",
+          "lineNumber": 185
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 186
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.info",
+          "lineNumber": 197
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "provider.health_check",
+          "lineNumber": 200
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.warning",
+          "lineNumber": 202
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "get_all_circuit_statuses",
+          "lineNumber": 205
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "result.providers_failed.append",
+          "lineNumber": 207
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "provider.fetch",
+          "lineNumber": 211
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "len",
+          "lineNumber": 212
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._process_item",
+          "lineNumber": 216
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 218
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "result.providers_ok.append",
+          "lineNumber": 225
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.info",
+          "lineNumber": 226
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 234
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 238
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.warning",
+          "lineNumber": 239
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "result.providers_circuit_open.append",
+          "lineNumber": 240
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 245
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.error",
+          "lineNumber": 246
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "str",
+          "lineNumber": 249
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 250
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "result.providers_failed.append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 259
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 259
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._write_ingestion_log",
+          "lineNumber": 261
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "time.monotonic",
+          "lineNumber": 275
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.info",
+          "lineNumber": 276
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 286
+        },
+        {
+          "caller": "_write_ingestion_log",
+          "callee": "self._pool.acquire",
+          "lineNumber": 306
+        },
+        {
+          "caller": "_write_ingestion_log",
+          "callee": "conn.execute",
+          "lineNumber": 307
+        },
+        {
+          "caller": "_write_ingestion_log",
+          "callee": "logger.warning",
+          "lineNumber": 318
+        },
+        {
+          "caller": "_write_ingestion_log",
+          "callee": "str",
+          "lineNumber": 318
+        },
+        {
+          "caller": "_process_item",
+          "callee": "self._repo.exists_by_hash",
+          "lineNumber": 331
+        },
+        {
+          "caller": "_process_item",
+          "callee": "dedup.check",
+          "lineNumber": 334
+        },
+        {
+          "caller": "_process_item",
+          "callee": "self._extract_tickers",
+          "lineNumber": 355
+        },
+        {
+          "caller": "_process_item",
+          "callee": "list",
+          "lineNumber": 358
+        },
+        {
+          "caller": "_process_item",
+          "callee": "list",
+          "lineNumber": 359
+        },
+        {
+          "caller": "_process_item",
+          "callee": "dict.fromkeys",
+          "lineNumber": 359
+        },
+        {
+          "caller": "_process_item",
+          "callee": "self._classify_sector",
+          "lineNumber": 360
+        },
+        {
+          "caller": "_process_item",
+          "callee": "self._vader_score",
+          "lineNumber": 361
+        },
+        {
+          "caller": "_process_item",
+          "callee": "self._repo.insert",
+          "lineNumber": 363
+        },
+        {
+          "caller": "_source_authority",
+          "callee": "(article.get(\"source_domain\") or \"\").lower().lstrip",
+          "lineNumber": 392
+        },
+        {
+          "caller": "_source_authority",
+          "callee": "(article.get(\"source_domain\") or \"\").lower",
+          "lineNumber": 392
+        },
+        {
+          "caller": "_source_authority",
+          "callee": "article.get",
+          "lineNumber": 392
+        },
+        {
+          "caller": "_source_authority",
+          "callee": "self._SOURCE_AUTHORITY.items",
+          "lineNumber": 393
+        },
+        {
+          "caller": "batch_ai_summarize",
+          "callee": "self.batch_analyze",
+          "lineNumber": 400
+        },
+        {
+          "caller": "batch_analyze",
+          "callee": "self._repo.get_without_impact_score",
+          "lineNumber": 404
+        },
+        {
+          "caller": "batch_analyze",
+          "callee": "self._analyze_one",
+          "lineNumber": 411
+        },
+        {
+          "caller": "batch_analyze",
+          "callee": "logger.error",
+          "lineNumber": 413
+        },
+        {
+          "caller": "batch_analyze",
+          "callee": "article.get",
+          "lineNumber": 413
+        },
+        {
+          "caller": "batch_analyze",
+          "callee": "str",
+          "lineNumber": 413
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "article.get",
+          "lineNumber": 418
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "article.get",
+          "lineNumber": 418
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "article.get",
+          "lineNumber": 419
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "article.get",
+          "lineNumber": 420
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "article.get",
+          "lineNumber": 420
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "time.monotonic",
+          "lineNumber": 442
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "ai_provider.complete",
+          "lineNumber": 443
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "time.monotonic",
+          "lineNumber": 444
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "resp.content.strip",
+          "lineNumber": 447
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "raw.startswith",
+          "lineNumber": 448
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "raw.split",
+          "lineNumber": 449
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "raw.startswith",
+          "lineNumber": 450
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "raw.strip().rstrip(\"```\").strip",
+          "lineNumber": 452
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "raw.strip().rstrip",
+          "lineNumber": 452
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "raw.strip",
+          "lineNumber": 452
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "json.loads",
+          "lineNumber": 455
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "str",
+          "lineNumber": 460
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "parsed.get",
+          "lineNumber": 460
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "max",
+          "lineNumber": 461
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "min",
+          "lineNumber": 461
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "float",
+          "lineNumber": 461
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "parsed.get",
+          "lineNumber": 461
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "max",
+          "lineNumber": 462
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "min",
+          "lineNumber": 462
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "int",
+          "lineNumber": 462
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "parsed.get",
+          "lineNumber": 462
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "self._source_authority",
+          "lineNumber": 463
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "self._repo.update_impact_analysis",
+          "lineNumber": 465
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "str",
+          "lineNumber": 466
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "logger.info",
+          "lineNumber": 469
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "round",
+          "lineNumber": 472
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "round",
+          "lineNumber": 476
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "abs",
+          "lineNumber": 480
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "article.get",
+          "lineNumber": 481
+        },
+        {
+          "caller": "_analyze_one",
+          "callee": "self._emit_breaking_news_signals",
+          "lineNumber": 482
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "round",
+          "lineNumber": 503
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "article.get",
+          "lineNumber": 504
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "article.get",
+          "lineNumber": 505
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "article.get",
+          "lineNumber": 505
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "datetime.now",
+          "lineNumber": 506
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "article.get",
+          "lineNumber": 516
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "SignalRegistryEngine",
+          "lineNumber": 519
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "abs",
+          "lineNumber": 523
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "registry.register",
+          "lineNumber": 528
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "article.get",
+          "lineNumber": 537
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "logger.info",
+          "lineNumber": 540
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "logger.error",
+          "lineNumber": 548
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "str",
+          "lineNumber": 548
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "\", \".join",
+          "lineNumber": 554
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "send_embed",
+          "lineNumber": 555
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "direction.upper",
+          "lineNumber": 564
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "logger.warning",
+          "lineNumber": 568
+        },
+        {
+          "caller": "_emit_breaking_news_signals",
+          "callee": "str",
+          "lineNumber": 568
+        },
+        {
+          "caller": "get_circuit_statuses",
+          "callee": "get_all_circuit_statuses",
+          "lineNumber": 571
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/models/news.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "NewsItem",
+          "startLine": 9,
+          "endLine": 25,
+          "methods": [],
+          "properties": [
+            "id",
+            "title",
+            "content",
+            "summary",
+            "url",
+            "source",
+            "source_domain",
+            "author",
+            "published_at",
+            "ticker_symbols",
+            "sector",
+            "sentiment_score",
+            "content_hash",
+            "ai_summary",
+            "image_url",
+            "raw"
+          ]
+        },
+        {
+          "name": "NewsFeedResult",
+          "startLine": 28,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "provider",
+            "fetched",
+            "new_items",
+            "duplicates",
+            "errors",
+            "items"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NewsItem",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "NewsFeedResult",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/providers/base.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "BaseProvider",
+          "startLine": 9,
+          "endLine": 40,
+          "methods": [
+            "fetch",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": [
+            "provider_name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseProvider",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 35,
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/providers/news/bloomberg.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 179,
+      "nonEmptyLines": 146,
+      "functions": [
+        {
+          "name": "_strip_html",
+          "startLine": 48,
+          "endLine": 49,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BloombergProvider",
+          "startLine": 52,
+          "endLine": 179,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_rss",
+            "_parse_item",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_strip_html",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "BloombergProvider",
+          "line": 52,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_strip_html",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_strip_html",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 49
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 59
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 60
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 64
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 64
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 66
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 71
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 73
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 81
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 82
+        },
+        {
+          "caller": "fetch",
+          "callee": "feed_url.split",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 90
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_rss",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "ET.fromstring",
+          "lineNumber": 107
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "xml_bytes.decode",
+          "lineNumber": 107
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.error",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "str",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.find",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "channel.findall",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "self._parse_item",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "items.append",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.debug",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "str",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_strip_html(entry.findtext(\"title\") or \"\").strip",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_strip_html",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "(entry.findtext(\"link\") or entry.findtext(\"guid\") or \"\").strip",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_strip_html",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "urlparse",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.now",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime(pub_date_str.strip()).astimezone",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_date_str.strip",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "NewsItem",
+          "lineNumber": 150
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 166
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 168
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 170
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 179
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/cnbc.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 185,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "_clean_text",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CNBCProvider",
+          "startLine": 48,
+          "endLine": 185,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_rss",
+            "_parse_item",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_clean_text",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "CNBCProvider",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_clean_text",
+          "callee": "_CDATA_RE.sub",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_clean_text",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_clean_text",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 52
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 60
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 65
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 70
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 77
+        },
+        {
+          "caller": "fetch",
+          "callee": "next",
+          "lineNumber": 82
+        },
+        {
+          "caller": "fetch",
+          "callee": "feed_url.split",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fetch",
+          "callee": "seg.isdigit",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 87
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 87
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 89
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_rss",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "xml_bytes.decode",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "_CDATA_RE.sub",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "m.group",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "ET.fromstring",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.error",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.find",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "channel.findall",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "self._parse_item",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "items.append",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.debug",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "str",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean_text(entry.findtext(\"title\") or \"\").strip",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean_text",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "title.lower",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "(entry.findtext(\"link\") or entry.findtext(\"guid\") or \"\").strip",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean_text",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "urlparse",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.now",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime(pub_date_str.strip()).astimezone",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_date_str.strip",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256(\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\n        ).hexdigest",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "NewsItem",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 162
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 172
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 174
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 176
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 185
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/crypto_rss.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 213,
+      "nonEmptyLines": 177,
+      "functions": [
+        {
+          "name": "_clean",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "_find_el",
+          "startLine": 50,
+          "endLine": 56,
+          "params": [
+            "entry"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CryptoRSSProvider",
+          "startLine": 59,
+          "endLine": 213,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_rss",
+            "_parse_item",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_clean",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "_find_el",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "CryptoRSSProvider",
+          "line": 59,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_clean",
+          "callee": "_CDATA_RE.sub",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_find_el",
+          "callee": "entry.find",
+          "lineNumber": 53
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 70
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 75
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 78
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 80
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 89
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 89
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 91
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 91
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 93
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_rss",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "ET.fromstring",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "xml_bytes.decode",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.error",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.find",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "channel.findall",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.findall",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "self._parse_item",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "items.append",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.debug",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "str",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.find",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "(_clean(link_el.text or \"\") or link_el.get(\"href\") or \"\").strip",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "link_el.get",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "atom_link.get",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "urlparse",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "source_name.lower().replace",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "source_name.lower",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.now",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime(pub_el.text.strip()).astimezone",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.fromisoformat(\r\n                        pub_el.text.strip().replace(\"Z\", \"+00:00\")\r\n                    ).astimezone",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip().replace",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "NewsItem",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "list",
+          "lineNumber": 192
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 200
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 202
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 204
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 213
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/cryptopanic.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 170,
+      "nonEmptyLines": 144,
+      "classes": [
+        {
+          "name": "CryptoPanicsNewsProvider",
+          "startLine": 30,
+          "endLine": 170,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_batch",
+            "_parse_results",
+            "_parse_result",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CryptoPanicsNewsProvider",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fetch",
+          "callee": "logger.debug",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "kwargs.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fetch",
+          "callee": "range",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 51
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 53
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 59
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 60
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 63
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 66
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 69
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 72
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "\",\".join",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "session.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "logger.warning",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "logger.error",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "resp.json",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "self._parse_results",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_fetch_batch",
+          "callee": "data.get",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_parse_results",
+          "callee": "self._parse_result",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_parse_results",
+          "callee": "items.append",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_parse_results",
+          "callee": "logger.debug",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_parse_results",
+          "callee": "str",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "(r.get(\"title\") or \"\").strip",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "r.get",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "(r.get(\"url\") or \"\").strip",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "r.get",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "r.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "(source.get(\"title\") or \"CryptoPanic\").strip",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "source.get",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "(source.get(\"domain\") or \"cryptopanic.com\").strip",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "source.get",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "r.get",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "datetime.fromisoformat(\r\n                pub_str.replace(\"Z\", \"+00:00\")\r\n            ).astimezone",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "pub_str.replace",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "datetime.now",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "r.get",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "c.get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "hashlib.sha256",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "published_at.date",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_parse_result",
+          "callee": "NewsItem",
+          "lineNumber": 138
+        },
+        {
+          "caller": "normalize",
+          "callee": "self._parse_result",
+          "lineNumber": 150
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 156
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 158
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 161
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 170
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/ft.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 181,
+      "nonEmptyLines": 146,
+      "functions": [
+        {
+          "name": "_strip_html",
+          "startLine": 49,
+          "endLine": 50,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FTProvider",
+          "startLine": 53,
+          "endLine": 181,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_rss",
+            "_parse_item",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_strip_html",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "FTProvider",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_strip_html",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_strip_html",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 59
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 63
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 63
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 65
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 67
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 70
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 72
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 79
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 80
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 86
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 86
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_rss",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "ET.fromstring",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.error",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "str",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.find",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "channel.findall",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "self._parse_item",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "items.append",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.debug",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "str",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "(entry.findtext(\"title\") or \"\").strip",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "url.strip",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_strip_html",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "urlparse",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.now",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime(pub_date_str).astimezone",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.findtext",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "NewsItem",
+          "lineNumber": 152
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 169
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 170
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 172
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 181
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/newsapi.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 106,
+      "classes": [
+        {
+          "name": "NewsAPIProvider",
+          "startLine": 18,
+          "endLine": 126,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_raw",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NewsAPIProvider",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 22
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 29
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 42
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_raw",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.normalize",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 52
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "min",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "session.get",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "logger.warning",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "asyncio.sleep",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "resp.json",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_fetch_raw",
+          "callee": "data.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 76
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 76
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 79
+        },
+        {
+          "caller": "normalize",
+          "callee": "urlparse",
+          "lineNumber": 80
+        },
+        {
+          "caller": "normalize",
+          "callee": "hashlib.sha256(\r\n            f\"{raw.get('title', '')}{source_domain}{raw.get('publishedAt', '')}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 82
+        },
+        {
+          "caller": "normalize",
+          "callee": "hashlib.sha256",
+          "lineNumber": 82
+        },
+        {
+          "caller": "normalize",
+          "callee": "f\"{raw.get('title', '')}{source_domain}{raw.get('publishedAt', '')}\".encode",
+          "lineNumber": 83
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 83
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 83
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.now",
+          "lineNumber": 86
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 87
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.fromisoformat(\r\n                    raw[\"publishedAt\"].replace(\"Z\", \"+00:00\")\r\n                ).astimezone",
+          "lineNumber": 89
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 89
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw[\"publishedAt\"].replace",
+          "lineNumber": 90
+        },
+        {
+          "caller": "normalize",
+          "callee": "NewsItem",
+          "lineNumber": 95
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get(\"source\", {}).get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 101
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 103
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 112
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 126
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/reddit_rss.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 239,
+      "nonEmptyLines": 202,
+      "functions": [
+        {
+          "name": "_clean",
+          "startLine": 56,
+          "endLine": 58,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "_find_el",
+          "startLine": 61,
+          "endLine": 67,
+          "params": [
+            "entry"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedditRSSProvider",
+          "startLine": 70,
+          "endLine": 239,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_atom",
+            "_parse_entry",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_clean",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "_find_el",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "RedditRSSProvider",
+          "line": 70,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_clean",
+          "callee": "_CDATA_RE.sub",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_find_el",
+          "callee": "entry.find",
+          "lineNumber": 64
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 80
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 90
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 99
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 100
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 103
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 106
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 109
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 112
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_atom",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "ET.fromstring",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "xml_bytes.decode",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "logger.error",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "root.findall",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "self._parse_entry",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "items.append",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "logger.debug",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_parse_atom",
+          "callee": "str",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "_find_el",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "_clean",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "entry.findall",
+          "lineNumber": 175
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "link_el.get",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "link_el.get",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "entry.find",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "link_el.get",
+          "lineNumber": 185
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "urlparse",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "_find_el",
+          "lineNumber": 190
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "_clean",
+          "lineNumber": 191
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "_find_el",
+          "lineNumber": 194
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "datetime.now",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "datetime.fromisoformat(\r\n                    pub_el.text.strip().replace(\"Z\", \"+00:00\")\r\n                ).astimezone",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "pub_el.text.strip().replace",
+          "lineNumber": 199
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 199
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{subreddit_name}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "hashlib.sha256",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "f\"{title}{subreddit_name}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 205
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 205
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "published_at.date",
+          "lineNumber": 205
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "NewsItem",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_parse_entry",
+          "callee": "list",
+          "lineNumber": 217
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 225
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 227
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 230
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 239
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/reuters.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 22,
+      "classes": [
+        {
+          "name": "ReutersProvider",
+          "startLine": 15,
+          "endLine": 32,
+          "methods": [
+            "fetch",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReutersProvider",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/turkish_rss.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 249,
+      "nonEmptyLines": 209,
+      "functions": [
+        {
+          "name": "_clean",
+          "startLine": 67,
+          "endLine": 69,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "_find_el",
+          "startLine": 72,
+          "endLine": 78,
+          "params": [
+            "entry"
+          ]
+        },
+        {
+          "name": "_extract_bist_tickers",
+          "startLine": 81,
+          "endLine": 88,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TurkishRSSProvider",
+          "startLine": 91,
+          "endLine": 249,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_rss",
+            "_parse_item",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_clean",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "_find_el",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "_extract_bist_tickers",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "TurkishRSSProvider",
+          "line": 91,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_clean",
+          "callee": "_CDATA_RE.sub",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_find_el",
+          "callee": "entry.find",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_extract_bist_tickers",
+          "callee": "set",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_extract_bist_tickers",
+          "callee": "text.lower",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_extract_bist_tickers",
+          "callee": "_BIST_NAME_MAP.items",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_extract_bist_tickers",
+          "callee": "found.add",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_extract_bist_tickers",
+          "callee": "list",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 99
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 99
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 101
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 106
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.sleep",
+          "lineNumber": 109
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 111
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 119
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.debug",
+          "lineNumber": 120
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 120
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 122
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 122
+        },
+        {
+          "caller": "fetch",
+          "callee": "set",
+          "lineNumber": 125
+        },
+        {
+          "caller": "fetch",
+          "callee": "seen.add",
+          "lineNumber": 129
+        },
+        {
+          "caller": "fetch",
+          "callee": "unique.append",
+          "lineNumber": 130
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 132
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "logger.debug",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_rss",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "ET.fromstring",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "xml_bytes.decode",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.debug",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.find",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "channel.findall",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.findall",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "self._parse_item",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "items.append",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 180
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 184
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.find",
+          "lineNumber": 185
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "(_clean(link_el.text or \"\") or link_el.get(\"href\") or \"\").strip",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "link_el.get",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "atom_link.get",
+          "lineNumber": 189
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "urlparse",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "source_name.lower",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 196
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.now",
+          "lineNumber": 201
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime(pub_el.text.strip()).astimezone",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.fromisoformat(\r\n                        pub_el.text.strip().replace(\"Z\", \"+00:00\")\r\n                    ).astimezone",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip().replace",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_extract_bist_tickers",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 217
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 217
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date",
+          "lineNumber": 217
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "NewsItem",
+          "lineNumber": 220
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 237
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 238
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 240
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 249
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/news/yahoo_finance_rss.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 246,
+      "nonEmptyLines": 207,
+      "functions": [
+        {
+          "name": "_canonical_ticker",
+          "startLine": 49,
+          "endLine": 50,
+          "params": [
+            "ticker"
+          ]
+        },
+        {
+          "name": "_clean",
+          "startLine": 63,
+          "endLine": 65,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "_find_el",
+          "startLine": 68,
+          "endLine": 74,
+          "params": [
+            "entry"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "YahooFinanceRSSProvider",
+          "startLine": 77,
+          "endLine": 246,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_feed",
+            "_parse_rss",
+            "_parse_item",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_canonical_ticker",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "_clean",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "_find_el",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "YahooFinanceRSSProvider",
+          "line": 77,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_canonical_ticker",
+          "callee": "ticker.removesuffix",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_clean",
+          "callee": "_CDATA_RE.sub",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub(\" \", text).strip",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_clean",
+          "callee": "_HTML_TAG_RE.sub",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_find_el",
+          "callee": "entry.find",
+          "lineNumber": 71
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 86
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 91
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.sleep",
+          "lineNumber": 95
+        },
+        {
+          "caller": "fetch",
+          "callee": "_YAHOO_RSS_URL.format",
+          "lineNumber": 96
+        },
+        {
+          "caller": "fetch",
+          "callee": "_canonical_ticker",
+          "lineNumber": 97
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_feed",
+          "lineNumber": 99
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 104
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.debug",
+          "lineNumber": 106
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 106
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.sleep",
+          "lineNumber": 110
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._call_with_resilience",
+          "lineNumber": 112
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.extend",
+          "lineNumber": 120
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.debug",
+          "lineNumber": 121
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 121
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 123
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 123
+        },
+        {
+          "caller": "fetch",
+          "callee": "set",
+          "lineNumber": 126
+        },
+        {
+          "caller": "fetch",
+          "callee": "seen.add",
+          "lineNumber": 130
+        },
+        {
+          "caller": "fetch",
+          "callee": "unique.append",
+          "lineNumber": 131
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 133
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "session.get",
+          "lineNumber": 143
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "resp.read",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_fetch_feed",
+          "callee": "self._parse_rss",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "ET.fromstring",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "xml_bytes.decode",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "logger.debug",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.find",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "channel.findall",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "root.findall",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "self._parse_item",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_parse_rss",
+          "callee": "items.append",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 180
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 184
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "entry.find",
+          "lineNumber": 185
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "(_clean(link_el.text or \"\") or link_el.get(\"href\") or \"\").strip",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "link_el.get",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "atom_link.get",
+          "lineNumber": 189
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "urlparse",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "source_name.lower().replace",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "source_name.lower",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_clean",
+          "lineNumber": 196
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "_find_el",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.now",
+          "lineNumber": 201
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime(pub_el.text.strip()).astimezone",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "parsedate_to_datetime",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.fromisoformat(\r\n                        pub_el.text.strip().replace(\"Z\", \"+00:00\")\r\n                    ).astimezone",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip().replace",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "pub_el.text.strip",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256(\r\n            f\"{title}{source_domain}{published_at.date().isoformat()}\".encode()\r\n        ).hexdigest",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "hashlib.sha256",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "f\"{title}{source_domain}{published_at.date().isoformat()}\".encode",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date().isoformat",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "published_at.date",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_parse_item",
+          "callee": "NewsItem",
+          "lineNumber": 217
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 234
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 235
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 237
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 246
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/resilience.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 275,
+      "nonEmptyLines": 230,
+      "functions": [
+        {
+          "name": "get_circuit_breaker",
+          "startLine": 124,
+          "endLine": 127,
+          "params": [
+            "provider_name"
+          ]
+        },
+        {
+          "name": "get_all_circuit_statuses",
+          "startLine": 130,
+          "endLine": 131,
+          "params": []
+        },
+        {
+          "name": "retry_with_backoff",
+          "startLine": 140,
+          "endLine": 203,
+          "params": [
+            "func",
+            "max_attempts",
+            "base_delay",
+            "max_delay",
+            "backoff_factor",
+            "jitter",
+            "provider_name",
+            "circuit_breaker"
+          ]
+        },
+        {
+          "name": "latency_context",
+          "startLine": 209,
+          "endLine": 238,
+          "params": [
+            "provider_name",
+            "operation"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CircuitState",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "CircuitBreaker",
+          "startLine": 37,
+          "endLine": 117,
+          "methods": [
+            "__init__",
+            "state",
+            "is_open",
+            "record_success",
+            "record_failure",
+            "get_status"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CircuitOpenError",
+          "startLine": 136,
+          "endLine": 137,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "ResilientProviderMixin",
+          "startLine": 243,
+          "endLine": 275,
+          "methods": [
+            "_circuit_breaker",
+            "_call_with_resilience"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CircuitState",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "CircuitBreaker",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "get_circuit_breaker",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "get_all_circuit_statuses",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "CircuitOpenError",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "retry_with_backoff",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "latency_context",
+          "line": 208,
+          "isDefault": false
+        },
+        {
+          "name": "ResilientProviderMixin",
+          "line": 243,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "state",
+          "callee": "time.monotonic",
+          "lineNumber": 66
+        },
+        {
+          "caller": "state",
+          "callee": "logger.info",
+          "lineNumber": 69
+        },
+        {
+          "caller": "record_success",
+          "callee": "logger.info",
+          "lineNumber": 86
+        },
+        {
+          "caller": "record_failure",
+          "callee": "time.monotonic",
+          "lineNumber": 94
+        },
+        {
+          "caller": "record_failure",
+          "callee": "logger.warning",
+          "lineNumber": 95
+        },
+        {
+          "caller": "record_failure",
+          "callee": "time.monotonic",
+          "lineNumber": 104
+        },
+        {
+          "caller": "record_failure",
+          "callee": "logger.error",
+          "lineNumber": 105
+        },
+        {
+          "caller": "get_circuit_breaker",
+          "callee": "CircuitBreaker",
+          "lineNumber": 126
+        },
+        {
+          "caller": "get_all_circuit_statuses",
+          "callee": "cb.get_status",
+          "lineNumber": 131
+        },
+        {
+          "caller": "get_all_circuit_statuses",
+          "callee": "_circuit_breakers.values",
+          "lineNumber": 131
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "get_circuit_breaker",
+          "lineNumber": 156
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "cb.is_open",
+          "lineNumber": 158
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "logger.warning",
+          "lineNumber": 159
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "CircuitOpenError",
+          "lineNumber": 164
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "range",
+          "lineNumber": 167
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "func",
+          "lineNumber": 169
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "cb.record_success",
+          "lineNumber": 171
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "cb.record_failure",
+          "lineNumber": 178
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "logger.error",
+          "lineNumber": 181
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "str",
+          "lineNumber": 185
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "min",
+          "lineNumber": 189
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "random.random",
+          "lineNumber": 191
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "logger.warning",
+          "lineNumber": 193
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "round",
+          "lineNumber": 198
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "str",
+          "lineNumber": 199
+        },
+        {
+          "caller": "retry_with_backoff",
+          "callee": "asyncio.sleep",
+          "lineNumber": 201
+        },
+        {
+          "caller": "latency_context",
+          "callee": "time.monotonic",
+          "lineNumber": 217
+        },
+        {
+          "caller": "latency_context",
+          "callee": "time.monotonic",
+          "lineNumber": 220
+        },
+        {
+          "caller": "latency_context",
+          "callee": "logger.info",
+          "lineNumber": 221
+        },
+        {
+          "caller": "latency_context",
+          "callee": "round",
+          "lineNumber": 225
+        },
+        {
+          "caller": "latency_context",
+          "callee": "time.monotonic",
+          "lineNumber": 229
+        },
+        {
+          "caller": "latency_context",
+          "callee": "logger.warning",
+          "lineNumber": 230
+        },
+        {
+          "caller": "latency_context",
+          "callee": "round",
+          "lineNumber": 234
+        },
+        {
+          "caller": "latency_context",
+          "callee": "str",
+          "lineNumber": 236
+        },
+        {
+          "caller": "_circuit_breaker",
+          "callee": "get_circuit_breaker",
+          "lineNumber": 254
+        },
+        {
+          "caller": "_circuit_breaker",
+          "callee": "getattr",
+          "lineNumber": 254
+        },
+        {
+          "caller": "_call_with_resilience",
+          "callee": "getattr",
+          "lineNumber": 265
+        },
+        {
+          "caller": "_call_with_resilience",
+          "callee": "latency_context",
+          "lineNumber": 266
+        },
+        {
+          "caller": "_call_with_resilience",
+          "callee": "retry_with_backoff",
+          "lineNumber": 267
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 4,
+        "classCount": 4
+      }
+    }
+  ]
+}

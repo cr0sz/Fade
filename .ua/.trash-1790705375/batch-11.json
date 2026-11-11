@@ -1,0 +1,817 @@
+{
+  "nodes": [
+    {
+      "id": "file:scripts/aggregate_stats.py",
+      "type": "file",
+      "name": "aggregate_stats.py",
+      "filePath": "scripts/aggregate_stats.py",
+      "summary": "Queries PostgreSQL for completed trades and computes comprehensive performance statistics including win rates, profit factors, bucket analysis by confidence, symbol, engine, and holding time, plus individual trade history with full signal context.",
+      "tags": ["data-aggregation", "metrics-computation", "database-query", "async-worker"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/aggregate_stats.py:_metrics",
+      "type": "function",
+      "name": "_metrics",
+      "filePath": "scripts/aggregate_stats.py",
+      "lineRange": [51, 64],
+      "summary": "Computes key performance metrics for a PnL list including count, win rate, average/median PnL, total PnL, profit factor, and standard deviation.",
+      "tags": ["statistics", "utility", "metrics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/aggregate_stats.py:aggregate",
+      "type": "function",
+      "name": "aggregate",
+      "filePath": "scripts/aggregate_stats.py",
+      "lineRange": [67, 73],
+      "summary": "Async entry point that creates a PostgreSQL connection pool and orchestrates the aggregation of trade statistics over a specified lookback period.",
+      "tags": ["entry-point", "async", "database-connection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/aggregate_stats.py:_run_queries",
+      "type": "function",
+      "name": "_run_queries",
+      "filePath": "scripts/aggregate_stats.py",
+      "lineRange": [76, 404],
+      "summary": "Core aggregation logic executing complex multi-step SQL queries to fetch trade history, compute summary statistics, analyze trades by confidence/symbol/engine/regime, track position sizing and holding times, and generate per-trade signal context.",
+      "tags": ["core-logic", "sql-query", "data-pipeline"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/aggregate_stats.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/aggregate_stats.py",
+      "lineRange": [407, 413],
+      "summary": "CLI entry point that parses arguments (days, output path) and writes aggregated statistics to JSON file after invoking aggregate().",
+      "tags": ["entry-point", "cli", "io"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/governance_engine.py",
+      "type": "file",
+      "name": "governance_engine.py",
+      "filePath": "scripts/governance_engine.py",
+      "summary": "Applies governance actions derived from LLM lessons to the trading system via Redis (strategy exclusions, dynamic bans), environment file updates (threshold adjustments), database audit logging, and Discord notifications with dry-run support.",
+      "tags": ["governance", "trading-safety", "multi-target-sync", "audit-logging"],
+      "complexity": "moderate",
+      "languageNotes": "Uses asyncpg for database, aioredis for cache, regex for .env file manipulation. Protected engine list prevents accidental halting (Sprint 34 incident)."
+    },
+    {
+      "id": "class:scripts/governance_engine.py:GovernanceEngine",
+      "type": "class",
+      "name": "GovernanceEngine",
+      "filePath": "scripts/governance_engine.py",
+      "lineRange": [75, 286],
+      "summary": "Orchestrates application of governance actions against trading infrastructure via Redis, .env, and database, with methods for strategy enable/disable, parameter adjustment (weight, threshold, size), logging, and summary reporting.",
+      "tags": ["governance-orchestrator", "state-management", "multi-layer-sync"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/governance_engine.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "scripts/governance_engine.py",
+      "lineRange": [333, 528],
+      "summary": "Main async pipeline orchestrator that loads lessons JSON, maps old/new schema actions through version-specific handlers (V5-V8), applies them via GovernanceEngine, and outputs an updated lessons file with execution summary.",
+      "tags": ["entry-point", "pipeline-orchestrator", "schema-adapter"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/lessons_learned.py",
+      "type": "file",
+      "name": "lessons_learned.py",
+      "filePath": "scripts/lessons_learned.py",
+      "summary": "Multi-layer LLM-based governance engine (V4-V9) using Ollama that analyzes aggregated trading stats, runs memory-aware decision chains through fast (3b) and main (7b) models, applies safety filters and rule overrides, and generates governance actions.",
+      "tags": ["llm-governance", "multi-pass-analysis", "safety-filtering", "decision-engine"],
+      "complexity": "complex",
+      "languageNotes": "Implements 6 analysis versions (V5-V9) each with safety filters and rule engines. Uses context windows and memory from prior governance decisions for regime-aware decisions."
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_v5_safety_filter",
+      "type": "function",
+      "name": "_v5_safety_filter",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [295, 330],
+      "summary": "Validates V5 (strategy recommendation) output ensuring confidence bounds, reasonable action counts, and regime compliance before governance application.",
+      "tags": ["safety-filter", "validation", "v5"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_v5_to_governance_actions",
+      "type": "function",
+      "name": "_v5_to_governance_actions",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [333, 344],
+      "summary": "Converts V5 strategy recommendations to formal governance actions with type/target/reason normalization.",
+      "tags": ["schema-adapter", "v5"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_run_v5",
+      "type": "function",
+      "name": "_run_v5",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [347, 376],
+      "summary": "V5 analysis pass: fast model pre-signal and main model strategy recommendation generation with context window and confidence scoring.",
+      "tags": ["llm-pass", "strategy-recommendation", "v5"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_v6_safety_filter",
+      "type": "function",
+      "name": "_v6_safety_filter",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [525, 560],
+      "summary": "Validates V6 (portfolio health) output for type correctness, impact severity levels, and action confidence thresholds.",
+      "tags": ["safety-filter", "validation", "v6"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_run_v6",
+      "type": "function",
+      "name": "_run_v6",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [563, 601],
+      "summary": "V6 analysis pass: portfolio health assessment incorporating stats, V5 output, and memory to generate portfolio-level actions.",
+      "tags": ["llm-pass", "portfolio-analysis", "v6"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_v7_safety_filter",
+      "type": "function",
+      "name": "_v7_safety_filter",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [740, 778],
+      "summary": "Validates V7 (system health) output ensuring issue severity/layer assignment correctness and action confidence validity.",
+      "tags": ["safety-filter", "validation", "v7"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_run_v7",
+      "type": "function",
+      "name": "_run_v7",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [781, 828],
+      "summary": "V7 analysis pass: system health monitoring across infrastructure layers, issue detection, and improvement action generation.",
+      "tags": ["llm-pass", "system-health", "v7"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_v8_safety_filter",
+      "type": "function",
+      "name": "_v8_safety_filter",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [948, 983],
+      "summary": "Validates V8 (architecture) output for layer classification, impact levels, and architectural change recommendation validity.",
+      "tags": ["safety-filter", "validation", "v8"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_run_v8",
+      "type": "function",
+      "name": "_run_v8",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [986, 1032],
+      "summary": "V8 analysis pass: architecture health assessment with layer-by-layer analysis and long-term structural improvement recommendations.",
+      "tags": ["llm-pass", "architecture-analysis", "v8"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_v9_safety_filter",
+      "type": "function",
+      "name": "_v9_safety_filter",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1154, 1192],
+      "summary": "Validates V9 (meta/integration) output ensuring meta-analysis validity and cross-version consistency.",
+      "tags": ["safety-filter", "validation", "v9"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_run_v9",
+      "type": "function",
+      "name": "_run_v9",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1195, 1247],
+      "summary": "V9 analysis pass: meta-analysis integrating findings from V5-V8, consistency checking, and generation of unified system recommendations.",
+      "tags": ["llm-pass", "meta-analysis", "v9"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_compact_stats",
+      "type": "function",
+      "name": "_compact_stats",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1251, 1291],
+      "summary": "Summarizes aggregated stats into compact context form for LLM consumption, reducing token usage while preserving key metrics.",
+      "tags": ["context-compression", "llm-input"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_load_memory",
+      "type": "function",
+      "name": "_load_memory",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1295, 1339],
+      "summary": "Loads prior governance decisions from database within a lookback window to provide context for regime-aware decision making.",
+      "tags": ["memory-retrieval", "context-enrichment", "database-query"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_ollama_call",
+      "type": "function",
+      "name": "_ollama_call",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1343, 1358],
+      "summary": "HTTP wrapper for Ollama API calls with configurable model, messages, base URL, and timeout.",
+      "tags": ["llm-interface", "http-client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_fast_model_signal",
+      "type": "function",
+      "name": "_fast_model_signal",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1361, 1378],
+      "summary": "Invokes fast model (3b) as optional pre-signal pass to generate quick risk assessment and regime signal before main model.",
+      "tags": ["llm-fast-pass", "pre-signal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_extract_json_block",
+      "type": "function",
+      "name": "_extract_json_block",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1382, 1394],
+      "summary": "Extracts JSON content from LLM response text using regex pattern matching (handles code block and raw JSON).",
+      "tags": ["json-parsing", "llm-output"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:_json_guard",
+      "type": "function",
+      "name": "_json_guard",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1397, 1420],
+      "summary": "Validates and self-heals JSON output from LLM with fallback to model retry on parse failure, ensuring robustness.",
+      "tags": ["json-validation", "error-recovery", "llm-output"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/lessons_learned.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "scripts/lessons_learned.py",
+      "lineRange": [1820, 1876],
+      "summary": "Main async entry point orchestrating the full multi-pass LLM analysis pipeline: memory loading, context compression, V5-V9 passes with safety filtering, rule engine application, and database persistence.",
+      "tags": ["entry-point", "pipeline-orchestrator", "multi-pass-analysis"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/pipeline_smoke_test.py",
+      "type": "file",
+      "name": "pipeline_smoke_test.py",
+      "filePath": "scripts/pipeline_smoke_test.py",
+      "summary": "End-to-end smoke test for the LLM lessons/governance pipeline that runs the full chain (aggregate → 6-pass LLM → governance with dry-run) and reports stage timings to verify pipeline health.",
+      "tags": ["test", "integration-test", "smoke-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/pipeline_smoke_test.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/pipeline_smoke_test.py",
+      "lineRange": [22, 42],
+      "summary": "Async test runner that executes the full pipeline (stats aggregation → lessons LLM → governance application) with timing instrumentation.",
+      "tags": ["entry-point", "test-runner", "orchestrator"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/run_lessons_pipeline.py",
+      "type": "file",
+      "name": "run_lessons_pipeline.py",
+      "filePath": "scripts/run_lessons_pipeline.py",
+      "summary": "Orchestrates the full weekly lessons pipeline: fetches trade stats, runs multi-pass LLM analysis, reports findings (risk level, regime, actions, recommendations), and applies governance changes with CLI control over minimum trade count and dry-run mode.",
+      "tags": ["entry-point", "pipeline-orchestrator", "scheduled-task"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/run_lessons_pipeline.py:pipeline",
+      "type": "function",
+      "name": "pipeline",
+      "filePath": "scripts/run_lessons_pipeline.py",
+      "lineRange": [39, 168],
+      "summary": "Main async orchestrator coordinating three-step pipeline: Step 1 aggregates stats with trade count/WR/PnL/DD reporting, Step 2 runs LLM analysis with detailed output formatting, Step 3 applies governance with optional dry-run and cleanup.",
+      "tags": ["entry-point", "orchestrator", "multi-stage-pipeline"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:_run_queries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:_run_queries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/aggregate_stats.py",
+      "target": "function:scripts/aggregate_stats.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/governance_engine.py",
+      "target": "class:scripts/governance_engine.py:GovernanceEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/governance_engine.py",
+      "target": "function:scripts/governance_engine.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/governance_engine.py",
+      "target": "class:scripts/governance_engine.py:GovernanceEngine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/governance_engine.py",
+      "target": "function:scripts/governance_engine.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_v5_safety_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_v5_to_governance_actions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_run_v5",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_v6_safety_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_run_v6",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_v7_safety_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_run_v7",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_v8_safety_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_run_v8",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_v9_safety_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_run_v9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_compact_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_load_memory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_ollama_call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_fast_model_signal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_extract_json_block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:_json_guard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/lessons_learned.py",
+      "target": "function:scripts/lessons_learned.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/pipeline_smoke_test.py",
+      "target": "function:scripts/pipeline_smoke_test.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_smoke_test.py",
+      "target": "function:scripts/pipeline_smoke_test.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/run_lessons_pipeline.py",
+      "target": "function:scripts/run_lessons_pipeline.py:pipeline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/run_lessons_pipeline.py",
+      "target": "function:scripts/run_lessons_pipeline.py:pipeline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scripts/pipeline_smoke_test.py",
+      "target": "file:scripts/aggregate_stats.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/pipeline_smoke_test.py",
+      "target": "file:scripts/governance_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/pipeline_smoke_test.py",
+      "target": "file:scripts/lessons_learned.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/run_lessons_pipeline.py",
+      "target": "file:scripts/aggregate_stats.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/run_lessons_pipeline.py",
+      "target": "file:scripts/governance_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/run_lessons_pipeline.py",
+      "target": "file:scripts/lessons_learned.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:scripts/pipeline_smoke_test.py:main",
+      "target": "function:scripts/aggregate_stats.py:aggregate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/pipeline_smoke_test.py:main",
+      "target": "function:scripts/lessons_learned.py:run",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/pipeline_smoke_test.py:main",
+      "target": "function:scripts/governance_engine.py:run",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/run_lessons_pipeline.py:pipeline",
+      "target": "function:scripts/aggregate_stats.py:aggregate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/run_lessons_pipeline.py:pipeline",
+      "target": "function:scripts/lessons_learned.py:run",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/run_lessons_pipeline.py:pipeline",
+      "target": "function:scripts/governance_engine.py:run",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/aggregate_stats.py:aggregate",
+      "target": "function:scripts/aggregate_stats.py:_run_queries",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/aggregate_stats.py:_run_queries",
+      "target": "function:scripts/aggregate_stats.py:_metrics",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v5",
+      "target": "function:scripts/lessons_learned.py:_fast_model_signal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v5",
+      "target": "function:scripts/lessons_learned.py:_ollama_call",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v5",
+      "target": "function:scripts/lessons_learned.py:_json_guard",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v5",
+      "target": "function:scripts/lessons_learned.py:_v5_safety_filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v5",
+      "target": "function:scripts/lessons_learned.py:_v5_to_governance_actions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v6",
+      "target": "function:scripts/lessons_learned.py:_ollama_call",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v6",
+      "target": "function:scripts/lessons_learned.py:_json_guard",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v6",
+      "target": "function:scripts/lessons_learned.py:_v6_safety_filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v7",
+      "target": "function:scripts/lessons_learned.py:_ollama_call",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v7",
+      "target": "function:scripts/lessons_learned.py:_json_guard",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v7",
+      "target": "function:scripts/lessons_learned.py:_v7_safety_filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v8",
+      "target": "function:scripts/lessons_learned.py:_ollama_call",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v8",
+      "target": "function:scripts/lessons_learned.py:_json_guard",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v8",
+      "target": "function:scripts/lessons_learned.py:_v8_safety_filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:_run_v9",
+      "target": "function:scripts/lessons_learned.py:_v9_safety_filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_compact_stats",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_load_memory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_run_v5",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_run_v6",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_run_v7",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_run_v8",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/lessons_learned.py:run",
+      "target": "function:scripts/lessons_learned.py:_run_v9",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scripts/governance_engine.py:run",
+      "target": "class:scripts/governance_engine.py:GovernanceEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [
+    "scripts/sql_check_allow.txt"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 5
+    }
+  },
+  "results": [
+    {
+      "path": "scripts/deploy.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 245,
+      "nonEmptyLines": 210,
+      "functions": [
+        {
+          "name": "log",
+          "startLine": 29,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "ok",
+          "startLine": 30,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "warn",
+          "startLine": 31,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "die",
+          "startLine": 32,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "_rollback",
+          "startLine": 66,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "_load_env",
+          "startLine": 124,
+          "endLine": 135,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/health_check.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 99,
+      "nonEmptyLines": 86,
+      "functions": [
+        {
+          "name": "http_check",
+          "startLine": 12,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "container_check",
+          "startLine": 30,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/install_autopush.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 41,
+      "nonEmptyLines": 37,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/nightly_claude_diagnose.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 66,
+      "nonEmptyLines": 60,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/preflight.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 240,
+      "nonEmptyLines": 206,
+      "functions": [
+        {
+          "name": "pass",
+          "startLine": 12,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "warn",
+          "startLine": 13,
+          "endLine": 13,
+          "params": []
+        },
+        {
+          "name": "fail",
+          "startLine": 14,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "section",
+          "startLine": 15,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "port_in_use",
+          "startLine": 174,
+          "endLine": 185,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    }
+  ]
+}

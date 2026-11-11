@@ -1,0 +1,746 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/engines/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/engines/__init__.py",
+      "summary": "Empty package initialization file for the engines module.",
+      "tags": ["entry-point", "package", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/market_data_logger/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/market_data_logger/__init__.py",
+      "summary": "Package initialization file for market data logger module.",
+      "tags": ["entry-point", "package", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/scheduler/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/scheduler/__init__.py",
+      "summary": "Empty package initialization file for the scheduler module.",
+      "tags": ["entry-point", "package", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/scheduler/jobs/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/scheduler/jobs/__init__.py",
+      "summary": "Empty package initialization file for scheduler jobs submodule.",
+      "tags": ["entry-point", "package", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/validation/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/validation/__init__.py",
+      "summary": "Package initialization file for the validation module.",
+      "tags": ["entry-point", "package", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/validation/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "src/validation/models.py",
+      "summary": "Defines core data models for signal validation and backtest analysis: SignalRecord, SignalOutcome, BacktestRun, EnginePerformance, and AccuracySummary dataclasses.",
+      "tags": ["data-model", "validation", "schema-definition"],
+      "complexity": "simple",
+      "languageNotes": "Dataclass-based models using typed attributes for signal tracking and performance analytics."
+    },
+    {
+      "id": "class:src/validation/models.py:SignalRecord",
+      "type": "class",
+      "name": "SignalRecord",
+      "filePath": "src/validation/models.py",
+      "lineRange": [11, 23],
+      "summary": "Dataclass representing a single signal emission with metadata including signal type, engine name, ticker, direction, confidence level, and composite score.",
+      "tags": ["data-model", "signal", "record"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/validation/models.py:SignalOutcome",
+      "type": "class",
+      "name": "SignalOutcome",
+      "filePath": "src/validation/models.py",
+      "lineRange": [26, 36],
+      "summary": "Dataclass capturing the outcome of a signal after evaluation window, tracking predicted vs actual direction and score delta.",
+      "tags": ["data-model", "validation", "outcome"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/validation/models.py:BacktestRun",
+      "type": "class",
+      "name": "BacktestRun",
+      "filePath": "src/validation/models.py",
+      "lineRange": [39, 52],
+      "summary": "Dataclass recording backtest execution details including engine name, evaluation window, signal counts, and accuracy metrics across multiple time horizons.",
+      "tags": ["data-model", "backtest", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/validation/models.py:EnginePerformance",
+      "type": "class",
+      "name": "EnginePerformance",
+      "filePath": "src/validation/models.py",
+      "lineRange": [55, 64],
+      "summary": "Dataclass summarizing engine performance metrics on a specific date including total signals, accuracy across time windows, and confidence statistics.",
+      "tags": ["data-model", "performance", "analytics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/validation/models.py:AccuracySummary",
+      "type": "class",
+      "name": "AccuracySummary",
+      "filePath": "src/validation/models.py",
+      "lineRange": [67, 74],
+      "summary": "Dataclass providing period-based accuracy aggregation by engine with 4h, 24h, and 72h accuracy metrics and high-confidence subset performance.",
+      "tags": ["data-model", "accuracy", "summary"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/conftest.py",
+      "type": "file",
+      "name": "conftest.py",
+      "filePath": "tests/conftest.py",
+      "summary": "Pytest configuration file providing shared fixtures and mock stubs for testing framework setup.",
+      "tags": ["test", "configuration", "fixture"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/conftest.py:_make_stub",
+      "type": "function",
+      "name": "_make_stub",
+      "filePath": "tests/conftest.py",
+      "lineRange": [33, 37],
+      "summary": "Creates a mock module stub for use in tests, wrapping module type construction.",
+      "tags": ["test-utility", "fixture", "mock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_binance_futures.py",
+      "type": "file",
+      "name": "test_binance_futures.py",
+      "filePath": "tests/test_binance_futures.py",
+      "summary": "Comprehensive test suite for Binance Futures broker integration covering order placement, quantity rounding, leverage management, position closing, and fee calculation.",
+      "tags": ["test", "broker-integration", "exchange"],
+      "complexity": "complex",
+      "languageNotes": "Tests cover edge cases in quantity rounding per Binance step increments, margin mode validation, and maker fee accounting."
+    },
+    {
+      "id": "function:tests/test_binance_futures.py:_fresh",
+      "type": "function",
+      "name": "_fresh",
+      "filePath": "tests/test_binance_futures.py",
+      "lineRange": [39, 50],
+      "summary": "Resets test state by clearing broker caches and environment variables, then instantiates a fresh BinanceFuturesBroker.",
+      "tags": ["test-utility", "setup", "broker"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_binance_futures.py:_av",
+      "type": "function",
+      "name": "_av",
+      "filePath": "tests/test_binance_futures.py",
+      "lineRange": [53, 57],
+      "summary": "Constructs an asset-volume pair for order validation, used to set up test scenarios.",
+      "tags": ["test-utility", "data-builder"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_binance_futures.py:_happy_post",
+      "type": "function",
+      "name": "_happy_post",
+      "filePath": "tests/test_binance_futures.py",
+      "lineRange": [60, 69],
+      "summary": "Appends successful POST responses to a list for verification in order tests.",
+      "tags": ["test-utility", "mock-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_executor.py",
+      "type": "file",
+      "name": "test_executor.py",
+      "filePath": "tests/test_executor.py",
+      "summary": "Test suite for trade execution covering max hold duration by exchange, position sizing guards, slippage, and profit/loss calculation.",
+      "tags": ["test", "execution", "trading-logic"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/test_executor.py:_signal",
+      "type": "function",
+      "name": "_signal",
+      "filePath": "tests/test_executor.py",
+      "lineRange": [33, 54],
+      "summary": "Factory function constructing a Signal object with customizable direction, exchange, price, confidence, and asset for test scenarios.",
+      "tags": ["test-utility", "factory", "signal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_executor.py:_portfolio",
+      "type": "function",
+      "name": "_portfolio",
+      "filePath": "tests/test_executor.py",
+      "lineRange": [57, 60],
+      "summary": "Constructs a Portfolio object with a specified balance for test isolation.",
+      "tags": ["test-utility", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_executor.py:TestMaxHoldHours",
+      "type": "class",
+      "name": "TestMaxHoldHours",
+      "filePath": "tests/test_executor.py",
+      "lineRange": [65, 100],
+      "summary": "Test class validating max hold duration logic across exchanges (crypto, stocks, BIST) and confirming open trades capture correct hold limits.",
+      "tags": ["test", "hold-duration", "exchange"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/test_executor.py:TestSizingGuards",
+      "type": "class",
+      "name": "TestSizingGuards",
+      "filePath": "tests/test_executor.py",
+      "lineRange": [105, 189],
+      "summary": "Test class ensuring position sizing respects minimum notional, handles edge cases (zero/negative price), and applies volatility scaling and slippage correctly.",
+      "tags": ["test", "risk-management", "sizing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:tests/test_executor.py:TestCloseTrade",
+      "type": "class",
+      "name": "TestCloseTrade",
+      "filePath": "tests/test_executor.py",
+      "lineRange": [194, 241],
+      "summary": "Test class verifying profit/loss calculation on position closure for both long and short trades, including exit price and realized PnL recording.",
+      "tags": ["test", "trade-closure", "pnl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:tests/test_exit_priority.py",
+      "type": "file",
+      "name": "test_exit_priority.py",
+      "filePath": "tests/test_exit_priority.py",
+      "summary": "Test suite validating exit priority logic including partial takes, trailing stops, age-out expiration, and stop loss with peak restart behavior.",
+      "tags": ["test", "exit-strategy", "risk-management"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/test_exit_priority.py:_trade",
+      "type": "function",
+      "name": "_trade",
+      "filePath": "tests/test_exit_priority.py",
+      "lineRange": [31, 53],
+      "summary": "Factory function creating a PaperTrade with configurable asset, direction, entry price, size, exchange, max hold, and age for test scenarios.",
+      "tags": ["test-utility", "factory", "trade"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_exit_priority.py:TestExitPriority",
+      "type": "class",
+      "name": "TestExitPriority",
+      "filePath": "tests/test_exit_priority.py",
+      "lineRange": [58, 163],
+      "summary": "Test class validating exit rule priority including partial take profit thresholds, trailing stop activation, age-based position expiration, and stop loss closure.",
+      "tags": ["test", "exit-rules", "portfolio"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:tests/test_exit_priority.py:TestTrailPeakRestart",
+      "type": "class",
+      "name": "TestTrailPeakRestart",
+      "filePath": "tests/test_exit_priority.py",
+      "lineRange": [168, 213],
+      "summary": "Test class checking trailing stop peak restart behavior including default peak at entry price, restored peak advantage, and peak loss impact on PnL.",
+      "tags": ["test", "trailing-stop", "peak-tracking"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/test_exit_priority.py:TestMaxHoldOnTrade",
+      "type": "class",
+      "name": "TestMaxHoldOnTrade",
+      "filePath": "tests/test_exit_priority.py",
+      "lineRange": [218, 241],
+      "summary": "Test class verifying that max hold hours are correctly applied to trades via executor interface across different exchange/direction combinations.",
+      "tags": ["test", "max-hold", "executor"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_portfolio.py",
+      "type": "file",
+      "name": "test_portfolio.py",
+      "filePath": "tests/test_portfolio.py",
+      "summary": "Test suite for Portfolio class covering equity calculation for long/short positions, unrealized PnL tracking, partial close operations, and pnl accumulation.",
+      "tags": ["test", "portfolio", "equity"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/test_portfolio.py:_open_trade",
+      "type": "function",
+      "name": "_open_trade",
+      "filePath": "tests/test_portfolio.py",
+      "lineRange": [22, 40],
+      "summary": "Factory function creating a PaperTrade for portfolio tests with configurable asset, direction, entry price, size, and exchange.",
+      "tags": ["test-utility", "factory", "trade"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_portfolio.py:TestEquityCalculation",
+      "type": "class",
+      "name": "TestEquityCalculation",
+      "filePath": "tests/test_portfolio.py",
+      "lineRange": [45, 140],
+      "summary": "Test class verifying equity and unrealized PnL calculations for long and short positions, including price updates and position closure settlement.",
+      "tags": ["test", "portfolio", "equity-calculation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:tests/test_portfolio.py:TestPartialExits",
+      "type": "class",
+      "name": "TestPartialExits",
+      "filePath": "tests/test_portfolio.py",
+      "lineRange": [145, 241],
+      "summary": "Test class ensuring partial position closes work correctly including size reduction, pnl crediting, state preservation, and sequential partial logic.",
+      "tags": ["test", "partial-close", "portfolio"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:tests/test_reconcile_ignore.py",
+      "type": "file",
+      "name": "test_reconcile_ignore.py",
+      "filePath": "tests/test_reconcile_ignore.py",
+      "summary": "Simple test file for asset ignore list parsing functionality in reconciliation module.",
+      "tags": ["test", "reconciliation", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_risk.py",
+      "type": "file",
+      "name": "test_risk.py",
+      "filePath": "tests/test_risk.py",
+      "summary": "Test suite for risk evaluation covering exchange validation, confidence checks, duplicate asset detection, position limits, risk-off penalties, pump-chasing caps, and trade fraction sizing.",
+      "tags": ["test", "risk-management", "signal-validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/test_risk.py:_signal",
+      "type": "function",
+      "name": "_signal",
+      "filePath": "tests/test_risk.py",
+      "lineRange": [28, 52],
+      "summary": "Factory function constructing a Signal with detailed parameters including direction, exchange, confidence, news/social/volume conviction, and metadata flags.",
+      "tags": ["test-utility", "factory", "signal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_risk.py:_open_trade",
+      "type": "function",
+      "name": "_open_trade",
+      "filePath": "tests/test_risk.py",
+      "lineRange": [55, 62],
+      "summary": "Factory function creating a PaperTrade for risk tests with asset and exchange parameters.",
+      "tags": ["test-utility", "factory", "trade"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_risk.py:_portfolio",
+      "type": "function",
+      "name": "_portfolio",
+      "filePath": "tests/test_risk.py",
+      "lineRange": [65, 77],
+      "summary": "Factory function constructing a Portfolio with specified counts of crypto, US stock, and BIST positions for testing position limits.",
+      "tags": ["test-utility", "factory", "portfolio"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_risk.py:TestEvaluate",
+      "type": "class",
+      "name": "TestEvaluate",
+      "filePath": "tests/test_risk.py",
+      "lineRange": [82, 190],
+      "summary": "Test class validating risk evaluation logic including exchange/confidence filters, conviction requirements, balance checks, duplicate detection, position limits, and conditional acceptance.",
+      "tags": ["test", "risk-evaluation", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:tests/test_risk.py:TestTradeFraction",
+      "type": "class",
+      "name": "TestTradeFraction",
+      "filePath": "tests/test_risk.py",
+      "lineRange": [195, 213],
+      "summary": "Test class checking trade fraction sizing varies correctly by asset type (crypto vs stock) and confidence level.",
+      "tags": ["test", "position-sizing", "confidence"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_stale_flatten.py",
+      "type": "file",
+      "name": "test_stale_flatten.py",
+      "filePath": "tests/test_stale_flatten.py",
+      "summary": "Brief test suite validating stale position flattening logic when data becomes outdated.",
+      "tags": ["test", "position-management", "stale-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_truth_router.py",
+      "type": "file",
+      "name": "test_truth_router.py",
+      "filePath": "tests/test_truth_router.py",
+      "summary": "Comprehensive test suite for TruthRouter covering out-of-sample (OOS) gate staleness, tradeability validation, routing logic with OOS unlocking, confidence scaling, and engine statistics.",
+      "tags": ["test", "routing", "out-of-sample"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/test_truth_router.py:_router_with_lift",
+      "type": "function",
+      "name": "_router_with_lift",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [23, 28],
+      "summary": "Factory function creating a TruthRouter with lift table for OOS gate testing.",
+      "tags": ["test-utility", "factory", "router"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_truth_router.py:_good_oos_payload",
+      "type": "function",
+      "name": "_good_oos_payload",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [31, 43],
+      "summary": "Factory function constructing a valid out-of-sample payload with engine, bucket, exchange, and action for OOS gate testing.",
+      "tags": ["test-utility", "factory", "oos-gate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_truth_router.py:_load_oos",
+      "type": "function",
+      "name": "_load_oos",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [46, 55],
+      "summary": "Helper function loading an OOS payload into a TruthRouter instance for state initialization during testing.",
+      "tags": ["test-utility", "setup", "oos-gate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_truth_router.py:TestPassthroughBlocking",
+      "type": "class",
+      "name": "TestPassthroughBlocking",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [60, 78],
+      "summary": "Test class verifying router passthrough behavior when OOS gate is disabled, missing, or stale.",
+      "tags": ["test", "oos-gate", "passthrough"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/test_truth_router.py:TestOOSGateStale",
+      "type": "class",
+      "name": "TestOOSGateStale",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [83, 113],
+      "summary": "Test class checking OOS staleness detection including stale gate blocking confirm/invert operations and fresh gate passing.",
+      "tags": ["test", "oos-staleness", "gate"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/test_truth_router.py:TestOOSTradeable",
+      "type": "class",
+      "name": "TestOOSTradeable",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [118, 153],
+      "summary": "Test class validating OOS tradeability logic including minimum sample requirements, negative avg-net vetoes, 7-day overrides, and missing segment handling.",
+      "tags": ["test", "oos-tradeable", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/test_truth_router.py:TestRoutingLogic",
+      "type": "class",
+      "name": "TestRoutingLogic",
+      "filePath": "tests/test_truth_router.py",
+      "lineRange": [158, 244],
+      "summary": "Test class covering complete routing logic including short confirmation, long-to-short inversion, edge sufficiency checks, and OOS unlocking of long confirms.",
+      "tags": ["test", "routing-logic", "signal-routing"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:SignalRecord",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:SignalOutcome",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:BacktestRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:EnginePerformance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:AccuracySummary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:SignalRecord",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:SignalOutcome",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:BacktestRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:EnginePerformance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/validation/models.py",
+      "target": "class:src/validation/models.py:AccuracySummary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/conftest.py",
+      "target": "function:tests/conftest.py:_make_stub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/conftest.py",
+      "target": "function:tests/conftest.py:_make_stub",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_binance_futures.py",
+      "target": "function:tests/test_binance_futures.py:_fresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_binance_futures.py",
+      "target": "function:tests/test_binance_futures.py:_av",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_binance_futures.py",
+      "target": "function:tests/test_binance_futures.py:_happy_post",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_executor.py",
+      "target": "function:tests/test_executor.py:_signal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_executor.py",
+      "target": "function:tests/test_executor.py:_portfolio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_executor.py",
+      "target": "class:tests/test_executor.py:TestMaxHoldHours",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_executor.py",
+      "target": "class:tests/test_executor.py:TestSizingGuards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_executor.py",
+      "target": "class:tests/test_executor.py:TestCloseTrade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_exit_priority.py",
+      "target": "function:tests/test_exit_priority.py:_trade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_exit_priority.py",
+      "target": "class:tests/test_exit_priority.py:TestExitPriority",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_exit_priority.py",
+      "target": "class:tests/test_exit_priority.py:TestTrailPeakRestart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_exit_priority.py",
+      "target": "class:tests/test_exit_priority.py:TestMaxHoldOnTrade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_portfolio.py",
+      "target": "function:tests/test_portfolio.py:_open_trade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_portfolio.py",
+      "target": "class:tests/test_portfolio.py:TestEquityCalculation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_portfolio.py",
+      "target": "class:tests/test_portfolio.py:TestPartialExits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_risk.py",
+      "target": "function:tests/test_risk.py:_signal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_risk.py",
+      "target": "function:tests/test_risk.py:_open_trade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_risk.py",
+      "target": "function:tests/test_risk.py:_portfolio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_risk.py",
+      "target": "class:tests/test_risk.py:TestEvaluate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_risk.py",
+      "target": "class:tests/test_risk.py:TestTradeFraction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "function:tests/test_truth_router.py:_router_with_lift",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "function:tests/test_truth_router.py:_good_oos_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "function:tests/test_truth_router.py:_load_oos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "class:tests/test_truth_router.py:TestPassthroughBlocking",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "class:tests/test_truth_router.py:TestOOSGateStale",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "class:tests/test_truth_router.py:TestOOSTradeable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_truth_router.py",
+      "target": "class:tests/test_truth_router.py:TestRoutingLogic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

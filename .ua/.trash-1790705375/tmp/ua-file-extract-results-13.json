@@ -1,0 +1,102 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "signal_edge_analyzer/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 26,
+      "nonEmptyLines": 18,
+      "services": [
+        {
+          "name": "python",
+          "image": "python:3.12-slim",
+          "ports": [
+            8022
+          ],
+          "startLine": 1,
+          "endLine": 27
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM python:3.12-slim",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y --no-install-recommends",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "COPY signal_edge_analyzer/requirements.txt .",
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "RUN pip install --no-cache-dir -r requirements.txt",
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "COPY signal_edge_analyzer/ .",
+          "startLine": 14,
+          "endLine": 14
+        },
+        {
+          "name": "COPY paper_trading_engine/meta_strategy.py /app/meta_strategy.py",
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "COPY migrations/013_signal_edge_analyzer.sql /migrations/013_sign",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "ENV PYTHONPATH=/app \\",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "EXPOSE 8022",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "CMD [\"python\", \"main.py\"]",
+          "startLine": 26,
+          "endLine": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 11
+      }
+    }
+  ]
+}

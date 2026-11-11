@@ -1,0 +1,1202 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/api/routes/feedback.py",
+      "type": "file",
+      "name": "feedback.py",
+      "filePath": "src/api/routes/feedback.py",
+      "summary": "API route handlers providing feedback analytics endpoints for engine and provider performance ranking, signal type comparison, and performance trends.",
+      "tags": ["api-handler", "analytics", "performance-metrics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/routes/intelligence.py",
+      "type": "file",
+      "name": "intelligence.py",
+      "filePath": "src/api/routes/intelligence.py",
+      "summary": "API route handlers exposing market intelligence endpoints for macro regime, institutional flows, and confluence signal queries.",
+      "tags": ["api-handler", "intelligence", "market-analysis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/core/signal_tracer.py",
+      "type": "file",
+      "name": "signal_tracer.py",
+      "filePath": "src/core/signal_tracer.py",
+      "summary": "Signal tracing utility that records signal outcomes to database with deterministic hashing for deduplication and audit trail.",
+      "tags": ["utility", "tracing", "audit"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/engines/feedback_aggregator.py",
+      "type": "file",
+      "name": "feedback_aggregator.py",
+      "filePath": "src/engines/feedback_aggregator.py",
+      "summary": "Engine that aggregates signal feedback from database, computes performance statistics for engines and data providers, and exposes ranking and historical performance queries.",
+      "tags": ["engine", "aggregation", "performance-analytics"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/engines/institutional_confluence_engine.py",
+      "type": "file",
+      "name": "institutional_confluence_engine.py",
+      "filePath": "src/engines/institutional_confluence_engine.py",
+      "summary": "Engine that detects confluence signals when institutional flows, narratives, and macro regime align, scoring market and ticker-level signals with directional confidence.",
+      "tags": ["engine", "confluence", "signal-detection"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/engines/macro_regime_engine.py",
+      "type": "file",
+      "name": "macro_regime_engine.py",
+      "filePath": "src/engines/macro_regime_engine.py",
+      "summary": "Engine that classifies macro regimes (bullish, bearish, sideways) by combining narrative clustering, proxy signals, fear-greed index, and keyword analysis from news.",
+      "tags": ["engine", "regime-detection", "macro-analysis"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/engines/mean_reversion_engine.py",
+      "type": "file",
+      "name": "mean_reversion_engine.py",
+      "filePath": "src/engines/mean_reversion_engine.py",
+      "summary": "Engine that identifies mean reversion trading opportunities by analyzing extreme price moves and volatility, generating signals for oversold/overbought conditions.",
+      "tags": ["engine", "mean-reversion", "volatility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/signal_scoring_engine.py",
+      "type": "file",
+      "name": "signal_scoring_engine.py",
+      "filePath": "src/engines/signal_scoring_engine.py",
+      "summary": "Engine that computes signal quality scores based on historical accuracy, predictive strength, half-life decay, and calibration error for continuous model evaluation.",
+      "tags": ["engine", "scoring", "model-evaluation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/scheduler/jobs/daily_brief.py",
+      "type": "file",
+      "name": "daily_brief.py",
+      "filePath": "src/scheduler/jobs/daily_brief.py",
+      "summary": "Scheduled job that gathers daily market metrics, generates AI summary via Ollama, stores result to database, and posts to Discord.",
+      "tags": ["scheduled-job", "report-generation", "ai-summarization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/scheduler/jobs/executive_report.py",
+      "type": "file",
+      "name": "executive_report.py",
+      "filePath": "src/scheduler/jobs/executive_report.py",
+      "summary": "Scheduled job generating weekly executive summary with performance metrics, regime analysis, engine rankings, growth indicators, and Discord notification.",
+      "tags": ["scheduled-job", "weekly-report", "executive-dashboard"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/scheduler/jobs/trading_journal.py",
+      "type": "file",
+      "name": "trading_journal.py",
+      "filePath": "src/scheduler/jobs/trading_journal.py",
+      "summary": "Scheduled job that compiles weekly trading activity, generates AI analysis via Ollama, stores journal entry to database, and posts summary to Discord.",
+      "tags": ["scheduled-job", "trading-journal", "ai-analysis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/scheduler/worker.py",
+      "type": "file",
+      "name": "worker.py",
+      "filePath": "src/scheduler/worker.py",
+      "summary": "Main scheduler worker that orchestrates all data pipeline cycles (news, sentiment, flows, trends, mean reversion, intelligence scoring) and scheduled jobs with metrics reporting.",
+      "tags": ["entry-point", "orchestration", "scheduler"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/api/routes/feedback.py:engine_ranking",
+      "type": "function",
+      "name": "engine_ranking",
+      "filePath": "src/api/routes/feedback.py",
+      "lineRange": [29, 41],
+      "summary": "Endpoint returning ranked list of engines by their feedback-based performance metrics over specified window.",
+      "tags": ["api-endpoint", "ranking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/feedback.py:provider_ranking",
+      "type": "function",
+      "name": "provider_ranking",
+      "filePath": "src/api/routes/feedback.py",
+      "lineRange": [45, 55],
+      "summary": "Endpoint returning data providers ranked by ingestion quality and success rate.",
+      "tags": ["api-endpoint", "ranking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/feedback.py:signal_type_comparison",
+      "type": "function",
+      "name": "signal_type_comparison",
+      "filePath": "src/api/routes/feedback.py",
+      "lineRange": [59, 69],
+      "summary": "Endpoint comparing performance across different signal types.",
+      "tags": ["api-endpoint", "comparison"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/feedback.py:engine_performance_over_time",
+      "type": "function",
+      "name": "engine_performance_over_time",
+      "filePath": "src/api/routes/feedback.py",
+      "lineRange": [73, 87],
+      "summary": "Endpoint returning time-series performance data for a specific engine over configurable periods.",
+      "tags": ["api-endpoint", "time-series"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/intelligence.py:get_macro_regime",
+      "type": "function",
+      "name": "get_macro_regime",
+      "filePath": "src/api/routes/intelligence.py",
+      "lineRange": [22, 33],
+      "summary": "Endpoint returning current macro regime classification and confidence score.",
+      "tags": ["api-endpoint", "regime"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/intelligence.py:get_institutional_flows",
+      "type": "function",
+      "name": "get_institutional_flows",
+      "filePath": "src/api/routes/intelligence.py",
+      "lineRange": [37, 53],
+      "summary": "Endpoint returning recent institutional flow events paginated with limit parameter.",
+      "tags": ["api-endpoint", "flows"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/intelligence.py:get_ticker_flow",
+      "type": "function",
+      "name": "get_ticker_flow",
+      "filePath": "src/api/routes/intelligence.py",
+      "lineRange": [57, 65],
+      "summary": "Endpoint returning latest institutional flow for a specific ticker.",
+      "tags": ["api-endpoint", "ticker-query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/intelligence.py:get_confluence",
+      "type": "function",
+      "name": "get_confluence",
+      "filePath": "src/api/routes/intelligence.py",
+      "lineRange": [70, 86],
+      "summary": "Endpoint returning market confluence signals with pagination.",
+      "tags": ["api-endpoint", "confluence"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/intelligence.py:get_ticker_confluence",
+      "type": "function",
+      "name": "get_ticker_confluence",
+      "filePath": "src/api/routes/intelligence.py",
+      "lineRange": [90, 98],
+      "summary": "Endpoint returning confluence signal for a specific ticker.",
+      "tags": ["api-endpoint", "ticker-query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/core/signal_tracer.py:_sha256",
+      "type": "function",
+      "name": "_sha256",
+      "filePath": "src/core/signal_tracer.py",
+      "lineRange": [46, 54],
+      "summary": "Internal utility computing deterministic SHA256 hash of objects for deduplication.",
+      "tags": ["utility", "hashing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/core/signal_tracer.py:SignalTracer",
+      "type": "class",
+      "name": "SignalTracer",
+      "filePath": "src/core/signal_tracer.py",
+      "lineRange": [57, 101],
+      "summary": "Class recording signal outcomes to database with hash-based deduplication and error handling.",
+      "tags": ["tracer", "audit-trail"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/engines/feedback_aggregator.py:AggregationResult",
+      "type": "class",
+      "name": "AggregationResult",
+      "filePath": "src/engines/feedback_aggregator.py",
+      "lineRange": [43, 46],
+      "summary": "Data class holding feedback aggregation cycle results.",
+      "tags": ["data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/feedback_aggregator.py:FeedbackAggregator",
+      "type": "class",
+      "name": "FeedbackAggregator",
+      "filePath": "src/engines/feedback_aggregator.py",
+      "lineRange": [51, 387],
+      "summary": "Engine aggregating engine and provider performance feedback, computing statistics, and exposing ranking/historical queries.",
+      "tags": ["engine", "aggregator"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/institutional_confluence_engine.py:ConfluenceCycleResult",
+      "type": "class",
+      "name": "ConfluenceCycleResult",
+      "filePath": "src/engines/institutional_confluence_engine.py",
+      "lineRange": [76, 80],
+      "summary": "Data class holding confluence signal cycle execution results.",
+      "tags": ["data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/institutional_confluence_engine.py:InstitutionalConfluenceEngine",
+      "type": "class",
+      "name": "InstitutionalConfluenceEngine",
+      "filePath": "src/engines/institutional_confluence_engine.py",
+      "lineRange": [83, 451],
+      "summary": "Engine detecting confluence opportunities when institutional flows, top narratives, and macro regime align at market or ticker level.",
+      "tags": ["engine", "confluence"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/macro_regime_engine.py:MacroRegimeCycleResult",
+      "type": "class",
+      "name": "MacroRegimeCycleResult",
+      "filePath": "src/engines/macro_regime_engine.py",
+      "lineRange": [111, 118],
+      "summary": "Data class holding macro regime classification cycle results.",
+      "tags": ["data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/macro_regime_engine.py:MacroRegimeEngine",
+      "type": "class",
+      "name": "MacroRegimeEngine",
+      "filePath": "src/engines/macro_regime_engine.py",
+      "lineRange": [121, 441],
+      "summary": "Engine classifying macro regime by scoring narratives, proxy signals, fear-greed index, and keyword frequency.",
+      "tags": ["engine", "regime-classification"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/mean_reversion_engine.py:MeanReversionEngine",
+      "type": "class",
+      "name": "MeanReversionEngine",
+      "filePath": "src/engines/mean_reversion_engine.py",
+      "lineRange": [91, 146],
+      "summary": "Engine identifying mean reversion signals from extreme price deviations and elevated volatility.",
+      "tags": ["engine", "mean-reversion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/engines/signal_scoring_engine.py:SignalScore",
+      "type": "class",
+      "name": "SignalScore",
+      "filePath": "src/engines/signal_scoring_engine.py",
+      "lineRange": [69, 79],
+      "summary": "Data class representing a signal's quality score with accuracy, predictive strength, and calibration metrics.",
+      "tags": ["data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/signal_scoring_engine.py:ScoringCycleResult",
+      "type": "class",
+      "name": "ScoringCycleResult",
+      "filePath": "src/engines/signal_scoring_engine.py",
+      "lineRange": [83, 86],
+      "summary": "Data class holding signal scoring cycle execution results.",
+      "tags": ["data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/engines/signal_scoring_engine.py:SignalScoringEngine",
+      "type": "class",
+      "name": "SignalScoringEngine",
+      "filePath": "src/engines/signal_scoring_engine.py",
+      "lineRange": [91, 444],
+      "summary": "Engine computing signal quality scores from historical outcomes, predictive strength, half-life decay, and calibration error.",
+      "tags": ["engine", "scoring"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "type": "function",
+      "name": "run_daily_brief",
+      "filePath": "src/scheduler/jobs/daily_brief.py",
+      "lineRange": [16, 24],
+      "summary": "Main entry point for daily brief job orchestrating data gathering, AI summarization, storage, and Discord notification.",
+      "tags": ["entry-point", "orchestration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/daily_brief.py:_gather_data",
+      "type": "function",
+      "name": "_gather_data",
+      "filePath": "src/scheduler/jobs/daily_brief.py",
+      "lineRange": [27, 86],
+      "summary": "Gathers daily market metrics from database including signals, scores, performance, and trends.",
+      "tags": ["data-gathering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/scheduler/jobs/daily_brief.py:_call_ollama",
+      "type": "function",
+      "name": "_call_ollama",
+      "filePath": "src/scheduler/jobs/daily_brief.py",
+      "lineRange": [89, 110],
+      "summary": "Calls Ollama LLM to generate AI summary from market data.",
+      "tags": ["ai-integration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/daily_brief.py:_store_brief",
+      "type": "function",
+      "name": "_store_brief",
+      "filePath": "src/scheduler/jobs/daily_brief.py",
+      "lineRange": [113, 122],
+      "summary": "Stores generated brief and metadata to database.",
+      "tags": ["persistence"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/daily_brief.py:_send_discord",
+      "type": "function",
+      "name": "_send_discord",
+      "filePath": "src/scheduler/jobs/daily_brief.py",
+      "lineRange": [125, 142],
+      "summary": "Sends brief summary to Discord webhook.",
+      "tags": ["notification"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "type": "function",
+      "name": "run_executive_report",
+      "filePath": "src/scheduler/jobs/executive_report.py",
+      "lineRange": [27, 76],
+      "summary": "Main entry point for weekly executive report orchestrating data gathering, AI analysis, embed generation, and Discord posting.",
+      "tags": ["entry-point", "orchestration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/scheduler/jobs/executive_report.py:_gather_performance",
+      "type": "function",
+      "name": "_gather_performance",
+      "filePath": "src/scheduler/jobs/executive_report.py",
+      "lineRange": [86, 131],
+      "summary": "Gathers weekly performance metrics including win rate, profit factors, and Sharpe ratios.",
+      "tags": ["data-gathering", "metrics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/scheduler/jobs/executive_report.py:_gather_regime",
+      "type": "function",
+      "name": "_gather_regime",
+      "filePath": "src/scheduler/jobs/executive_report.py",
+      "lineRange": [134, 164],
+      "summary": "Gathers macro regime data for analysis period.",
+      "tags": ["data-gathering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/executive_report.py:_gather_engines",
+      "type": "function",
+      "name": "_gather_engines",
+      "filePath": "src/scheduler/jobs/executive_report.py",
+      "lineRange": [167, 181],
+      "summary": "Gathers engine performance rankings.",
+      "tags": ["data-gathering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/executive_report.py:_call_ollama",
+      "type": "function",
+      "name": "_call_ollama",
+      "filePath": "src/scheduler/jobs/executive_report.py",
+      "lineRange": [222, 248],
+      "summary": "Calls Ollama to generate executive outlook narrative.",
+      "tags": ["ai-integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/scheduler/jobs/trading_journal.py:run_trading_journal",
+      "type": "function",
+      "name": "run_trading_journal",
+      "filePath": "src/scheduler/jobs/trading_journal.py",
+      "lineRange": [16, 43],
+      "summary": "Main entry point for trading journal orchestrating data gathering, AI analysis, storage, and Discord notification.",
+      "tags": ["entry-point", "orchestration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/scheduler/jobs/trading_journal.py:_gather_week_data",
+      "type": "function",
+      "name": "_gather_week_data",
+      "filePath": "src/scheduler/jobs/trading_journal.py",
+      "lineRange": [51, 88],
+      "summary": "Gathers weekly trading activity including trades, outcomes, and performance metrics.",
+      "tags": ["data-gathering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/scheduler/jobs/trading_journal.py:_call_ollama",
+      "type": "function",
+      "name": "_call_ollama",
+      "filePath": "src/scheduler/jobs/trading_journal.py",
+      "lineRange": [91, 111],
+      "summary": "Calls Ollama to generate AI analysis of weekly trading activity.",
+      "tags": ["ai-integration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/scheduler/worker.py:_MetricsHandler",
+      "type": "class",
+      "name": "_MetricsHandler",
+      "filePath": "src/scheduler/worker.py",
+      "lineRange": [62, 80],
+      "summary": "HTTP request handler exposing Prometheus metrics endpoint for monitoring.",
+      "tags": ["monitoring", "metrics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "type": "class",
+      "name": "MarketIntelligenceWorker",
+      "filePath": "src/scheduler/worker.py",
+      "lineRange": [93, 707],
+      "summary": "Main worker orchestrating all pipeline cycles (news, sentiment, flows, trends, scoring, intelligence) and scheduled jobs with APScheduler.",
+      "tags": ["orchestrator", "entry-point"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/api/routes/feedback.py",
+      "target": "file:src/engines/feedback_aggregator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "file:src/engines/institutional_confluence_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "file:src/engines/institutional_flow_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "file:src/engines/macro_regime_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/core/signal_tracer.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/feedback_aggregator.py",
+      "target": "file:src/core/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/feedback_aggregator.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/institutional_confluence_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/institutional_confluence_engine.py",
+      "target": "file:src/core/signal_tracer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/institutional_confluence_engine.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/macro_regime_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/macro_regime_engine.py",
+      "target": "file:src/core/signal_tracer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/macro_regime_engine.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/mean_reversion_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/signal_scoring_engine.py",
+      "target": "file:src/core/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/signal_scoring_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/signal_scoring_engine.py",
+      "target": "file:src/core/signal_tracer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/cache/redis_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/core/cost_control.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/core/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/db/connection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/feedback_aggregator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/institutional_confluence_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/institutional_flow_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/macro_regime_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/mean_reversion_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/news_intelligence.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/sentiment_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/signal_evaluation_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/smart_money.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/engines/trend_detection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/providers/market/coingecko.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/providers/market/finnhub.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/scheduler/jobs/daily_brief.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/scheduler/jobs/executive_report.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "file:src/scheduler/jobs/trading_journal.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/feedback.py",
+      "target": "function:src/api/routes/feedback.py:engine_ranking",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/feedback.py",
+      "target": "function:src/api/routes/feedback.py:provider_ranking",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/feedback.py",
+      "target": "function:src/api/routes/feedback.py:signal_type_comparison",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/feedback.py",
+      "target": "function:src/api/routes/feedback.py:engine_performance_over_time",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "function:src/api/routes/intelligence.py:get_macro_regime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "function:src/api/routes/intelligence.py:get_institutional_flows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "function:src/api/routes/intelligence.py:get_ticker_flow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "function:src/api/routes/intelligence.py:get_confluence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/intelligence.py",
+      "target": "function:src/api/routes/intelligence.py:get_ticker_confluence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/signal_tracer.py",
+      "target": "function:src/core/signal_tracer.py:_sha256",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/signal_tracer.py",
+      "target": "class:src/core/signal_tracer.py:SignalTracer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/feedback_aggregator.py",
+      "target": "class:src/engines/feedback_aggregator.py:AggregationResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/feedback_aggregator.py",
+      "target": "class:src/engines/feedback_aggregator.py:FeedbackAggregator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/institutional_confluence_engine.py",
+      "target": "class:src/engines/institutional_confluence_engine.py:ConfluenceCycleResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/institutional_confluence_engine.py",
+      "target": "class:src/engines/institutional_confluence_engine.py:InstitutionalConfluenceEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/macro_regime_engine.py",
+      "target": "class:src/engines/macro_regime_engine.py:MacroRegimeCycleResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/macro_regime_engine.py",
+      "target": "class:src/engines/macro_regime_engine.py:MacroRegimeEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/mean_reversion_engine.py",
+      "target": "class:src/engines/mean_reversion_engine.py:MeanReversionEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/signal_scoring_engine.py",
+      "target": "class:src/engines/signal_scoring_engine.py:SignalScore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/signal_scoring_engine.py",
+      "target": "class:src/engines/signal_scoring_engine.py:ScoringCycleResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/signal_scoring_engine.py",
+      "target": "class:src/engines/signal_scoring_engine.py:SignalScoringEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/daily_brief.py",
+      "target": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/daily_brief.py",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_gather_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/daily_brief.py",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_call_ollama",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/daily_brief.py",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_store_brief",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/daily_brief.py",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_send_discord",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/executive_report.py",
+      "target": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/executive_report.py",
+      "target": "function:src/scheduler/jobs/executive_report.py:_gather_performance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/executive_report.py",
+      "target": "function:src/scheduler/jobs/executive_report.py:_gather_regime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/executive_report.py",
+      "target": "function:src/scheduler/jobs/executive_report.py:_gather_engines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/executive_report.py",
+      "target": "function:src/scheduler/jobs/executive_report.py:_call_ollama",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/trading_journal.py",
+      "target": "function:src/scheduler/jobs/trading_journal.py:run_trading_journal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/trading_journal.py",
+      "target": "function:src/scheduler/jobs/trading_journal.py:_gather_week_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/jobs/trading_journal.py",
+      "target": "function:src/scheduler/jobs/trading_journal.py:_call_ollama",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "class:src/scheduler/worker.py:_MetricsHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/scheduler/worker.py",
+      "target": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:src/api/routes/feedback.py:engine_ranking",
+      "target": "class:src/engines/feedback_aggregator.py:FeedbackAggregator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/api/routes/intelligence.py:get_macro_regime",
+      "target": "class:src/engines/macro_regime_engine.py:MacroRegimeEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/api/routes/intelligence.py:get_institutional_flows",
+      "target": "function:src/api/routes/intelligence.py:get_institutional_flows",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/api/routes/intelligence.py:get_confluence",
+      "target": "class:src/engines/institutional_confluence_engine.py:InstitutionalConfluenceEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/core/signal_tracer.py:SignalTracer",
+      "target": "function:src/core/signal_tracer.py:_sha256",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/feedback_aggregator.py:FeedbackAggregator",
+      "target": "class:src/engines/feedback_aggregator.py:AggregationResult",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/institutional_confluence_engine.py:InstitutionalConfluenceEngine",
+      "target": "class:src/core/signal_tracer.py:SignalTracer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/institutional_confluence_engine.py:InstitutionalConfluenceEngine",
+      "target": "class:src/engines/institutional_confluence_engine.py:ConfluenceCycleResult",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/macro_regime_engine.py:MacroRegimeEngine",
+      "target": "class:src/core/signal_tracer.py:SignalTracer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/macro_regime_engine.py:MacroRegimeEngine",
+      "target": "class:src/engines/macro_regime_engine.py:MacroRegimeCycleResult",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/signal_scoring_engine.py:SignalScoringEngine",
+      "target": "class:src/core/signal_tracer.py:SignalTracer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/engines/signal_scoring_engine.py:SignalScoringEngine",
+      "target": "class:src/engines/signal_scoring_engine.py:ScoringCycleResult",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_gather_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_call_ollama",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_store_brief",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "target": "function:src/scheduler/jobs/daily_brief.py:_send_discord",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "target": "function:src/scheduler/jobs/executive_report.py:_gather_performance",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "target": "function:src/scheduler/jobs/executive_report.py:_gather_regime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "target": "function:src/scheduler/jobs/executive_report.py:_gather_engines",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "target": "function:src/scheduler/jobs/executive_report.py:_call_ollama",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/trading_journal.py:run_trading_journal",
+      "target": "function:src/scheduler/jobs/trading_journal.py:_gather_week_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/scheduler/jobs/trading_journal.py:run_trading_journal",
+      "target": "function:src/scheduler/jobs/trading_journal.py:_call_ollama",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "function:src/scheduler/jobs/daily_brief.py:run_daily_brief",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "function:src/scheduler/jobs/executive_report.py:run_executive_report",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "function:src/scheduler/jobs/trading_journal.py:run_trading_journal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "class:src/engines/feedback_aggregator.py:FeedbackAggregator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "class:src/engines/institutional_confluence_engine.py:InstitutionalConfluenceEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "class:src/engines/macro_regime_engine.py:MacroRegimeEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "class:src/engines/mean_reversion_engine.py:MeanReversionEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/scheduler/worker.py:MarketIntelligenceWorker",
+      "target": "class:src/engines/signal_scoring_engine.py:SignalScoringEngine",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

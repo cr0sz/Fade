@@ -1,0 +1,2876 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 46,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 46,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 46
+    }
+  },
+  "results": [
+    {
+      "path": "migrations/000_create_miniflux_db.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/001_initial.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 200,
+      "nonEmptyLines": 179,
+      "definitions": [
+        {
+          "name": "tickers",
+          "kind": "table",
+          "fields": [
+            "symbol",
+            "name",
+            "exchange",
+            "sector",
+            "industry",
+            "market_cap_usd",
+            "is_active",
+            "is_watched",
+            "metadata",
+            "updated_at"
+          ],
+          "startLine": 12,
+          "endLine": 23
+        },
+        {
+          "name": "news",
+          "kind": "table",
+          "fields": [
+            "id",
+            "title",
+            "content",
+            "summary",
+            "url",
+            "source",
+            "source_domain",
+            "author",
+            "published_at",
+            "ticker_symbols",
+            "sector",
+            "sentiment_score",
+            "content_hash",
+            "ai_summary",
+            "image_url",
+            "created_at"
+          ],
+          "startLine": 30,
+          "endLine": 47
+        },
+        {
+          "name": "social_posts",
+          "kind": "table",
+          "fields": [
+            "id",
+            "external_id",
+            "platform",
+            "author",
+            "ticker_mentions",
+            "sentiment_score",
+            "engagement_score",
+            "upvotes",
+            "comments",
+            "url",
+            "subreddit",
+            "created_at",
+            "ingested_at"
+          ],
+          "startLine": 60,
+          "endLine": 76
+        },
+        {
+          "name": "market_trends",
+          "kind": "table",
+          "fields": [
+            "ticker",
+            "exchange",
+            "news_score",
+            "social_score",
+            "smart_money_score",
+            "volume_score",
+            "composite_score",
+            "hype_signal",
+            "panic_signal",
+            "trending_up",
+            "trending_down",
+            "computed_at"
+          ],
+          "startLine": 84,
+          "endLine": 97
+        },
+        {
+          "name": "smart_money_events",
+          "kind": "table",
+          "fields": [
+            "id",
+            "event_type",
+            "actor",
+            "shares",
+            "direction",
+            "metadata",
+            "event_at",
+            "created_at"
+          ],
+          "startLine": 105,
+          "endLine": 117
+        },
+        {
+          "name": "ai_outputs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "output_type",
+            "prompt_hash",
+            "content",
+            "model_used",
+            "cost_usd",
+            "created_at",
+            "updated_at"
+          ],
+          "startLine": 125,
+          "endLine": 135
+        },
+        {
+          "name": "provider_usage_logs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "provider",
+            "operation",
+            "input_tokens",
+            "output_tokens",
+            "cost_usd",
+            "success",
+            "created_at"
+          ],
+          "startLine": 142,
+          "endLine": 151
+        },
+        {
+          "name": "alerts",
+          "kind": "table",
+          "fields": [
+            "id",
+            "alert_type",
+            "ticker",
+            "message",
+            "severity",
+            "created_at"
+          ],
+          "startLine": 158,
+          "endLine": 166
+        },
+        {
+          "name": "schema_migrations",
+          "kind": "table",
+          "fields": [
+            "version",
+            "applied_at"
+          ],
+          "startLine": 194,
+          "endLine": 197
+        },
+        {
+          "name": "idx_tickers_exchange",
+          "kind": "index",
+          "fields": [],
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "idx_tickers_is_watched",
+          "kind": "index",
+          "fields": [],
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "idx_tickers_sector",
+          "kind": "index",
+          "fields": [],
+          "startLine": 27,
+          "endLine": 27
+        },
+        {
+          "name": "idx_news_published_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "idx_news_ticker_symbols",
+          "kind": "index",
+          "fields": [],
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "idx_news_sector",
+          "kind": "index",
+          "fields": [],
+          "startLine": 51,
+          "endLine": 51
+        },
+        {
+          "name": "idx_news_source",
+          "kind": "index",
+          "fields": [],
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "idx_news_content_hash",
+          "kind": "index",
+          "fields": [],
+          "startLine": 53,
+          "endLine": 53
+        },
+        {
+          "name": "idx_news_ai_summary_null",
+          "kind": "index",
+          "fields": [],
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "idx_news_title_trgm",
+          "kind": "index",
+          "fields": [],
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "idx_social_created_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 78,
+          "endLine": 78
+        },
+        {
+          "name": "idx_social_ticker_mentions",
+          "kind": "index",
+          "fields": [],
+          "startLine": 79,
+          "endLine": 79
+        },
+        {
+          "name": "idx_social_platform",
+          "kind": "index",
+          "fields": [],
+          "startLine": 80,
+          "endLine": 80
+        },
+        {
+          "name": "idx_social_engagement",
+          "kind": "index",
+          "fields": [],
+          "startLine": 81,
+          "endLine": 81
+        },
+        {
+          "name": "idx_trends_composite",
+          "kind": "index",
+          "fields": [],
+          "startLine": 99,
+          "endLine": 99
+        },
+        {
+          "name": "idx_trends_exchange",
+          "kind": "index",
+          "fields": [],
+          "startLine": 100,
+          "endLine": 100
+        },
+        {
+          "name": "idx_trends_hype",
+          "kind": "index",
+          "fields": [],
+          "startLine": 101,
+          "endLine": 101
+        },
+        {
+          "name": "idx_trends_panic",
+          "kind": "index",
+          "fields": [],
+          "startLine": 102,
+          "endLine": 102
+        },
+        {
+          "name": "idx_smart_money_event_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 119,
+          "endLine": 119
+        },
+        {
+          "name": "idx_smart_money_ticker",
+          "kind": "index",
+          "fields": [],
+          "startLine": 120,
+          "endLine": 120
+        },
+        {
+          "name": "idx_smart_money_event_type",
+          "kind": "index",
+          "fields": [],
+          "startLine": 121,
+          "endLine": 121
+        },
+        {
+          "name": "idx_smart_money_amount",
+          "kind": "index",
+          "fields": [],
+          "startLine": 122,
+          "endLine": 122
+        },
+        {
+          "name": "idx_ai_outputs_type",
+          "kind": "index",
+          "fields": [],
+          "startLine": 137,
+          "endLine": 137
+        },
+        {
+          "name": "idx_ai_outputs_ticker",
+          "kind": "index",
+          "fields": [],
+          "startLine": 138,
+          "endLine": 138
+        },
+        {
+          "name": "idx_ai_outputs_created_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 139,
+          "endLine": 139
+        },
+        {
+          "name": "idx_provider_logs_created_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 153,
+          "endLine": 153
+        },
+        {
+          "name": "idx_provider_logs_provider",
+          "kind": "index",
+          "fields": [],
+          "startLine": 154,
+          "endLine": 154
+        },
+        {
+          "name": "idx_provider_logs_daily",
+          "kind": "index",
+          "fields": [],
+          "startLine": 155,
+          "endLine": 155
+        },
+        {
+          "name": "idx_alerts_created_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 168,
+          "endLine": 168
+        },
+        {
+          "name": "idx_alerts_unsent",
+          "kind": "index",
+          "fields": [],
+          "startLine": 169,
+          "endLine": 169
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 39
+      }
+    },
+    {
+      "path": "migrations/002_level2.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 50,
+      "nonEmptyLines": 43,
+      "definitions": [
+        {
+          "name": "narrative_clusters",
+          "kind": "table",
+          "fields": [
+            "id",
+            "name",
+            "strength_score",
+            "momentum",
+            "momentum_delta",
+            "top_tickers",
+            "contrib_sources",
+            "sample_headlines",
+            "computed_at"
+          ],
+          "startLine": 19,
+          "endLine": 31
+        },
+        {
+          "name": "noise_filter_log",
+          "kind": "table",
+          "fields": [
+            "id",
+            "platform",
+            "external_id",
+            "reason",
+            "created_at"
+          ],
+          "startLine": 37,
+          "endLine": 44
+        },
+        {
+          "name": "idx_trends_confidence",
+          "kind": "index",
+          "fields": [],
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "idx_trends_narrative",
+          "kind": "index",
+          "fields": [],
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "idx_narrative_strength",
+          "kind": "index",
+          "fields": [],
+          "startLine": 33,
+          "endLine": 33
+        },
+        {
+          "name": "idx_narrative_computed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "idx_noise_log_created_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 46,
+          "endLine": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 7
+      }
+    },
+    {
+      "path": "migrations/003_level3.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 100,
+      "nonEmptyLines": 91,
+      "definitions": [
+        {
+          "name": "institutional_flows",
+          "kind": "table",
+          "fields": [
+            "id",
+            "ticker",
+            "whale_sell_usd",
+            "insider_buy_count",
+            "insider_sell_count",
+            "net_flow_ratio"
+          ],
+          "startLine": 10,
+          "endLine": 24
+        },
+        {
+          "name": "etf_rotations",
+          "kind": "table",
+          "fields": [
+            "id",
+            "sector",
+            "etf_ticker",
+            "composite_score",
+            "rotation_velocity",
+            "is_lagging",
+            "computed_at"
+          ],
+          "startLine": 35,
+          "endLine": 46
+        },
+        {
+          "name": "macro_regimes",
+          "kind": "table",
+          "fields": [
+            "id",
+            "regime",
+            "regime_shift",
+            "dominant_narrative",
+            "proxy_score"
+          ],
+          "startLine": 55,
+          "endLine": 67
+        },
+        {
+          "name": "confluence_signals",
+          "kind": "table",
+          "fields": [
+            "id",
+            "ticker"
+          ],
+          "startLine": 76,
+          "endLine": 87
+        },
+        {
+          "name": "idx_flows_ticker_time",
+          "kind": "index",
+          "fields": [],
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "idx_flows_direction",
+          "kind": "index",
+          "fields": [],
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "idx_flows_computed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 30,
+          "endLine": 30
+        },
+        {
+          "name": "idx_etf_sector_time",
+          "kind": "index",
+          "fields": [],
+          "startLine": 48,
+          "endLine": 48
+        },
+        {
+          "name": "idx_etf_computed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "idx_regime_computed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 69,
+          "endLine": 69
+        },
+        {
+          "name": "idx_regime_name",
+          "kind": "index",
+          "fields": [],
+          "startLine": 71,
+          "endLine": 71
+        },
+        {
+          "name": "idx_confluence_ticker_time",
+          "kind": "index",
+          "fields": [],
+          "startLine": 89,
+          "endLine": 89
+        },
+        {
+          "name": "idx_confluence_direction",
+          "kind": "index",
+          "fields": [],
+          "startLine": 91,
+          "endLine": 91
+        },
+        {
+          "name": "idx_confluence_computed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 93,
+          "endLine": 93
+        },
+        {
+          "name": "idx_confluence_strength",
+          "kind": "index",
+          "fields": [],
+          "startLine": 95,
+          "endLine": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 15
+      }
+    },
+    {
+      "path": "migrations/004_level4_validation.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 167,
+      "nonEmptyLines": 153,
+      "definitions": [
+        {
+          "name": "signals_registry",
+          "kind": "table",
+          "fields": [
+            "id",
+            "signal_type"
+          ],
+          "startLine": 15,
+          "endLine": 28
+        },
+        {
+          "name": "signal_outcomes",
+          "kind": "table",
+          "fields": [
+            "id",
+            "signal_id",
+            "ticker",
+            "evaluation_window_h",
+            "actual_direction",
+            "predicted_score",
+            "outcome_score_delta"
+          ],
+          "startLine": 49,
+          "endLine": 61
+        },
+        {
+          "name": "backtest_runs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_id",
+            "engine_name",
+            "started_at",
+            "completed_at",
+            "status",
+            "evaluated_signals",
+            "accuracy_4h",
+            "accuracy_24h",
+            "accuracy_72h",
+            "parameters"
+          ],
+          "startLine": 74,
+          "endLine": 88
+        },
+        {
+          "name": "backtest_results",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_id",
+            "signal_id",
+            "ticker",
+            "engine_name",
+            "predicted_direction",
+            "actual_direction",
+            "direction_correct",
+            "predicted_score",
+            "outcome_score_delta",
+            "window_hours",
+            "evaluated_at"
+          ],
+          "startLine": 97,
+          "endLine": 110
+        },
+        {
+          "name": "engine_performance_metrics",
+          "kind": "table",
+          "fields": [
+            "id",
+            "engine_name",
+            "metric_date",
+            "total_signals",
+            "accuracy_4h"
+          ],
+          "startLine": 124,
+          "endLine": 137
+        },
+        {
+          "name": "archiver_watermarks",
+          "kind": "table",
+          "fields": [
+            "source_table",
+            "last_archived_id",
+            "updated_at"
+          ],
+          "startLine": 147,
+          "endLine": 153
+        },
+        {
+          "name": "idx_signals_type_emitted",
+          "kind": "index",
+          "fields": [],
+          "startLine": 30,
+          "endLine": 30
+        },
+        {
+          "name": "idx_signals_ticker_emitted",
+          "kind": "index",
+          "fields": [],
+          "startLine": 32,
+          "endLine": 32
+        },
+        {
+          "name": "idx_signals_engine_emitted",
+          "kind": "index",
+          "fields": [],
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "idx_signals_source",
+          "kind": "index",
+          "fields": [],
+          "startLine": 36,
+          "endLine": 36
+        },
+        {
+          "name": "idx_signals_direction",
+          "kind": "index",
+          "fields": [],
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "idx_signals_archived_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 40,
+          "endLine": 40
+        },
+        {
+          "name": "idx_signals_pending_eval",
+          "kind": "index",
+          "fields": [],
+          "startLine": 43,
+          "endLine": 43
+        },
+        {
+          "name": "idx_outcomes_signal_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 63,
+          "endLine": 63
+        },
+        {
+          "name": "idx_outcomes_ticker_window",
+          "kind": "index",
+          "fields": [],
+          "startLine": 65,
+          "endLine": 65
+        },
+        {
+          "name": "idx_outcomes_correct",
+          "kind": "index",
+          "fields": [],
+          "startLine": 67,
+          "endLine": 67
+        },
+        {
+          "name": "idx_outcomes_evaluated_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 69,
+          "endLine": 69
+        },
+        {
+          "name": "idx_bt_runs_status",
+          "kind": "index",
+          "fields": [],
+          "startLine": 90,
+          "endLine": 90
+        },
+        {
+          "name": "idx_bt_runs_engine",
+          "kind": "index",
+          "fields": [],
+          "startLine": 92,
+          "endLine": 92
+        },
+        {
+          "name": "idx_bt_results_run_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 112,
+          "endLine": 112
+        },
+        {
+          "name": "idx_bt_results_signal",
+          "kind": "index",
+          "fields": [],
+          "startLine": 114,
+          "endLine": 114
+        },
+        {
+          "name": "idx_bt_results_correct",
+          "kind": "index",
+          "fields": [],
+          "startLine": 116,
+          "endLine": 116
+        },
+        {
+          "name": "idx_bt_results_engine",
+          "kind": "index",
+          "fields": [],
+          "startLine": 118,
+          "endLine": 118
+        },
+        {
+          "name": "idx_eng_perf_engine_date",
+          "kind": "index",
+          "fields": [],
+          "startLine": 139,
+          "endLine": 139
+        },
+        {
+          "name": "idx_eng_perf_date",
+          "kind": "index",
+          "fields": [],
+          "startLine": 141,
+          "endLine": 141
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 25
+      }
+    },
+    {
+      "path": "migrations/005_signal_truth_layer.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 49,
+      "nonEmptyLines": 44,
+      "definitions": [
+        {
+          "name": "signal_scores",
+          "kind": "table",
+          "fields": [
+            "id",
+            "engine_name",
+            "signal_type",
+            "window_hours",
+            "sample_size",
+            "accuracy"
+          ],
+          "startLine": 19,
+          "endLine": 31
+        },
+        {
+          "name": "idx_signal_scores_daily_uq",
+          "kind": "index",
+          "fields": [],
+          "startLine": 35,
+          "endLine": 35
+        },
+        {
+          "name": "idx_signal_scores_engine_window",
+          "kind": "index",
+          "fields": [],
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "idx_signal_scores_computed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 40,
+          "endLine": 40
+        },
+        {
+          "name": "idx_signal_scores_strength",
+          "kind": "index",
+          "fields": [],
+          "startLine": 42,
+          "endLine": 42
+        },
+        {
+          "name": "idx_signal_scores_half_life",
+          "kind": "index",
+          "fields": [],
+          "startLine": 44,
+          "endLine": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 6
+      }
+    },
+    {
+      "path": "migrations/006_replay_system.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 81,
+      "nonEmptyLines": 76,
+      "definitions": [
+        {
+          "name": "replay_runs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_id",
+            "window_type",
+            "period_end",
+            "engine_name",
+            "queued_at",
+            "started_at",
+            "completed_at",
+            "total_signals",
+            "evaluated_signals",
+            "error_message",
+            "parameters"
+          ],
+          "startLine": 10,
+          "endLine": 26
+        },
+        {
+          "name": "replay_metrics",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_id",
+            "engine_name",
+            "signal_type",
+            "window_hours",
+            "period_start",
+            "period_end",
+            "signal_count",
+            "evaluated_count",
+            "false_positives",
+            "true_negatives",
+            "false_negatives",
+            "precision_score",
+            "calibration_error",
+            "computed_at"
+          ],
+          "startLine": 38,
+          "endLine": 68
+        },
+        {
+          "name": "idx_replay_runs_status",
+          "kind": "index",
+          "fields": [],
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "idx_replay_runs_window",
+          "kind": "index",
+          "fields": [],
+          "startLine": 30,
+          "endLine": 30
+        },
+        {
+          "name": "idx_replay_runs_completed",
+          "kind": "index",
+          "fields": [],
+          "startLine": 32,
+          "endLine": 32
+        },
+        {
+          "name": "idx_replay_metrics_run_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 70,
+          "endLine": 70
+        },
+        {
+          "name": "idx_replay_metrics_engine_window",
+          "kind": "index",
+          "fields": [],
+          "startLine": 72,
+          "endLine": 72
+        },
+        {
+          "name": "idx_replay_metrics_strength",
+          "kind": "index",
+          "fields": [],
+          "startLine": 74,
+          "endLine": 74
+        },
+        {
+          "name": "idx_replay_metrics_period",
+          "kind": "index",
+          "fields": [],
+          "startLine": 76,
+          "endLine": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 9
+      }
+    },
+    {
+      "path": "migrations/007_observability.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 37,
+      "nonEmptyLines": 31,
+      "definitions": [
+        {
+          "name": "validation_alerts",
+          "kind": "table",
+          "fields": [
+            "id",
+            "alert_type",
+            "threshold_value",
+            "observed_value",
+            "fired_at",
+            "resolved_at",
+            "is_active"
+          ],
+          "startLine": 6,
+          "endLine": 23
+        },
+        {
+          "name": "idx_validation_alerts_type_engine",
+          "kind": "index",
+          "fields": [],
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "idx_validation_alerts_active",
+          "kind": "index",
+          "fields": [],
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "idx_validation_alerts_fired_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 31,
+          "endLine": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 4
+      }
+    },
+    {
+      "path": "migrations/008_governance.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 118,
+      "nonEmptyLines": 94,
+      "definitions": [
+        {
+          "name": "engine_trust_scores",
+          "kind": "table",
+          "fields": [
+            "id",
+            "engine_name",
+            "computed_at",
+            "window_hours",
+            "higher",
+            "lower",
+            "higher",
+            "is_unstable",
+            "avg_precision_30d",
+            "weekly_accuracy_json"
+          ],
+          "startLine": 18,
+          "endLine": 47
+        },
+        {
+          "name": "governance_recommendations",
+          "kind": "table",
+          "fields": [
+            "id",
+            "generated_at",
+            "expires_at",
+            "target_type",
+            "action",
+            "rationale",
+            "is_acknowledged",
+            "acknowledged_at"
+          ],
+          "startLine": 61,
+          "endLine": 83
+        },
+        {
+          "name": "narrative_stability_scores",
+          "kind": "table",
+          "fields": [
+            "id",
+            "narrative_name",
+            "computed_at",
+            "persistence_score",
+            "is_collapsing",
+            "regime_breakdown"
+          ],
+          "startLine": 95,
+          "endLine": 110
+        },
+        {
+          "name": "idx_engine_trust_scores_engine",
+          "kind": "index",
+          "fields": [],
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "idx_engine_trust_scores_computed",
+          "kind": "index",
+          "fields": [],
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "idx_engine_trust_scores_trust",
+          "kind": "index",
+          "fields": [],
+          "startLine": 55,
+          "endLine": 55
+        },
+        {
+          "name": "idx_governance_recs_target",
+          "kind": "index",
+          "fields": [],
+          "startLine": 85,
+          "endLine": 85
+        },
+        {
+          "name": "idx_governance_recs_active",
+          "kind": "index",
+          "fields": [],
+          "startLine": 88,
+          "endLine": 88
+        },
+        {
+          "name": "idx_governance_recs_priority",
+          "kind": "index",
+          "fields": [],
+          "startLine": 91,
+          "endLine": 91
+        },
+        {
+          "name": "idx_narrative_stability_name",
+          "kind": "index",
+          "fields": [],
+          "startLine": 112,
+          "endLine": 112
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 10
+      }
+    },
+    {
+      "path": "migrations/009_meta_intelligence.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 223,
+      "nonEmptyLines": 176,
+      "definitions": [
+        {
+          "name": "strategic_memory_events",
+          "kind": "table",
+          "fields": [
+            "id",
+            "event_type",
+            "engine_name"
+          ],
+          "startLine": 23,
+          "endLine": 46
+        },
+        {
+          "name": "regime_transition_records",
+          "kind": "table",
+          "fields": [
+            "id",
+            "detected_at",
+            "transition_at",
+            "from_regime",
+            "to_regime",
+            "danger_evidence",
+            "post_window_days",
+            "similarity_score"
+          ],
+          "startLine": 62,
+          "endLine": 93
+        },
+        {
+          "name": "narrative_lifecycle_records",
+          "kind": "table",
+          "fields": [
+            "id",
+            "narrative_name",
+            "recorded_at"
+          ],
+          "startLine": 106,
+          "endLine": 141
+        },
+        {
+          "name": "strategic_failure_clusters",
+          "kind": "table",
+          "fields": [
+            "id",
+            "cluster_id",
+            "first_seen_at",
+            "last_seen_at",
+            "recurrence_count",
+            "affected_engines",
+            "is_active"
+          ],
+          "startLine": 154,
+          "endLine": 182
+        },
+        {
+          "name": "meta_intelligence_snapshots",
+          "kind": "table",
+          "fields": [
+            "id",
+            "snapshot_at",
+            "recurring_failure_density",
+            "governance_stress_score",
+            "strategic_stability_rank",
+            "dangerous_transitions_30d",
+            "collapsing_narratives",
+            "degrading_engines",
+            "total_memory_events_30d"
+          ],
+          "startLine": 192,
+          "endLine": 215
+        },
+        {
+          "name": "idx_strategic_memory_type",
+          "kind": "index",
+          "fields": [],
+          "startLine": 48,
+          "endLine": 48
+        },
+        {
+          "name": "idx_strategic_memory_engine",
+          "kind": "index",
+          "fields": [],
+          "startLine": 51,
+          "endLine": 51
+        },
+        {
+          "name": "idx_strategic_memory_cluster",
+          "kind": "index",
+          "fields": [],
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "idx_strategic_memory_regime",
+          "kind": "index",
+          "fields": [],
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "idx_regime_transition_pair",
+          "kind": "index",
+          "fields": [],
+          "startLine": 95,
+          "endLine": 95
+        },
+        {
+          "name": "idx_regime_transition_dangerous",
+          "kind": "index",
+          "fields": [],
+          "startLine": 98,
+          "endLine": 98
+        },
+        {
+          "name": "idx_regime_transition_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 101,
+          "endLine": 101
+        },
+        {
+          "name": "idx_narrative_lifecycle_name",
+          "kind": "index",
+          "fields": [],
+          "startLine": 143,
+          "endLine": 143
+        },
+        {
+          "name": "idx_narrative_lifecycle_phase",
+          "kind": "index",
+          "fields": [],
+          "startLine": 146,
+          "endLine": 146
+        },
+        {
+          "name": "idx_narrative_lifecycle_hype",
+          "kind": "index",
+          "fields": [],
+          "startLine": 149,
+          "endLine": 149
+        },
+        {
+          "name": "idx_failure_cluster_type",
+          "kind": "index",
+          "fields": [],
+          "startLine": 184,
+          "endLine": 184
+        },
+        {
+          "name": "idx_failure_cluster_active",
+          "kind": "index",
+          "fields": [],
+          "startLine": 187,
+          "endLine": 187
+        },
+        {
+          "name": "idx_meta_snapshot_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 217,
+          "endLine": 217
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 18
+      }
+    },
+    {
+      "path": "migrations/010_provider_ingestion_log.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "definitions": [
+        {
+          "name": "provider_ingestion_log",
+          "kind": "table",
+          "fields": [
+            "id",
+            "cycle_id",
+            "new_count",
+            "dup_exact",
+            "dup_fuzzy",
+            "dup_semantic",
+            "errors",
+            "latency_ms",
+            "status"
+          ],
+          "startLine": 12,
+          "endLine": 26
+        },
+        {
+          "name": "idx_pil_cycle_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "idx_pil_ts",
+          "kind": "index",
+          "fields": [],
+          "startLine": 29,
+          "endLine": 29
+        },
+        {
+          "name": "idx_pil_provider",
+          "kind": "index",
+          "fields": [],
+          "startLine": 30,
+          "endLine": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 4
+      }
+    },
+    {
+      "path": "migrations/011_signal_trace.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "definitions": [
+        {
+          "name": "signal_trace",
+          "kind": "table",
+          "fields": [
+            "id",
+            "cycle_id",
+            "news_id"
+          ],
+          "startLine": 5,
+          "endLine": 19
+        },
+        {
+          "name": "idx_st_cycle_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "idx_st_signal_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "idx_st_provider",
+          "kind": "index",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "idx_st_engine_name",
+          "kind": "index",
+          "fields": [],
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "idx_st_created_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 25,
+          "endLine": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 6
+      }
+    },
+    {
+      "path": "migrations/012_signal_feedback.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 72,
+      "nonEmptyLines": 66,
+      "definitions": [
+        {
+          "name": "signal_feedback",
+          "kind": "table",
+          "fields": [
+            "id",
+            "signal_trace_id",
+            "engine_name",
+            "provider",
+            "signal_type",
+            "pnl_score",
+            "confidence_score",
+            "market_context",
+            "evaluated_at"
+          ],
+          "startLine": 13,
+          "endLine": 29
+        },
+        {
+          "name": "provider_performance_metrics",
+          "kind": "table",
+          "fields": [
+            "id",
+            "provider",
+            "metric_date",
+            "total_signals",
+            "win_count",
+            "loss_count",
+            "neutral_count",
+            "win_rate",
+            "avg_pnl_score",
+            "noise_ratio",
+            "computed_at"
+          ],
+          "startLine": 41,
+          "endLine": 55
+        },
+        {
+          "name": "idx_sf_trace_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "idx_sf_cycle_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 32,
+          "endLine": 32
+        },
+        {
+          "name": "idx_sf_engine_name",
+          "kind": "index",
+          "fields": [],
+          "startLine": 33,
+          "endLine": 33
+        },
+        {
+          "name": "idx_sf_provider",
+          "kind": "index",
+          "fields": [],
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "idx_sf_signal_type",
+          "kind": "index",
+          "fields": [],
+          "startLine": 35,
+          "endLine": 35
+        },
+        {
+          "name": "idx_sf_outcome_type",
+          "kind": "index",
+          "fields": [],
+          "startLine": 36,
+          "endLine": 36
+        },
+        {
+          "name": "idx_sf_evaluated_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "idx_ppm_provider_date",
+          "kind": "index",
+          "fields": [],
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "idx_ppm_win_rate",
+          "kind": "index",
+          "fields": [],
+          "startLine": 58,
+          "endLine": 58
+        },
+        {
+          "name": "idx_ppm_metric_date",
+          "kind": "index",
+          "fields": [],
+          "startLine": 59,
+          "endLine": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 12
+      }
+    },
+    {
+      "path": "migrations/013_signal_edge_analyzer.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 88,
+      "nonEmptyLines": 78,
+      "definitions": [
+        {
+          "name": "signal_edge_metrics",
+          "kind": "table",
+          "fields": [
+            "id",
+            "engine_name",
+            "signal_type",
+            "ticker",
+            "sample_size",
+            "win_rate"
+          ],
+          "startLine": 15,
+          "endLine": 34
+        },
+        {
+          "name": "signal_edge_aggregations",
+          "kind": "table",
+          "fields": [
+            "id",
+            "rank_position",
+            "group_key",
+            "ticker",
+            "direction",
+            "window_hours",
+            "period_days",
+            "sample_size",
+            "quality_score",
+            "win_rate",
+            "avg_return",
+            "expectancy",
+            "sharpe_score",
+            "computed_at"
+          ],
+          "startLine": 59,
+          "endLine": 75
+        },
+        {
+          "name": "idx_edge_metrics_daily_uq",
+          "kind": "index",
+          "fields": [],
+          "startLine": 36,
+          "endLine": 36
+        },
+        {
+          "name": "idx_edge_metrics_quality",
+          "kind": "index",
+          "fields": [],
+          "startLine": 46,
+          "endLine": 46
+        },
+        {
+          "name": "idx_edge_metrics_engine_window",
+          "kind": "index",
+          "fields": [],
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "idx_edge_metrics_ticker",
+          "kind": "index",
+          "fields": [],
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "idx_edge_agg_rank",
+          "kind": "index",
+          "fields": [],
+          "startLine": 77,
+          "endLine": 77
+        },
+        {
+          "name": "idx_edge_agg_quality",
+          "kind": "index",
+          "fields": [],
+          "startLine": 80,
+          "endLine": 80
+        },
+        {
+          "name": "idx_edge_agg_computed",
+          "kind": "index",
+          "fields": [],
+          "startLine": 83,
+          "endLine": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 9
+      }
+    },
+    {
+      "path": "migrations/014_seed_tickers.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 82,
+      "nonEmptyLines": 76,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/015_ticker_quotes.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 28,
+      "nonEmptyLines": 25,
+      "definitions": [
+        {
+          "name": "ticker_quotes",
+          "kind": "table",
+          "fields": [
+            "id",
+            "symbol",
+            "price",
+            "change_pct",
+            "volume",
+            "market_cap",
+            "exchange",
+            "currency",
+            "ts"
+          ],
+          "startLine": 10,
+          "endLine": 20
+        },
+        {
+          "name": "idx_ticker_quotes_symbol_ts",
+          "kind": "index",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "idx_ticker_quotes_ts",
+          "kind": "index",
+          "fields": [],
+          "startLine": 27,
+          "endLine": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/016_paper_trades.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 28,
+      "nonEmptyLines": 26,
+      "definitions": [
+        {
+          "name": "paper_trades",
+          "kind": "table",
+          "fields": [
+            "id",
+            "asset",
+            "exchange",
+            "direction",
+            "exit_price",
+            "size",
+            "notional",
+            "fee",
+            "pnl",
+            "close_reason",
+            "closed_at"
+          ],
+          "startLine": 7,
+          "endLine": 23
+        },
+        {
+          "name": "idx_pt_asset",
+          "kind": "index",
+          "fields": [],
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "idx_pt_closed_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "idx_pt_open",
+          "kind": "index",
+          "fields": [],
+          "startLine": 27,
+          "endLine": 27
+        },
+        {
+          "name": "idx_pt_signal_id",
+          "kind": "index",
+          "fields": [],
+          "startLine": 28,
+          "endLine": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 5
+      }
+    },
+    {
+      "path": "migrations/017_narrative_persistence.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/018_technical_score.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "definitions": [
+        {
+          "name": "idx_trends_technical",
+          "kind": "index",
+          "fields": [],
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/019_signal_edge_agg_uq.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "definitions": [
+        {
+          "name": "idx_edge_agg_daily_uq",
+          "kind": "index",
+          "fields": [],
+          "startLine": 19,
+          "endLine": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/020_optimization_runs.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "definitions": [
+        {
+          "name": "optimization_runs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "params",
+            "score",
+            "win_rate",
+            "sharpe",
+            "expectancy",
+            "trade_count",
+            "notes",
+            "created_at"
+          ],
+          "startLine": 2,
+          "endLine": 12
+        },
+        {
+          "name": "idx_optimization_runs_score",
+          "kind": "index",
+          "fields": [],
+          "startLine": 14,
+          "endLine": 14
+        },
+        {
+          "name": "idx_optimization_runs_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 15,
+          "endLine": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/021_governance_log.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 36,
+      "nonEmptyLines": 33,
+      "definitions": [
+        {
+          "name": "governance_log",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_id",
+            "evidence",
+            "expected_effect",
+            "applied",
+            "applied_at",
+            "skipped_reason"
+          ],
+          "startLine": 2,
+          "endLine": 15
+        },
+        {
+          "name": "lessons_learned_runs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_id",
+            "data_window_days",
+            "trade_count",
+            "win_rate",
+            "total_pnl",
+            "output_json",
+            "model_used",
+            "input_tokens",
+            "output_tokens",
+            "created_at"
+          ],
+          "startLine": 22,
+          "endLine": 34
+        },
+        {
+          "name": "idx_governance_log_run",
+          "kind": "index",
+          "fields": [],
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "idx_governance_log_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "idx_governance_log_target",
+          "kind": "index",
+          "fields": [],
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "idx_ll_runs_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 36,
+          "endLine": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 6
+      }
+    },
+    {
+      "path": "migrations/022_stale_quote_alert.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 20,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/023_funding_liquidations.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 42,
+      "nonEmptyLines": 37,
+      "definitions": [
+        {
+          "name": "funding_rates",
+          "kind": "table",
+          "fields": [
+            "id",
+            "symbol",
+            "funding_rate",
+            "mark_price",
+            "next_funding_time",
+            "ts"
+          ],
+          "startLine": 9,
+          "endLine": 16
+        },
+        {
+          "name": "liquidation_events",
+          "kind": "table",
+          "fields": [
+            "id",
+            "symbol",
+            "side",
+            "price",
+            "qty",
+            "notional",
+            "order_status",
+            "event_time",
+            "ts"
+          ],
+          "startLine": 24,
+          "endLine": 34
+        },
+        {
+          "name": "idx_funding_rates_symbol_ts",
+          "kind": "index",
+          "fields": [],
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "idx_funding_rates_ts",
+          "kind": "index",
+          "fields": [],
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "uq_liquidation_events_natural",
+          "kind": "index",
+          "fields": [],
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "idx_liquidation_events_symbol_time",
+          "kind": "index",
+          "fields": [],
+          "startLine": 41,
+          "endLine": 41
+        },
+        {
+          "name": "idx_liquidation_events_time",
+          "kind": "index",
+          "fields": [],
+          "startLine": 42,
+          "endLine": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 7
+      }
+    },
+    {
+      "path": "migrations/024_research_runs.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 32,
+      "nonEmptyLines": 29,
+      "definitions": [
+        {
+          "name": "research_runs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "sweep_name",
+            "params",
+            "n_trades",
+            "win_rate",
+            "avg_ret_pct",
+            "total_ret_pct",
+            "sharpe",
+            "max_dd_pct",
+            "oos_avg_ret_pct",
+            "oos_n",
+            "status",
+            "started_at",
+            "finished_at",
+            "created_at"
+          ],
+          "startLine": 8,
+          "endLine": 24
+        },
+        {
+          "name": "idx_research_runs_sweep_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "uq_research_runs_sweep_params",
+          "kind": "index",
+          "fields": [],
+          "startLine": 31,
+          "endLine": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/025_infra_watchdog_alerts.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 27,
+      "nonEmptyLines": 26,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/026_signal_trace_ticker.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "definitions": [
+        {
+          "name": "idx_st_ticker",
+          "kind": "index",
+          "fields": [],
+          "startLine": 5,
+          "endLine": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/028_retired_strategies.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 80,
+      "nonEmptyLines": 72,
+      "definitions": [
+        {
+          "name": "retired_strategies",
+          "kind": "table",
+          "fields": [
+            "id",
+            "strategy_name",
+            "engine_key",
+            "retired_at",
+            "sprint",
+            "retirement_reason",
+            "retirement_category",
+            "win_rate_at_retirement",
+            "notes",
+            "reactivated_at",
+            "reactivation_notes",
+            "created_at"
+          ],
+          "startLine": 5,
+          "endLine": 18
+        },
+        {
+          "name": "idx_retired_retired_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "idx_retired_category",
+          "kind": "index",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/029_personal_finance.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 24,
+      "nonEmptyLines": 23,
+      "definitions": [
+        {
+          "name": "personal_transactions",
+          "kind": "table",
+          "fields": [
+            "id",
+            "date",
+            "amount_usd",
+            "category",
+            "description",
+            "source",
+            "created_at"
+          ],
+          "startLine": 2,
+          "endLine": 11
+        },
+        {
+          "name": "trading_journal",
+          "kind": "table",
+          "fields": [
+            "id",
+            "week_start",
+            "generated_at",
+            "content",
+            "model_used",
+            "trade_count",
+            "total_pnl"
+          ],
+          "startLine": 15,
+          "endLine": 23
+        },
+        {
+          "name": "idx_personal_tx_date",
+          "kind": "index",
+          "fields": [],
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "idx_trading_journal_week",
+          "kind": "index",
+          "fields": [],
+          "startLine": 24,
+          "endLine": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 4
+      }
+    },
+    {
+      "path": "migrations/030_daily_briefs.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "definitions": [
+        {
+          "name": "daily_briefs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "generated_at",
+            "content",
+            "model_used",
+            "trade_count",
+            "total_pnl",
+            "btc_price"
+          ],
+          "startLine": 2,
+          "endLine": 10
+        },
+        {
+          "name": "idx_daily_briefs_generated_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 11,
+          "endLine": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "migrations/031_open_position_unique.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "definitions": [
+        {
+          "name": "idx_paper_trades_single_open",
+          "kind": "index",
+          "fields": [],
+          "startLine": 4,
+          "endLine": 4
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/032_open_position_unique_per_mode.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "definitions": [
+        {
+          "name": "idx_paper_trades_single_open",
+          "kind": "index",
+          "fields": [],
+          "startLine": 5,
+          "endLine": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/033_news_impact_scoring.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "definitions": [
+        {
+          "name": "idx_news_impact_recent",
+          "kind": "index",
+          "fields": [],
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "idx_news_needs_analysis",
+          "kind": "index",
+          "fields": [],
+          "startLine": 18,
+          "endLine": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "migrations/034_truth_router.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 32,
+      "nonEmptyLines": 29,
+      "definitions": [
+        {
+          "name": "llm_trade_audits",
+          "kind": "table",
+          "fields": [
+            "id",
+            "trade_id",
+            "signal_id",
+            "asset",
+            "direction",
+            "model",
+            "verdict",
+            "bear_case",
+            "raw_response",
+            "dossier",
+            "created_at"
+          ],
+          "startLine": 14,
+          "endLine": 29
+        },
+        {
+          "name": "idx_llm_audits_trade",
+          "kind": "index",
+          "fields": [],
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "idx_llm_audits_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 32,
+          "endLine": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/035_trade_reflections.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 24,
+      "nonEmptyLines": 22,
+      "definitions": [
+        {
+          "name": "trade_reflections",
+          "kind": "table",
+          "fields": [
+            "id",
+            "trade_id",
+            "asset",
+            "direction",
+            "router_action",
+            "close_reason",
+            "pnl",
+            "hold_hours",
+            "lesson",
+            "model",
+            "created_at"
+          ],
+          "startLine": 9,
+          "endLine": 21
+        },
+        {
+          "name": "idx_reflections_asset",
+          "kind": "index",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "idx_reflections_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 24,
+          "endLine": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/036_etf_tickers.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 29,
+      "nonEmptyLines": 27,
+      "definitions": [
+        {
+          "name": "idx_signals_registry_pending_outcomes",
+          "kind": "index",
+          "fields": [],
+          "startLine": 27,
+          "endLine": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/037_fix_outcome_direction_correct.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 20,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/038_equity_snapshots.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "definitions": [
+        {
+          "name": "equity_snapshots",
+          "kind": "table",
+          "fields": [
+            "id",
+            "mode",
+            "balance",
+            "equity",
+            "drawdown_pct",
+            "governor_state",
+            "regime",
+            "cluster_edges",
+            "captured_at"
+          ],
+          "startLine": 4,
+          "endLine": 14
+        },
+        {
+          "name": "idx_equity_snapshots_captured",
+          "kind": "index",
+          "fields": [],
+          "startLine": 15,
+          "endLine": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "migrations/039_cide_decisions.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "definitions": [
+        {
+          "name": "cide_decisions",
+          "kind": "table",
+          "fields": [
+            "id",
+            "requested_capital",
+            "decision",
+            "recommended_capital",
+            "edge_stability_score",
+            "metrics",
+            "reasoning",
+            "evaluated_at"
+          ],
+          "startLine": 1,
+          "endLine": 10
+        },
+        {
+          "name": "idx_cide_decisions_evaluated",
+          "kind": "index",
+          "fields": [],
+          "startLine": 11,
+          "endLine": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "migrations/040_trade_post_mortems.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 18,
+      "nonEmptyLines": 18,
+      "definitions": [
+        {
+          "name": "trade_post_mortems",
+          "kind": "table",
+          "fields": [
+            "id",
+            "trade_id",
+            "asset",
+            "direction",
+            "pnl",
+            "verdict",
+            "lesson",
+            "regime_fit",
+            "regime",
+            "model",
+            "latency_ms",
+            "created_at"
+          ],
+          "startLine": 1,
+          "endLine": 16
+        },
+        {
+          "name": "idx_postmortem_created",
+          "kind": "index",
+          "fields": [],
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "idx_postmortem_asset",
+          "kind": "index",
+          "fields": [],
+          "startLine": 18,
+          "endLine": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "migrations/041_signal_trace_regime_filter.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/042_capital_growth_log.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "definitions": [
+        {
+          "name": "capital_growth_log",
+          "kind": "table",
+          "fields": [
+            "id",
+            "phase",
+            "equity",
+            "max_positions",
+            "leverage_cap",
+            "size_multiplier",
+            "captured_at"
+          ],
+          "startLine": 1,
+          "endLine": 9
+        },
+        {
+          "name": "idx_growth_captured",
+          "kind": "index",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "migrations/043_meta_strategy_runs.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "definitions": [
+        {
+          "name": "meta_strategy_runs",
+          "kind": "table",
+          "fields": [
+            "id",
+            "run_at",
+            "regime",
+            "regime_confidence",
+            "transition_active",
+            "weights",
+            "inputs"
+          ],
+          "startLine": 1,
+          "endLine": 9
+        },
+        {
+          "name": "idx_meta_runs_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "migrations/044_paper_trades_signal_id_unique.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "definitions": [
+        {
+          "name": "idx_pt_signal_id_open",
+          "kind": "index",
+          "fields": [],
+          "startLine": 5,
+          "endLine": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "migrations/045_paper_trades_stop_order_ids.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "migrations/046_funding_payments.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "definitions": [
+        {
+          "name": "funding_payments",
+          "kind": "table",
+          "fields": [
+            "tran_id",
+            "symbol",
+            "income",
+            "paid_at"
+          ],
+          "startLine": 4,
+          "endLine": 9
+        },
+        {
+          "name": "idx_funding_payments_paid_at",
+          "kind": "index",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    }
+  ]
+}

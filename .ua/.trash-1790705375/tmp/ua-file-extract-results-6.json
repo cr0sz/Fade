@@ -1,0 +1,4093 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 20,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 20,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/engines/trend_detection.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 452,
+      "nonEmptyLines": 394,
+      "functions": [
+        {
+          "name": "_avg_sentiment",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "news_rows"
+          ]
+        },
+        {
+          "name": "_weighted_impact_score",
+          "startLine": 47,
+          "endLine": 90,
+          "params": [
+            "news_rows"
+          ]
+        },
+        {
+          "name": "_volatility_regime",
+          "startLine": 93,
+          "endLine": 103,
+          "params": [
+            "composite_scores"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TrendDetectionEngine",
+          "startLine": 106,
+          "endLine": 452,
+          "methods": [
+            "__init__",
+            "run_cycle",
+            "_get_smoothed_score",
+            "_get_active_tickers",
+            "_compute_trend_with_aux",
+            "_compute_trend",
+            "_compute_news_score",
+            "get_hot_tickers",
+            "get_signals"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_avg_sentiment",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "_weighted_impact_score",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "_volatility_regime",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "TrendDetectionEngine",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_avg_sentiment",
+          "callee": "float",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_avg_sentiment",
+          "callee": "n.get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_avg_sentiment",
+          "callee": "round",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_avg_sentiment",
+          "callee": "sum",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_avg_sentiment",
+          "callee": "len",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "datetime.now",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "timedelta",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "datetime.now",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "timedelta",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "row.get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "row.get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "row.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "row.get",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "row.get",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "float",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "float",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "recent.append",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "float",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "older.append",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "older.append",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "float",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "max",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "abs",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "sum",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "len",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "round",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "round",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "sum",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_weighted_impact_score",
+          "callee": "len",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "len",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "sum",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "len",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "sum",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "len",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "min",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_volatility_regime",
+          "callee": "math.sqrt",
+          "lineNumber": 103
+        },
+        {
+          "caller": "__init__",
+          "callee": "MarketTrendRepository",
+          "lineNumber": 114
+        },
+        {
+          "caller": "__init__",
+          "callee": "NewsRepository",
+          "lineNumber": 115
+        },
+        {
+          "caller": "__init__",
+          "callee": "SocialRepository",
+          "lineNumber": 116
+        },
+        {
+          "caller": "__init__",
+          "callee": "ConfidenceEngine",
+          "lineNumber": 117
+        },
+        {
+          "caller": "__init__",
+          "callee": "TechnicalEngine",
+          "lineNumber": 118
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "FearGreedProvider",
+          "lineNumber": 120
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._get_active_tickers",
+          "lineNumber": 123
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "SignalTracer",
+          "lineNumber": 126
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._social_repo.get_mention_counts",
+          "lineNumber": 129
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "dict",
+          "lineNumber": 131
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "r.get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "r.get",
+          "lineNumber": 136
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._fear_greed.get_social_scores",
+          "lineNumber": 141
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.warning",
+          "lineNumber": 143
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "str",
+          "lineNumber": 143
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._news_repo.get_recent",
+          "lineNumber": 146
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._compute_trend_with_aux",
+          "lineNumber": 154
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "trends_aux.append",
+          "lineNumber": 157
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.error",
+          "lineNumber": 159
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "str",
+          "lineNumber": 159
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.warning",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "len",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "_volatility_regime",
+          "lineNumber": 170
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "sum",
+          "lineNumber": 172
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "len",
+          "lineNumber": 172
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 177
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._get_smoothed_score",
+          "lineNumber": 181
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 182
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._confidence.compute",
+          "lineNumber": 184
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "aux.get",
+          "lineNumber": 190
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "aux.get",
+          "lineNumber": 192
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "aux.get",
+          "lineNumber": 193
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 196
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "NarrativeEngine",
+          "lineNumber": 201
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "narrative_engine.compute_narratives",
+          "lineNumber": 202
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 208
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "min",
+          "lineNumber": 208
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "_momentum_factor.get",
+          "lineNumber": 208
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "item.get",
+          "lineNumber": 215
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "headlines_by_ticker.setdefault(sym, []).append",
+          "lineNumber": 216
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "headlines_by_ticker.setdefault",
+          "lineNumber": 216
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "item.get",
+          "lineNumber": 216
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "headlines_by_ticker.get",
+          "lineNumber": 219
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "narrative_engine.classify_ticker",
+          "lineNumber": 220
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "narrative_persistence.get",
+          "lineNumber": 226
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "_time.monotonic",
+          "lineNumber": 227
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "self._trend_repo.upsert_trend",
+          "lineNumber": 229
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.error",
+          "lineNumber": 232
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "str",
+          "lineNumber": 232
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "tracer.record",
+          "lineNumber": 241
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 246
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 253
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 263
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "_time.monotonic",
+          "lineNumber": 263
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "logger.info",
+          "lineNumber": 266
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 270
+        },
+        {
+          "caller": "run_cycle",
+          "callee": "round",
+          "lineNumber": 272
+        },
+        {
+          "caller": "_get_smoothed_score",
+          "callee": "self._redis.get",
+          "lineNumber": 281
+        },
+        {
+          "caller": "_get_smoothed_score",
+          "callee": "float",
+          "lineNumber": 282
+        },
+        {
+          "caller": "_get_smoothed_score",
+          "callee": "self._redis.setex",
+          "lineNumber": 283
+        },
+        {
+          "caller": "_get_smoothed_score",
+          "callee": "str",
+          "lineNumber": 284
+        },
+        {
+          "caller": "_get_active_tickers",
+          "callee": "self._pool.acquire",
+          "lineNumber": 291
+        },
+        {
+          "caller": "_get_active_tickers",
+          "callee": "conn.fetch",
+          "lineNumber": 292
+        },
+        {
+          "caller": "_get_active_tickers",
+          "callee": "dict",
+          "lineNumber": 295
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "self._news_repo.get_recent",
+          "lineNumber": 312
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "_weighted_impact_score",
+          "lineNumber": 313
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "len",
+          "lineNumber": 314
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "n.get",
+          "lineNumber": 314
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "n.get",
+          "lineNumber": 314
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "social_by_ticker.get",
+          "lineNumber": 316
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "float",
+          "lineNumber": 318
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "social_row.get",
+          "lineNumber": 318
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "min",
+          "lineNumber": 319
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "max",
+          "lineNumber": 319
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "int",
+          "lineNumber": 320
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "social_row.get",
+          "lineNumber": 320
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "cp_social_scores.get",
+          "lineNumber": 328
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "self._social_repo.get_historical_mention_avg",
+          "lineNumber": 333
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "max",
+          "lineNumber": 336
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "min",
+          "lineNumber": 338
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "self._pool.acquire",
+          "lineNumber": 340
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "conn.fetchrow",
+          "lineNumber": 341
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "conn.fetch",
+          "lineNumber": 347
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "float",
+          "lineNumber": 355
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "len",
+          "lineNumber": 356
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "float",
+          "lineNumber": 357
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "sum",
+          "lineNumber": 358
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "float",
+          "lineNumber": 358
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "len",
+          "lineNumber": 358
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 360
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "math.tanh",
+          "lineNumber": 360
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "math.log",
+          "lineNumber": 360
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "max",
+          "lineNumber": 360
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "self._technical.compute",
+          "lineNumber": 369
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "abs",
+          "lineNumber": 399
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "len",
+          "lineNumber": 400
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "all",
+          "lineNumber": 401
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "all",
+          "lineNumber": 401
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 404
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "MarketTrend",
+          "lineNumber": 406
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 409
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 410
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 411
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 412
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 413
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "round",
+          "lineNumber": 414
+        },
+        {
+          "caller": "_compute_trend_with_aux",
+          "callee": "datetime.now",
+          "lineNumber": 419
+        },
+        {
+          "caller": "_compute_trend",
+          "callee": "self._social_repo.get_mention_counts",
+          "lineNumber": 431
+        },
+        {
+          "caller": "_compute_trend",
+          "callee": "dict",
+          "lineNumber": 432
+        },
+        {
+          "caller": "_compute_trend",
+          "callee": "r.get",
+          "lineNumber": 432
+        },
+        {
+          "caller": "_compute_trend",
+          "callee": "self._pool.acquire",
+          "lineNumber": 433
+        },
+        {
+          "caller": "_compute_trend",
+          "callee": "conn.fetchrow",
+          "lineNumber": 434
+        },
+        {
+          "caller": "_compute_trend",
+          "callee": "self._compute_trend_with_aux",
+          "lineNumber": 436
+        },
+        {
+          "caller": "_compute_news_score",
+          "callee": "self._news_repo.get_recent",
+          "lineNumber": 440
+        },
+        {
+          "caller": "_compute_news_score",
+          "callee": "_weighted_impact_score",
+          "lineNumber": 441
+        },
+        {
+          "caller": "get_hot_tickers",
+          "callee": "self._trend_repo.get_top_trending",
+          "lineNumber": 444
+        },
+        {
+          "caller": "get_signals",
+          "callee": "self._trend_repo.get_signals",
+          "lineNumber": 447
+        },
+        {
+          "caller": "get_signals",
+          "callee": "self._trend_repo.get_signals",
+          "lineNumber": 448
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/models/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/models/market.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 134,
+      "nonEmptyLines": 113,
+      "classes": [
+        {
+          "name": "TickerQuote",
+          "startLine": 9,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "symbol",
+            "name",
+            "price",
+            "change",
+            "change_pct",
+            "volume",
+            "market_cap",
+            "pe_ratio",
+            "high_52w",
+            "low_52w",
+            "exchange",
+            "currency",
+            "timestamp"
+          ]
+        },
+        {
+          "name": "MarketTrend",
+          "startLine": 25,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "ticker",
+            "exchange",
+            "news_score",
+            "social_score",
+            "smart_money_score",
+            "volume_score",
+            "technical_score",
+            "composite_score",
+            "hype_signal",
+            "panic_signal",
+            "trending_up",
+            "trending_down",
+            "computed_at",
+            "smoothed_composite",
+            "confidence_score",
+            "confidence_level",
+            "narrative_cluster",
+            "narrative_persistence",
+            "signal_quality"
+          ]
+        },
+        {
+          "name": "NarrativeCluster",
+          "startLine": 48,
+          "endLine": 57,
+          "methods": [],
+          "properties": [
+            "name",
+            "label",
+            "strength_score",
+            "momentum",
+            "momentum_delta",
+            "top_tickers",
+            "contributing_sources",
+            "sample_headlines",
+            "computed_at"
+          ]
+        },
+        {
+          "name": "SmartMoneyEvent",
+          "startLine": 60,
+          "endLine": 70,
+          "methods": [],
+          "properties": [
+            "id",
+            "event_type",
+            "ticker",
+            "actor",
+            "amount_usd",
+            "shares",
+            "direction",
+            "source",
+            "event_at",
+            "raw"
+          ]
+        },
+        {
+          "name": "MacroIndicator",
+          "startLine": 73,
+          "endLine": 80,
+          "methods": [],
+          "properties": [
+            "name",
+            "value",
+            "previous",
+            "unit",
+            "country",
+            "release_date",
+            "source"
+          ]
+        },
+        {
+          "name": "InstitutionalFlow",
+          "startLine": 85,
+          "endLine": 97,
+          "methods": [],
+          "properties": [
+            "ticker",
+            "direction",
+            "flow_strength",
+            "persistence_score",
+            "acceleration",
+            "insider_cluster",
+            "whale_buy_usd",
+            "whale_sell_usd",
+            "insider_buy_count",
+            "insider_sell_count",
+            "net_flow_ratio",
+            "computed_at"
+          ]
+        },
+        {
+          "name": "ETFRotation",
+          "startLine": 100,
+          "endLine": 109,
+          "methods": [],
+          "properties": [
+            "sector",
+            "etf_ticker",
+            "composite_score",
+            "rotation_velocity",
+            "rotation_direction",
+            "rank_position",
+            "is_leading",
+            "is_lagging",
+            "computed_at"
+          ]
+        },
+        {
+          "name": "MacroRegime",
+          "startLine": 112,
+          "endLine": 122,
+          "methods": [],
+          "properties": [
+            "regime",
+            "confidence",
+            "previous_regime",
+            "regime_shift",
+            "dominant_narrative",
+            "narrative_score",
+            "proxy_score",
+            "keyword_score",
+            "regime_scores",
+            "computed_at"
+          ]
+        },
+        {
+          "name": "ConfluenceSignal",
+          "startLine": 125,
+          "endLine": 134,
+          "methods": [],
+          "properties": [
+            "ticker",
+            "strength",
+            "direction",
+            "narrative_alignment",
+            "confidence_weighted",
+            "flow_alignment",
+            "regime_coherence",
+            "contributing_sources",
+            "computed_at"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TickerQuote",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "MarketTrend",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "NarrativeCluster",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "SmartMoneyEvent",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "MacroIndicator",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "InstitutionalFlow",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "ETFRotation",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "MacroRegime",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "ConfluenceSignal",
+          "line": 125,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 0,
+        "classCount": 9
+      }
+    },
+    {
+      "path": "src/models/social.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "SocialPost",
+          "startLine": 9,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "id",
+            "platform",
+            "content",
+            "author",
+            "ticker_mentions",
+            "sentiment_score",
+            "engagement_score",
+            "upvotes",
+            "comments",
+            "url",
+            "subreddit",
+            "created_at",
+            "raw"
+          ]
+        },
+        {
+          "name": "SentimentSummary",
+          "startLine": 25,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "ticker",
+            "period_hours",
+            "mention_count",
+            "avg_sentiment",
+            "velocity_ratio",
+            "hype_signal",
+            "panic_signal",
+            "top_posts",
+            "computed_at"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SocialPost",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "SentimentSummary",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/providers/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 12,
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/providers/ai/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/providers/ai/anthropic_provider.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 85,
+      "classes": [
+        {
+          "name": "AnthropicProvider",
+          "startLine": 16,
+          "endLine": 103,
+          "methods": [
+            "__init__",
+            "fetch",
+            "normalize",
+            "complete",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AnthropicProvider",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 20
+        },
+        {
+          "caller": "fetch",
+          "callee": "NotImplementedError",
+          "lineNumber": 26
+        },
+        {
+          "caller": "complete",
+          "callee": "ValueError",
+          "lineNumber": 39
+        },
+        {
+          "caller": "complete",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 57
+        },
+        {
+          "caller": "complete",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 58
+        },
+        {
+          "caller": "complete",
+          "callee": "session.post",
+          "lineNumber": 59
+        },
+        {
+          "caller": "complete",
+          "callee": "asyncio.sleep",
+          "lineNumber": 63
+        },
+        {
+          "caller": "complete",
+          "callee": "RuntimeError",
+          "lineNumber": 64
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 65
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.json",
+          "lineNumber": 66
+        },
+        {
+          "caller": "complete",
+          "callee": "data.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "complete",
+          "callee": "usage.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "complete",
+          "callee": "usage.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "complete",
+          "callee": "AIResponse",
+          "lineNumber": 77
+        },
+        {
+          "caller": "complete",
+          "callee": "round",
+          "lineNumber": 82
+        },
+        {
+          "caller": "health_check",
+          "callee": "self.complete",
+          "lineNumber": 89
+        },
+        {
+          "caller": "health_check",
+          "callee": "bool",
+          "lineNumber": 90
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/ai/ollama_provider.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "OllamaProvider",
+          "startLine": 16,
+          "endLine": 36,
+          "methods": [
+            "__init__",
+            "complete"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OllamaProvider",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "complete",
+          "callee": "time.monotonic",
+          "lineNumber": 21
+        },
+        {
+          "caller": "complete",
+          "callee": "httpx.AsyncClient",
+          "lineNumber": 22
+        },
+        {
+          "caller": "complete",
+          "callee": "client.post",
+          "lineNumber": 23
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 27
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.json().get(\"response\", \"\").strip",
+          "lineNumber": 28
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.json().get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.json",
+          "lineNumber": 28
+        },
+        {
+          "caller": "complete",
+          "callee": "time.monotonic",
+          "lineNumber": 29
+        },
+        {
+          "caller": "complete",
+          "callee": "AIResponse",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/ai/openai_provider.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 106,
+      "classes": [
+        {
+          "name": "AIResponse",
+          "startLine": 15,
+          "endLine": 28,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "OpenAIProvider",
+          "startLine": 31,
+          "endLine": 128,
+          "methods": [
+            "__init__",
+            "fetch",
+            "normalize",
+            "complete",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AIResponse",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "OpenAIProvider",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 35
+        },
+        {
+          "caller": "fetch",
+          "callee": "NotImplementedError",
+          "lineNumber": 41
+        },
+        {
+          "caller": "complete",
+          "callee": "ValueError",
+          "lineNumber": 54
+        },
+        {
+          "caller": "complete",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 74
+        },
+        {
+          "caller": "complete",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 75
+        },
+        {
+          "caller": "complete",
+          "callee": "session.post",
+          "lineNumber": 76
+        },
+        {
+          "caller": "complete",
+          "callee": "asyncio.sleep",
+          "lineNumber": 80
+        },
+        {
+          "caller": "complete",
+          "callee": "RuntimeError",
+          "lineNumber": 81
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 82
+        },
+        {
+          "caller": "complete",
+          "callee": "resp.json",
+          "lineNumber": 83
+        },
+        {
+          "caller": "complete",
+          "callee": "data.get",
+          "lineNumber": 85
+        },
+        {
+          "caller": "complete",
+          "callee": "usage.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "complete",
+          "callee": "usage.get",
+          "lineNumber": 87
+        },
+        {
+          "caller": "complete",
+          "callee": "logger.debug",
+          "lineNumber": 94
+        },
+        {
+          "caller": "complete",
+          "callee": "round",
+          "lineNumber": 99
+        },
+        {
+          "caller": "complete",
+          "callee": "AIResponse",
+          "lineNumber": 102
+        },
+        {
+          "caller": "complete",
+          "callee": "round",
+          "lineNumber": 107
+        },
+        {
+          "caller": "health_check",
+          "callee": "self.complete",
+          "lineNumber": 114
+        },
+        {
+          "caller": "health_check",
+          "callee": "bool",
+          "lineNumber": 115
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 128
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/providers/market/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/providers/market/alpha_vantage.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 86,
+      "classes": [
+        {
+          "name": "AlphaVantageProvider",
+          "startLine": 16,
+          "endLine": 103,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_global_quote",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AlphaVantageProvider",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 20
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 26
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 33
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 35
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_global_quote",
+          "lineNumber": 37
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.normalize",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetch",
+          "callee": "quotes.append",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 42
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_fetch_global_quote",
+          "callee": "session.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_fetch_global_quote",
+          "callee": "resp.json",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_fetch_global_quote",
+          "callee": "logger.warning",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_fetch_global_quote",
+          "callee": "data.get",
+          "lineNumber": 61
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 68
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 69
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get(\"10. change percent\", \"0%\").rstrip",
+          "lineNumber": 70
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 71
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 72
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "normalize",
+          "callee": "TickerQuote",
+          "lineNumber": 74
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 77
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 78
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.now",
+          "lineNumber": 82
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 89
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "health_check",
+          "callee": "resp.json",
+          "lineNumber": 94
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/market/coingecko.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 180,
+      "nonEmptyLines": 156,
+      "classes": [
+        {
+          "name": "CoinGeckoProvider",
+          "startLine": 30,
+          "endLine": 180,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_load_coingecko_map",
+            "_fetch_markets",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CoinGeckoProvider",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 34
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._load_coingecko_map",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 41
+        },
+        {
+          "caller": "fetch",
+          "callee": "coingecko_map.items",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetch",
+          "callee": "list",
+          "lineNumber": 49
+        },
+        {
+          "caller": "fetch",
+          "callee": "coingecko_map.values",
+          "lineNumber": 49
+        },
+        {
+          "caller": "fetch",
+          "callee": "set",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fetch",
+          "callee": "coingecko_map.items",
+          "lineNumber": 55
+        },
+        {
+          "caller": "fetch",
+          "callee": "range",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 60
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_markets",
+          "lineNumber": 62
+        },
+        {
+          "caller": "fetch",
+          "callee": "raw.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.normalize",
+          "lineNumber": 65
+        },
+        {
+          "caller": "fetch",
+          "callee": "returned_ids.add",
+          "lineNumber": 67
+        },
+        {
+          "caller": "fetch",
+          "callee": "id_to_symbol.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetch",
+          "callee": "all_quotes.append",
+          "lineNumber": 71
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 73
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 73
+        },
+        {
+          "caller": "fetch",
+          "callee": "coingecko_map.items",
+          "lineNumber": 81
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 91
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 91
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_load_coingecko_map",
+          "callee": "get_db_pool",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_load_coingecko_map",
+          "callee": "pool.acquire",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_load_coingecko_map",
+          "callee": "conn.fetch",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_load_coingecko_map",
+          "callee": "logger.error",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_load_coingecko_map",
+          "callee": "str",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "\",\".join",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "len",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "session.get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "logger.warning",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "asyncio.sleep",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_fetch_markets",
+          "callee": "resp.json",
+          "lineNumber": 134
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 138
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get(\"symbol\", \"\").upper",
+          "lineNumber": 139
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 140
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 140
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 144
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 144
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 146
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 146
+        },
+        {
+          "caller": "normalize",
+          "callee": "TickerQuote",
+          "lineNumber": 148
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 150
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 152
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 153
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 154
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 154
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 155
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 155
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 156
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 156
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 157
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 157
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.now",
+          "lineNumber": 160
+        },
+        {
+          "caller": "normalize",
+          "callee": "logger.error",
+          "lineNumber": 163
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 163
+        },
+        {
+          "caller": "normalize",
+          "callee": "str",
+          "lineNumber": 163
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 168
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 169
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 171
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 180
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/market/finnhub.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 119,
+      "classes": [
+        {
+          "name": "FinnhubProvider",
+          "startLine": 16,
+          "endLine": 140,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_quote",
+            "normalize",
+            "fetch_macro_indicators",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": [
+            "_forbidden_symbols"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FinnhubProvider",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 43
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_quote",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fetch",
+          "callee": "raw.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.normalize",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetch",
+          "callee": "quotes.append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._forbidden_symbols.add",
+          "lineNumber": 51
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 52
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 59
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 59
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 61
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_fetch_quote",
+          "callee": "session.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_fetch_quote",
+          "callee": "asyncio.sleep",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_fetch_quote",
+          "callee": "resp.raise_for_status",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_fetch_quote",
+          "callee": "resp.json",
+          "lineNumber": 74
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 78
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "normalize",
+          "callee": "symbol.endswith",
+          "lineNumber": 82
+        },
+        {
+          "caller": "normalize",
+          "callee": "TickerQuote",
+          "lineNumber": 84
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 86
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 87
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 88
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 89
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 89
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 90
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.now",
+          "lineNumber": 94
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 103
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "session.get",
+          "lineNumber": 106
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "resp.json",
+          "lineNumber": 110
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "data.get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "indicators.append",
+          "lineNumber": 112
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "MacroIndicator",
+          "lineNumber": 112
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "item.get",
+          "lineNumber": 113
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "float",
+          "lineNumber": 114
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "item.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "item.get",
+          "lineNumber": 115
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "item.get",
+          "lineNumber": 116
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "datetime.now",
+          "lineNumber": 117
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "logger.error",
+          "lineNumber": 121
+        },
+        {
+          "caller": "fetch_macro_indicators",
+          "callee": "str",
+          "lineNumber": 121
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 129
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 140
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/market/polygon.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 110,
+      "classes": [
+        {
+          "name": "PolygonProvider",
+          "startLine": 16,
+          "endLine": 132,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_snapshot",
+            "normalize",
+            "fetch_all_tickers",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PolygonProvider",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 20
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 26
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 32
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 34
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_snapshot",
+          "lineNumber": 36
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.normalize",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "quotes.append",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_fetch_snapshot",
+          "callee": "session.get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_fetch_snapshot",
+          "callee": "asyncio.sleep",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_fetch_snapshot",
+          "callee": "resp.json",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_fetch_snapshot",
+          "callee": "data.get",
+          "lineNumber": 57
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 65
+        },
+        {
+          "caller": "normalize",
+          "callee": "day.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "normalize",
+          "callee": "last_quote.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "normalize",
+          "callee": "prev_day.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "normalize",
+          "callee": "TickerQuote",
+          "lineNumber": 72
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 74
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 75
+        },
+        {
+          "caller": "normalize",
+          "callee": "round",
+          "lineNumber": 76
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 77
+        },
+        {
+          "caller": "normalize",
+          "callee": "day.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.now",
+          "lineNumber": 80
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 96
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 98
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "session.get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "resp.json",
+          "lineNumber": 102
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "data.get",
+          "lineNumber": 103
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "tickers.append",
+          "lineNumber": 104
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "t.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "t.get",
+          "lineNumber": 106
+        },
+        {
+          "caller": "fetch_all_tickers",
+          "callee": "data.get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 120
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 122
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 132
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/market/yfinance_provider.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 248,
+      "nonEmptyLines": 213,
+      "classes": [
+        {
+          "name": "YFinanceProvider",
+          "startLine": 46,
+          "endLine": 248,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_us_market_open",
+            "_fetch_sync",
+            "_to_ticker_quote",
+            "_load_symbols",
+            "health_check",
+            "cost_estimate",
+            "normalize",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "YFinanceProvider",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._load_symbols",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fetch",
+          "callee": "_SYMBOL_MAP.get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fetch",
+          "callee": "_SYMBOL_MAP.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "fetch",
+          "callee": "range",
+          "lineNumber": 62
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.get_event_loop().run_in_executor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.get_event_loop",
+          "lineNumber": 64
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.sleep",
+          "lineNumber": 71
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 73
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 73
+        },
+        {
+          "caller": "fetch",
+          "callee": "asyncio.sleep",
+          "lineNumber": 75
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 77
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 77
+        },
+        {
+          "caller": "fetch",
+          "callee": "quotes.items",
+          "lineNumber": 81
+        },
+        {
+          "caller": "fetch",
+          "callee": "symbol_reverse.get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._to_ticker_quote",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fetch",
+          "callee": "results.append",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 87
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_us_market_open",
+          "callee": "datetime.now",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_us_market_open",
+          "callee": "now.weekday",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "self._us_market_open",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "range",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "yf.download",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "time.sleep",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "pd.DataFrame",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "range",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "yf.download",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "time.sleep",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "len",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "data.columns.get_level_values",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "df[\"Close\"].dropna",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "df[\"Volume\"].dropna",
+          "lineNumber": 166
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "len",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "float",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "float",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "len",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "float",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "len",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "logger.debug",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_fetch_sync",
+          "callee": "str",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "float",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "data.get",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "float",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "data.get",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "float",
+          "lineNumber": 190
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "data.get",
+          "lineNumber": 190
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "our_sym.endswith",
+          "lineNumber": 192
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "TickerQuote",
+          "lineNumber": 202
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "round",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "round",
+          "lineNumber": 205
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "round",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "round",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "datetime.now",
+          "lineNumber": 210
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "logger.debug",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_to_ticker_quote",
+          "callee": "str",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_load_symbols",
+          "callee": "get_db_pool",
+          "lineNumber": 220
+        },
+        {
+          "caller": "_load_symbols",
+          "callee": "pool.acquire",
+          "lineNumber": 221
+        },
+        {
+          "caller": "_load_symbols",
+          "callee": "conn.fetch",
+          "lineNumber": 222
+        },
+        {
+          "caller": "_load_symbols",
+          "callee": "logger.error",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_load_symbols",
+          "callee": "str",
+          "lineNumber": 231
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/social/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/providers/social/cryptopanic_social.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 88,
+      "classes": [
+        {
+          "name": "CryptoPanicSocialProvider",
+          "startLine": 27,
+          "endLine": 107,
+          "methods": [
+            "__init__",
+            "get_social_scores",
+            "_fetch_scores"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CryptoPanicSocialProvider",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_social_scores",
+          "callee": "time.monotonic",
+          "lineNumber": 40
+        },
+        {
+          "caller": "get_social_scores",
+          "callee": "self._fetch_scores",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "defaultdict",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "defaultdict",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "range",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "len",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "\",\".join",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "session.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "logger.warning",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "logger.error",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "resp.json",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "data.get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "article.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "int",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "votes.get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "int",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "votes.get",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "article.get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "currency.get",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "logger.error",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "str",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "pos.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "neg.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "math.tanh",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "max",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "round",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "logger.info",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "list",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_fetch_scores",
+          "callee": "scores.keys",
+          "lineNumber": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/social/fear_greed.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 64,
+      "classes": [
+        {
+          "name": "FearGreedProvider",
+          "startLine": 30,
+          "endLine": 86,
+          "methods": [
+            "__init__",
+            "get_social_scores",
+            "_fetch_score"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FearGreedProvider",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_social_scores",
+          "callee": "time.monotonic",
+          "lineNumber": 46
+        },
+        {
+          "caller": "get_social_scores",
+          "callee": "self._fetch_score",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "session.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "logger.error",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "resp.json",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "data.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "int",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "entry.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "entry.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "round",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "logger.info",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "logger.error",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_fetch_score",
+          "callee": "str",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/social/reddit.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 244,
+      "nonEmptyLines": 205,
+      "functions": [
+        {
+          "name": "_extract_tickers",
+          "startLine": 79,
+          "endLine": 93,
+          "params": [
+            "content"
+          ]
+        },
+        {
+          "name": "_strip_html",
+          "startLine": 96,
+          "endLine": 97,
+          "params": [
+            "raw_html"
+          ]
+        },
+        {
+          "name": "_parse_atom_entries",
+          "startLine": 100,
+          "endLine": 142,
+          "params": [
+            "xml_text",
+            "subreddit"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedditProvider",
+          "startLine": 145,
+          "endLine": 244,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_fetch_subreddit",
+            "_normalize",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_extract_tickers",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "_strip_html",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_atom_entries",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "RedditProvider",
+          "line": 145,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_extract_tickers",
+          "callee": "set",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "tickers.update",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_DOLLAR_TICKER.findall",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "tickers.update",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_CRYPTO_BARE.findall",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "tickers.update",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_US_BARE.findall",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_BIST_BARE.findall",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "tickers.add",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "m.endswith",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "content.lower",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_CRYPTO_NAMES.items",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "tickers.add",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "_COMPANY_NAMES.items",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "tickers.add",
+          "lineNumber": 92
+        },
+        {
+          "caller": "_extract_tickers",
+          "callee": "list",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_strip_html",
+          "callee": "_HTML_TAG.sub",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_strip_html",
+          "callee": "html.unescape",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "ET.fromstring",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "root.findall",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_text",
+          "callee": "entry.find",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "_text",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "_strip_html",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "_text",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "_text",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "raw_id.replace(\"t3_\", \"\").lstrip",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "raw_id.replace",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "entry.find",
+          "lineNumber": 118
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "link_el.get",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "url.replace",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "entry.find",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "(author_el.text or \"\").lstrip",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "_text",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "datetime.fromisoformat(updated.replace(\"Z\", \"+00:00\")).timestamp",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "updated.replace",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_parse_atom_entries",
+          "callee": "entries.append",
+          "lineNumber": 131
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 149
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 153
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 153
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 155
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 157
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._fetch_subreddit",
+          "lineNumber": 159
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._normalize",
+          "lineNumber": 161
+        },
+        {
+          "caller": "fetch",
+          "callee": "posts.append",
+          "lineNumber": 163
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 165
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 165
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 167
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "_RSS_BASE.format",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "min",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "session.get",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 180
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "logger.warning",
+          "lineNumber": 182
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "asyncio.sleep",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "logger.warning",
+          "lineNumber": 186
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "logger.warning",
+          "lineNumber": 189
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "_parse_atom_entries",
+          "lineNumber": 191
+        },
+        {
+          "caller": "_fetch_subreddit",
+          "callee": "resp.text",
+          "lineNumber": 191
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 194
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 194
+        },
+        {
+          "caller": "_normalize",
+          "callee": "content.strip",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_normalize",
+          "callee": "_extract_tickers",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 202
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 203
+        },
+        {
+          "caller": "_normalize",
+          "callee": "SocialPost",
+          "lineNumber": 205
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 209
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 215
+        },
+        {
+          "caller": "_normalize",
+          "callee": "datetime.fromtimestamp",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_normalize",
+          "callee": "raw.get",
+          "lineNumber": 217
+        },
+        {
+          "caller": "normalize",
+          "callee": "self._normalize",
+          "lineNumber": 223
+        },
+        {
+          "caller": "normalize",
+          "callee": "ValueError",
+          "lineNumber": 225
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 231
+        },
+        {
+          "caller": "health_check",
+          "callee": "_RSS_BASE.format",
+          "lineNumber": 232
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 234
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientTimeout",
+          "lineNumber": 235
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 244
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/providers/social/twitter.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 121,
+      "classes": [
+        {
+          "name": "TwitterProvider",
+          "startLine": 24,
+          "endLine": 141,
+          "methods": [
+            "__init__",
+            "fetch",
+            "_search",
+            "normalize",
+            "health_check",
+            "cost_estimate",
+            "rate_limit_handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TwitterProvider",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "get_settings",
+          "lineNumber": 28
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.warning",
+          "lineNumber": 34
+        },
+        {
+          "caller": "fetch",
+          "callee": "max",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 38
+        },
+        {
+          "caller": "fetch",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 41
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.rate_limit_handler",
+          "lineNumber": 43
+        },
+        {
+          "caller": "fetch",
+          "callee": "self._search",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fetch",
+          "callee": "self.normalize",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetch",
+          "callee": "posts.append",
+          "lineNumber": 49
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.error",
+          "lineNumber": 51
+        },
+        {
+          "caller": "fetch",
+          "callee": "str",
+          "lineNumber": 51
+        },
+        {
+          "caller": "fetch",
+          "callee": "logger.info",
+          "lineNumber": 53
+        },
+        {
+          "caller": "fetch",
+          "callee": "len",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_search",
+          "callee": "min",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_search",
+          "callee": "session.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_search",
+          "callee": "logger.warning",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_search",
+          "callee": "asyncio.sleep",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_search",
+          "callee": "logger.error",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_search",
+          "callee": "resp.json",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_search",
+          "callee": "data.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_search",
+          "callee": "data.get(\"includes\", {}).get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_search",
+          "callee": "data.get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_search",
+          "callee": "users.get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_search",
+          "callee": "tweet.get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 88
+        },
+        {
+          "caller": "normalize",
+          "callee": "list",
+          "lineNumber": 92
+        },
+        {
+          "caller": "normalize",
+          "callee": "set",
+          "lineNumber": 92
+        },
+        {
+          "caller": "normalize",
+          "callee": "TICKER_PATTERN.findall",
+          "lineNumber": 92
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "normalize",
+          "callee": "metrics.get",
+          "lineNumber": 95
+        },
+        {
+          "caller": "normalize",
+          "callee": "metrics.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "normalize",
+          "callee": "metrics.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.now",
+          "lineNumber": 100
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 101
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.fromisoformat(\r\n                    raw[\"created_at\"].replace(\"Z\", \"+00:00\")\r\n                ).astimezone",
+          "lineNumber": 103
+        },
+        {
+          "caller": "normalize",
+          "callee": "datetime.fromisoformat",
+          "lineNumber": 103
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw[\"created_at\"].replace",
+          "lineNumber": 104
+        },
+        {
+          "caller": "normalize",
+          "callee": "SocialPost",
+          "lineNumber": 109
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 110
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 113
+        },
+        {
+          "caller": "normalize",
+          "callee": "float",
+          "lineNumber": 115
+        },
+        {
+          "caller": "normalize",
+          "callee": "metrics.get",
+          "lineNumber": 116
+        },
+        {
+          "caller": "normalize",
+          "callee": "metrics.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "normalize",
+          "callee": "raw.get",
+          "lineNumber": 118
+        },
+        {
+          "caller": "health_check",
+          "callee": "aiohttp.ClientSession",
+          "lineNumber": 126
+        },
+        {
+          "caller": "health_check",
+          "callee": "session.get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "rate_limit_handler",
+          "callee": "asyncio.sleep",
+          "lineNumber": 141
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

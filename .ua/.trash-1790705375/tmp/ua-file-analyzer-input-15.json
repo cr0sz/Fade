@@ -1,0 +1,13 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": ".claude/hooks/check_sql_post.sh", "language": "shell", "sizeLines": 24, "fileCategory": "script"},
+    {"path": ".claude/hooks/guard_env_pre.sh", "language": "shell", "sizeLines": 10, "fileCategory": "script"},
+    {"path": ".claude/hooks/guard_live_pre.sh", "language": "shell", "sizeLines": 7, "fileCategory": "script"}
+  ],
+  "batchImportData": {
+    ".claude/hooks/check_sql_post.sh": [],
+    ".claude/hooks/guard_env_pre.sh": [],
+    ".claude/hooks/guard_live_pre.sh": []
+  }
+}

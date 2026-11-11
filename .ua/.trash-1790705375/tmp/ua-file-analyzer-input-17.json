@@ -1,0 +1,21 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": ".env.example", "language": "config", "sizeLines": 491, "fileCategory": "config"},
+    {"path": "CLAUDE.md", "language": "markdown", "sizeLines": 25, "fileCategory": "docs"},
+    {"path": "Makefile", "language": "makefile", "sizeLines": 108, "fileCategory": "infra"},
+    {"path": "README.md", "language": "markdown", "sizeLines": 239, "fileCategory": "docs"},
+    {"path": "docker-compose.yml", "language": "yaml", "sizeLines": 944, "fileCategory": "infra"},
+    {"path": "requirements-dev.txt", "language": "txt", "sizeLines": 6, "fileCategory": "docs"},
+    {"path": "requirements.txt", "language": "txt", "sizeLines": 46, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    ".env.example": [],
+    "CLAUDE.md": [],
+    "Makefile": [],
+    "README.md": [],
+    "docker-compose.yml": [],
+    "requirements-dev.txt": [],
+    "requirements.txt": []
+  }
+}

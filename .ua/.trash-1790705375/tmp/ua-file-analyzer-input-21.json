@@ -1,0 +1,17 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "sql/verification/01_provider_activity.sql", "language": "sql", "sizeLines": 35, "fileCategory": "data"},
+    {"path": "sql/verification/02_signal_generation.sql", "language": "sql", "sizeLines": 34, "fileCategory": "data"},
+    {"path": "sql/verification/03_signal_evaluation.sql", "language": "sql", "sizeLines": 37, "fileCategory": "data"},
+    {"path": "sql/verification/04_feedback_metrics.sql", "language": "sql", "sizeLines": 50, "fileCategory": "data"},
+    {"path": "sql/verification/05_pipeline_integrity.sql", "language": "sql", "sizeLines": 66, "fileCategory": "data"}
+  ],
+  "batchImportData": {
+    "sql/verification/01_provider_activity.sql": [],
+    "sql/verification/02_signal_generation.sql": [],
+    "sql/verification/03_signal_evaluation.sql": [],
+    "sql/verification/04_feedback_metrics.sql": [],
+    "sql/verification/05_pipeline_integrity.sql": []
+  }
+}

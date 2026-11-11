@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "config:monitoring/homepage/bookmarks.yaml",
+      "type": "config",
+      "name": "bookmarks.yaml",
+      "filePath": "monitoring/homepage/bookmarks.yaml",
+      "summary": "Quick bookmark shortcuts for rapid navigation to frequently accessed services like Binance and the main dashboard.",
+      "tags": ["configuration", "homepage", "navigation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:monitoring/homepage/custom.css",
+      "type": "file",
+      "name": "custom.css",
+      "filePath": "monitoring/homepage/custom.css",
+      "summary": "Custom CSS styling for the Market Intelligence trading dashboard, implementing design tokens, color scheme, and layout for a dark-theme monitoring interface.",
+      "tags": ["styling", "dashboard", "design-system"],
+      "complexity": "moderate",
+      "languageNotes": "CSS uses CSS custom properties (variables) for design tokens, enabling consistent theming across the dashboard. Features a dark color palette optimized for market data visualization."
+    },
+    {
+      "id": "config:monitoring/homepage/docker.yaml",
+      "type": "config",
+      "name": "docker.yaml",
+      "filePath": "monitoring/homepage/docker.yaml",
+      "summary": "Docker service configuration template for homepage, with commented examples for connecting to Docker sockets or TCP endpoints.",
+      "tags": ["configuration", "infrastructure", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:monitoring/homepage/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "monitoring/homepage/index.html",
+      "summary": "Main HTML entry point for the Market Intelligence monitoring homepage dashboard, providing a unified view of trading systems, research tools, and infrastructure services.",
+      "tags": ["entry-point", "dashboard", "ui-component"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:monitoring/homepage/kubernetes.yaml",
+      "type": "config",
+      "name": "kubernetes.yaml",
+      "filePath": "monitoring/homepage/kubernetes.yaml",
+      "summary": "Kubernetes service configuration stub for homepage deployment, with minimal placeholder configuration.",
+      "tags": ["configuration", "infrastructure", "orchestration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:monitoring/homepage/proxmox.yaml",
+      "type": "config",
+      "name": "proxmox.yaml",
+      "filePath": "monitoring/homepage/proxmox.yaml",
+      "summary": "Proxmox hypervisor monitoring configuration for the homepage dashboard.",
+      "tags": ["configuration", "infrastructure", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:monitoring/homepage/services.yaml",
+      "type": "config",
+      "name": "services.yaml",
+      "filePath": "monitoring/homepage/services.yaml",
+      "summary": "Central service registry defining three categories (Trading, Research, Infrastructure) with 13+ services, including dashboards, signal flow, LLM chat, RSS readers, and uptime monitoring.",
+      "tags": ["configuration", "service-registry", "dashboard"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:monitoring/homepage/settings.yaml",
+      "type": "config",
+      "name": "settings.yaml",
+      "filePath": "monitoring/homepage/settings.yaml",
+      "summary": "Homepage UI configuration defining theme (dark, slate), layout structure with three-column grids for Trading/Research/Infrastructure sections, and quick-launch search settings.",
+      "tags": ["configuration", "ui-settings", "theme"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:monitoring/homepage/widgets.yaml",
+      "type": "config",
+      "name": "widgets.yaml",
+      "filePath": "monitoring/homepage/widgets.yaml",
+      "summary": "Dashboard widgets configuration defining three widget groups for displaying system metrics and status information.",
+      "tags": ["configuration", "widgets", "dashboard"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:monitoring/homepage/index.html",
+      "target": "file:monitoring/homepage/custom.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "config:monitoring/homepage/settings.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:monitoring/homepage/services.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:monitoring/homepage/bookmarks.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:monitoring/homepage/widgets.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:monitoring/homepage/custom.css",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:monitoring/homepage/docker.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:monitoring/homepage/kubernetes.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:monitoring/homepage/proxmox.yaml",
+      "target": "file:monitoring/homepage/index.html",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

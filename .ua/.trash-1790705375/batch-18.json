@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "document:docs/BACKTEST_PLAYGROUND.md",
+      "type": "document",
+      "name": "BACKTEST_PLAYGROUND.md",
+      "filePath": "docs/BACKTEST_PLAYGROUND.md",
+      "summary": "Instructions for launching and using an on-demand JupyterLab environment for ad-hoc backtesting and analysis against the live market-intelligence database, with a guaranteed read-only analyst Postgres role.",
+      "tags": ["documentation", "jupyter", "analysis", "backtesting", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/OBSERVABILITY.md",
+      "type": "document",
+      "name": "OBSERVABILITY.md",
+      "filePath": "docs/OBSERVABILITY.md",
+      "summary": "Comprehensive reference guide for the signal pipeline architecture covering table schemas, end-to-end signal lifecycle from ingestion to evaluation, step-by-step debugging workflows with SQL queries, and service ports.",
+      "tags": ["documentation", "observability", "monitoring", "debugging", "database"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/RETROSPECTIVE_FROM_SCRATCH.md",
+      "type": "document",
+      "name": "RETROSPECTIVE_FROM_SCRATCH.md",
+      "filePath": "docs/RETROSPECTIVE_FROM_SCRATCH.md",
+      "summary": "Design critique from Sprint 51 identifying five structural lessons learned across 51 sprints: prioritizing ground truth over engines, backtest-first architecture, persistent state machines, unified configuration, and reduced architectural complexity.",
+      "tags": ["documentation", "architecture", "lessons-learned", "retrospective", "design-critique"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

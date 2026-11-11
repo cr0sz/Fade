@@ -1,0 +1,1076 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/api/routes/health.py",
+      "type": "file",
+      "name": "health.py",
+      "filePath": "src/api/routes/health.py",
+      "summary": "Health check endpoints for service readiness and circuit breaker status monitoring. Validates database and Redis connectivity with cost tracking.",
+      "tags": ["api-handler", "health-check", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/api/routes/health.py:HealthResponse",
+      "type": "class",
+      "name": "HealthResponse",
+      "filePath": "src/api/routes/health.py",
+      "lineRange": [13, 16],
+      "summary": "Data model for health check response including status, version, and cost summary.",
+      "tags": ["type-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/health.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "filePath": "src/api/routes/health.py",
+      "lineRange": [20, 31],
+      "summary": "FastAPI endpoint returning application version and cost status.",
+      "tags": ["api-handler", "endpoint"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/health.py:readiness_check",
+      "type": "function",
+      "name": "readiness_check",
+      "filePath": "src/api/routes/health.py",
+      "lineRange": [35, 62],
+      "summary": "Validates service readiness by checking database pool and Redis connectivity.",
+      "tags": ["api-handler", "health-check"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/health.py:circuit_status",
+      "type": "function",
+      "name": "circuit_status",
+      "filePath": "src/api/routes/health.py",
+      "lineRange": [66, 78],
+      "summary": "Returns circuit breaker status for all providers.",
+      "tags": ["api-handler", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/routes/market.py",
+      "type": "file",
+      "name": "market.py",
+      "filePath": "src/api/routes/market.py",
+      "summary": "API endpoints for market data retrieval, quotes, and AI-driven analysis including trend detection and market digests.",
+      "tags": ["api-handler", "market-data", "ai-integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/market.py:get_quote",
+      "type": "function",
+      "name": "get_quote",
+      "filePath": "src/api/routes/market.py",
+      "lineRange": [14, 19],
+      "summary": "Fetches current quote for a ticker symbol via Finnhub provider.",
+      "tags": ["api-handler", "market-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/market.py:get_us_market",
+      "type": "function",
+      "name": "get_us_market",
+      "filePath": "src/api/routes/market.py",
+      "lineRange": [23, 28],
+      "summary": "Returns US market indices and top movers via Finnhub.",
+      "tags": ["api-handler", "market-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/market.py:get_bist_market",
+      "type": "function",
+      "name": "get_bist_market",
+      "filePath": "src/api/routes/market.py",
+      "lineRange": [32, 37],
+      "summary": "Returns Turkish BIST market data via Finnhub provider.",
+      "tags": ["api-handler", "market-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/market.py:analyst_query",
+      "type": "function",
+      "name": "analyst_query",
+      "filePath": "src/api/routes/market.py",
+      "lineRange": [46, 57],
+      "summary": "Accepts free-form market questions and returns AI analyst responses with cost tracking.",
+      "tags": ["api-handler", "ai-integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/market.py:get_market_digest",
+      "type": "function",
+      "name": "get_market_digest",
+      "filePath": "src/api/routes/market.py",
+      "lineRange": [61, 82],
+      "summary": "Generates comprehensive market digest combining trends, news, and AI narrative analysis.",
+      "tags": ["api-handler", "ai-integration", "market-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/api/routes/news.py",
+      "type": "file",
+      "name": "news.py",
+      "filePath": "src/api/routes/news.py",
+      "summary": "News API endpoints for fetching market news with impact analysis and sector/ticker filtering.",
+      "tags": ["api-handler", "news-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/news.py:get_news_impact",
+      "type": "function",
+      "name": "get_news_impact",
+      "filePath": "src/api/routes/news.py",
+      "lineRange": [21, 40],
+      "summary": "Returns news items with AI impact scores ranked by relevance.",
+      "tags": ["api-handler", "news-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/news.py:get_news",
+      "type": "function",
+      "name": "get_news",
+      "filePath": "src/api/routes/news.py",
+      "lineRange": [61, 86],
+      "summary": "Fetches news with optional filtering by ticker, sector, hours, and limit.",
+      "tags": ["api-handler", "news-data", "filtering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/api/routes/news.py:get_macro_news",
+      "type": "function",
+      "name": "get_macro_news",
+      "filePath": "src/api/routes/news.py",
+      "lineRange": [90, 110],
+      "summary": "Returns recent macro news from multiple sources with deduplication.",
+      "tags": ["api-handler", "news-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/routes/trends.py",
+      "type": "file",
+      "name": "trends.py",
+      "filePath": "src/api/routes/trends.py",
+      "summary": "API endpoints for market trend detection and narrative cluster discovery using trend and narrative engines.",
+      "tags": ["api-handler", "trend-detection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/trends.py:get_hot_trends",
+      "type": "function",
+      "name": "get_hot_trends",
+      "filePath": "src/api/routes/trends.py",
+      "lineRange": [12, 19],
+      "summary": "Returns hot trending tickers across exchanges with optional limits.",
+      "tags": ["api-handler", "trend-detection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/trends.py:get_signals",
+      "type": "function",
+      "name": "get_signals",
+      "filePath": "src/api/routes/trends.py",
+      "lineRange": [23, 25],
+      "summary": "Retrieves detected trading signals from trend engine.",
+      "tags": ["api-handler", "trend-detection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/api/routes/trends.py:get_narratives",
+      "type": "function",
+      "name": "get_narratives",
+      "filePath": "src/api/routes/trends.py",
+      "lineRange": [29, 43],
+      "summary": "Returns top market narratives ranked by strength and relevance.",
+      "tags": ["api-handler", "trend-detection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/core/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "src/core/config.py",
+      "summary": "Centralized configuration management using Pydantic Settings with comprehensive environment variable parsing for all services, providers, and budgets.",
+      "tags": ["configuration", "entry-point", "settings"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/core/config.py:Settings",
+      "type": "class",
+      "name": "Settings",
+      "filePath": "src/core/config.py",
+      "lineRange": [70, 378],
+      "summary": "Main configuration class containing 100+ settings for database, cache, providers, budgets, and trading parameters with validation.",
+      "tags": ["configuration", "type-definition"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/core/config.py:get_settings",
+      "type": "function",
+      "name": "get_settings",
+      "filePath": "src/core/config.py",
+      "lineRange": [382, 383],
+      "summary": "Singleton getter returning cached Settings instance.",
+      "tags": ["utility", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/core/cost_control.py",
+      "type": "file",
+      "name": "cost_control.py",
+      "filePath": "src/core/cost_control.py",
+      "summary": "Budget management and cost tracking for API providers with daily limits and provider-level tier controls.",
+      "tags": ["cost-management", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/core/cost_control.py:CostController",
+      "type": "class",
+      "name": "CostController",
+      "filePath": "src/core/cost_control.py",
+      "lineRange": [27, 93],
+      "summary": "Tracks API costs against daily budget with Redis persistence and fallback thresholds.",
+      "tags": ["cost-management", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/core/cost_control.py:get_cost_controller",
+      "type": "function",
+      "name": "get_cost_controller",
+      "filePath": "src/core/cost_control.py",
+      "lineRange": [99, 102],
+      "summary": "Returns singleton CostController instance.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/db/migrate.py",
+      "type": "file",
+      "name": "migrate.py",
+      "filePath": "src/db/migrate.py",
+      "summary": "Database migration runner that executes SQL migration files in order and tracks applied versions.",
+      "tags": ["database", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/db/migrate.py:run_migrations",
+      "type": "function",
+      "name": "run_migrations",
+      "filePath": "src/db/migrate.py",
+      "lineRange": [64, 108],
+      "summary": "Discovers and applies SQL migrations in sorted order with version tracking.",
+      "tags": ["database", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/db/repositories/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/db/repositories/__init__.py",
+      "summary": "Repository module barrel that re-exports market, news, and social data repositories.",
+      "tags": ["barrel", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/db/repositories/market.py",
+      "type": "file",
+      "name": "market.py",
+      "filePath": "src/db/repositories/market.py",
+      "summary": "Data access layer for market trends, smart money events, ticker quotes, and AI outputs with async pool operations.",
+      "tags": ["data-access", "repository"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/db/repositories/market.py:MarketTrendRepository",
+      "type": "class",
+      "name": "MarketTrendRepository",
+      "filePath": "src/db/repositories/market.py",
+      "lineRange": [10, 79],
+      "summary": "Manages market trend records with upsert, ranking, and signal retrieval.",
+      "tags": ["data-access", "repository"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/db/repositories/market.py:SmartMoneyRepository",
+      "type": "class",
+      "name": "SmartMoneyRepository",
+      "filePath": "src/db/repositories/market.py",
+      "lineRange": [82, 111],
+      "summary": "Stores and retrieves smart money transaction data.",
+      "tags": ["data-access", "repository"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/db/repositories/market.py:TickerRepository",
+      "type": "class",
+      "name": "TickerRepository",
+      "filePath": "src/db/repositories/market.py",
+      "lineRange": [138, 210],
+      "summary": "Manages ticker master data including symbols, quotes, and metadata with batch upserts.",
+      "tags": ["data-access", "repository"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/db/repositories/market.py:AIOutputRepository",
+      "type": "class",
+      "name": "AIOutputRepository",
+      "filePath": "src/db/repositories/market.py",
+      "lineRange": [213, 245],
+      "summary": "Caches AI generated outputs by content hash for deduplication.",
+      "tags": ["data-access", "repository", "caching"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/db/repositories/news.py",
+      "type": "file",
+      "name": "news.py",
+      "filePath": "src/db/repositories/news.py",
+      "summary": "News data repository providing CRUD operations for news items with AI summaries and impact analysis.",
+      "tags": ["data-access", "repository"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/db/repositories/news.py:NewsRepository",
+      "type": "class",
+      "name": "NewsRepository",
+      "filePath": "src/db/repositories/news.py",
+      "lineRange": [10, 130],
+      "summary": "Manages news records with filtering by ticker/sector, AI summary updates, and impact scoring.",
+      "tags": ["data-access", "repository"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/db/repositories/social.py",
+      "type": "file",
+      "name": "social.py",
+      "filePath": "src/db/repositories/social.py",
+      "summary": "Social media data repository tracking mention counts and sentiment metrics by ticker.",
+      "tags": ["data-access", "repository"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/db/repositories/social.py:SocialRepository",
+      "type": "class",
+      "name": "SocialRepository",
+      "filePath": "src/db/repositories/social.py",
+      "lineRange": [10, 82],
+      "summary": "Manages social media posts and engagement metrics with historical averages.",
+      "tags": ["data-access", "repository"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/discord_bot/handlers.py",
+      "type": "file",
+      "name": "handlers.py",
+      "filePath": "src/discord_bot/handlers.py",
+      "summary": "Discord bot command handlers for market insights, trends, costs, positions, and system administration spanning 30+ commands.",
+      "tags": ["bot", "api-handler"],
+      "complexity": "complex",
+      "languageNotes": "Very large file (1154 lines) with extensive command tree registration and embedded UI logic. Commands include market data, AI analysis, flow/regime data, trading positions, PnL, and administrative functions."
+    },
+    {
+      "id": "function:src/discord_bot/handlers.py:register_commands",
+      "type": "function",
+      "name": "register_commands",
+      "filePath": "src/discord_bot/handlers.py",
+      "lineRange": [46, 1154],
+      "summary": "Registers all Discord slash commands and their handlers including market, trends, costs, positions, and analytics.",
+      "tags": ["bot", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/engines/ai_analyst.py",
+      "type": "file",
+      "name": "ai_analyst.py",
+      "filePath": "src/engines/ai_analyst.py",
+      "summary": "AI-powered market analysis engine providing ticker analysis, market digests, and narrative generation using OpenAI/Anthropic providers.",
+      "tags": ["ai-integration", "analysis-engine"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/ai_analyst.py:AIAnalystEngine",
+      "type": "class",
+      "name": "AIAnalystEngine",
+      "filePath": "src/engines/ai_analyst.py",
+      "lineRange": [31, 398],
+      "summary": "Orchestrates AI model calls for market analysis with caching, cost tracking, and multi-format digest generation.",
+      "tags": ["ai-integration", "analysis-engine"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/engines/confidence_engine.py",
+      "type": "file",
+      "name": "confidence_engine.py",
+      "filePath": "src/engines/confidence_engine.py",
+      "summary": "Calculates confidence levels for trading signals based on trend strength and technical patterns.",
+      "tags": ["analysis-engine", "scoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/etf_rotation_engine.py",
+      "type": "file",
+      "name": "etf_rotation_engine.py",
+      "filePath": "src/engines/etf_rotation_engine.py",
+      "summary": "Detects ETF rotation patterns and sector flows using velocity-based thresholds.",
+      "tags": ["analysis-engine", "trading-signal"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/institutional_flow_engine.py",
+      "type": "file",
+      "name": "institutional_flow_engine.py",
+      "filePath": "src/engines/institutional_flow_engine.py",
+      "summary": "Analyzes institutional capital flows and positions across tickers with acceleration detection.",
+      "tags": ["analysis-engine", "flow-analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/narrative_engine.py",
+      "type": "file",
+      "name": "narrative_engine.py",
+      "filePath": "src/engines/narrative_engine.py",
+      "summary": "Identifies and clusters narrative themes in market data with scoring and relevance ranking.",
+      "tags": ["analysis-engine", "narrative-detection"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/engines/noise_filter.py",
+      "type": "file",
+      "name": "noise_filter.py",
+      "filePath": "src/engines/noise_filter.py",
+      "summary": "Filters bot noise and low-quality signals from social media using engagement thresholds and burst detection.",
+      "tags": ["analysis-engine", "data-filtering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/sentiment_engine.py",
+      "type": "file",
+      "name": "sentiment_engine.py",
+      "filePath": "src/engines/sentiment_engine.py",
+      "summary": "Aggregates social media sentiment with velocity-based hype and panic detection for market signals.",
+      "tags": ["analysis-engine", "sentiment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/technical_engine.py",
+      "type": "file",
+      "name": "technical_engine.py",
+      "filePath": "src/engines/technical_engine.py",
+      "summary": "Technical analysis engine computing moving averages, volatility regimes, and pattern signals.",
+      "tags": ["analysis-engine", "technical-analysis"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "class:src/api/routes/health.py:HealthResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "function:src/api/routes/health.py:health_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "function:src/api/routes/health.py:readiness_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "function:src/api/routes/health.py:circuit_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "file:src/core/cost_control.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/health.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "function:src/api/routes/market.py:get_quote",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "function:src/api/routes/market.py:get_us_market",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "function:src/api/routes/market.py:get_bist_market",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "function:src/api/routes/market.py:analyst_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "function:src/api/routes/market.py:get_market_digest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "file:src/core/cost_control.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "file:src/engines/ai_analyst.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "file:src/engines/trend_detection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "file:src/providers/market/finnhub.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/market.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/api/routes/news.py",
+      "target": "function:src/api/routes/news.py:get_news_impact",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/news.py",
+      "target": "function:src/api/routes/news.py:get_news",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/news.py",
+      "target": "function:src/api/routes/news.py:get_macro_news",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/news.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/trends.py",
+      "target": "function:src/api/routes/trends.py:get_hot_trends",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/trends.py",
+      "target": "function:src/api/routes/trends.py:get_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/trends.py",
+      "target": "function:src/api/routes/trends.py:get_narratives",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/api/routes/trends.py",
+      "target": "file:src/engines/narrative_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/api/routes/trends.py",
+      "target": "file:src/engines/trend_detection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/core/config.py",
+      "target": "class:src/core/config.py:Settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/config.py",
+      "target": "function:src/core/config.py:get_settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/cost_control.py",
+      "target": "class:src/core/cost_control.py:CostController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/cost_control.py",
+      "target": "function:src/core/cost_control.py:get_cost_controller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/cost_control.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/core/cost_control.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/migrate.py",
+      "target": "function:src/db/migrate.py:run_migrations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/migrate.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/migrate.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/repositories/__init__.py",
+      "target": "file:src/db/repositories/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/repositories/__init__.py",
+      "target": "file:src/db/repositories/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/repositories/__init__.py",
+      "target": "file:src/db/repositories/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/repositories/market.py",
+      "target": "class:src/db/repositories/market.py:MarketTrendRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/repositories/market.py",
+      "target": "class:src/db/repositories/market.py:SmartMoneyRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/repositories/market.py",
+      "target": "class:src/db/repositories/market.py:TickerRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/repositories/market.py",
+      "target": "class:src/db/repositories/market.py:AIOutputRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/repositories/market.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/repositories/news.py",
+      "target": "class:src/db/repositories/news.py:NewsRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/repositories/news.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/db/repositories/social.py",
+      "target": "class:src/db/repositories/social.py:SocialRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/db/repositories/social.py",
+      "target": "file:src/models/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "function:src/discord_bot/handlers.py:register_commands",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/core/cost_control.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/ai_analyst.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/institutional_confluence_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/institutional_flow_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/macro_regime_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/narrative_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/sentiment_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/engines/trend_detection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/discord_bot/handlers.py",
+      "target": "file:src/providers/market/finnhub.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "class:src/engines/ai_analyst.py:AIAnalystEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "file:src/core/cost_control.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "file:src/providers/ai/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/ai_analyst.py",
+      "target": "file:src/providers/ai/openai_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/confidence_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/etf_rotation_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/etf_rotation_engine.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/institutional_flow_engine.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/institutional_flow_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/institutional_flow_engine.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/narrative_engine.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/narrative_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/narrative_engine.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/noise_filter.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/noise_filter.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/noise_filter.py",
+      "target": "file:src/models/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/engines/noise_filter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/models/market.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/models/social.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/sentiment_engine.py",
+      "target": "file:src/providers/social/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/technical_engine.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

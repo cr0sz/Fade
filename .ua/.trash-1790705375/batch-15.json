@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "id": "file:.claude/hooks/check_sql_post.sh",
+      "type": "file",
+      "name": "check_sql_post.sh",
+      "filePath": ".claude/hooks/check_sql_post.sh",
+      "summary": "Claude Code hook that validates SQL schema compatibility after Python file edits, running schema checks and feeding back validation errors to prevent schema drift.",
+      "tags": ["hook", "validation", "safety", "ci-cd", "development"],
+      "complexity": "moderate",
+      "languageNotes": "Shell hook using Python subprocess calls and JSON I/O for Claude Code integration; supports both make and direct Python fallback for environment portability."
+    },
+    {
+      "id": "file:.claude/hooks/guard_env_pre.sh",
+      "type": "file",
+      "name": "guard_env_pre.sh",
+      "filePath": ".claude/hooks/guard_env_pre.sh",
+      "summary": "Claude Code hook that enforces the paper-first trading rule by requiring explicit user approval before any .env file modifications, preventing accidental live trading config changes.",
+      "tags": ["hook", "safety", "trading", "permission-check", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.claude/hooks/guard_live_pre.sh",
+      "type": "file",
+      "name": "guard_live_pre.sh",
+      "filePath": ".claude/hooks/guard_live_pre.sh",
+      "summary": "Claude Code hook that blocks shell commands setting TRADING_MODE=live without explicit user approval, enforcing a hard safety boundary for paper trading mode enforcement.",
+      "tags": ["hook", "safety", "trading", "guardrail", "permission-check"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

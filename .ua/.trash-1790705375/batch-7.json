@@ -1,0 +1,1098 @@
+{
+  "nodes": [
+    {
+      "id": "file:scripts/backfill_news.py",
+      "type": "file",
+      "name": "backfill_news.py",
+      "filePath": "scripts/backfill_news.py",
+      "summary": "Backfill script that retrieves and processes historical news data from the database, filling in missing records.",
+      "tags": [
+        "script",
+        "data-pipeline",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/backfill_news.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/backfill_news.py",
+      "lineRange": [
+        36,
+        83
+      ],
+      "summary": "Entry point function that orchestrates the main logic.",
+      "tags": [
+        "entry-point",
+        "orchestration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/engines/deduplication.py",
+      "type": "file",
+      "name": "deduplication.py",
+      "filePath": "src/engines/deduplication.py",
+      "summary": "Deduplication engine that identifies and removes duplicate news articles using content hashing and similarity scoring.",
+      "tags": [
+        "engine",
+        "deduplication",
+        "data-processing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/deduplication.py:HybridDeduplicator",
+      "type": "class",
+      "name": "HybridDeduplicator",
+      "filePath": "src/engines/deduplication.py",
+      "lineRange": [
+        80,
+        224
+      ],
+      "summary": "Class HybridDeduplicator.",
+      "tags": [
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/engines/news_intelligence.py",
+      "type": "file",
+      "name": "news_intelligence.py",
+      "filePath": "src/engines/news_intelligence.py",
+      "summary": "Core news intelligence engine that orchestrates fetching, deduplicating, and processing news data from multiple providers into scored trading signals.",
+      "tags": [
+        "engine",
+        "orchestration",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/engines/news_intelligence.py:NewsIntelligenceEngine",
+      "type": "class",
+      "name": "NewsIntelligenceEngine",
+      "filePath": "src/engines/news_intelligence.py",
+      "lineRange": [
+        116,
+        571
+      ],
+      "summary": "Processing engine implementing NewsIntelligenceEngine.",
+      "tags": [
+        "engine",
+        "orchestration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/models/news.py",
+      "type": "file",
+      "name": "news.py",
+      "filePath": "src/models/news.py",
+      "summary": "Data model for news articles with fields for content, source, timestamp, and sentiment classification.",
+      "tags": [
+        "data-model",
+        "schema"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/base.py",
+      "type": "file",
+      "name": "base.py",
+      "filePath": "src/providers/base.py",
+      "summary": "Abstract base provider class defining the interface that all data providers must implement.",
+      "tags": [
+        "type-definition",
+        "base-class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/providers/base.py:BaseProvider",
+      "type": "class",
+      "name": "BaseProvider",
+      "filePath": "src/providers/base.py",
+      "lineRange": [
+        9,
+        40
+      ],
+      "summary": "Data provider for Base data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/providers/news/__init__.py",
+      "summary": "News provider factory and barrel file that exports all individual news provider implementations.",
+      "tags": [
+        "barrel",
+        "factory",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/providers/news/bloomberg.py",
+      "type": "file",
+      "name": "bloomberg.py",
+      "filePath": "src/providers/news/bloomberg.py",
+      "summary": "News provider for Bloomberg that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/bloomberg.py:BloombergProvider",
+      "type": "class",
+      "name": "BloombergProvider",
+      "filePath": "src/providers/news/bloomberg.py",
+      "lineRange": [
+        52,
+        179
+      ],
+      "summary": "Data provider for Bloomberg data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/cnbc.py",
+      "type": "file",
+      "name": "cnbc.py",
+      "filePath": "src/providers/news/cnbc.py",
+      "summary": "News provider for Cnbc that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/cnbc.py:CNBCProvider",
+      "type": "class",
+      "name": "CNBCProvider",
+      "filePath": "src/providers/news/cnbc.py",
+      "lineRange": [
+        48,
+        185
+      ],
+      "summary": "Data provider for CNBC data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/crypto_rss.py",
+      "type": "file",
+      "name": "crypto_rss.py",
+      "filePath": "src/providers/news/crypto_rss.py",
+      "summary": "News provider for Crypto Rss that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/crypto_rss.py:CryptoRSSProvider",
+      "type": "class",
+      "name": "CryptoRSSProvider",
+      "filePath": "src/providers/news/crypto_rss.py",
+      "lineRange": [
+        59,
+        213
+      ],
+      "summary": "Data provider for CryptoRSS data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/cryptopanic.py",
+      "type": "file",
+      "name": "cryptopanic.py",
+      "filePath": "src/providers/news/cryptopanic.py",
+      "summary": "News provider for Cryptopanic that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/cryptopanic.py:CryptoPanicsNewsProvider",
+      "type": "class",
+      "name": "CryptoPanicsNewsProvider",
+      "filePath": "src/providers/news/cryptopanic.py",
+      "lineRange": [
+        30,
+        170
+      ],
+      "summary": "Data provider for CryptoPanicsNews data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/ft.py",
+      "type": "file",
+      "name": "ft.py",
+      "filePath": "src/providers/news/ft.py",
+      "summary": "News provider for Ft that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/ft.py:FTProvider",
+      "type": "class",
+      "name": "FTProvider",
+      "filePath": "src/providers/news/ft.py",
+      "lineRange": [
+        53,
+        181
+      ],
+      "summary": "Data provider for FT data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/newsapi.py",
+      "type": "file",
+      "name": "newsapi.py",
+      "filePath": "src/providers/news/newsapi.py",
+      "summary": "News provider for Newsapi that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/newsapi.py:NewsAPIProvider",
+      "type": "class",
+      "name": "NewsAPIProvider",
+      "filePath": "src/providers/news/newsapi.py",
+      "lineRange": [
+        18,
+        126
+      ],
+      "summary": "Data provider for NewsAPI data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/reddit_rss.py",
+      "type": "file",
+      "name": "reddit_rss.py",
+      "filePath": "src/providers/news/reddit_rss.py",
+      "summary": "News provider for Reddit Rss that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/providers/news/reddit_rss.py:RedditRSSProvider",
+      "type": "class",
+      "name": "RedditRSSProvider",
+      "filePath": "src/providers/news/reddit_rss.py",
+      "lineRange": [
+        70,
+        239
+      ],
+      "summary": "Data provider for RedditRSS data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/reuters.py",
+      "type": "file",
+      "name": "reuters.py",
+      "filePath": "src/providers/news/reuters.py",
+      "summary": "News provider for Reuters that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/news/reuters.py:ReutersProvider",
+      "type": "class",
+      "name": "ReutersProvider",
+      "filePath": "src/providers/news/reuters.py",
+      "lineRange": [
+        15,
+        32
+      ],
+      "summary": "Data provider for Reuters data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/turkish_rss.py",
+      "type": "file",
+      "name": "turkish_rss.py",
+      "filePath": "src/providers/news/turkish_rss.py",
+      "summary": "News provider for Turkish Rss that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/providers/news/turkish_rss.py:TurkishRSSProvider",
+      "type": "class",
+      "name": "TurkishRSSProvider",
+      "filePath": "src/providers/news/turkish_rss.py",
+      "lineRange": [
+        91,
+        249
+      ],
+      "summary": "Data provider for TurkishRSS data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/news/yahoo_finance_rss.py",
+      "type": "file",
+      "name": "yahoo_finance_rss.py",
+      "filePath": "src/providers/news/yahoo_finance_rss.py",
+      "summary": "News provider for Yahoo Finance Rss that fetches and parses news articles.",
+      "tags": [
+        "provider",
+        "news",
+        "integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/providers/news/yahoo_finance_rss.py:YahooFinanceRSSProvider",
+      "type": "class",
+      "name": "YahooFinanceRSSProvider",
+      "filePath": "src/providers/news/yahoo_finance_rss.py",
+      "lineRange": [
+        77,
+        246
+      ],
+      "summary": "Data provider for YahooFinanceRSS data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/providers/resilience.py",
+      "type": "file",
+      "name": "resilience.py",
+      "filePath": "src/providers/resilience.py",
+      "summary": "Resilience and circuit-breaker utilities for provider fault tolerance, retry logic, and graceful degradation.",
+      "tags": [
+        "utility",
+        "resilience",
+        "fault-handling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/providers/resilience.py:retry_with_backoff",
+      "type": "function",
+      "name": "retry_with_backoff",
+      "filePath": "src/providers/resilience.py",
+      "lineRange": [
+        140,
+        203
+      ],
+      "summary": "Function retry_with_backoff.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/providers/resilience.py:latency_context",
+      "type": "function",
+      "name": "latency_context",
+      "filePath": "src/providers/resilience.py",
+      "lineRange": [
+        209,
+        238
+      ],
+      "summary": "Function latency_context.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/providers/resilience.py:CircuitBreaker",
+      "type": "class",
+      "name": "CircuitBreaker",
+      "filePath": "src/providers/resilience.py",
+      "lineRange": [
+        37,
+        117
+      ],
+      "summary": "Class CircuitBreaker.",
+      "tags": [
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/providers/resilience.py:ResilientProviderMixin",
+      "type": "class",
+      "name": "ResilientProviderMixin",
+      "filePath": "src/providers/resilience.py",
+      "lineRange": [
+        243,
+        275
+      ],
+      "summary": "Data provider for ResilientMixin data sources.",
+      "tags": [
+        "provider",
+        "integration"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/backfill_news.py",
+      "target": "function:scripts/backfill_news.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backfill_news.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/backfill_news.py",
+      "target": "file:src/db/connection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/backfill_news.py",
+      "target": "file:src/engines/news_intelligence.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:scripts/backfill_news.py",
+      "target": "file:src/providers/ai/ollama_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/deduplication.py",
+      "target": "class:src/engines/deduplication.py:HybridDeduplicator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/deduplication.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/deduplication.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "class:src/engines/news_intelligence.py:NewsIntelligenceEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/db/repositories/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/engines/deduplication.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/providers/news/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/engines/news_intelligence.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/base.py",
+      "target": "class:src/providers/base.py:BaseProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/bloomberg.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/cnbc.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/crypto_rss.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/cryptopanic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/ft.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/newsapi.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/reddit_rss.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/reuters.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/turkish_rss.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/__init__.py",
+      "target": "file:src/providers/news/yahoo_finance_rss.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/bloomberg.py",
+      "target": "class:src/providers/news/bloomberg.py:BloombergProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/bloomberg.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/bloomberg.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/bloomberg.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/bloomberg.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/bloomberg.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cnbc.py",
+      "target": "class:src/providers/news/cnbc.py:CNBCProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/cnbc.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cnbc.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cnbc.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cnbc.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cnbc.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/crypto_rss.py",
+      "target": "class:src/providers/news/crypto_rss.py:CryptoRSSProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/crypto_rss.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/crypto_rss.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/crypto_rss.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/crypto_rss.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cryptopanic.py",
+      "target": "class:src/providers/news/cryptopanic.py:CryptoPanicsNewsProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/cryptopanic.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cryptopanic.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cryptopanic.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/cryptopanic.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/ft.py",
+      "target": "class:src/providers/news/ft.py:FTProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/ft.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/ft.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/ft.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/ft.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/ft.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/newsapi.py",
+      "target": "class:src/providers/news/newsapi.py:NewsAPIProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/newsapi.py",
+      "target": "file:src/core/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/newsapi.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/newsapi.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/newsapi.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reddit_rss.py",
+      "target": "class:src/providers/news/reddit_rss.py:RedditRSSProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/reddit_rss.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reddit_rss.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reddit_rss.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reddit_rss.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reuters.py",
+      "target": "class:src/providers/news/reuters.py:ReutersProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/reuters.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reuters.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/reuters.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/turkish_rss.py",
+      "target": "class:src/providers/news/turkish_rss.py:TurkishRSSProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/turkish_rss.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/turkish_rss.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/turkish_rss.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/turkish_rss.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/yahoo_finance_rss.py",
+      "target": "class:src/providers/news/yahoo_finance_rss.py:YahooFinanceRSSProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/news/yahoo_finance_rss.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/yahoo_finance_rss.py",
+      "target": "file:src/models/news.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/yahoo_finance_rss.py",
+      "target": "file:src/providers/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/news/yahoo_finance_rss.py",
+      "target": "file:src/providers/resilience.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/providers/resilience.py",
+      "target": "function:src/providers/resilience.py:retry_with_backoff",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/resilience.py",
+      "target": "function:src/providers/resilience.py:latency_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/resilience.py",
+      "target": "class:src/providers/resilience.py:CircuitBreaker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/resilience.py",
+      "target": "class:src/providers/resilience.py:ResilientProviderMixin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/providers/resilience.py",
+      "target": "file:src/core/logging.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

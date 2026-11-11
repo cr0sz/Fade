@@ -1,0 +1,93 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Start with the README to learn what Fade is: a market intelligence pipeline that ingests news, social and smart-money data, turns it into scored signals, checks them against real price outcomes, and only then routes proven signals into paper or live trading. The architecture notes in .claude/architecture.md break that pipeline into layers (providers, engines, validation, governance, trading), which is the roadmap this tour follows. Keep the core idea in mind throughout: the system does not trust its own signals by default.",
+    "nodeIds": ["document:README.md", "document:.claude/architecture.md"]
+  },
+  {
+    "order": 2,
+    "title": "The Scheduler Worker",
+    "description": "The scheduler worker is the heart of the ingestion-to-signal pipeline: it has the widest reach of any file in the graph, importing the news, sentiment, trend, macro-regime, institutional-flow, mean-reversion and feedback engines and running each one on a schedule. Reading it first gives you the whole cycle as an ordered list of jobs before you meet each engine individually. The following steps walk outward from this file through its dependencies.",
+    "nodeIds": ["file:src/scheduler/worker.py"],
+    "languageLesson": "Long-running Python services like this worker are built on asyncio: each pipeline cycle is a coroutine, and the event loop interleaves network-bound work (provider fetches, database calls) without threads."
+  },
+  {
+    "order": 3,
+    "title": "Shared Foundations",
+    "description": "Almost every module leans on the same handful of foundations, which is why src/core/logging.py (structured logging) and src/core/config.py (Pydantic settings) top the fan-in ranking. Configuration comes from environment variables documented in .env.example, while src/db/connection.py and src/cache/redis_client.py provide the shared PostgreSQL pool and Redis cache that the worker from Step 2 opens at startup. Understanding these once makes every later file easier to read.",
+    "nodeIds": ["file:src/core/config.py", "file:src/core/logging.py", "config:.env.example", "file:src/db/connection.py", "file:src/cache/redis_client.py"],
+    "languageLesson": "Pydantic Settings maps environment variables onto typed fields, validating and coercing them at startup (for example turning \"paper\" into an allowed TRADING_MODE value). A bad configuration fails fast instead of surfacing deep inside a trading loop."
+  },
+  {
+    "order": 4,
+    "title": "Providers and News Ingestion",
+    "description": "Data enters through provider adapters that all derive from src/providers/base.py, with src/providers/resilience.py adding retry and circuit-breaker style protection so one flaky feed cannot stall a cycle. The news package fans out to many sources (Bloomberg, Reuters, CNBC, RSS feeds and more), and the News Intelligence Engine fetches from them, uses the deduplication engine to remove repeated articles, and hands clean items downstream. This is the first stage of the diagram in Step 1.",
+    "nodeIds": ["file:src/providers/base.py", "file:src/providers/resilience.py", "file:src/providers/news/__init__.py", "file:src/engines/news_intelligence.py", "file:src/engines/deduplication.py"],
+    "languageLesson": "A shared abstract base class gives every provider the same interface, so the pipeline can add or swap a source without touching engine code. Python's abc module and typing Protocols are the usual tools for this pattern."
+  },
+  {
+    "order": 5,
+    "title": "Signal Engines",
+    "description": "The engines turn raw data into signals. Trend detection combines news, social and technical inputs into composite trends, the sentiment engine adds hype and panic detection, the macro regime engine classifies the market as bullish, bearish or sideways, the institutional confluence engine looks for moments when flows, narratives and regime agree, and the mean reversion engine hunts for extreme price moves. Each one is scheduled by the worker from Step 2 and produces the signals that the rest of the system will judge.",
+    "nodeIds": ["file:src/engines/trend_detection.py", "file:src/engines/sentiment_engine.py", "file:src/engines/macro_regime_engine.py", "file:src/engines/institutional_confluence_engine.py", "file:src/engines/mean_reversion_engine.py"]
+  },
+  {
+    "order": 6,
+    "title": "Immutable Signal Archive",
+    "description": "Fade's central idea is that every signal must be recorded before it can be judged. The signal tracer writes each signal with a deterministic hash for deduplication, the signal archiver keeps long-term outcome and signal pairs, and the migrations create the signals_registry, signal_outcomes and signal_trace tables that hold them. docs/OBSERVABILITY.md documents the resulting signal lifecycle from ingestion to evaluation, and it is the best reference for querying it.",
+    "nodeIds": ["file:src/core/signal_tracer.py", "file:src/validation/signal_archiver.py", "table:migrations/004_level4_validation.sql", "table:migrations/011_signal_trace.sql", "document:docs/OBSERVABILITY.md"],
+    "languageLesson": "SQL migrations are numbered, ordered files that evolve the schema one step at a time. 004 introduces the validation tables and 011 adds tracing; because they are applied in sequence by src/db/migrate.py, any environment can be rebuilt from scratch deterministically."
+  },
+  {
+    "order": 7,
+    "title": "Outcome Truth and Scoring",
+    "description": "Once signals are archived, the outcome tracking engine compares each one to the actual forward price movement, which is the ground truth the whole system is built around. The signal scoring engine turns those results into quality scores, and the signal evaluation and feedback aggregator engines (both scheduled by the worker) summarize how each engine and data provider performs. The signal_scores table from the truth-layer migration stores the results that governance and routing rely on later.",
+    "nodeIds": ["file:src/engines/outcome_tracking_engine.py", "file:src/engines/signal_scoring_engine.py", "file:src/engines/signal_evaluation_engine.py", "file:src/engines/feedback_aggregator.py", "table:migrations/005_signal_truth_layer.sql"]
+  },
+  {
+    "order": 8,
+    "title": "Backtesting and Edge Analysis",
+    "description": "Measured outcomes are not enough, so the system also replays history. The backtesting and replay engines re-run signal combinations over past periods, while the separate signal edge analyzer service collects outcomes, computes win rate, expectancy and Sharpe-style metrics, and performs walk-forward validation to decide whether a strategy has a genuine out-of-sample edge. Its scheduler orchestrates these background jobs on their own cadence, independent of the main worker.",
+    "nodeIds": ["file:src/engines/backtesting_engine.py", "file:src/engines/replay_scheduler.py", "file:src/validation/backtest_engine.py", "file:signal_edge_analyzer/scheduler.py", "file:signal_edge_analyzer/walkforward.py"]
+  },
+  {
+    "order": 9,
+    "title": "Governance and Strategic Memory",
+    "description": "Governance closes the feedback loop by deciding which engines still deserve trust. The engine governance engine ranks engines by trust and detects instability, and the adaptive weighting engine turns those findings into recommendations for re-weighting or down-weighting an engine, which is the fade mechanic the project is named after. The strategic memory engine keeps a long-term record of patterns and failures, backed by the governance and meta-intelligence tables.",
+    "nodeIds": ["file:src/engines/engine_governance_engine.py", "file:src/engines/adaptive_weighting_engine.py", "file:src/engines/strategic_memory_engine.py", "table:migrations/008_governance.sql", "table:migrations/009_meta_intelligence.sql"]
+  },
+  {
+    "order": 10,
+    "title": "The Trading Engine",
+    "description": "Validated signals leave the intelligence pipeline and enter the trading engine, a separate service with its own entry point. paper_trading_engine/main.py bootstraps the database and Redis connections, and engine.py is the coordinator: it imports the broker factory, portfolio, risk rules, truth router, OOS validator, notifiers and equity tracking, so it reads as the map of the whole execution side. Note that it has similar reach to the worker from Step 2, but for trading instead of ingestion.",
+    "nodeIds": ["file:paper_trading_engine/main.py", "file:paper_trading_engine/engine.py", "file:paper_trading_engine/models.py"],
+    "languageLesson": "Keeping models in their own module (models.py) lets the executor, portfolio and risk code all share the same dataclass definitions without importing each other in a cycle."
+  },
+  {
+    "order": 11,
+    "title": "Truth Router and Safety Layer",
+    "description": "This is where the project's philosophy becomes code. The truth router decides what to do with a signal based on its measured historical edge, not its stated direction, and can invert or fade it. The OOS validator gates engines that lack out-of-sample proof, while the risk guard and risk governor enforce hard limits like the daily-loss kill switch before any order is sent. tests/test_truth_router.py shows the intended behavior, including stale OOS data and tradeability checks.",
+    "nodeIds": ["file:paper_trading_engine/truth_router.py", "file:paper_trading_engine/oos_validator.py", "file:paper_trading_engine/risk_guard.py", "file:paper_trading_engine/risk_governor.py", "file:tests/test_truth_router.py"]
+  },
+  {
+    "order": 12,
+    "title": "Brokers and Order Execution",
+    "description": "Approved trades reach the market through a common broker interface. brokers/base.py defines the contract, the Paper broker simulates fills without real capital, and the Binance Futures and Alpaca adapters place real orders for crypto and equities using direct REST clients. The executor and portfolio modules size positions, apply stops and track equity, so switching from paper to live is a matter of which broker the factory returns, guarded by the safety layer from Step 11.",
+    "nodeIds": ["file:paper_trading_engine/brokers/base.py", "file:paper_trading_engine/brokers/paper.py", "file:paper_trading_engine/brokers/binance_futures.py", "file:paper_trading_engine/brokers/alpaca.py", "file:paper_trading_engine/executor.py"],
+    "languageLesson": "The broker adapters follow the Strategy pattern: one abstract base class with several interchangeable implementations. Because the engine only talks to the base interface, tests can substitute the paper broker and never touch an exchange."
+  },
+  {
+    "order": 13,
+    "title": "API, Dashboard and Alerts",
+    "description": "Everything above is made observable through the FastAPI application, whose factory wires up the database, Redis and cost control at startup and mounts routers for market data, sentiment, trends, intelligence and health. The dashboard routes and static HTML page present trading performance and positions, and they are covered by the tests for autopsy, graveyard and dashboard proxy behavior. The Discord bot handlers give operators the same insight from chat.",
+    "nodeIds": ["file:src/api/main.py", "file:src/api/routes/dashboard.py", "file:src/api/static/dashboard.html", "file:src/discord_bot/handlers.py", "file:tests/test_autopsy.py"]
+  },
+  {
+    "order": 14,
+    "title": "Deployment and Guardrails",
+    "description": "The docker-compose file ties the 27 services together, from API and worker to trading engine, Postgres and Redis, and the Makefile wraps it into repeatable commands. The preflight script gates every stack start by checking Docker, the .env file and required settings, and deploy.sh adds automatic rollback and trading-safety validation. The Claude Code settings enforce the paper-first rule with hooks that block switching to live trading without explicit approval, which completes the safety story of Step 11.",
+    "nodeIds": ["service:docker-compose.yml", "pipeline:Makefile", "file:scripts/preflight.sh", "file:scripts/deploy.sh", "config:.claude/settings.json"],
+    "languageLesson": "In Docker Compose, each service declares its image, environment and dependencies, so a single command starts the entire stack. A Makefile adds named targets on top (up, down, deploy), and its phony targets run commands rather than build files."
+  }
+]

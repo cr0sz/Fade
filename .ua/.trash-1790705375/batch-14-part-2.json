@@ -1,0 +1,447 @@
+{
+  "nodes": [
+    {
+      "id": "table:migrations/019_signal_edge_agg_uq.sql",
+      "type": "table",
+      "name": "019_signal_edge_agg_uq.sql",
+      "filePath": "migrations/019_signal_edge_agg_uq.sql",
+      "summary": "Adds uniqueness constraint to signal edge aggregations ensuring one edge per signal/ticker/direction/window combination.",
+      "tags": ["database", "migration", "constraint"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/020_optimization_runs.sql",
+      "type": "table",
+      "name": "020_optimization_runs.sql",
+      "filePath": "migrations/020_optimization_runs.sql",
+      "summary": "Strategy optimization run tracking with parameters, performance metrics, and trade counts.",
+      "tags": ["database", "migration", "optimization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/020_optimization_runs.sql:optimization_runs",
+      "type": "table",
+      "name": "optimization_runs",
+      "filePath": "migrations/020_optimization_runs.sql",
+      "lineRange": [2, 12],
+      "summary": "Parameter optimization trial records with score, win rate, Sharpe ratio, and expectancy metrics.",
+      "tags": ["database", "optimization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/021_governance_log.sql",
+      "type": "table",
+      "name": "021_governance_log.sql",
+      "filePath": "migrations/021_governance_log.sql",
+      "summary": "Governance action logging with governance_log and lessons_learned_runs for decision audit trail and learning capture.",
+      "tags": ["database", "migration", "governance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/021_governance_log.sql:governance_log",
+      "type": "table",
+      "name": "governance_log",
+      "filePath": "migrations/021_governance_log.sql",
+      "lineRange": [2, 15],
+      "summary": "Log of governance actions taken including evidence, expected effects, and skip reasons.",
+      "tags": ["database", "governance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/021_governance_log.sql:lessons_learned_runs",
+      "type": "table",
+      "name": "lessons_learned_runs",
+      "filePath": "migrations/021_governance_log.sql",
+      "lineRange": [22, 34],
+      "summary": "AI-generated lessons learned from trading periods with trade counts, PnL, and model information.",
+      "tags": ["database", "learning"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/022_stale_quote_alert.sql",
+      "type": "table",
+      "name": "022_stale_quote_alert.sql",
+      "filePath": "migrations/022_stale_quote_alert.sql",
+      "summary": "Stale quote detection for alerting when ticker data becomes outdated.",
+      "tags": ["database", "migration", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/023_funding_liquidations.sql",
+      "type": "table",
+      "name": "023_funding_liquidations.sql",
+      "filePath": "migrations/023_funding_liquidations.sql",
+      "summary": "Crypto funding rates and liquidation events tracking for perpetual futures monitoring.",
+      "tags": ["database", "migration", "crypto-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/023_funding_liquidations.sql:funding_rates",
+      "type": "table",
+      "name": "funding_rates",
+      "filePath": "migrations/023_funding_liquidations.sql",
+      "lineRange": [9, 16],
+      "summary": "Perpetual futures funding rates with next funding time and mark price.",
+      "tags": ["database", "crypto-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/023_funding_liquidations.sql:liquidation_events",
+      "type": "table",
+      "name": "liquidation_events",
+      "filePath": "migrations/023_funding_liquidations.sql",
+      "lineRange": [24, 34],
+      "summary": "Liquidation events with side, price, quantity, and notional value for monitoring cascade risk.",
+      "tags": ["database", "crypto-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/024_research_runs.sql",
+      "type": "table",
+      "name": "024_research_runs.sql",
+      "filePath": "migrations/024_research_runs.sql",
+      "summary": "Research run tracking with parameter sweeps, in-sample and out-of-sample performance for strategy research.",
+      "tags": ["database", "migration", "research"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/024_research_runs.sql:research_runs",
+      "type": "table",
+      "name": "research_runs",
+      "filePath": "migrations/024_research_runs.sql",
+      "lineRange": [8, 24],
+      "summary": "Research experiment metadata with parameter sweep name, performance metrics, and out-of-sample validation.",
+      "tags": ["database", "research"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/025_infra_watchdog_alerts.sql",
+      "type": "table",
+      "name": "025_infra_watchdog_alerts.sql",
+      "filePath": "migrations/025_infra_watchdog_alerts.sql",
+      "summary": "Infrastructure watchdog alerting for system health monitoring.",
+      "tags": ["database", "migration", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/026_signal_trace_ticker.sql",
+      "type": "table",
+      "name": "026_signal_trace_ticker.sql",
+      "filePath": "migrations/026_signal_trace_ticker.sql",
+      "summary": "Adds ticker indexing to signal trace for faster lookups on signal lineage.",
+      "tags": ["database", "migration", "indexing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/028_retired_strategies.sql",
+      "type": "table",
+      "name": "028_retired_strategies.sql",
+      "filePath": "migrations/028_retired_strategies.sql",
+      "summary": "Retirement history for strategies with reason, category, performance at retirement, and potential reactivation.",
+      "tags": ["database", "migration", "strategy-lifecycle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/028_retired_strategies.sql:retired_strategies",
+      "type": "table",
+      "name": "retired_strategies",
+      "filePath": "migrations/028_retired_strategies.sql",
+      "lineRange": [5, 18],
+      "summary": "Strategy retirement records with retirement reason, category, performance metrics, and reactivation tracking.",
+      "tags": ["database", "strategy-lifecycle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/029_personal_finance.sql",
+      "type": "table",
+      "name": "029_personal_finance.sql",
+      "filePath": "migrations/029_personal_finance.sql",
+      "summary": "Personal finance tracking with personal_transactions and trading_journal for expense and trade journaling.",
+      "tags": ["database", "migration", "finance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/029_personal_finance.sql:personal_transactions",
+      "type": "table",
+      "name": "personal_transactions",
+      "filePath": "migrations/029_personal_finance.sql",
+      "lineRange": [2, 11],
+      "summary": "Personal expense tracking with category, amount, source, and description.",
+      "tags": ["database", "finance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/029_personal_finance.sql:trading_journal",
+      "type": "table",
+      "name": "trading_journal",
+      "filePath": "migrations/029_personal_finance.sql",
+      "lineRange": [15, 23],
+      "summary": "Weekly trading journal entries with trade count, PnL, and AI-generated analysis.",
+      "tags": ["database", "journal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/030_daily_briefs.sql",
+      "type": "table",
+      "name": "030_daily_briefs.sql",
+      "filePath": "migrations/030_daily_briefs.sql",
+      "summary": "Daily brief generation storage with market summary, trade counts, and PnL snapshots.",
+      "tags": ["database", "migration", "reporting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/030_daily_briefs.sql:daily_briefs",
+      "type": "table",
+      "name": "daily_briefs",
+      "filePath": "migrations/030_daily_briefs.sql",
+      "lineRange": [2, 10],
+      "summary": "Daily market brief with generated content, model used, trade counts, PnL, and Bitcoin price snapshot.",
+      "tags": ["database", "reporting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/031_open_position_unique.sql",
+      "type": "table",
+      "name": "031_open_position_unique.sql",
+      "filePath": "migrations/031_open_position_unique.sql",
+      "summary": "Uniqueness constraint migration ensuring only one open position per ticker.",
+      "tags": ["database", "migration", "constraint"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/032_open_position_unique_per_mode.sql",
+      "type": "table",
+      "name": "032_open_position_unique_per_mode.sql",
+      "filePath": "migrations/032_open_position_unique_per_mode.sql",
+      "summary": "Updated uniqueness constraint per trading mode (paper vs live).",
+      "tags": ["database", "migration", "constraint"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/033_news_impact_scoring.sql",
+      "type": "table",
+      "name": "033_news_impact_scoring.sql",
+      "filePath": "migrations/033_news_impact_scoring.sql",
+      "summary": "News article impact scoring indexes for finding recently published articles needing analysis.",
+      "tags": ["database", "migration", "indexing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/034_truth_router.sql",
+      "type": "table",
+      "name": "034_truth_router.sql",
+      "filePath": "migrations/034_truth_router.sql",
+      "summary": "Trade audit trail with llm_trade_audits table for LLM-based trade vetting and decision recording.",
+      "tags": ["database", "migration", "governance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/034_truth_router.sql:llm_trade_audits",
+      "type": "table",
+      "name": "llm_trade_audits",
+      "filePath": "migrations/034_truth_router.sql",
+      "lineRange": [14, 29],
+      "summary": "LLM-generated trade audit records with verdict, bear case reasoning, and supporting dossier.",
+      "tags": ["database", "governance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/035_trade_reflections.sql",
+      "type": "table",
+      "name": "035_trade_reflections.sql",
+      "filePath": "migrations/035_trade_reflections.sql",
+      "summary": "Post-trade reflection records with router action, PnL, hold duration, and extracted lesson.",
+      "tags": ["database", "migration", "learning"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/035_trade_reflections.sql:trade_reflections",
+      "type": "table",
+      "name": "trade_reflections",
+      "filePath": "migrations/035_trade_reflections.sql",
+      "lineRange": [9, 21],
+      "summary": "Trade analysis records with close reason, router decision, PnL, hold time, and learned lesson.",
+      "tags": ["database", "learning"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/036_etf_tickers.sql",
+      "type": "table",
+      "name": "036_etf_tickers.sql",
+      "filePath": "migrations/036_etf_tickers.sql",
+      "summary": "ETF ticker data seeding and index migration for ETF coverage.",
+      "tags": ["database", "migration", "data-load"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/037_fix_outcome_direction_correct.sql",
+      "type": "table",
+      "name": "037_fix_outcome_direction_correct.sql",
+      "filePath": "migrations/037_fix_outcome_direction_correct.sql",
+      "summary": "Bug fix migration for signal outcome direction correctness calculation.",
+      "tags": ["database", "migration", "bugfix"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/038_equity_snapshots.sql",
+      "type": "table",
+      "name": "038_equity_snapshots.sql",
+      "filePath": "migrations/038_equity_snapshots.sql",
+      "summary": "Account equity and balance snapshots with regime and drawdown tracking for portfolio health monitoring.",
+      "tags": ["database", "migration", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/038_equity_snapshots.sql:equity_snapshots",
+      "type": "table",
+      "name": "equity_snapshots",
+      "filePath": "migrations/038_equity_snapshots.sql",
+      "lineRange": [4, 14],
+      "summary": "Point-in-time equity snapshots with balance, drawdown percentage, regime, and governor state.",
+      "tags": ["database", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/039_cide_decisions.sql",
+      "type": "table",
+      "name": "039_cide_decisions.sql",
+      "filePath": "migrations/039_cide_decisions.sql",
+      "summary": "Capital allocation decisions with CIDE framework tracking requested vs recommended capital and edge stability.",
+      "tags": ["database", "migration", "risk-management"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/039_cide_decisions.sql:cide_decisions",
+      "type": "table",
+      "name": "cide_decisions",
+      "filePath": "migrations/039_cide_decisions.sql",
+      "lineRange": [1, 10],
+      "summary": "Capital allocation decisions with edge stability scores, recommended capital adjustments, and reasoning.",
+      "tags": ["database", "risk-management"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/040_trade_post_mortems.sql",
+      "type": "table",
+      "name": "040_trade_post_mortems.sql",
+      "filePath": "migrations/040_trade_post_mortems.sql",
+      "summary": "Trade post-mortem analysis with AI verdict, lessons learned, and regime fit assessment.",
+      "tags": ["database", "migration", "learning"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/040_trade_post_mortems.sql:trade_post_mortems",
+      "type": "table",
+      "name": "trade_post_mortems",
+      "filePath": "migrations/040_trade_post_mortems.sql",
+      "lineRange": [1, 16],
+      "summary": "AI-analyzed trade outcomes with verdict, extracted lesson, regime fit, and latency metrics.",
+      "tags": ["database", "learning"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/041_signal_trace_regime_filter.sql",
+      "type": "table",
+      "name": "041_signal_trace_regime_filter.sql",
+      "filePath": "migrations/041_signal_trace_regime_filter.sql",
+      "summary": "Minimal migration for signal trace regime filtering.",
+      "tags": ["database", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/042_capital_growth_log.sql",
+      "type": "table",
+      "name": "042_capital_growth_log.sql",
+      "filePath": "migrations/042_capital_growth_log.sql",
+      "summary": "Capital growth phase tracking with equity, position limits, leverage caps, and size multipliers.",
+      "tags": ["database", "migration", "risk-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/042_capital_growth_log.sql:capital_growth_log",
+      "type": "table",
+      "name": "capital_growth_log",
+      "filePath": "migrations/042_capital_growth_log.sql",
+      "lineRange": [1, 9],
+      "summary": "Phase-based capital growth milestones with equity level, position limits, and leverage adjustments.",
+      "tags": ["database", "risk-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/043_meta_strategy_runs.sql",
+      "type": "table",
+      "name": "043_meta_strategy_runs.sql",
+      "filePath": "migrations/043_meta_strategy_runs.sql",
+      "summary": "Meta-strategy execution tracking with regime detection and engine weights.",
+      "tags": ["database", "migration", "strategy"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/043_meta_strategy_runs.sql:meta_strategy_runs",
+      "type": "table",
+      "name": "meta_strategy_runs",
+      "filePath": "migrations/043_meta_strategy_runs.sql",
+      "lineRange": [1, 9],
+      "summary": "Meta-strategy execution records with detected regime, confidence, engine weights, and inputs.",
+      "tags": ["database", "strategy"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/044_paper_trades_signal_id_unique.sql",
+      "type": "table",
+      "name": "044_paper_trades_signal_id_unique.sql",
+      "filePath": "migrations/044_paper_trades_signal_id_unique.sql",
+      "summary": "Uniqueness constraint ensuring one paper trade per open signal.",
+      "tags": ["database", "migration", "constraint"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/045_paper_trades_stop_order_ids.sql",
+      "type": "table",
+      "name": "045_paper_trades_stop_order_ids.sql",
+      "filePath": "migrations/045_paper_trades_stop_order_ids.sql",
+      "summary": "Migration adding stop order ID tracking to paper trades.",
+      "tags": ["database", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/046_funding_payments.sql",
+      "type": "table",
+      "name": "046_funding_payments.sql",
+      "filePath": "migrations/046_funding_payments.sql",
+      "summary": "Crypto perpetual futures funding payment tracking for P&L attribution.",
+      "tags": ["database", "migration", "crypto-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/046_funding_payments.sql:funding_payments",
+      "type": "table",
+      "name": "funding_payments",
+      "filePath": "migrations/046_funding_payments.sql",
+      "lineRange": [4, 9],
+      "summary": "Funding payment records for each perpetual futures position with income and payment time.",
+      "tags": ["database", "crypto-data"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "table:migrations/020_optimization_runs.sql", "target": "table:migrations/020_optimization_runs.sql:optimization_runs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/021_governance_log.sql", "target": "table:migrations/021_governance_log.sql:governance_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/021_governance_log.sql", "target": "table:migrations/021_governance_log.sql:lessons_learned_runs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/023_funding_liquidations.sql", "target": "table:migrations/023_funding_liquidations.sql:funding_rates", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/023_funding_liquidations.sql", "target": "table:migrations/023_funding_liquidations.sql:liquidation_events", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/024_research_runs.sql", "target": "table:migrations/024_research_runs.sql:research_runs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/028_retired_strategies.sql", "target": "table:migrations/028_retired_strategies.sql:retired_strategies", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/029_personal_finance.sql", "target": "table:migrations/029_personal_finance.sql:personal_transactions", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/029_personal_finance.sql", "target": "table:migrations/029_personal_finance.sql:trading_journal", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/030_daily_briefs.sql", "target": "table:migrations/030_daily_briefs.sql:daily_briefs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/034_truth_router.sql", "target": "table:migrations/034_truth_router.sql:llm_trade_audits", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/035_trade_reflections.sql", "target": "table:migrations/035_trade_reflections.sql:trade_reflections", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/038_equity_snapshots.sql", "target": "table:migrations/038_equity_snapshots.sql:equity_snapshots", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/039_cide_decisions.sql", "target": "table:migrations/039_cide_decisions.sql:cide_decisions", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/040_trade_post_mortems.sql", "target": "table:migrations/040_trade_post_mortems.sql:trade_post_mortems", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/042_capital_growth_log.sql", "target": "table:migrations/042_capital_growth_log.sql:capital_growth_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/043_meta_strategy_runs.sql", "target": "table:migrations/043_meta_strategy_runs.sql:meta_strategy_runs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/046_funding_payments.sql", "target": "table:migrations/046_funding_payments.sql:funding_payments", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

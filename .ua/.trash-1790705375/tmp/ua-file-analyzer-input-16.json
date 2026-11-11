@@ -1,0 +1,35 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": ".claude/runbooks/add_ai_model.md", "language": "markdown", "sizeLines": 106, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/add_news_source.md", "language": "markdown", "sizeLines": 81, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/add_provider.md", "language": "markdown", "sizeLines": 88, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/add_social_source.md", "language": "markdown", "sizeLines": 88, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/add_ticker_source.md", "language": "markdown", "sizeLines": 121, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/backtesting_replay.md", "language": "markdown", "sizeLines": 192, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/calibration_governance.md", "language": "markdown", "sizeLines": 157, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/debug_pipeline.md", "language": "markdown", "sizeLines": 168, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/deploy_production.md", "language": "markdown", "sizeLines": 164, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/governance_optimization.md", "language": "markdown", "sizeLines": 211, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/improve_sentiment_engine.md", "language": "markdown", "sizeLines": 135, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/regime_transition_analysis.md", "language": "markdown", "sizeLines": 97, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/strategic_memory.md", "language": "markdown", "sizeLines": 170, "fileCategory": "docs"},
+    {"path": ".claude/runbooks/validation_alert.md", "language": "markdown", "sizeLines": 215, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    ".claude/runbooks/add_ai_model.md": [],
+    ".claude/runbooks/add_news_source.md": [],
+    ".claude/runbooks/add_provider.md": [],
+    ".claude/runbooks/add_social_source.md": [],
+    ".claude/runbooks/add_ticker_source.md": [],
+    ".claude/runbooks/backtesting_replay.md": [],
+    ".claude/runbooks/calibration_governance.md": [],
+    ".claude/runbooks/debug_pipeline.md": [],
+    ".claude/runbooks/deploy_production.md": [],
+    ".claude/runbooks/governance_optimization.md": [],
+    ".claude/runbooks/improve_sentiment_engine.md": [],
+    ".claude/runbooks/regime_transition_analysis.md": [],
+    ".claude/runbooks/strategic_memory.md": [],
+    ".claude/runbooks/validation_alert.md": []
+  }
+}

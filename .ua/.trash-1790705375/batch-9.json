@@ -1,0 +1,763 @@
+{
+  "nodes": [
+    {
+      "id": "file:signal_edge_analyzer/aggregator.py",
+      "type": "file",
+      "name": "aggregator.py",
+      "filePath": "signal_edge_analyzer/aggregator.py",
+      "summary": "Orchestrates metrics computation and strategy ranking cycles, aggregating performance data from outcomes and persisting ranked strategies to the database.",
+      "tags": ["aggregation", "metrics-pipeline", "data-processing", "ranking"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:signal_edge_analyzer/collector.py",
+      "type": "file",
+      "name": "collector.py",
+      "filePath": "signal_edge_analyzer/collector.py",
+      "summary": "Collects signal outcomes and recent signals from the database, providing queries for signals pending evaluation and maximum signal IDs.",
+      "tags": ["data-collection", "database-query", "signal-tracking"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:signal_edge_analyzer/db.py",
+      "type": "file",
+      "name": "db.py",
+      "filePath": "signal_edge_analyzer/db.py",
+      "summary": "Manages PostgreSQL and Redis connections, providing pool lifecycle management, schema migrations, and health checks for database connectivity.",
+      "tags": ["database", "connection-pooling", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:signal_edge_analyzer/discord_client.py",
+      "type": "file",
+      "name": "discord_client.py",
+      "filePath": "signal_edge_analyzer/discord_client.py",
+      "summary": "Discord notification client that sends formatted system events, signal outcomes, metrics updates, and health status messages to configured webhook endpoints.",
+      "tags": ["notification", "integration", "client"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:signal_edge_analyzer/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "signal_edge_analyzer/main.py",
+      "summary": "Application entry point that bootstraps the service, configures logging, starts HTTP health endpoints, manages database/Redis connections, and runs the scheduler.",
+      "tags": ["entry-point", "service-bootstrap", "orchestration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:signal_edge_analyzer/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "signal_edge_analyzer/metrics.py",
+      "summary": "Computes performance metrics for signals including win rate, returns, expectancy, Sharpe ratio, and drawdown analysis from outcome data.",
+      "tags": ["metrics", "analysis", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:signal_edge_analyzer/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "signal_edge_analyzer/models.py",
+      "summary": "Defines core data models as dataclasses: SignalOutcome, EdgeMetrics, StrategyRank, and SystemEvent representing signal evaluation results and system state.",
+      "tags": ["type-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:signal_edge_analyzer/outcomes.py",
+      "type": "file",
+      "name": "outcomes.py",
+      "filePath": "signal_edge_analyzer/outcomes.py",
+      "summary": "Transforms raw signal outcome rows into SignalOutcome objects, groups outcomes by strategy, and filters evaluated signals for metric computation.",
+      "tags": ["data-transformation", "filtering", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:signal_edge_analyzer/scheduler.py",
+      "type": "file",
+      "name": "scheduler.py",
+      "filePath": "signal_edge_analyzer/scheduler.py",
+      "summary": "Central scheduler that orchestrates background jobs including outcome collection, metrics computation, aggregation, walkforward validation, lessons pipeline, and weekly diagnostics.",
+      "tags": ["orchestration", "job-scheduler", "background-jobs"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:signal_edge_analyzer/walkforward.py",
+      "type": "file",
+      "name": "walkforward.py",
+      "filePath": "signal_edge_analyzer/walkforward.py",
+      "summary": "Performs walk-forward validation of strategies by computing historical lift metrics and routing validated signals to live or paper trading engines.",
+      "tags": ["backtesting", "validation", "trading-routing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "type": "function",
+      "name": "run_metrics_cycle",
+      "filePath": "signal_edge_analyzer/aggregator.py",
+      "lineRange": [74, 117],
+      "summary": "Orchestrates a complete metrics computation cycle: collects outcomes, groups by strategy, computes performance metrics for each group, and persists results.",
+      "tags": ["metrics", "computation", "aggregation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:signal_edge_analyzer/aggregator.py:run_aggregation_cycle",
+      "type": "function",
+      "name": "run_aggregation_cycle",
+      "filePath": "signal_edge_analyzer/aggregator.py",
+      "lineRange": [120, 140],
+      "summary": "Runs the aggregation cycle: executes metrics computation, ranks top strategies by quality score, and saves rankings to the database.",
+      "tags": ["ranking", "aggregation", "pipeline"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:signal_edge_analyzer/aggregator.py:_rank_strategies",
+      "type": "function",
+      "name": "_rank_strategies",
+      "filePath": "signal_edge_analyzer/aggregator.py",
+      "lineRange": [143, 170],
+      "summary": "Ranks strategies by quality score in descending order and returns top N strategies with assigned ranks.",
+      "tags": ["ranking", "sorting", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/aggregator.py:_upsert_metrics",
+      "type": "function",
+      "name": "_upsert_metrics",
+      "filePath": "signal_edge_analyzer/aggregator.py",
+      "lineRange": [173, 190],
+      "summary": "Bulk inserts or updates metrics records into the database using executemany for efficient batch operations.",
+      "tags": ["database", "persistence", "batch-operation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/aggregator.py:_save_aggregations",
+      "type": "function",
+      "name": "_save_aggregations",
+      "filePath": "signal_edge_analyzer/aggregator.py",
+      "lineRange": [193, 211],
+      "summary": "Persists strategy rankings with timestamp to the database using batch insert operations.",
+      "tags": ["persistence", "database", "batch-operation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/collector.py:collect_outcomes",
+      "type": "function",
+      "name": "collect_outcomes",
+      "filePath": "signal_edge_analyzer/collector.py",
+      "lineRange": [46, 66],
+      "summary": "Queries the database for signal outcomes within a specified period and window configuration, returning outcomes grouped by strategy.",
+      "tags": ["database-query", "data-collection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/collector.py:collect_recent_signals",
+      "type": "function",
+      "name": "collect_recent_signals",
+      "filePath": "signal_edge_analyzer/collector.py",
+      "lineRange": [69, 91],
+      "summary": "Retrieves recently emitted signals from the database after a given signal ID, returning up to a specified limit.",
+      "tags": ["database-query", "signal-tracking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/collector.py:count_pending_outcomes",
+      "type": "function",
+      "name": "count_pending_outcomes",
+      "filePath": "signal_edge_analyzer/collector.py",
+      "lineRange": [103, 116],
+      "summary": "Counts the number of signals awaiting outcome evaluation in the database.",
+      "tags": ["database-query", "metric"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/db.py:create_pool",
+      "type": "function",
+      "name": "create_pool",
+      "filePath": "signal_edge_analyzer/db.py",
+      "lineRange": [36, 45],
+      "summary": "Creates and initializes an asyncpg connection pool with configured minimum and maximum sizes using environment-based DSN.",
+      "tags": ["infrastructure", "connection-pooling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:signal_edge_analyzer/discord_client.py:DiscordClient",
+      "type": "class",
+      "name": "DiscordClient",
+      "filePath": "signal_edge_analyzer/discord_client.py",
+      "lineRange": [19, 146],
+      "summary": "Async HTTP client for sending formatted JSON messages to Discord webhooks, with specialized methods for signal updates, metrics, health status, and error notifications.",
+      "tags": ["notification", "integration", "client"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:signal_edge_analyzer/main.py:_configure_logging",
+      "type": "function",
+      "name": "_configure_logging",
+      "filePath": "signal_edge_analyzer/main.py",
+      "lineRange": [53, 72],
+      "summary": "Configures structured logging via structlog with JSON rendering and conditional debug mode based on DEBUG environment variable.",
+      "tags": ["logging", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/main.py:_health_monitor",
+      "type": "function",
+      "name": "_health_monitor",
+      "filePath": "signal_edge_analyzer/main.py",
+      "lineRange": [124, 187],
+      "summary": "Continuously monitors database and Redis health, tracks failure duration, triggers restart signals when thresholds are exceeded, and sends status notifications.",
+      "tags": ["monitoring", "health-check", "orchestration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:signal_edge_analyzer/main.py:_main",
+      "type": "function",
+      "name": "_main",
+      "filePath": "signal_edge_analyzer/main.py",
+      "lineRange": [192, 247],
+      "summary": "Main async entry point: configures logging, initializes database and Redis, starts HTTP server and scheduler, and runs health monitoring until shutdown.",
+      "tags": ["entry-point", "orchestration", "bootstrap"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:signal_edge_analyzer/main.py:_Handler",
+      "type": "class",
+      "name": "_Handler",
+      "filePath": "signal_edge_analyzer/main.py",
+      "lineRange": [82, 103],
+      "summary": "HTTP request handler providing liveness (status: ok), readiness (status: ready/not_ready), and Prometheus metrics endpoints.",
+      "tags": ["http-handler", "infrastructure", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/metrics.py:compute_metrics",
+      "type": "function",
+      "name": "compute_metrics",
+      "filePath": "signal_edge_analyzer/metrics.py",
+      "lineRange": [29, 88],
+      "summary": "Computes comprehensive performance metrics for a strategy: win rate, average return, Sharpe ratio, max drawdown, expectancy, and quality score.",
+      "tags": ["analysis", "metrics", "performance"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:signal_edge_analyzer/metrics.py:_max_drawdown",
+      "type": "function",
+      "name": "_max_drawdown",
+      "filePath": "signal_edge_analyzer/metrics.py",
+      "lineRange": [105, 128],
+      "summary": "Calculates the maximum drawdown from a series of returns, representing peak-to-trough decline in cumulative wealth.",
+      "tags": ["analysis", "utility", "metrics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:signal_edge_analyzer/models.py:SignalOutcome",
+      "type": "class",
+      "name": "SignalOutcome",
+      "filePath": "signal_edge_analyzer/models.py",
+      "lineRange": [10, 23],
+      "summary": "Data model representing the outcome of a single signal: evaluation timestamp, price movement, and correctness assessment.",
+      "tags": ["data-model", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:signal_edge_analyzer/models.py:EdgeMetrics",
+      "type": "class",
+      "name": "EdgeMetrics",
+      "filePath": "signal_edge_analyzer/models.py",
+      "lineRange": [27, 44],
+      "summary": "Data model aggregating performance metrics for a strategy signal type: sample size, returns, risk metrics, and quality scoring.",
+      "tags": ["data-model", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:signal_edge_analyzer/models.py:StrategyRank",
+      "type": "class",
+      "name": "StrategyRank",
+      "filePath": "signal_edge_analyzer/models.py",
+      "lineRange": [48, 62],
+      "summary": "Data model representing a ranked strategy with position, grouping key, and aggregated performance metrics.",
+      "tags": ["data-model", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:signal_edge_analyzer/models.py:SystemEvent",
+      "type": "class",
+      "name": "SystemEvent",
+      "filePath": "signal_edge_analyzer/models.py",
+      "lineRange": [66, 81],
+      "summary": "Data model for system events with timestamp, signal context, return and expectancy values, and optional error messages.",
+      "tags": ["data-model", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/outcomes.py:build_outcomes",
+      "type": "function",
+      "name": "build_outcomes",
+      "filePath": "signal_edge_analyzer/outcomes.py",
+      "lineRange": [12, 33],
+      "summary": "Transforms raw database rows into SignalOutcome objects with type conversions and validation for required fields.",
+      "tags": ["data-transformation", "parsing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/outcomes.py:group_by_strategy",
+      "type": "function",
+      "name": "group_by_strategy",
+      "filePath": "signal_edge_analyzer/outcomes.py",
+      "lineRange": [36, 47],
+      "summary": "Groups signal outcomes by strategy key (engine_name, signal_type, ticker, direction) for batch metric computation.",
+      "tags": ["grouping", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "type": "class",
+      "name": "EdgeScheduler",
+      "filePath": "signal_edge_analyzer/scheduler.py",
+      "lineRange": [63, 503],
+      "summary": "Central background job scheduler managing concurrent outcome collection, metrics computation, strategy ranking, walk-forward validation, and weekly diagnostics.",
+      "tags": ["orchestration", "job-scheduler", "background-tasks"],
+      "complexity": "complex",
+      "languageNotes": "Manages 8 concurrent jobs with rate limiting, error handling, and Redis-based state tracking for last run times."
+    },
+    {
+      "id": "function:signal_edge_analyzer/walkforward.py:_build_lift",
+      "type": "function",
+      "name": "_build_lift",
+      "filePath": "signal_edge_analyzer/walkforward.py",
+      "lineRange": [83, 98],
+      "summary": "Computes lift metrics (hit ratio and average return) for each exchange/bucket combination from historical backtest data.",
+      "tags": ["analysis", "backtesting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/walkforward.py:_route",
+      "type": "function",
+      "name": "_route",
+      "filePath": "signal_edge_analyzer/walkforward.py",
+      "lineRange": [101, 113],
+      "summary": "Routes a signal to live or paper trading based on exchange type and lift threshold, returning action code.",
+      "tags": ["trading-routing", "decision-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:signal_edge_analyzer/walkforward.py:run_walkforward",
+      "type": "function",
+      "name": "run_walkforward",
+      "filePath": "signal_edge_analyzer/walkforward.py",
+      "lineRange": [116, 163],
+      "summary": "Performs walk-forward backtesting over historical periods, computing performance by routing decisions and generating summary statistics.",
+      "tags": ["backtesting", "validation", "analysis"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "function:signal_edge_analyzer/aggregator.py:run_aggregation_cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "function:signal_edge_analyzer/aggregator.py:_rank_strategies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "function:signal_edge_analyzer/aggregator.py:_upsert_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "function:signal_edge_analyzer/aggregator.py:_save_aggregations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "file:signal_edge_analyzer/collector.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "file:signal_edge_analyzer/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "file:signal_edge_analyzer/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/aggregator.py",
+      "target": "file:signal_edge_analyzer/outcomes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/collector.py",
+      "target": "function:signal_edge_analyzer/collector.py:collect_outcomes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/collector.py",
+      "target": "function:signal_edge_analyzer/collector.py:collect_recent_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/collector.py",
+      "target": "function:signal_edge_analyzer/collector.py:count_pending_outcomes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/db.py",
+      "target": "function:signal_edge_analyzer/db.py:create_pool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/discord_client.py",
+      "target": "class:signal_edge_analyzer/discord_client.py:DiscordClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "function:signal_edge_analyzer/main.py:_configure_logging",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "function:signal_edge_analyzer/main.py:_health_monitor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "function:signal_edge_analyzer/main.py:_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "class:signal_edge_analyzer/main.py:_Handler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "file:signal_edge_analyzer/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "file:signal_edge_analyzer/discord_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/main.py",
+      "target": "file:signal_edge_analyzer/scheduler.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/metrics.py",
+      "target": "function:signal_edge_analyzer/metrics.py:compute_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/metrics.py",
+      "target": "function:signal_edge_analyzer/metrics.py:_max_drawdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/metrics.py",
+      "target": "file:signal_edge_analyzer/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/models.py",
+      "target": "class:signal_edge_analyzer/models.py:SignalOutcome",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/models.py",
+      "target": "class:signal_edge_analyzer/models.py:EdgeMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/models.py",
+      "target": "class:signal_edge_analyzer/models.py:StrategyRank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/models.py",
+      "target": "class:signal_edge_analyzer/models.py:SystemEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/outcomes.py",
+      "target": "function:signal_edge_analyzer/outcomes.py:build_outcomes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/outcomes.py",
+      "target": "function:signal_edge_analyzer/outcomes.py:group_by_strategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/outcomes.py",
+      "target": "file:signal_edge_analyzer/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/scheduler.py",
+      "target": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/scheduler.py",
+      "target": "file:signal_edge_analyzer/aggregator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/scheduler.py",
+      "target": "file:signal_edge_analyzer/collector.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/scheduler.py",
+      "target": "file:signal_edge_analyzer/discord_client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/scheduler.py",
+      "target": "file:signal_edge_analyzer/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/scheduler.py",
+      "target": "file:signal_edge_analyzer/walkforward.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:signal_edge_analyzer/walkforward.py",
+      "target": "function:signal_edge_analyzer/walkforward.py:_build_lift",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/walkforward.py",
+      "target": "function:signal_edge_analyzer/walkforward.py:_route",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:signal_edge_analyzer/walkforward.py",
+      "target": "function:signal_edge_analyzer/walkforward.py:run_walkforward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_aggregation_cycle",
+      "target": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_aggregation_cycle",
+      "target": "function:signal_edge_analyzer/aggregator.py:_rank_strategies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_aggregation_cycle",
+      "target": "function:signal_edge_analyzer/aggregator.py:_save_aggregations",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "target": "function:signal_edge_analyzer/aggregator.py:_upsert_metrics",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "target": "function:signal_edge_analyzer/collector.py:collect_outcomes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "target": "function:signal_edge_analyzer/outcomes.py:build_outcomes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "target": "function:signal_edge_analyzer/outcomes.py:group_by_strategy",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "target": "function:signal_edge_analyzer/metrics.py:compute_metrics",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/metrics.py:compute_metrics",
+      "target": "function:signal_edge_analyzer/metrics.py:_max_drawdown",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/outcomes.py:build_outcomes",
+      "target": "class:signal_edge_analyzer/models.py:SignalOutcome",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "target": "function:signal_edge_analyzer/aggregator.py:run_aggregation_cycle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "target": "function:signal_edge_analyzer/aggregator.py:run_metrics_cycle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "target": "function:signal_edge_analyzer/collector.py:collect_recent_signals",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "target": "function:signal_edge_analyzer/walkforward.py:run_walkforward",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/main.py:_main",
+      "target": "function:signal_edge_analyzer/db.py:create_pool",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/main.py:_main",
+      "target": "function:signal_edge_analyzer/main.py:_health_monitor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/main.py:_main",
+      "target": "class:signal_edge_analyzer/discord_client.py:DiscordClient",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:signal_edge_analyzer/main.py:_main",
+      "target": "class:signal_edge_analyzer/scheduler.py:EdgeScheduler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

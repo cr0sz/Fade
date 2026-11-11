@@ -1,0 +1,1799 @@
+{
+  "nodes": [
+    {
+      "id": "file:scripts/apply_optimization.py",
+      "type": "file",
+      "name": "apply_optimization.py",
+      "filePath": "scripts/apply_optimization.py",
+      "summary": "Applies optimized parameters from a run ID to .env configuration and notifies via Discord.",
+      "tags": [
+        "optimization",
+        "config-update",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/apply_optimization.py:apply",
+      "type": "function",
+      "name": "apply",
+      "filePath": "scripts/apply_optimization.py",
+      "lineRange": [
+        70,
+        132
+      ],
+      "summary": "Implements apply logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/backtest.py",
+      "type": "file",
+      "name": "backtest.py",
+      "filePath": "scripts/backtest.py",
+      "summary": "Backtesting framework for validating trading signals against historical price data and computing performance metrics.",
+      "tags": [
+        "backtest",
+        "validation",
+        "analysis"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/backtest.py:_load_env_db_url",
+      "type": "function",
+      "name": "_load_env_db_url",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        25,
+        48
+      ],
+      "summary": "Implements _load_env_db_url logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/backtest.py:_build_price_index",
+      "type": "function",
+      "name": "_build_price_index",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        96,
+        114
+      ],
+      "summary": "Implements _build_price_index logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/backtest.py:_price_at",
+      "type": "function",
+      "name": "_price_at",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        117,
+        128
+      ],
+      "summary": "Implements _price_at logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/backtest.py:_fetch_signals",
+      "type": "function",
+      "name": "_fetch_signals",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        133,
+        174
+      ],
+      "summary": "Implements _fetch_signals logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/backtest.py:_run_backtest",
+      "type": "function",
+      "name": "_run_backtest",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        179,
+        221
+      ],
+      "summary": "Implements _run_backtest logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/backtest.py:_print_report",
+      "type": "function",
+      "name": "_print_report",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        226,
+        259
+      ],
+      "summary": "Implements _print_report logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/backtest.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        264,
+        297
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scripts/backtest.py:WindowResult",
+      "type": "class",
+      "name": "WindowResult",
+      "filePath": "scripts/backtest.py",
+      "lineRange": [
+        73,
+        91
+      ],
+      "summary": "Data model for WindowResult.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/backup_hooks/discord-notify.sh",
+      "type": "file",
+      "name": "discord-notify.sh",
+      "filePath": "scripts/backup_hooks/discord-notify.sh",
+      "summary": "Sends Discord notifications for pipeline events and status updates via webhook.",
+      "tags": [
+        "notification",
+        "integration",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/binance_income.py",
+      "type": "file",
+      "name": "binance_income.py",
+      "filePath": "scripts/binance_income.py",
+      "summary": "Fetches and summarizes income records from Binance API for crypto portfolio analysis.",
+      "tags": [
+        "crypto-exchange",
+        "data-fetch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/binance_income.py:_load_env",
+      "type": "function",
+      "name": "_load_env",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        36,
+        48
+      ],
+      "summary": "Implements _load_env logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/binance_income.py:_signed_get",
+      "type": "function",
+      "name": "_signed_get",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        51,
+        62
+      ],
+      "summary": "Implements _signed_get logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/binance_income.py:fetch_income",
+      "type": "function",
+      "name": "fetch_income",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        65,
+        80
+      ],
+      "summary": "Implements fetch_income logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/binance_income.py:summarize",
+      "type": "function",
+      "name": "summarize",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        83,
+        101
+      ],
+      "summary": "Implements summarize logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/binance_income.py:_print_window",
+      "type": "function",
+      "name": "_print_window",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        104,
+        122
+      ],
+      "summary": "Implements _print_window logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/binance_income.py:_selfcheck",
+      "type": "function",
+      "name": "_selfcheck",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        125,
+        139
+      ],
+      "summary": "Implements _selfcheck logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/binance_income.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/binance_income.py",
+      "lineRange": [
+        142,
+        180
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/check_sql_schema.py",
+      "type": "file",
+      "name": "check_sql_schema.py",
+      "filePath": "scripts/check_sql_schema.py",
+      "summary": "Validates SQL strings embedded in Python code against the database schema defined in migrations.",
+      "tags": [
+        "sql-validation",
+        "linting",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_split_top_level_columns",
+      "type": "function",
+      "name": "_split_top_level_columns",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        85,
+        100
+      ],
+      "summary": "Implements _split_top_level_columns logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_parse_create_table_columns",
+      "type": "function",
+      "name": "_parse_create_table_columns",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        109,
+        121
+      ],
+      "summary": "Implements _parse_create_table_columns logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:build_schema_from_migrations",
+      "type": "function",
+      "name": "build_schema_from_migrations",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        124,
+        153
+      ],
+      "summary": "Implements build_schema_from_migrations logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_apply_migration",
+      "type": "function",
+      "name": "_apply_migration",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        164,
+        201
+      ],
+      "summary": "Implements _apply_migration logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_apply_alter",
+      "type": "function",
+      "name": "_apply_alter",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        204,
+        242
+      ],
+      "summary": "Implements _apply_alter logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_extract_paren_body",
+      "type": "function",
+      "name": "_extract_paren_body",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        245,
+        257
+      ],
+      "summary": "Implements _extract_paren_body logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:extract_sql_strings",
+      "type": "function",
+      "name": "extract_sql_strings",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        279,
+        330
+      ],
+      "summary": "Implements extract_sql_strings logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_mask_from_keyword_constructs",
+      "type": "function",
+      "name": "_mask_from_keyword_constructs",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        354,
+        376
+      ],
+      "summary": "Implements _mask_from_keyword_constructs logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:_collect_cte_names",
+      "type": "function",
+      "name": "_collect_cte_names",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        379,
+        389
+      ],
+      "summary": "Implements _collect_cte_names logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:extract_references",
+      "type": "function",
+      "name": "extract_references",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        400,
+        480
+      ],
+      "summary": "Implements extract_references logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/check_sql_schema.py:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "scripts/check_sql_schema.py",
+      "lineRange": [
+        517,
+        578
+      ],
+      "summary": "Implements check logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/critical_watchdog.py",
+      "type": "file",
+      "name": "critical_watchdog.py",
+      "filePath": "scripts/critical_watchdog.py",
+      "summary": "Monitors critical pipeline health and alerts on failures or anomalies.",
+      "tags": [
+        "monitoring",
+        "health-check",
+        "alerts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/critical_watchdog.py:check_money_crash",
+      "type": "function",
+      "name": "check_money_crash",
+      "filePath": "scripts/critical_watchdog.py",
+      "lineRange": [
+        73,
+        86
+      ],
+      "summary": "Implements check_money_crash logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/critical_watchdog.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/critical_watchdog.py",
+      "lineRange": [
+        111,
+        157
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/ingest_binance_history.py",
+      "type": "file",
+      "name": "ingest_binance_history.py",
+      "filePath": "scripts/ingest_binance_history.py",
+      "summary": "Ingests historical trading data from Binance and populates the database for backtesting.",
+      "tags": [
+        "data-ingestion",
+        "binance-api",
+        "database"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/ingest_binance_history.py:_load_db_url",
+      "type": "function",
+      "name": "_load_db_url",
+      "filePath": "scripts/ingest_binance_history.py",
+      "lineRange": [
+        61,
+        82
+      ],
+      "summary": "Implements _load_db_url logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/ingest_binance_history.py:_bulk_insert",
+      "type": "function",
+      "name": "_bulk_insert",
+      "filePath": "scripts/ingest_binance_history.py",
+      "lineRange": [
+        92,
+        104
+      ],
+      "summary": "Implements _bulk_insert logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/ingest_binance_history.py:_parse_candles",
+      "type": "function",
+      "name": "_parse_candles",
+      "filePath": "scripts/ingest_binance_history.py",
+      "lineRange": [
+        109,
+        137
+      ],
+      "summary": "Implements _parse_candles logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/ingest_binance_history.py:fetch_symbol_history",
+      "type": "function",
+      "name": "fetch_symbol_history",
+      "filePath": "scripts/ingest_binance_history.py",
+      "lineRange": [
+        140,
+        198
+      ],
+      "summary": "Implements fetch_symbol_history logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/ingest_binance_history.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/ingest_binance_history.py",
+      "lineRange": [
+        203,
+        250
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/ingest_binance_history.py:_parse_args",
+      "type": "function",
+      "name": "_parse_args",
+      "filePath": "scripts/ingest_binance_history.py",
+      "lineRange": [
+        253,
+        264
+      ],
+      "summary": "Implements _parse_args logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/live_readiness.py",
+      "type": "file",
+      "name": "live_readiness.py",
+      "filePath": "scripts/live_readiness.py",
+      "summary": "Validates system readiness and permissions before routing signals to live trading.",
+      "tags": [
+        "safety-check",
+        "validation",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/live_readiness.py:_load_env_db_url",
+      "type": "function",
+      "name": "_load_env_db_url",
+      "filePath": "scripts/live_readiness.py",
+      "lineRange": [
+        23,
+        42
+      ],
+      "summary": "Implements _load_env_db_url logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/live_readiness.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/live_readiness.py",
+      "lineRange": [
+        52,
+        184
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/live_readiness.py:_compute_max_drawdown",
+      "type": "function",
+      "name": "_compute_max_drawdown",
+      "filePath": "scripts/live_readiness.py",
+      "lineRange": [
+        187,
+        202
+      ],
+      "summary": "Implements _compute_max_drawdown logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/meanrev_replay.py",
+      "type": "file",
+      "name": "meanrev_replay.py",
+      "filePath": "scripts/meanrev_replay.py",
+      "summary": "Replays mean-reversion trading logic against historical signals for testing and tuning.",
+      "tags": [
+        "signal-replay",
+        "backtest",
+        "trading-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/meanrev_replay.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/meanrev_replay.py",
+      "lineRange": [
+        61,
+        171
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/meanrev_seed_router.py",
+      "type": "file",
+      "name": "meanrev_seed_router.py",
+      "filePath": "scripts/meanrev_seed_router.py",
+      "summary": "Routes mean-reversion signals to trading engines based on market conditions and seed configuration.",
+      "tags": [
+        "signal-router",
+        "trading-logic",
+        "dispatch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/meanrev_seed_router.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/meanrev_seed_router.py",
+      "lineRange": [
+        82,
+        170
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/param_sweep.py",
+      "type": "file",
+      "name": "param_sweep.py",
+      "filePath": "scripts/param_sweep.py",
+      "summary": "Sweeps parameter ranges to optimize trading signal generation and routing strategies.",
+      "tags": [
+        "optimization",
+        "parameter-tuning",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/param_sweep.py:_evaluate_params",
+      "type": "function",
+      "name": "_evaluate_params",
+      "filePath": "scripts/param_sweep.py",
+      "lineRange": [
+        56,
+        128
+      ],
+      "summary": "Implements _evaluate_params logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/param_sweep.py:run_sweep",
+      "type": "function",
+      "name": "run_sweep",
+      "filePath": "scripts/param_sweep.py",
+      "lineRange": [
+        142,
+        264
+      ],
+      "summary": "Implements run_sweep logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/pipeline_report.py",
+      "type": "file",
+      "name": "pipeline_report.py",
+      "filePath": "scripts/pipeline_report.py",
+      "summary": "Generates comprehensive pipeline status reports including signal counts, performance, and system health.",
+      "tags": [
+        "reporting",
+        "pipeline-status",
+        "analysis"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_dsn",
+      "type": "function",
+      "name": "_dsn",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        48,
+        58
+      ],
+      "summary": "Implements _dsn logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_check_providers",
+      "type": "function",
+      "name": "_check_providers",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        94,
+        130
+      ],
+      "summary": "Implements _check_providers logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_check_signals",
+      "type": "function",
+      "name": "_check_signals",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        133,
+        154
+      ],
+      "summary": "Implements _check_signals logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_check_evaluations",
+      "type": "function",
+      "name": "_check_evaluations",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        157,
+        174
+      ],
+      "summary": "Implements _check_evaluations logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_check_feedback",
+      "type": "function",
+      "name": "_check_feedback",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        177,
+        188
+      ],
+      "summary": "Implements _check_feedback logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_check_win_rates",
+      "type": "function",
+      "name": "_check_win_rates",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        191,
+        232
+      ],
+      "summary": "Implements _check_win_rates logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_check_pipeline_integrity",
+      "type": "function",
+      "name": "_check_pipeline_integrity",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        243,
+        286
+      ],
+      "summary": "Implements _check_pipeline_integrity logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/pipeline_report.py:_run",
+      "type": "function",
+      "name": "_run",
+      "filePath": "scripts/pipeline_report.py",
+      "lineRange": [
+        291,
+        372
+      ],
+      "summary": "Implements _run logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/replay_signals.py",
+      "type": "file",
+      "name": "replay_signals.py",
+      "filePath": "scripts/replay_signals.py",
+      "summary": "Replays historical signals through the trading engine to validate signal quality and trading outcomes.",
+      "tags": [
+        "signal-replay",
+        "validation",
+        "testing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_rsi",
+      "type": "function",
+      "name": "_rsi",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        69,
+        80
+      ],
+      "summary": "Implements _rsi logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_compute_tech_score",
+      "type": "function",
+      "name": "_compute_tech_score",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        126,
+        169
+      ],
+      "summary": "Implements _compute_tech_score logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_load_db_url",
+      "type": "function",
+      "name": "_load_db_url",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        174,
+        195
+      ],
+      "summary": "Implements _load_db_url logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_load_quotes",
+      "type": "function",
+      "name": "_load_quotes",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        198,
+        208
+      ],
+      "summary": "Implements _load_quotes logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_generate_signals",
+      "type": "function",
+      "name": "_generate_signals",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        234,
+        296
+      ],
+      "summary": "Implements _generate_signals logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_insert_signals",
+      "type": "function",
+      "name": "_insert_signals",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        299,
+        328
+      ],
+      "summary": "Implements _insert_signals logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_find_price_at",
+      "type": "function",
+      "name": "_find_price_at",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        333,
+        366
+      ],
+      "summary": "Implements _find_price_at logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_fetch_inserted_signals",
+      "type": "function",
+      "name": "_fetch_inserted_signals",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        369,
+        381
+      ],
+      "summary": "Implements _fetch_inserted_signals logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_insert_outcomes",
+      "type": "function",
+      "name": "_insert_outcomes",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        384,
+        451
+      ],
+      "summary": "Implements _insert_outcomes logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        456,
+        557
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/replay_signals.py:_parse_args",
+      "type": "function",
+      "name": "_parse_args",
+      "filePath": "scripts/replay_signals.py",
+      "lineRange": [
+        560,
+        570
+      ],
+      "summary": "Implements _parse_args logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/router_walkforward.py",
+      "type": "file",
+      "name": "router_walkforward.py",
+      "filePath": "scripts/router_walkforward.py",
+      "summary": "Walk-forward validation of the signal routing engine across historical periods.",
+      "tags": [
+        "validation",
+        "backtesting",
+        "signal-router"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/router_walkforward.py:build_lift",
+      "type": "function",
+      "name": "build_lift",
+      "filePath": "scripts/router_walkforward.py",
+      "lineRange": [
+        100,
+        115
+      ],
+      "summary": "Implements build_lift logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/router_walkforward.py:route",
+      "type": "function",
+      "name": "route",
+      "filePath": "scripts/router_walkforward.py",
+      "lineRange": [
+        121,
+        134
+      ],
+      "summary": "Implements route logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/router_walkforward.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/router_walkforward.py",
+      "lineRange": [
+        137,
+        312
+      ],
+      "summary": "Implements main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/show_effective_config.py",
+      "type": "file",
+      "name": "show_effective_config.py",
+      "filePath": "scripts/show_effective_config.py",
+      "summary": "Displays the effective runtime configuration after all environment variable substitutions.",
+      "tags": [
+        "config",
+        "diagnostic",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/show_effective_config.py:_redis_url",
+      "type": "function",
+      "name": "_redis_url",
+      "filePath": "scripts/show_effective_config.py",
+      "lineRange": [
+        27,
+        65
+      ],
+      "summary": "Implements _redis_url logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/show_effective_config.py:_main",
+      "type": "function",
+      "name": "_main",
+      "filePath": "scripts/show_effective_config.py",
+      "lineRange": [
+        68,
+        97
+      ],
+      "summary": "Implements _main logic.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sql/create_analyst_role.sql",
+      "type": "table",
+      "name": "create_analyst_role.sql",
+      "filePath": "sql/create_analyst_role.sql",
+      "summary": "SQL script that creates database role for analyst users with appropriate permissions.",
+      "tags": [
+        "database",
+        "permissions",
+        "setup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/__init__.py",
+      "summary": "Python package initialization.",
+      "tags": [
+        "entry-point",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/api/__init__.py",
+      "summary": "Python package initialization.",
+      "tags": [
+        "entry-point",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cache/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/cache/__init__.py",
+      "summary": "Python package initialization.",
+      "tags": [
+        "entry-point",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/core/http_server.py",
+      "type": "file",
+      "name": "http_server.py",
+      "filePath": "src/core/http_server.py",
+      "summary": "HTTP server for API endpoints and dashboard serving.",
+      "tags": [
+        "api",
+        "server",
+        "http"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/core/http_server.py:_Handler",
+      "type": "class",
+      "name": "_Handler",
+      "filePath": "src/core/http_server.py",
+      "lineRange": [
+        38,
+        63
+      ],
+      "summary": "Data model for _Handler.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/db/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/db/__init__.py",
+      "summary": "Python package initialization.",
+      "tags": [
+        "entry-point",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/discord_bot/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/discord_bot/__init__.py",
+      "summary": "Python package initialization.",
+      "tags": [
+        "entry-point",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/git-hooks/pre-push",
+      "type": "file",
+      "name": "pre-push",
+      "filePath": "scripts/git-hooks/pre-push",
+      "summary": "Git pre-push hook that validates SQL schema consistency before commits.",
+      "tags": [
+        "git-hook",
+        "validation",
+        "ci"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:signal_edge_analyzer/requirements.txt",
+      "type": "file",
+      "name": "requirements.txt",
+      "filePath": "signal_edge_analyzer/requirements.txt",
+      "summary": "Python package dependencies for the signal edge analyzer module.",
+      "tags": [
+        "dependencies",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/api/static/dashboard.html",
+      "type": "file",
+      "name": "dashboard.html",
+      "filePath": "src/api/static/dashboard.html",
+      "summary": "Web dashboard for monitoring pipeline status, signals, and trading performance.",
+      "tags": [
+        "ui",
+        "dashboard",
+        "monitoring"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/apply_optimization.py",
+      "target": "function:scripts/apply_optimization.py:apply",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:_load_env_db_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:_build_price_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:_price_at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:_fetch_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:_run_backtest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:_print_report",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "function:scripts/backtest.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/backtest.py",
+      "target": "class:scripts/backtest.py:WindowResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:_load_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:_signed_get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:fetch_income",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:summarize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:_print_window",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:_selfcheck",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/binance_income.py",
+      "target": "function:scripts/binance_income.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_split_top_level_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_parse_create_table_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:build_schema_from_migrations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_apply_migration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_apply_alter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_extract_paren_body",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:extract_sql_strings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_mask_from_keyword_constructs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:_collect_cte_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:extract_references",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/check_sql_schema.py",
+      "target": "function:scripts/check_sql_schema.py:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/critical_watchdog.py",
+      "target": "function:scripts/critical_watchdog.py:check_money_crash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/critical_watchdog.py",
+      "target": "function:scripts/critical_watchdog.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/ingest_binance_history.py",
+      "target": "function:scripts/ingest_binance_history.py:_load_db_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/ingest_binance_history.py",
+      "target": "function:scripts/ingest_binance_history.py:_bulk_insert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/ingest_binance_history.py",
+      "target": "function:scripts/ingest_binance_history.py:_parse_candles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/ingest_binance_history.py",
+      "target": "function:scripts/ingest_binance_history.py:fetch_symbol_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/ingest_binance_history.py",
+      "target": "function:scripts/ingest_binance_history.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/ingest_binance_history.py",
+      "target": "function:scripts/ingest_binance_history.py:_parse_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/live_readiness.py",
+      "target": "function:scripts/live_readiness.py:_load_env_db_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/live_readiness.py",
+      "target": "function:scripts/live_readiness.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/live_readiness.py",
+      "target": "function:scripts/live_readiness.py:_compute_max_drawdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/meanrev_replay.py",
+      "target": "function:scripts/meanrev_replay.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/meanrev_seed_router.py",
+      "target": "function:scripts/meanrev_seed_router.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/param_sweep.py",
+      "target": "function:scripts/param_sweep.py:_evaluate_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/param_sweep.py",
+      "target": "function:scripts/param_sweep.py:run_sweep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_dsn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_check_providers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_check_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_check_evaluations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_check_feedback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_check_win_rates",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_check_pipeline_integrity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/pipeline_report.py",
+      "target": "function:scripts/pipeline_report.py:_run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_rsi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_compute_tech_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_load_db_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_load_quotes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_generate_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_insert_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_find_price_at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_fetch_inserted_signals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_insert_outcomes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/replay_signals.py",
+      "target": "function:scripts/replay_signals.py:_parse_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/router_walkforward.py",
+      "target": "function:scripts/router_walkforward.py:build_lift",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/router_walkforward.py",
+      "target": "function:scripts/router_walkforward.py:route",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/router_walkforward.py",
+      "target": "function:scripts/router_walkforward.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/show_effective_config.py",
+      "target": "function:scripts/show_effective_config.py:_redis_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:scripts/show_effective_config.py",
+      "target": "function:scripts/show_effective_config.py:_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/core/http_server.py",
+      "target": "class:src/core/http_server.py:_Handler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

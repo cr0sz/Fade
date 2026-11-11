@@ -1,0 +1,14 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {
+      "path": "paper_trading_engine/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 20,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    "paper_trading_engine/Dockerfile": []
+  }
+}

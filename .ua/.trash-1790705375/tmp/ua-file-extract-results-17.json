@@ -1,0 +1,1081 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [
+    "requirements-dev.txt",
+    "requirements.txt"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 5
+    }
+  },
+  "results": [
+    {
+      "path": ".env.example",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 491,
+      "nonEmptyLines": 406,
+      "definitions": [
+        {
+          "name": "APP_NAME",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "APP_VERSION",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "DEBUG",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "LOG_LEVEL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "DASHBOARD_TOKEN",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "TRADING_MODE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 33,
+          "endLine": 33
+        },
+        {
+          "name": "MAX_DAILY_LOSS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "BINANCE_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 43,
+          "endLine": 43
+        },
+        {
+          "name": "BINANCE_API_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 44,
+          "endLine": 44
+        },
+        {
+          "name": "BINANCE_TESTNET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 45,
+          "endLine": 45
+        },
+        {
+          "name": "ALPACA_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "ALPACA_API_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 53,
+          "endLine": 53
+        },
+        {
+          "name": "ALPACA_BASE_URL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "POSTGRES_HOST",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "POSTGRES_PORT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 58,
+          "endLine": 58
+        },
+        {
+          "name": "POSTGRES_DB",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 59,
+          "endLine": 59
+        },
+        {
+          "name": "POSTGRES_USER",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 60,
+          "endLine": 60
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 61,
+          "endLine": 61
+        },
+        {
+          "name": "REDIS_HOST",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 64,
+          "endLine": 64
+        },
+        {
+          "name": "REDIS_PORT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 65,
+          "endLine": 65
+        },
+        {
+          "name": "REDIS_DB",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 66,
+          "endLine": 66
+        },
+        {
+          "name": "REDIS_PASSWORD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 67,
+          "endLine": 67
+        },
+        {
+          "name": "DAILY_BUDGET_USD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 71,
+          "endLine": 71
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 76,
+          "endLine": 76
+        },
+        {
+          "name": "OPENAI_MODEL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 77,
+          "endLine": 77
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 81,
+          "endLine": 81
+        },
+        {
+          "name": "ANTHROPIC_MODEL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 82,
+          "endLine": 82
+        },
+        {
+          "name": "POLYGON_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 87,
+          "endLine": 87
+        },
+        {
+          "name": "FINNHUB_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 91,
+          "endLine": 91
+        },
+        {
+          "name": "ALPHA_VANTAGE_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 95,
+          "endLine": 95
+        },
+        {
+          "name": "NEWSAPI_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 100,
+          "endLine": 100
+        },
+        {
+          "name": "BLOOMBERG_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 104,
+          "endLine": 104
+        },
+        {
+          "name": "REUTERS_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 114,
+          "endLine": 114
+        },
+        {
+          "name": "DEDUP_USE_EMBEDDINGS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 119,
+          "endLine": 119
+        },
+        {
+          "name": "DEDUP_SEMANTIC_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 120,
+          "endLine": 120
+        },
+        {
+          "name": "CIRCUIT_FAILURE_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 124,
+          "endLine": 124
+        },
+        {
+          "name": "CIRCUIT_RECOVERY_TIMEOUT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 126,
+          "endLine": 126
+        },
+        {
+          "name": "REDDIT_CLIENT_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 130,
+          "endLine": 130
+        },
+        {
+          "name": "REDDIT_CLIENT_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 131,
+          "endLine": 131
+        },
+        {
+          "name": "REDDIT_USER_AGENT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 132,
+          "endLine": 132
+        },
+        {
+          "name": "TWITTER_BEARER_TOKEN",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 135,
+          "endLine": 135
+        },
+        {
+          "name": "TWITTER_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 136,
+          "endLine": 136
+        },
+        {
+          "name": "TWITTER_API_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 137,
+          "endLine": 137
+        },
+        {
+          "name": "TWITTER_ACCESS_TOKEN",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 138,
+          "endLine": 138
+        },
+        {
+          "name": "TWITTER_ACCESS_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 139,
+          "endLine": 139
+        },
+        {
+          "name": "WHALE_ALERT_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 144,
+          "endLine": 144
+        },
+        {
+          "name": "SEC_EDGAR_USER_AGENT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 148,
+          "endLine": 148
+        },
+        {
+          "name": "DISCORD_BOT_TOKEN",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 152,
+          "endLine": 152
+        },
+        {
+          "name": "DISCORD_GUILD_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 154,
+          "endLine": 154
+        },
+        {
+          "name": "DISCORD_ADMIN_USER_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 156,
+          "endLine": 156
+        },
+        {
+          "name": "SCHEDULER_NEWS_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 159,
+          "endLine": 159
+        },
+        {
+          "name": "SCHEDULER_SOCIAL_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 160,
+          "endLine": 160
+        },
+        {
+          "name": "SCHEDULER_SMART_MONEY_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 161,
+          "endLine": 161
+        },
+        {
+          "name": "SCHEDULER_AI_DIGEST_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 162,
+          "endLine": 162
+        },
+        {
+          "name": "SCHEDULER_TREND_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 163,
+          "endLine": 163
+        },
+        {
+          "name": "NEWS_RETENTION_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 166,
+          "endLine": 166
+        },
+        {
+          "name": "SOCIAL_RETENTION_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 167,
+          "endLine": 167
+        },
+        {
+          "name": "NOISE_MIN_ENGAGEMENT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 171,
+          "endLine": 171
+        },
+        {
+          "name": "NOISE_BOT_BURST_WINDOW",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 173,
+          "endLine": 173
+        },
+        {
+          "name": "NOISE_BOT_BURST_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 175,
+          "endLine": 175
+        },
+        {
+          "name": "TREND_SMOOTHING_ALPHA",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 179,
+          "endLine": 179
+        },
+        {
+          "name": "TREND_VOLATILITY_DAMPENING",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 181,
+          "endLine": 181
+        },
+        {
+          "name": "TREND_SMOOTHING_REDIS_TTL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 183,
+          "endLine": 183
+        },
+        {
+          "name": "FLOW_ANALYSIS_WINDOW_HOURS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 187,
+          "endLine": 187
+        },
+        {
+          "name": "FLOW_PERSISTENCE_HISTORY_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 189,
+          "endLine": 189
+        },
+        {
+          "name": "FLOW_ACCELERATION_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 191,
+          "endLine": 191
+        },
+        {
+          "name": "ETF_ROTATION_VELOCITY_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 194,
+          "endLine": 194
+        },
+        {
+          "name": "MACRO_REGIME_SHIFT_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 197,
+          "endLine": 197
+        },
+        {
+          "name": "SCHEDULER_INTELLIGENCE_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 200,
+          "endLine": 200
+        },
+        {
+          "name": "VALIDATION_ENABLED",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 204,
+          "endLine": 204
+        },
+        {
+          "name": "BACKTEST_WINDOW_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 207,
+          "endLine": 207
+        },
+        {
+          "name": "SIGNAL_RETENTION_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 210,
+          "endLine": 210
+        },
+        {
+          "name": "ARCHIVER_BATCH_SIZE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 213,
+          "endLine": 213
+        },
+        {
+          "name": "ARCHIVER_POLL_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 216,
+          "endLine": 216
+        },
+        {
+          "name": "BACKTEST_EVAL_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 219,
+          "endLine": 219
+        },
+        {
+          "name": "GRAFANA_USER",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 222,
+          "endLine": 222
+        },
+        {
+          "name": "GRAFANA_PASSWORD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 223,
+          "endLine": 223
+        },
+        {
+          "name": "PROMETHEUS_RETENTION",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 226,
+          "endLine": 226
+        },
+        {
+          "name": "ALERT_CHECK_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 231,
+          "endLine": 231
+        },
+        {
+          "name": "ALERT_COOLDOWN_HOURS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 234,
+          "endLine": 234
+        },
+        {
+          "name": "ALERT_PRECISION_DROP_HIGH",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 237,
+          "endLine": 237
+        },
+        {
+          "name": "ALERT_PRECISION_DROP_CRITICAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 238,
+          "endLine": 238
+        },
+        {
+          "name": "ALERT_CALIBRATION_DRIFT_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 241,
+          "endLine": 241
+        },
+        {
+          "name": "ALERT_FP_RATE_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 244,
+          "endLine": 244
+        },
+        {
+          "name": "ALERT_REPLAY_FAILURE_HIGH",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 247,
+          "endLine": 247
+        },
+        {
+          "name": "ALERT_REPLAY_FAILURE_CRITICAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 248,
+          "endLine": 248
+        },
+        {
+          "name": "ALERT_COVERAGE_GAP_HIGH",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 251,
+          "endLine": 251
+        },
+        {
+          "name": "ALERT_COVERAGE_GAP_CRITICAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 252,
+          "endLine": 252
+        },
+        {
+          "name": "GOVERNANCE_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 257,
+          "endLine": 257
+        },
+        {
+          "name": "GOVERNANCE_PERIOD_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 260,
+          "endLine": 260
+        },
+        {
+          "name": "ALERT_INSTABILITY_DROP",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 265,
+          "endLine": 265
+        },
+        {
+          "name": "ALERT_RECOVERY_FAIL_WEEKS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 268,
+          "endLine": 268
+        },
+        {
+          "name": "ALERT_DEGRADATION_ACCEL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 271,
+          "endLine": 271
+        },
+        {
+          "name": "ALERT_NARRATIVE_COLLAPSE_FROM",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 274,
+          "endLine": 274
+        },
+        {
+          "name": "ALERT_NARRATIVE_COLLAPSE_TO",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 277,
+          "endLine": 277
+        },
+        {
+          "name": "ALERT_CONFIDENCE_INCONSISTENCY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 280,
+          "endLine": 280
+        },
+        {
+          "name": "META_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 285,
+          "endLine": 285
+        },
+        {
+          "name": "META_MEMORY_WINDOW_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 288,
+          "endLine": 288
+        },
+        {
+          "name": "ALERT_RECURRING_FAILURE_MIN",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 293,
+          "endLine": 293
+        },
+        {
+          "name": "ALERT_META_MEMORY_WINDOW_DAYS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 296,
+          "endLine": 296
+        },
+        {
+          "name": "ALERT_TRANSITION_INSTABILITY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 299,
+          "endLine": 299
+        },
+        {
+          "name": "ALERT_NARRATIVE_DECAY_VELOCITY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 302,
+          "endLine": 302
+        },
+        {
+          "name": "ALERT_GOVERNANCE_STRESS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 305,
+          "endLine": 305
+        },
+        {
+          "name": "ALERT_STRATEGIC_INSTABILITY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 308,
+          "endLine": 308
+        },
+        {
+          "name": "DISCORD_WEBHOOK_JOBS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 311,
+          "endLine": 311
+        },
+        {
+          "name": "JOB_SCRAPER_SCORE_THRESHOLD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 312,
+          "endLine": 312
+        },
+        {
+          "name": "JOB_SCRAPER_INTERVAL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 313,
+          "endLine": 313
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 107
+      }
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "Market Intelligence — Claude Code instructions",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Model economy (user is on the $20 Pro plan — usage is scarce)",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Hard rules",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Quick facts",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Graphify (knowledge graph — second brain)",
+          "level": 2,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "Makefile",
+      "language": "makefile",
+      "fileCategory": "infra",
+      "totalLines": 108,
+      "nonEmptyLines": 93,
+      "steps": [
+        {
+          "name": "help",
+          "startLine": 16,
+          "endLine": 31
+        },
+        {
+          "name": "preflight",
+          "startLine": 33,
+          "endLine": 35
+        },
+        {
+          "name": "check-sql",
+          "startLine": 38,
+          "endLine": 40
+        },
+        {
+          "name": "up",
+          "startLine": 42,
+          "endLine": 53
+        },
+        {
+          "name": "down",
+          "startLine": 55,
+          "endLine": 58
+        },
+        {
+          "name": "restart",
+          "startLine": 60,
+          "endLine": 61
+        },
+        {
+          "name": "build",
+          "startLine": 63,
+          "endLine": 66
+        },
+        {
+          "name": "logs",
+          "startLine": 69,
+          "endLine": 71
+        },
+        {
+          "name": "health",
+          "startLine": 73,
+          "endLine": 76
+        },
+        {
+          "name": "verify",
+          "startLine": 81,
+          "endLine": 84
+        },
+        {
+          "name": "test",
+          "startLine": 89,
+          "endLine": 92
+        },
+        {
+          "name": "reset",
+          "startLine": 94,
+          "endLine": 109
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "stepCount": 12
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 239,
+      "nonEmptyLines": 163,
+      "sections": [
+        {
+          "heading": "Fade",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "How it works",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Major subsystems (`src/engines/`)",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Trading execution (`paper_trading_engine/`)",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "Stack",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Setup",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "1. Clone and configure",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "2. Validate and start",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "3. Confirm it's alive",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "4. What \"working\" looks like",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 151
+        },
+        {
+          "heading": "Dashboard",
+          "level": 3,
+          "line": 153
+        },
+        {
+          "heading": "Discord bot",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "Paper trading (default, safe)",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "Going live",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "Running tests",
+          "level": 3,
+          "line": 178
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 3,
+          "line": 192
+        },
+        {
+          "heading": "Repository layout",
+          "level": 2,
+          "line": 200
+        },
+        {
+          "heading": "Built with Claude Code",
+          "level": 2,
+          "line": 216
+        },
+        {
+          "heading": "License",
+          "level": 2,
+          "line": 225
+        },
+        {
+          "heading": "Known gaps",
+          "level": 2,
+          "line": 229
+        },
+        {
+          "heading": "Safety notes",
+          "level": 2,
+          "line": 235
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 944,
+      "nonEmptyLines": 890,
+      "sections": [
+        {
+          "heading": "x-common-env",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "x-restart",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "x-restart-worker",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "x-logging",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 934
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    }
+  ]
+}

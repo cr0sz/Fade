@@ -1,0 +1,41 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "scripts/backfill_news.py", "language": "python", "sizeLines": 94, "fileCategory": "code"},
+    {"path": "src/engines/deduplication.py", "language": "python", "sizeLines": 224, "fileCategory": "code"},
+    {"path": "src/engines/news_intelligence.py", "language": "python", "sizeLines": 571, "fileCategory": "code"},
+    {"path": "src/models/news.py", "language": "python", "sizeLines": 34, "fileCategory": "code"},
+    {"path": "src/providers/base.py", "language": "python", "sizeLines": 40, "fileCategory": "code"},
+    {"path": "src/providers/news/__init__.py", "language": "python", "sizeLines": 37, "fileCategory": "code"},
+    {"path": "src/providers/news/bloomberg.py", "language": "python", "sizeLines": 179, "fileCategory": "code"},
+    {"path": "src/providers/news/cnbc.py", "language": "python", "sizeLines": 185, "fileCategory": "code"},
+    {"path": "src/providers/news/crypto_rss.py", "language": "python", "sizeLines": 213, "fileCategory": "code"},
+    {"path": "src/providers/news/cryptopanic.py", "language": "python", "sizeLines": 170, "fileCategory": "code"},
+    {"path": "src/providers/news/ft.py", "language": "python", "sizeLines": 181, "fileCategory": "code"},
+    {"path": "src/providers/news/newsapi.py", "language": "python", "sizeLines": 126, "fileCategory": "code"},
+    {"path": "src/providers/news/reddit_rss.py", "language": "python", "sizeLines": 239, "fileCategory": "code"},
+    {"path": "src/providers/news/reuters.py", "language": "python", "sizeLines": 32, "fileCategory": "code"},
+    {"path": "src/providers/news/turkish_rss.py", "language": "python", "sizeLines": 249, "fileCategory": "code"},
+    {"path": "src/providers/news/yahoo_finance_rss.py", "language": "python", "sizeLines": 246, "fileCategory": "code"},
+    {"path": "src/providers/resilience.py", "language": "python", "sizeLines": 275, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "scripts/backfill_news.py": ["src/core/logging.py", "src/db/connection.py", "src/engines/news_intelligence.py", "src/providers/ai/ollama_provider.py"],
+    "src/engines/deduplication.py": ["src/core/config.py", "src/core/logging.py"],
+    "src/engines/news_intelligence.py": ["src/core/config.py", "src/core/logging.py", "src/db/repositories/__init__.py", "src/engines/deduplication.py", "src/models/news.py", "src/providers/news/__init__.py", "src/providers/resilience.py"],
+    "src/models/news.py": [],
+    "src/providers/base.py": [],
+    "src/providers/news/__init__.py": ["src/providers/news/bloomberg.py", "src/providers/news/cnbc.py", "src/providers/news/crypto_rss.py", "src/providers/news/cryptopanic.py", "src/providers/news/ft.py", "src/providers/news/newsapi.py", "src/providers/news/reddit_rss.py", "src/providers/news/reuters.py", "src/providers/news/turkish_rss.py", "src/providers/news/yahoo_finance_rss.py"],
+    "src/providers/news/bloomberg.py": ["src/core/config.py", "src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/cnbc.py": ["src/core/config.py", "src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/crypto_rss.py": ["src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/cryptopanic.py": ["src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/ft.py": ["src/core/config.py", "src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/newsapi.py": ["src/core/config.py", "src/core/logging.py", "src/models/news.py", "src/providers/base.py"],
+    "src/providers/news/reddit_rss.py": ["src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/reuters.py": ["src/core/logging.py", "src/models/news.py", "src/providers/base.py"],
+    "src/providers/news/turkish_rss.py": ["src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/news/yahoo_finance_rss.py": ["src/core/logging.py", "src/models/news.py", "src/providers/base.py", "src/providers/resilience.py"],
+    "src/providers/resilience.py": ["src/core/logging.py"]
+  }
+}

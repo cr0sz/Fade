@@ -1,0 +1,3466 @@
+{
+  "scriptCompleted": true,
+  "entryPointCandidates": [
+    {
+      "id": "document:README.md",
+      "score": 5,
+      "name": "README.md",
+      "summary": "Comprehensive project documentation describing the market intelligence pipeline architecture (6 engine layers), tech stack, setup guide for macOS/Linux/Windows (WSL), usage instructions, troubleshooting, and repository structure."
+    },
+    {
+      "id": "file:src/freetime_researcher/main.py",
+      "score": 5,
+      "name": "main.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    {
+      "id": "file:src/watchdog/main.py",
+      "score": 5,
+      "name": "main.py",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    {
+      "id": "file:paper_trading_engine/main.py",
+      "score": 4,
+      "name": "main.py",
+      "summary": "Paper trading engine main entry point bootstrapping the trading infrastructure, establishing database and Redis connections, initializing the trading engine with metrics instrumentation, and exposing HTTP health/readiness endpoints."
+    },
+    {
+      "id": "file:signal_edge_analyzer/main.py",
+      "score": 4,
+      "name": "main.py",
+      "summary": "Application entry point that bootstraps the service, configures logging, starts HTTP health endpoints, manages database/Redis connections, and runs the scheduler."
+    }
+  ],
+  "namedRuntimeEntries": [
+    {
+      "id": "file:src/api/main.py",
+      "name": "main.py",
+      "fanIn": 1,
+      "fanOut": 15
+    },
+    {
+      "id": "file:src/scheduler/worker.py",
+      "name": "worker.py",
+      "fanIn": 0,
+      "fanOut": 21
+    },
+    {
+      "id": "file:paper_trading_engine/main.py",
+      "name": "main.py",
+      "fanIn": 7,
+      "fanOut": 0
+    }
+  ],
+  "fanInRanking": [
+    {
+      "id": "file:src/core/logging.py",
+      "fanIn": 89,
+      "name": "logging.py"
+    },
+    {
+      "id": "file:src/core/config.py",
+      "fanIn": 34,
+      "name": "config.py"
+    },
+    {
+      "id": "file:src/providers/base.py",
+      "fanIn": 23,
+      "name": "base.py"
+    },
+    {
+      "id": "file:src/models/market.py",
+      "fanIn": 18,
+      "name": "market.py"
+    },
+    {
+      "id": "file:src/models/news.py",
+      "fanIn": 13,
+      "name": "news.py"
+    },
+    {
+      "id": "file:src/cache/redis_client.py",
+      "fanIn": 11,
+      "name": "redis_client.py"
+    },
+    {
+      "id": "file:src/core/__init__.py",
+      "fanIn": 10,
+      "name": "__init__.py"
+    },
+    {
+      "id": "file:src/db/connection.py",
+      "fanIn": 10,
+      "name": "connection.py"
+    },
+    {
+      "id": "file:src/providers/resilience.py",
+      "fanIn": 10,
+      "name": "resilience.py"
+    },
+    {
+      "id": "file:monitoring/homepage/index.html",
+      "fanIn": 8,
+      "name": "index.html"
+    },
+    {
+      "id": "file:src/core/cost_control.py",
+      "fanIn": 8,
+      "name": "cost_control.py"
+    },
+    {
+      "id": "file:src/db/repositories/__init__.py",
+      "fanIn": 8,
+      "name": "__init__.py"
+    },
+    {
+      "id": "file:paper_trading_engine/main.py",
+      "fanIn": 7,
+      "name": "main.py"
+    },
+    {
+      "id": "file:paper_trading_engine/brokers/base.py",
+      "fanIn": 6,
+      "name": "base.py"
+    },
+    {
+      "id": "file:src/models/social.py",
+      "fanIn": 6,
+      "name": "social.py"
+    },
+    {
+      "id": "file:src/validation/metrics.py",
+      "fanIn": 6,
+      "name": "metrics.py"
+    },
+    {
+      "id": "file:src/providers/ai/openai_provider.py",
+      "fanIn": 5,
+      "name": "openai_provider.py"
+    },
+    {
+      "id": "file:paper_trading_engine/meta_strategy.py",
+      "fanIn": 4,
+      "name": "meta_strategy.py"
+    },
+    {
+      "id": "file:signal_edge_analyzer/models.py",
+      "fanIn": 4,
+      "name": "models.py"
+    },
+    {
+      "id": "file:src/core/signal_tracer.py",
+      "fanIn": 4,
+      "name": "signal_tracer.py"
+    }
+  ],
+  "fanOutRanking": [
+    {
+      "id": "file:src/scheduler/worker.py",
+      "fanOut": 21,
+      "name": "worker.py"
+    },
+    {
+      "id": "file:paper_trading_engine/engine.py",
+      "fanOut": 15,
+      "name": "engine.py"
+    },
+    {
+      "id": "file:src/api/main.py",
+      "fanOut": 15,
+      "name": "main.py"
+    },
+    {
+      "id": "file:src/api/validation_main.py",
+      "fanOut": 12,
+      "name": "validation_main.py"
+    },
+    {
+      "id": "file:src/discord_bot/handlers.py",
+      "fanOut": 12,
+      "name": "handlers.py"
+    },
+    {
+      "id": "file:src/providers/news/__init__.py",
+      "fanOut": 10,
+      "name": "__init__.py"
+    },
+    {
+      "id": "file:src/engines/trend_detection.py",
+      "fanOut": 9,
+      "name": "trend_detection.py"
+    },
+    {
+      "id": "table:migrations/001_initial.sql",
+      "fanOut": 8,
+      "name": "001_initial.sql"
+    },
+    {
+      "id": "file:src/engines/news_intelligence.py",
+      "fanOut": 7,
+      "name": "news_intelligence.py"
+    },
+    {
+      "id": "file:src/engines/sentiment_engine.py",
+      "fanOut": 7,
+      "name": "sentiment_engine.py"
+    },
+    {
+      "id": "file:src/freetime_researcher/main.py",
+      "fanOut": 7,
+      "name": "main.py"
+    },
+    {
+      "id": "file:src/watchdog/main.py",
+      "fanOut": 7,
+      "name": "main.py"
+    },
+    {
+      "id": "file:src/engines/ai_analyst.py",
+      "fanOut": 6,
+      "name": "ai_analyst.py"
+    },
+    {
+      "id": "file:src/validation/signal_archiver.py",
+      "fanOut": 6,
+      "name": "signal_archiver.py"
+    },
+    {
+      "id": "file:signal_edge_analyzer/scheduler.py",
+      "fanOut": 5,
+      "name": "scheduler.py"
+    },
+    {
+      "id": "file:src/api/routes/market.py",
+      "fanOut": 5,
+      "name": "market.py"
+    },
+    {
+      "id": "file:src/core/llm.py",
+      "fanOut": 5,
+      "name": "llm.py"
+    },
+    {
+      "id": "file:src/providers/__init__.py",
+      "fanOut": 5,
+      "name": "__init__.py"
+    },
+    {
+      "id": "file:src/providers/market/__init__.py",
+      "fanOut": 5,
+      "name": "__init__.py"
+    },
+    {
+      "id": "file:src/providers/news/bloomberg.py",
+      "fanOut": 5,
+      "name": "bloomberg.py"
+    }
+  ],
+  "bfsTraversal": {
+    "startNode": "file:src/freetime_researcher/main.py",
+    "order": [
+      "file:src/freetime_researcher/main.py",
+      "file:src/cache/redis_client.py",
+      "file:src/core/logging.py",
+      "file:src/db/connection.py",
+      "file:src/freetime_researcher/__init__.py",
+      "file:src/freetime_researcher/arbitration.py",
+      "file:src/freetime_researcher/notify.py",
+      "file:src/freetime_researcher/sweep.py",
+      "file:src/core/config.py",
+      "file:src/core/discord.py"
+    ],
+    "depthMap": {
+      "file:src/freetime_researcher/main.py": 0,
+      "file:src/cache/redis_client.py": 1,
+      "file:src/core/logging.py": 1,
+      "file:src/db/connection.py": 1,
+      "file:src/freetime_researcher/__init__.py": 1,
+      "file:src/freetime_researcher/arbitration.py": 1,
+      "file:src/freetime_researcher/notify.py": 1,
+      "file:src/freetime_researcher/sweep.py": 1,
+      "file:src/core/config.py": 2,
+      "file:src/core/discord.py": 2
+    },
+    "byDepth": {
+      "0": [
+        "file:src/freetime_researcher/main.py"
+      ],
+      "1": [
+        "file:src/cache/redis_client.py",
+        "file:src/core/logging.py",
+        "file:src/db/connection.py",
+        "file:src/freetime_researcher/__init__.py",
+        "file:src/freetime_researcher/arbitration.py",
+        "file:src/freetime_researcher/notify.py",
+        "file:src/freetime_researcher/sweep.py"
+      ],
+      "2": [
+        "file:src/core/config.py",
+        "file:src/core/discord.py"
+      ]
+    }
+  },
+  "bfsByNamedEntry": {
+    "file:src/api/main.py": {
+      "reached": 46,
+      "byDepth": {
+        "0": [
+          "file:src/api/main.py"
+        ],
+        "1": [
+          "file:src/api/routes/__init__.py",
+          "file:src/api/routes/dashboard.py",
+          "file:src/api/routes/edge_intelligence.py",
+          "file:src/api/routes/health.py",
+          "file:src/api/routes/intelligence.py",
+          "file:src/api/routes/market.py",
+          "file:src/api/routes/news.py",
+          "file:src/api/routes/sentiment.py",
+          "file:src/api/routes/trends.py",
+          "file:src/cache/redis_client.py",
+          "file:src/core/config.py",
+          "file:src/core/cost_control.py",
+          "file:src/core/logging.py",
+          "file:src/core/metrics.py",
+          "file:src/db/connection.py"
+        ],
+        "2": [
+          "file:src/providers/resilience.py",
+          "file:src/engines/institutional_confluence_engine.py",
+          "file:src/engines/institutional_flow_engine.py",
+          "file:src/engines/macro_regime_engine.py",
+          "file:src/engines/ai_analyst.py",
+          "file:src/engines/trend_detection.py",
+          "file:src/providers/market/finnhub.py",
+          "file:src/db/repositories/__init__.py",
+          "file:src/engines/sentiment_engine.py",
+          "file:src/engines/narrative_engine.py"
+        ],
+        "3": [
+          "file:src/core/signal_tracer.py",
+          "file:src/models/market.py",
+          "file:src/providers/ai/__init__.py",
+          "file:src/providers/ai/openai_provider.py",
+          "file:src/engines/confidence_engine.py",
+          "file:src/engines/technical_engine.py",
+          "file:src/providers/social/fear_greed.py",
+          "file:src/providers/base.py",
+          "file:src/db/repositories/market.py",
+          "file:src/db/repositories/news.py",
+          "file:src/db/repositories/social.py",
+          "file:src/engines/noise_filter.py",
+          "file:src/models/social.py",
+          "file:src/providers/social/__init__.py"
+        ],
+        "4": [
+          "file:src/providers/ai/anthropic_provider.py",
+          "file:src/providers/ai/ollama_provider.py",
+          "file:src/models/news.py",
+          "file:src/providers/social/cryptopanic_social.py",
+          "file:src/providers/social/reddit.py",
+          "file:src/providers/social/twitter.py"
+        ]
+      }
+    },
+    "file:src/scheduler/worker.py": {
+      "reached": 59,
+      "byDepth": {
+        "0": [
+          "file:src/scheduler/worker.py"
+        ],
+        "1": [
+          "file:src/cache/redis_client.py",
+          "file:src/core/config.py",
+          "file:src/core/cost_control.py",
+          "file:src/core/logging.py",
+          "file:src/core/metrics.py",
+          "file:src/db/connection.py",
+          "file:src/engines/feedback_aggregator.py",
+          "file:src/engines/institutional_confluence_engine.py",
+          "file:src/engines/institutional_flow_engine.py",
+          "file:src/engines/macro_regime_engine.py",
+          "file:src/engines/mean_reversion_engine.py",
+          "file:src/engines/news_intelligence.py",
+          "file:src/engines/sentiment_engine.py",
+          "file:src/engines/signal_evaluation_engine.py",
+          "file:src/engines/smart_money.py",
+          "file:src/engines/trend_detection.py",
+          "file:src/providers/market/coingecko.py",
+          "file:src/providers/market/finnhub.py",
+          "file:src/scheduler/jobs/daily_brief.py",
+          "file:src/scheduler/jobs/executive_report.py",
+          "file:src/scheduler/jobs/trading_journal.py"
+        ],
+        "2": [
+          "file:src/core/__init__.py",
+          "file:src/core/signal_tracer.py",
+          "file:src/models/market.py",
+          "file:src/db/repositories/__init__.py",
+          "file:src/engines/deduplication.py",
+          "file:src/models/news.py",
+          "file:src/providers/news/__init__.py",
+          "file:src/providers/resilience.py",
+          "file:src/engines/noise_filter.py",
+          "file:src/models/social.py",
+          "file:src/providers/social/__init__.py",
+          "file:src/providers/smart_money/__init__.py",
+          "file:src/engines/confidence_engine.py",
+          "file:src/engines/narrative_engine.py",
+          "file:src/engines/technical_engine.py",
+          "file:src/providers/social/fear_greed.py",
+          "file:src/providers/base.py"
+        ],
+        "3": [
+          "file:src/db/repositories/market.py",
+          "file:src/db/repositories/news.py",
+          "file:src/db/repositories/social.py",
+          "file:src/providers/news/bloomberg.py",
+          "file:src/providers/news/cnbc.py",
+          "file:src/providers/news/crypto_rss.py",
+          "file:src/providers/news/cryptopanic.py",
+          "file:src/providers/news/ft.py",
+          "file:src/providers/news/newsapi.py",
+          "file:src/providers/news/reddit_rss.py",
+          "file:src/providers/news/reuters.py",
+          "file:src/providers/news/turkish_rss.py",
+          "file:src/providers/news/yahoo_finance_rss.py",
+          "file:src/providers/social/cryptopanic_social.py",
+          "file:src/providers/social/reddit.py",
+          "file:src/providers/social/twitter.py",
+          "file:src/providers/smart_money/funding_flow.py",
+          "file:src/providers/smart_money/options_flow.py",
+          "file:src/providers/smart_money/sec_edgar.py",
+          "file:src/providers/smart_money/whale_alert.py"
+        ]
+      }
+    },
+    "file:paper_trading_engine/main.py": {
+      "reached": 1,
+      "byDepth": {
+        "0": [
+          "file:paper_trading_engine/main.py"
+        ]
+      }
+    }
+  },
+  "nonCodeFiles": {
+    "documentation": [
+      {
+        "id": "document:.claude/runbooks/add_ai_model.md",
+        "name": "add_ai_model.md",
+        "type": "document",
+        "summary": "Runbook for integrating new LLM providers into the AI Analyst Engine, covering provider implementation, pricing configuration, routing setup, and validation procedures."
+      },
+      {
+        "id": "document:.claude/runbooks/add_news_source.md",
+        "name": "add_news_source.md",
+        "type": "document",
+        "summary": "Operational guide for adding new news data providers to the News Intelligence Engine, including provider file creation, configuration, registry registration, and testing procedures."
+      },
+      {
+        "id": "document:.claude/runbooks/add_provider.md",
+        "name": "add_provider.md",
+        "type": "document",
+        "summary": "Generic runbook template for adding any provider category (news, social, AI, ticker) to the platform, with routing between category-specific guides and common integration patterns."
+      },
+      {
+        "id": "document:.claude/runbooks/add_social_source.md",
+        "name": "add_social_source.md",
+        "type": "document",
+        "summary": "Runbook for onboarding social media intelligence sources, covering provider implementation, community tracking, sentiment engine integration, rate limiting, and authentication setup."
+      },
+      {
+        "id": "document:.claude/runbooks/add_ticker_source.md",
+        "name": "add_ticker_source.md",
+        "type": "document",
+        "summary": "Guide for populating ticker/symbol data for US equities and BIST, including schema design, data source integration (Polygon.io, Finnhub), sector mapping, and verification procedures."
+      },
+      {
+        "id": "document:.claude/runbooks/backtesting_replay.md",
+        "name": "backtesting_replay.md",
+        "type": "document",
+        "summary": "Complete operational guide for the backtesting and replay system, covering manual replay execution via API/Redis/Python, monitoring, auto-scheduling, troubleshooting, and rollback procedures."
+      },
+      {
+        "id": "document:.claude/runbooks/calibration_governance.md",
+        "name": "calibration_governance.md",
+        "type": "document",
+        "summary": "Runbook for managing signal confidence calibration across engines, including diagnosis of miscalibration, confidence tier analysis, trend review, and recovery procedures for over/underconfident engines."
+      },
+      {
+        "id": "document:.claude/runbooks/debug_pipeline.md",
+        "name": "debug_pipeline.md",
+        "type": "document",
+        "summary": "Diagnostic guide for troubleshooting pipeline issues using a decision tree, with targeted debugging procedures for service health, providers, database, normalization, engines, and cost tracking."
+      },
+      {
+        "id": "document:.claude/runbooks/deploy_production.md",
+        "name": "deploy_production.md",
+        "type": "document",
+        "summary": "Complete production deployment guide covering server setup, configuration, Docker build/start, verification, log rotation, systemd service, and update procedures for the market intelligence platform."
+      },
+      {
+        "id": "document:.claude/runbooks/governance_optimization.md",
+        "name": "governance_optimization.md",
+        "type": "document",
+        "summary": "Operational guide for the Governance Optimization Engine that filters signals with a trust score formula, including components, recommendation types, monitoring, acknowledgment procedures, and alert types."
+      },
+      {
+        "id": "document:.claude/runbooks/improve_sentiment_engine.md",
+        "name": "improve_sentiment_engine.md",
+        "type": "document",
+        "summary": "Runbook for tuning the sentiment analysis system, covering VADER lexicon optimization, FinBERT replacement, LLM prompt improvement, contrarian signal detection, and velocity calculation enhancements."
+      },
+      {
+        "id": "document:.claude/runbooks/regime_transition_analysis.md",
+        "name": "regime_transition_analysis.md",
+        "type": "document",
+        "summary": "Runbook for analyzing market regime transitions and engine fragility, including key metrics, dangerous transition pairs, investigation procedures for instability warnings, and post-transition monitoring."
+      },
+      {
+        "id": "document:.claude/runbooks/strategic_memory.md",
+        "name": "strategic_memory.md",
+        "type": "document",
+        "summary": "Operational guide for the Strategic Memory and Meta-Intelligence system covering components, API endpoints, monitoring dashboards, alert types, key metrics interpretation, and operational procedures."
+      },
+      {
+        "id": "document:.claude/runbooks/validation_alert.md",
+        "name": "validation_alert.md",
+        "type": "document",
+        "summary": "Runbook for the Validation Alert Engine that monitors signal quality and system health, defining 8 alert types (precision collapse, calibration drift, replay failure, coverage gaps), configuration, and resolution procedures."
+      },
+      {
+        "id": "document:CLAUDE.md",
+        "name": "CLAUDE.md",
+        "type": "document",
+        "summary": "Claude Code project instructions covering model economy strategies, hard rules for trading safety (TRADING_MODE guardrails), database/CLI quick facts, and knowledge graph usage via Graphify."
+      },
+      {
+        "id": "document:README.md",
+        "name": "README.md",
+        "type": "document",
+        "summary": "Comprehensive project documentation describing the market intelligence pipeline architecture (6 engine layers), tech stack, setup guide for macOS/Linux/Windows (WSL), usage instructions, troubleshooting, and repository structure."
+      },
+      {
+        "id": "document:requirements.txt",
+        "name": "requirements.txt",
+        "type": "document",
+        "summary": "Production Python dependencies including FastAPI/uvicorn (web framework), asyncpg/redis (persistence), aiohttp/httpx (networking), Discord.py (bot), OpenAI/Anthropic (AI), and market data clients (yfinance)."
+      },
+      {
+        "id": "document:requirements-dev.txt",
+        "name": "requirements-dev.txt",
+        "type": "document",
+        "summary": "Development testing dependencies with pytest as the unit test framework, intended to be installed alongside requirements.txt for local test execution without Docker."
+      },
+      {
+        "id": "document:docs/BACKTEST_PLAYGROUND.md",
+        "name": "BACKTEST_PLAYGROUND.md",
+        "type": "document",
+        "summary": "Instructions for launching and using an on-demand JupyterLab environment for ad-hoc backtesting and analysis against the live market-intelligence database, with a guaranteed read-only analyst Postgres role."
+      },
+      {
+        "id": "document:docs/OBSERVABILITY.md",
+        "name": "OBSERVABILITY.md",
+        "type": "document",
+        "summary": "Comprehensive reference guide for the signal pipeline architecture covering table schemas, end-to-end signal lifecycle from ingestion to evaluation, step-by-step debugging workflows with SQL queries, and service ports."
+      },
+      {
+        "id": "document:docs/RETROSPECTIVE_FROM_SCRATCH.md",
+        "name": "RETROSPECTIVE_FROM_SCRATCH.md",
+        "type": "document",
+        "summary": "Design critique from Sprint 51 identifying five structural lessons learned across 51 sprints: prioritizing ground truth over engines, backtest-first architecture, persistent state machines, unified configuration, and reduced architectural complexity."
+      },
+      {
+        "id": "document:scripts/sql_check_allow.txt",
+        "name": "sql_check_allow.txt",
+        "type": "document",
+        "summary": "Configuration file for SQL schema validation allowlist, permitting verified false positives from static SQL checker to be suppressed."
+      },
+      {
+        "id": "document:.claude/agents/grunt.md",
+        "name": "grunt.md",
+        "type": "document",
+        "summary": "Defines the grunt subagent directive—a cheap, fast Haiku worker for mechanical tasks like log grepping, SQL queries, and file searches to conserve token budget on the main model."
+      },
+      {
+        "id": "document:.claude/agents/sql-reviewer.md",
+        "name": "sql-reviewer.md",
+        "type": "document",
+        "summary": "Defines the sql-reviewer subagent (Sonnet) that reviews diffs containing SQL strings to catch schema drift—the most recurring bug class in the project."
+      },
+      {
+        "id": "document:.claude/architecture.md",
+        "name": "architecture.md",
+        "type": "document",
+        "summary": "Comprehensive system architecture documenting the multi-layered intelligence pipeline: providers (news, social, market), engines (intelligence, sentiment, smart money), signal scoring and replay, governance, and meta-intelligence layers with PostgreSQL and Redis persistence."
+      },
+      {
+        "id": "document:.claude/skills/deploy-verify/SKILL.md",
+        "name": "SKILL.md",
+        "type": "document",
+        "summary": "Deployment verification skill documentation covering preflight checks, deployment, health verification, landing proof, and reporting—ensuring config lands correctly in production."
+      },
+      {
+        "id": "document:.claude/skills/diagnose/SKILL.md",
+        "name": "SKILL.md",
+        "type": "document",
+        "summary": "Deep diagnosis skill for the trading system covering liveness checks, trade performance via price truth, router behavior, signal flow, engine metrics, guardrails, watchdog alerts, and debugging techniques."
+      },
+      {
+        "id": "document:paper_trading_engine/requirements.txt",
+        "name": "requirements.txt",
+        "type": "document",
+        "summary": "Python package dependencies for the paper trading engine including asyncpg, aioredis, and prometheus_client for database, cache, and metrics."
+      }
+    ],
+    "infrastructure": [
+      {
+        "id": "service:paper_trading_engine/Dockerfile",
+        "name": "Dockerfile",
+        "type": "service",
+        "summary": "Docker image for the paper trading engine service. Builds a lightweight Python 3.12 container that runs the simulated trading engine on port 8021."
+      },
+      {
+        "id": "service:signal_edge_analyzer/Dockerfile",
+        "name": "Dockerfile",
+        "type": "service",
+        "summary": "Multi-stage Python 3.12 container build for the signal edge analyzer service, with dependency installation, shared strategy code injection, and database migration initialization."
+      },
+      {
+        "id": "pipeline:Makefile",
+        "name": "Makefile",
+        "type": "pipeline",
+        "summary": "Build automation with 12 targets orchestrating Docker Compose operations: preflight validation, service lifecycle (up/down/restart), deployment verification, SQL schema checking, health monitoring, and test execution."
+      },
+      {
+        "id": "service:docker-compose.yml",
+        "name": "docker-compose.yml",
+        "type": "service",
+        "summary": "Multi-container orchestration configuration deploying 27 services including API, validation, Postgres, Redis, Prometheus, Discord bot, and specialized engines for news ingestion, sentiment analysis, smart money tracking, and signal validation."
+      },
+      {
+        "id": "service:docker/api.Dockerfile",
+        "name": "api.Dockerfile",
+        "type": "service",
+        "summary": "Multi-service Docker image building the FastAPI application, validation layer, and related services for the market intelligence platform."
+      },
+      {
+        "id": "service:docker/bot.Dockerfile",
+        "name": "bot.Dockerfile",
+        "type": "service",
+        "summary": "Docker image for the Telegram bot service that delivers market intelligence alerts and commands."
+      },
+      {
+        "id": "service:docker/freetime_researcher.Dockerfile",
+        "name": "freetime_researcher.Dockerfile",
+        "type": "service",
+        "summary": "Docker image for the freetime research service that performs deep analysis during low-traffic periods."
+      },
+      {
+        "id": "service:docker/jupyter.Dockerfile",
+        "name": "jupyter.Dockerfile",
+        "type": "service",
+        "summary": "Docker image providing Jupyter notebook environment for exploratory data analysis and research on market data."
+      },
+      {
+        "id": "service:docker/market_data_logger.Dockerfile",
+        "name": "market_data_logger.Dockerfile",
+        "type": "service",
+        "summary": "Docker image for the market data logging service that continuously ingests and persists market prices and volumes."
+      },
+      {
+        "id": "service:docker/validation.Dockerfile",
+        "name": "validation.Dockerfile",
+        "type": "service",
+        "summary": "Docker image for the validation service that tracks signal outcomes and manages backtest replay orchestration."
+      },
+      {
+        "id": "service:docker/watchdog.Dockerfile",
+        "name": "watchdog.Dockerfile",
+        "type": "service",
+        "summary": "Docker image for the watchdog service monitoring system health, triggering alerts on anomalies and guardrail violations."
+      },
+      {
+        "id": "service:docker/worker.Dockerfile",
+        "name": "worker.Dockerfile",
+        "type": "service",
+        "summary": "Docker image for background worker services processing scheduled tasks like news fetching, social sentiment analysis, and signal scoring."
+      }
+    ],
+    "data": [
+      {
+        "id": "table:migrations/000_create_miniflux_db.sql",
+        "name": "000_create_miniflux_db.sql",
+        "type": "table",
+        "summary": "Bootstrap migration that initializes the Miniflux RSS reader database schema for news ingestion."
+      },
+      {
+        "id": "table:migrations/001_initial.sql",
+        "name": "001_initial.sql",
+        "type": "table",
+        "summary": "Core initial schema defining 9 fundamental tables: tickers, news, social_posts, market_trends, smart_money_events, ai_outputs, provider_usage_logs, alerts, and schema_migrations with comprehensive indexing for multi-source market intelligence ingestion."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:tickers",
+        "name": "tickers",
+        "type": "table",
+        "summary": "Master ticker registry with exchange, sector, and market cap metadata for tracking active and watched securities."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:news",
+        "name": "news",
+        "type": "table",
+        "summary": "News articles ingested from multiple sources with sentiment scoring, ticker mentions, and AI-generated summaries for signal generation."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:social_posts",
+        "name": "social_posts",
+        "type": "table",
+        "summary": "Social media posts from multiple platforms with engagement metrics, sentiment scores, and ticker mentions for trend detection."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:market_trends",
+        "name": "market_trends",
+        "type": "table",
+        "summary": "Computed market trends aggregating news, social, and smart money signals with hype and panic signal flags."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:smart_money_events",
+        "name": "smart_money_events",
+        "type": "table",
+        "summary": "Institutional trading events including whale sales, insider buys/sells, and other smart money signals."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:ai_outputs",
+        "name": "ai_outputs",
+        "type": "table",
+        "summary": "Cache of AI model outputs with prompt hash, model used, and associated costs for cost tracking and deduplication."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:provider_usage_logs",
+        "name": "provider_usage_logs",
+        "type": "table",
+        "summary": "External provider API usage tracking including token counts and costs for budget management and performance analysis."
+      },
+      {
+        "id": "table:migrations/001_initial.sql:alerts",
+        "name": "alerts",
+        "type": "table",
+        "summary": "System alerts with severity levels, types, and associated tickers for alerting on critical conditions."
+      },
+      {
+        "id": "table:migrations/002_level2.sql",
+        "name": "002_level2.sql",
+        "type": "table",
+        "summary": "Adds narrative clustering engine with narrative_clusters and noise_filter_log tables for detecting and filtering market narratives."
+      },
+      {
+        "id": "table:migrations/002_level2.sql:narrative_clusters",
+        "name": "narrative_clusters",
+        "type": "table",
+        "summary": "Detected narrative clusters with strength scores, momentum tracking, and contributing sources for narrative-based signal generation."
+      },
+      {
+        "id": "table:migrations/002_level2.sql:noise_filter_log",
+        "name": "noise_filter_log",
+        "type": "table",
+        "summary": "Log of filtered social posts and news marked as noise with reasons for filtering decisions."
+      },
+      {
+        "id": "table:migrations/003_level3.sql",
+        "name": "003_level3.sql",
+        "type": "table",
+        "summary": "Institutional intelligence layer with institutional_flows, etf_rotations, macro_regimes, and confluence_signals tables for advanced flow analysis."
+      },
+      {
+        "id": "table:migrations/003_level3.sql:institutional_flows",
+        "name": "institutional_flows",
+        "type": "table",
+        "summary": "Whale and insider trading flows with net flow ratios for identifying institutional positioning."
+      },
+      {
+        "id": "table:migrations/003_level3.sql:etf_rotations",
+        "name": "etf_rotations",
+        "type": "table",
+        "summary": "ETF sector rotations with composite scores and rotation velocity for sector-level signal generation."
+      },
+      {
+        "id": "table:migrations/003_level3.sql:macro_regimes",
+        "name": "macro_regimes",
+        "type": "table",
+        "summary": "Detected macro regimes with regime shifts, dominant narratives, and proxy scores for regime-dependent signal filtering."
+      },
+      {
+        "id": "table:migrations/003_level3.sql:confluence_signals",
+        "name": "confluence_signals",
+        "type": "table",
+        "summary": "Confluent signals where multiple signal types align on the same ticker for higher conviction trades."
+      },
+      {
+        "id": "table:migrations/004_level4_validation.sql",
+        "name": "004_level4_validation.sql",
+        "type": "table",
+        "summary": "Signal validation and backtesting infrastructure with signals_registry, signal_outcomes, backtest_runs, and engine_performance_metrics for comprehensive signal evaluation."
+      },
+      {
+        "id": "table:migrations/004_level4_validation.sql:signals_registry",
+        "name": "signals_registry",
+        "type": "table",
+        "summary": "Central registry of all trading signals with type, ticker, engine, source, and evaluation status."
+      },
+      {
+        "id": "table:migrations/004_level4_validation.sql:signal_outcomes",
+        "name": "signal_outcomes",
+        "type": "table",
+        "summary": "Actual price outcomes for signals evaluated at different time windows with correctness scoring."
+      },
+      {
+        "id": "table:migrations/004_level4_validation.sql:backtest_runs",
+        "name": "backtest_runs",
+        "type": "table",
+        "summary": "Historical backtest run metadata with accuracy metrics across multiple time windows and evaluated signal counts."
+      },
+      {
+        "id": "table:migrations/004_level4_validation.sql:backtest_results",
+        "name": "backtest_results",
+        "type": "table",
+        "summary": "Detailed backtest results for individual signals with predicted vs actual direction correctness and outcome scores."
+      },
+      {
+        "id": "table:migrations/004_level4_validation.sql:engine_performance_metrics",
+        "name": "engine_performance_metrics",
+        "type": "table",
+        "summary": "Daily engine performance metrics aggregating total signals and accuracy across 4-hour windows."
+      },
+      {
+        "id": "table:migrations/005_signal_truth_layer.sql",
+        "name": "005_signal_truth_layer.sql",
+        "type": "table",
+        "summary": "Signal accuracy scoring table tracking engine performance by signal type and evaluation window for truth-layer maintenance."
+      },
+      {
+        "id": "table:migrations/005_signal_truth_layer.sql:signal_scores",
+        "name": "signal_scores",
+        "type": "table",
+        "summary": "Computed accuracy scores for signal types by engine and window with strength and half-life decay tracking."
+      },
+      {
+        "id": "table:migrations/006_replay_system.sql",
+        "name": "006_replay_system.sql",
+        "type": "table",
+        "summary": "Historical replay infrastructure with replay_runs and replay_metrics for backfill analysis and signal validation across past periods."
+      },
+      {
+        "id": "table:migrations/006_replay_system.sql:replay_runs",
+        "name": "replay_runs",
+        "type": "table",
+        "summary": "Replay run metadata with start/end times, status, and signal evaluation counts for historical backtests."
+      },
+      {
+        "id": "table:migrations/006_replay_system.sql:replay_metrics",
+        "name": "replay_metrics",
+        "type": "table",
+        "summary": "Detailed replay performance metrics with precision, calibration error, and confusion matrix counts for signal quality assessment."
+      },
+      {
+        "id": "table:migrations/007_observability.sql",
+        "name": "007_observability.sql",
+        "type": "table",
+        "summary": "Observability layer with validation_alerts table for monitoring system health and flagging anomalies."
+      },
+      {
+        "id": "table:migrations/007_observability.sql:validation_alerts",
+        "name": "validation_alerts",
+        "type": "table",
+        "summary": "Alert records for validation rule violations with threshold comparisons, active status tracking, and resolution timestamps."
+      },
+      {
+        "id": "table:migrations/008_governance.sql",
+        "name": "008_governance.sql",
+        "type": "table",
+        "summary": "Governance decision layer with engine_trust_scores, governance_recommendations, and narrative_stability_scores for controlling signal routing."
+      },
+      {
+        "id": "table:migrations/008_governance.sql:engine_trust_scores",
+        "name": "engine_trust_scores",
+        "type": "table",
+        "summary": "Trust scoring for engines tracking precision, stability, and accuracy over multiple time windows with instability detection."
+      },
+      {
+        "id": "table:migrations/008_governance.sql:governance_recommendations",
+        "name": "governance_recommendations",
+        "type": "table",
+        "summary": "Governance action recommendations with expiration, target type, rationale, and acknowledgment tracking for decision oversight."
+      },
+      {
+        "id": "table:migrations/008_governance.sql:narrative_stability_scores",
+        "name": "narrative_stability_scores",
+        "type": "table",
+        "summary": "Narrative persistence tracking with stability scores and collapse detection for regime-based filtering."
+      },
+      {
+        "id": "table:migrations/009_meta_intelligence.sql",
+        "name": "009_meta_intelligence.sql",
+        "type": "table",
+        "summary": "Strategic meta-intelligence layer with strategic_memory_events, regime_transitions, narrative_lifecycle, failure_clusters, and meta snapshots for higher-order system monitoring."
+      },
+      {
+        "id": "table:migrations/009_meta_intelligence.sql:strategic_memory_events",
+        "name": "strategic_memory_events",
+        "type": "table",
+        "summary": "Strategic events recorded by the system including regime changes, failure clusters, and narrative collapses for meta-learning."
+      },
+      {
+        "id": "table:migrations/009_meta_intelligence.sql:regime_transition_records",
+        "name": "regime_transition_records",
+        "type": "table",
+        "summary": "Historical regime transitions with evidence of regime changes, similarity scores, and forward performance tracking."
+      },
+      {
+        "id": "table:migrations/009_meta_intelligence.sql:narrative_lifecycle_records",
+        "name": "narrative_lifecycle_records",
+        "type": "table",
+        "summary": "Narrative lifecycle phases from emergence through hype and collapse with lifecycle stage tracking."
+      },
+      {
+        "id": "table:migrations/009_meta_intelligence.sql:strategic_failure_clusters",
+        "name": "strategic_failure_clusters",
+        "type": "table",
+        "summary": "Recurring failure patterns affecting multiple engines with recurrence counts and activity status."
+      },
+      {
+        "id": "table:migrations/009_meta_intelligence.sql:meta_intelligence_snapshots",
+        "name": "meta_intelligence_snapshots",
+        "type": "table",
+        "summary": "Periodic system health snapshots with failure density, governance stress, stability ranking, and degradation metrics."
+      },
+      {
+        "id": "table:migrations/010_provider_ingestion_log.sql",
+        "name": "010_provider_ingestion_log.sql",
+        "type": "table",
+        "summary": "Data ingestion cycle logging for tracking deduplication effectiveness and provider performance."
+      },
+      {
+        "id": "table:migrations/010_provider_ingestion_log.sql:provider_ingestion_log",
+        "name": "provider_ingestion_log",
+        "type": "table",
+        "summary": "Per-cycle ingestion metrics including new items, exact/fuzzy/semantic duplicates, errors, and latency."
+      },
+      {
+        "id": "table:migrations/011_signal_trace.sql",
+        "name": "011_signal_trace.sql",
+        "type": "table",
+        "summary": "Signal lineage tracking table linking signals to their source news articles for audit trail and root cause analysis."
+      },
+      {
+        "id": "table:migrations/011_signal_trace.sql:signal_trace",
+        "name": "signal_trace",
+        "type": "table",
+        "summary": "Audit trail linking signals to ingestion cycles and source news articles for traceability."
+      },
+      {
+        "id": "table:migrations/012_signal_feedback.sql",
+        "name": "012_signal_feedback.sql",
+        "type": "table",
+        "summary": "Signal feedback and provider performance metrics with pnl_score and confidence tracking for continuous signal quality improvement."
+      },
+      {
+        "id": "table:migrations/012_signal_feedback.sql:signal_feedback",
+        "name": "signal_feedback",
+        "type": "table",
+        "summary": "PnL-based feedback on individual signals with confidence scores and market context assessment."
+      },
+      {
+        "id": "table:migrations/012_signal_feedback.sql:provider_performance_metrics",
+        "name": "provider_performance_metrics",
+        "type": "table",
+        "summary": "Daily provider-level metrics with win rate, win/loss/neutral counts, and noise ratio for provider ranking."
+      },
+      {
+        "id": "table:migrations/013_signal_edge_analyzer.sql",
+        "name": "013_signal_edge_analyzer.sql",
+        "type": "table",
+        "summary": "Edge analysis infrastructure with signal_edge_metrics and signal_edge_aggregations for identifying profitable signal subgroups."
+      },
+      {
+        "id": "table:migrations/013_signal_edge_analyzer.sql:signal_edge_metrics",
+        "name": "signal_edge_metrics",
+        "type": "table",
+        "summary": "Per-ticker, per-engine signal edge with win rates and quality scoring for identifying persistent edges."
+      },
+      {
+        "id": "table:migrations/013_signal_edge_analyzer.sql:signal_edge_aggregations",
+        "name": "signal_edge_aggregations",
+        "type": "table",
+        "summary": "Ranked aggregated edges with expectancy, Sharpe ratio, and average return for identifying best-performing signals."
+      },
+      {
+        "id": "table:migrations/014_seed_tickers.sql",
+        "name": "014_seed_tickers.sql",
+        "type": "table",
+        "summary": "Ticker data seeding migration populating initial cryptocurrency and equity tickers for market coverage."
+      },
+      {
+        "id": "table:migrations/015_ticker_quotes.sql",
+        "name": "015_ticker_quotes.sql",
+        "type": "table",
+        "summary": "Real-time ticker quote storage with price, volume, market cap, and timestamp for current market data."
+      },
+      {
+        "id": "table:migrations/015_ticker_quotes.sql:ticker_quotes",
+        "name": "ticker_quotes",
+        "type": "table",
+        "summary": "Current ticker price quotes with volume, market cap, exchange, and currency information."
+      },
+      {
+        "id": "table:migrations/016_paper_trades.sql",
+        "name": "016_paper_trades.sql",
+        "type": "table",
+        "summary": "Paper trading execution log with entry/exit prices, fees, PnL, and close reasons for backtesting and signal validation."
+      },
+      {
+        "id": "table:migrations/016_paper_trades.sql:paper_trades",
+        "name": "paper_trades",
+        "type": "table",
+        "summary": "Individual paper trade records with entry price, direction, size, fees, exit price, and PnL."
+      },
+      {
+        "id": "table:migrations/017_narrative_persistence.sql",
+        "name": "017_narrative_persistence.sql",
+        "type": "table",
+        "summary": "Minor migration for narrative persistence feature enablement."
+      },
+      {
+        "id": "table:migrations/018_technical_score.sql",
+        "name": "018_technical_score.sql",
+        "type": "table",
+        "summary": "Technical score index migration adding technical analysis scoring to market trends."
+      },
+      {
+        "id": "table:migrations/019_signal_edge_agg_uq.sql",
+        "name": "019_signal_edge_agg_uq.sql",
+        "type": "table",
+        "summary": "Adds uniqueness constraint to signal edge aggregations ensuring one edge per signal/ticker/direction/window combination."
+      },
+      {
+        "id": "table:migrations/020_optimization_runs.sql",
+        "name": "020_optimization_runs.sql",
+        "type": "table",
+        "summary": "Strategy optimization run tracking with parameters, performance metrics, and trade counts."
+      },
+      {
+        "id": "table:migrations/020_optimization_runs.sql:optimization_runs",
+        "name": "optimization_runs",
+        "type": "table",
+        "summary": "Parameter optimization trial records with score, win rate, Sharpe ratio, and expectancy metrics."
+      },
+      {
+        "id": "table:migrations/021_governance_log.sql",
+        "name": "021_governance_log.sql",
+        "type": "table",
+        "summary": "Governance action logging with governance_log and lessons_learned_runs for decision audit trail and learning capture."
+      },
+      {
+        "id": "table:migrations/021_governance_log.sql:governance_log",
+        "name": "governance_log",
+        "type": "table",
+        "summary": "Log of governance actions taken including evidence, expected effects, and skip reasons."
+      },
+      {
+        "id": "table:migrations/021_governance_log.sql:lessons_learned_runs",
+        "name": "lessons_learned_runs",
+        "type": "table",
+        "summary": "AI-generated lessons learned from trading periods with trade counts, PnL, and model information."
+      },
+      {
+        "id": "table:migrations/022_stale_quote_alert.sql",
+        "name": "022_stale_quote_alert.sql",
+        "type": "table",
+        "summary": "Stale quote detection for alerting when ticker data becomes outdated."
+      },
+      {
+        "id": "table:migrations/023_funding_liquidations.sql",
+        "name": "023_funding_liquidations.sql",
+        "type": "table",
+        "summary": "Crypto funding rates and liquidation events tracking for perpetual futures monitoring."
+      },
+      {
+        "id": "table:migrations/023_funding_liquidations.sql:funding_rates",
+        "name": "funding_rates",
+        "type": "table",
+        "summary": "Perpetual futures funding rates with next funding time and mark price."
+      },
+      {
+        "id": "table:migrations/023_funding_liquidations.sql:liquidation_events",
+        "name": "liquidation_events",
+        "type": "table",
+        "summary": "Liquidation events with side, price, quantity, and notional value for monitoring cascade risk."
+      },
+      {
+        "id": "table:migrations/024_research_runs.sql",
+        "name": "024_research_runs.sql",
+        "type": "table",
+        "summary": "Research run tracking with parameter sweeps, in-sample and out-of-sample performance for strategy research."
+      },
+      {
+        "id": "table:migrations/024_research_runs.sql:research_runs",
+        "name": "research_runs",
+        "type": "table",
+        "summary": "Research experiment metadata with parameter sweep name, performance metrics, and out-of-sample validation."
+      },
+      {
+        "id": "table:migrations/025_infra_watchdog_alerts.sql",
+        "name": "025_infra_watchdog_alerts.sql",
+        "type": "table",
+        "summary": "Infrastructure watchdog alerting for system health monitoring."
+      },
+      {
+        "id": "table:migrations/026_signal_trace_ticker.sql",
+        "name": "026_signal_trace_ticker.sql",
+        "type": "table",
+        "summary": "Adds ticker indexing to signal trace for faster lookups on signal lineage."
+      },
+      {
+        "id": "table:migrations/028_retired_strategies.sql",
+        "name": "028_retired_strategies.sql",
+        "type": "table",
+        "summary": "Retirement history for strategies with reason, category, performance at retirement, and potential reactivation."
+      },
+      {
+        "id": "table:migrations/028_retired_strategies.sql:retired_strategies",
+        "name": "retired_strategies",
+        "type": "table",
+        "summary": "Strategy retirement records with retirement reason, category, performance metrics, and reactivation tracking."
+      },
+      {
+        "id": "table:migrations/029_personal_finance.sql",
+        "name": "029_personal_finance.sql",
+        "type": "table",
+        "summary": "Personal finance tracking with personal_transactions and trading_journal for expense and trade journaling."
+      },
+      {
+        "id": "table:migrations/029_personal_finance.sql:personal_transactions",
+        "name": "personal_transactions",
+        "type": "table",
+        "summary": "Personal expense tracking with category, amount, source, and description."
+      },
+      {
+        "id": "table:migrations/029_personal_finance.sql:trading_journal",
+        "name": "trading_journal",
+        "type": "table",
+        "summary": "Weekly trading journal entries with trade count, PnL, and AI-generated analysis."
+      },
+      {
+        "id": "table:migrations/030_daily_briefs.sql",
+        "name": "030_daily_briefs.sql",
+        "type": "table",
+        "summary": "Daily brief generation storage with market summary, trade counts, and PnL snapshots."
+      },
+      {
+        "id": "table:migrations/030_daily_briefs.sql:daily_briefs",
+        "name": "daily_briefs",
+        "type": "table",
+        "summary": "Daily market brief with generated content, model used, trade counts, PnL, and Bitcoin price snapshot."
+      },
+      {
+        "id": "table:migrations/031_open_position_unique.sql",
+        "name": "031_open_position_unique.sql",
+        "type": "table",
+        "summary": "Uniqueness constraint migration ensuring only one open position per ticker."
+      },
+      {
+        "id": "table:migrations/032_open_position_unique_per_mode.sql",
+        "name": "032_open_position_unique_per_mode.sql",
+        "type": "table",
+        "summary": "Updated uniqueness constraint per trading mode (paper vs live)."
+      },
+      {
+        "id": "table:migrations/033_news_impact_scoring.sql",
+        "name": "033_news_impact_scoring.sql",
+        "type": "table",
+        "summary": "News article impact scoring indexes for finding recently published articles needing analysis."
+      },
+      {
+        "id": "table:migrations/034_truth_router.sql",
+        "name": "034_truth_router.sql",
+        "type": "table",
+        "summary": "Trade audit trail with llm_trade_audits table for LLM-based trade vetting and decision recording."
+      },
+      {
+        "id": "table:migrations/034_truth_router.sql:llm_trade_audits",
+        "name": "llm_trade_audits",
+        "type": "table",
+        "summary": "LLM-generated trade audit records with verdict, bear case reasoning, and supporting dossier."
+      },
+      {
+        "id": "table:migrations/035_trade_reflections.sql",
+        "name": "035_trade_reflections.sql",
+        "type": "table",
+        "summary": "Post-trade reflection records with router action, PnL, hold duration, and extracted lesson."
+      },
+      {
+        "id": "table:migrations/035_trade_reflections.sql:trade_reflections",
+        "name": "trade_reflections",
+        "type": "table",
+        "summary": "Trade analysis records with close reason, router decision, PnL, hold time, and learned lesson."
+      },
+      {
+        "id": "table:migrations/036_etf_tickers.sql",
+        "name": "036_etf_tickers.sql",
+        "type": "table",
+        "summary": "ETF ticker data seeding and index migration for ETF coverage."
+      },
+      {
+        "id": "table:migrations/037_fix_outcome_direction_correct.sql",
+        "name": "037_fix_outcome_direction_correct.sql",
+        "type": "table",
+        "summary": "Bug fix migration for signal outcome direction correctness calculation."
+      },
+      {
+        "id": "table:migrations/038_equity_snapshots.sql",
+        "name": "038_equity_snapshots.sql",
+        "type": "table",
+        "summary": "Account equity and balance snapshots with regime and drawdown tracking for portfolio health monitoring."
+      },
+      {
+        "id": "table:migrations/038_equity_snapshots.sql:equity_snapshots",
+        "name": "equity_snapshots",
+        "type": "table",
+        "summary": "Point-in-time equity snapshots with balance, drawdown percentage, regime, and governor state."
+      },
+      {
+        "id": "table:migrations/039_cide_decisions.sql",
+        "name": "039_cide_decisions.sql",
+        "type": "table",
+        "summary": "Capital allocation decisions with CIDE framework tracking requested vs recommended capital and edge stability."
+      },
+      {
+        "id": "table:migrations/039_cide_decisions.sql:cide_decisions",
+        "name": "cide_decisions",
+        "type": "table",
+        "summary": "Capital allocation decisions with edge stability scores, recommended capital adjustments, and reasoning."
+      },
+      {
+        "id": "table:migrations/040_trade_post_mortems.sql",
+        "name": "040_trade_post_mortems.sql",
+        "type": "table",
+        "summary": "Trade post-mortem analysis with AI verdict, lessons learned, and regime fit assessment."
+      },
+      {
+        "id": "table:migrations/040_trade_post_mortems.sql:trade_post_mortems",
+        "name": "trade_post_mortems",
+        "type": "table",
+        "summary": "AI-analyzed trade outcomes with verdict, extracted lesson, regime fit, and latency metrics."
+      },
+      {
+        "id": "table:migrations/041_signal_trace_regime_filter.sql",
+        "name": "041_signal_trace_regime_filter.sql",
+        "type": "table",
+        "summary": "Minimal migration for signal trace regime filtering."
+      },
+      {
+        "id": "table:migrations/042_capital_growth_log.sql",
+        "name": "042_capital_growth_log.sql",
+        "type": "table",
+        "summary": "Capital growth phase tracking with equity, position limits, leverage caps, and size multipliers."
+      },
+      {
+        "id": "table:migrations/042_capital_growth_log.sql:capital_growth_log",
+        "name": "capital_growth_log",
+        "type": "table",
+        "summary": "Phase-based capital growth milestones with equity level, position limits, and leverage adjustments."
+      },
+      {
+        "id": "table:migrations/043_meta_strategy_runs.sql",
+        "name": "043_meta_strategy_runs.sql",
+        "type": "table",
+        "summary": "Meta-strategy execution tracking with regime detection and engine weights."
+      },
+      {
+        "id": "table:migrations/043_meta_strategy_runs.sql:meta_strategy_runs",
+        "name": "meta_strategy_runs",
+        "type": "table",
+        "summary": "Meta-strategy execution records with detected regime, confidence, engine weights, and inputs."
+      },
+      {
+        "id": "table:migrations/044_paper_trades_signal_id_unique.sql",
+        "name": "044_paper_trades_signal_id_unique.sql",
+        "type": "table",
+        "summary": "Uniqueness constraint ensuring one paper trade per open signal."
+      },
+      {
+        "id": "table:migrations/045_paper_trades_stop_order_ids.sql",
+        "name": "045_paper_trades_stop_order_ids.sql",
+        "type": "table",
+        "summary": "Migration adding stop order ID tracking to paper trades."
+      },
+      {
+        "id": "table:migrations/046_funding_payments.sql",
+        "name": "046_funding_payments.sql",
+        "type": "table",
+        "summary": "Crypto perpetual futures funding payment tracking for P&L attribution."
+      },
+      {
+        "id": "table:migrations/046_funding_payments.sql:funding_payments",
+        "name": "funding_payments",
+        "type": "table",
+        "summary": "Funding payment records for each perpetual futures position with income and payment time."
+      },
+      {
+        "id": "file:sql/create_analyst_role.sql",
+        "name": "create_analyst_role.sql",
+        "type": "table",
+        "summary": "SQL script that creates database role for analyst users with appropriate permissions."
+      }
+    ],
+    "config": [
+      {
+        "id": "config:.env.example",
+        "name": ".env.example",
+        "type": "config",
+        "summary": "Configuration template defining 107 environment variables for the trading pipeline, covering application settings, trading credentials (Binance/Alpaca), external API keys, database/cache configuration, monitoring parameters, and scheduler intervals."
+      },
+      {
+        "id": "config:monitoring/homepage/bookmarks.yaml",
+        "name": "bookmarks.yaml",
+        "type": "config",
+        "summary": "Quick bookmark shortcuts for rapid navigation to frequently accessed services like Binance and the main dashboard."
+      },
+      {
+        "id": "config:monitoring/homepage/docker.yaml",
+        "name": "docker.yaml",
+        "type": "config",
+        "summary": "Docker service configuration template for homepage, with commented examples for connecting to Docker sockets or TCP endpoints."
+      },
+      {
+        "id": "config:monitoring/homepage/kubernetes.yaml",
+        "name": "kubernetes.yaml",
+        "type": "config",
+        "summary": "Kubernetes service configuration stub for homepage deployment, with minimal placeholder configuration."
+      },
+      {
+        "id": "config:monitoring/homepage/proxmox.yaml",
+        "name": "proxmox.yaml",
+        "type": "config",
+        "summary": "Proxmox hypervisor monitoring configuration for the homepage dashboard."
+      },
+      {
+        "id": "config:monitoring/homepage/services.yaml",
+        "name": "services.yaml",
+        "type": "config",
+        "summary": "Central service registry defining three categories (Trading, Research, Infrastructure) with 13+ services, including dashboards, signal flow, LLM chat, RSS readers, and uptime monitoring."
+      },
+      {
+        "id": "config:monitoring/homepage/settings.yaml",
+        "name": "settings.yaml",
+        "type": "config",
+        "summary": "Homepage UI configuration defining theme (dark, slate), layout structure with three-column grids for Trading/Research/Infrastructure sections, and quick-launch search settings."
+      },
+      {
+        "id": "config:monitoring/homepage/widgets.yaml",
+        "name": "widgets.yaml",
+        "type": "config",
+        "summary": "Dashboard widgets configuration defining three widget groups for displaying system metrics and status information."
+      },
+      {
+        "id": "config:.claude/settings.json",
+        "name": "settings.json",
+        "type": "config",
+        "summary": "Claude Code configuration with hooks for enforcing safety rules—preventing live trading mode changes and requiring explicit deploy verification before production changes."
+      },
+      {
+        "id": "config:.ua/config.json",
+        "name": "config.json",
+        "type": "config",
+        "summary": "Understand-Anything output language configuration file."
+      },
+      {
+        "id": "config:monitoring/prometheus/prometheus.yml",
+        "name": "prometheus.yml",
+        "type": "config",
+        "summary": "Prometheus scrape configuration collecting metrics from all system services (API, validation, backtest, governance, meta-intelligence) on ports 8010–8018 with 30-second intervals."
+      }
+    ]
+  },
+  "clusters": [
+    {
+      "nodes": [
+        "file:src/api/main.py",
+        "file:src/api/routes/__init__.py"
+      ],
+      "edgeCount": 2
+    }
+  ],
+  "layers": {
+    "count": 10,
+    "list": [
+      {
+        "id": "layer:api",
+        "name": "API & Interfaces",
+        "description": "FastAPI application, route handlers, dashboard page, validation API server, and the Discord bot that expose signals, scores, health and governance data to operators."
+      },
+      {
+        "id": "layer:ingestion",
+        "name": "Data Ingestion & Providers",
+        "description": "News, social, market, smart-money and AI provider adapters with their shared base classes, plus the market data logger and history/backfill jobs that feed raw data into the pipeline."
+      },
+      {
+        "id": "layer:engines",
+        "name": "Signal Engines & Orchestration",
+        "description": "Sentiment, narrative, regime, trend, confluence and governance engines that turn ingested data into scored signals, plus the event bus, task workers and scheduler that drive them."
+      },
+      {
+        "id": "layer:validation",
+        "name": "Validation & Governance",
+        "description": "Signal edge analyzer, out-of-sample and walk-forward validation, backtest/replay tooling, and the governance/lessons pipelines that check signals against real price outcomes."
+      },
+      {
+        "id": "layer:trading",
+        "name": "Trading Execution",
+        "description": "Paper and live trading engine with Binance/Alpaca broker adapters, truth router, OOS/risk guards, portfolio and executor logic that route proven signals into orders behind the safety layer."
+      },
+      {
+        "id": "layer:core",
+        "name": "Core Services",
+        "description": "Shared runtime foundations such as settings, logging, Redis cache, LLM routing, cost guards, observability metrics and signal tracing used across every service."
+      },
+      {
+        "id": "layer:data",
+        "name": "Data Layer",
+        "description": "PostgreSQL migrations and table definitions, repositories, database connection helpers, domain models, and SQL verification queries for the signal and outcome schema."
+      },
+      {
+        "id": "layer:infrastructure",
+        "name": "Infrastructure & Monitoring",
+        "description": "Dockerfiles, docker-compose, Makefile, deploy/preflight scripts, the watchdog service, and Homepage/Prometheus monitoring configuration that run and watch the stack."
+      },
+      {
+        "id": "layer:tests",
+        "name": "Tests",
+        "description": "Pytest suites and fixtures covering the broker, executor, risk, portfolio, truth router and dashboard behavior, plus the pipeline smoke test."
+      },
+      {
+        "id": "layer:docs-config",
+        "name": "Documentation & Project Config",
+        "description": "README, architecture notes, runbooks, agent/skill definitions, environment templates, dependency manifests and Claude Code safety hooks and settings for the project."
+      }
+    ]
+  },
+  "nodeSummaryIndex": {
+    "file:paper_trading_engine/adaptive_sizer.py": {
+      "name": "adaptive_sizer.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/broker_factory.py": {
+      "name": "broker_factory.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/brokers/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Broker module initialization exposing broker implementations and factory functions."
+    },
+    "file:paper_trading_engine/brokers/alpaca.py": {
+      "name": "alpaca.py",
+      "type": "file",
+      "summary": "Alpaca equity broker adapter for US equities trading with real-time market data integration."
+    },
+    "file:paper_trading_engine/brokers/base.py": {
+      "name": "base.py",
+      "type": "file",
+      "summary": "Abstract base class defining the broker interface for unified exchange connectivity."
+    },
+    "file:paper_trading_engine/brokers/binance.py": {
+      "name": "binance.py",
+      "type": "file",
+      "summary": "Binance spot exchange adapter providing order placement, execution, and account management."
+    },
+    "file:paper_trading_engine/brokers/binance_futures.py": {
+      "name": "binance_futures.py",
+      "type": "file",
+      "summary": "Binance Futures broker implementation with leveraged trading and risk management for crypto derivatives."
+    },
+    "file:paper_trading_engine/brokers/paper.py": {
+      "name": "paper.py",
+      "type": "file",
+      "summary": "Paper trading broker simulating fills and tracking portfolio without real capital."
+    },
+    "file:paper_trading_engine/capital_growth.py": {
+      "name": "capital_growth.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/discord_notifier.py": {
+      "name": "discord_notifier.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/discord_status.py": {
+      "name": "discord_status.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/engine.py": {
+      "name": "engine.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/equity_tracker.py": {
+      "name": "equity_tracker.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/executor.py": {
+      "name": "executor.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/gpt_validator.py": {
+      "name": "gpt_validator.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/llm_auditor.py": {
+      "name": "llm_auditor.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/models.py": {
+      "name": "models.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/notifier.py": {
+      "name": "notifier.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/oos_validator.py": {
+      "name": "oos_validator.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/portfolio.py": {
+      "name": "portfolio.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/risk.py": {
+      "name": "risk.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/risk_governor.py": {
+      "name": "risk_governor.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/risk_guard.py": {
+      "name": "risk_guard.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:paper_trading_engine/truth_router.py": {
+      "name": "truth_router.py",
+      "type": "file",
+      "summary": "Python module in the paper trading engine."
+    },
+    "file:scripts/cluster_analytics.py": {
+      "name": "cluster_analytics.py",
+      "type": "file",
+      "summary": "Analytics tool for clustering and analyzing signal outcomes to identify patterns in trading results."
+    },
+    "file:scripts/oos_reeval.py": {
+      "name": "oos_reeval.py",
+      "type": "file",
+      "summary": "Out-of-sample revaluation script that fetches Redis signal data, computes verdicts for different time windows, and sends results to Discord."
+    },
+    "file:src/api/routes/governance.py": {
+      "name": "governance.py",
+      "type": "file",
+      "summary": "API route handlers for engine governance operations including trust ranking, stability analysis, noise reporting, and recovery strategies."
+    },
+    "file:src/api/routes/meta_intelligence.py": {
+      "name": "meta_intelligence.py",
+      "type": "file",
+      "summary": "API route handlers for strategic meta-intelligence including failure analysis, regime transitions, narrative lifecycles, and system-wide risk dashboards."
+    },
+    "file:src/core/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Empty package initialization file for the core module."
+    },
+    "file:src/core/discord.py": {
+      "name": "discord.py",
+      "type": "file",
+      "summary": "Discord webhook integration providing embed and text message posting with error handling and timestamping."
+    },
+    "file:src/core/fallback.py": {
+      "name": "fallback.py",
+      "type": "file",
+      "summary": "Fallback mechanism decorator that retries multiple strategies with timeouts and logs warnings on partial failures."
+    },
+    "file:src/core/logging.py": {
+      "name": "logging.py",
+      "type": "file",
+      "summary": "Structured logging configuration using structlog with context binding for service and cycle tracking."
+    },
+    "file:src/engines/adaptive_weighting_engine.py": {
+      "name": "adaptive_weighting_engine.py",
+      "type": "file",
+      "summary": "Engine generating adaptive weighting recommendations for calibration, engine prioritization, and narrative adjustments with persistence to database."
+    },
+    "file:src/engines/backtesting_engine.py": {
+      "name": "backtesting_engine.py",
+      "type": "file",
+      "summary": "Backtesting/replay engine executing signal combinations through historical periods, computing detailed metrics per regime and narrative."
+    },
+    "file:src/engines/engine_governance_engine.py": {
+      "name": "engine_governance_engine.py",
+      "type": "file",
+      "summary": "Core engine governance system providing trust rankings, stability detection, recovery analysis, and cross-engine metrics aggregation."
+    },
+    "file:src/engines/engine_math.py": {
+      "name": "engine_math.py",
+      "type": "file",
+      "summary": "Utility math functions for engine calculations."
+    },
+    "file:src/engines/narrative_lifecycle_engine.py": {
+      "name": "narrative_lifecycle_engine.py",
+      "type": "file",
+      "summary": "Tracks narrative lifecycle stages and transitions with stability indicators and governance metrics."
+    },
+    "file:src/engines/narrative_stability_engine.py": {
+      "name": "narrative_stability_engine.py",
+      "type": "file",
+      "summary": "Analyzes narrative stability across signal windows with mathematical scoring models."
+    },
+    "file:src/engines/noise_contribution_engine.py": {
+      "name": "noise_contribution_engine.py",
+      "type": "file",
+      "summary": "Quantifies individual engine and provider contributions to system noise levels."
+    },
+    "file:src/engines/outcome_tracking_engine.py": {
+      "name": "outcome_tracking_engine.py",
+      "type": "file",
+      "summary": "Tracks realized outcomes of trading signals against actual price movements for performance evaluation."
+    },
+    "file:src/engines/regime_transition_intelligence.py": {
+      "name": "regime_transition_intelligence.py",
+      "type": "file",
+      "summary": "Analyzes market regime transitions and their systemic risk implications."
+    },
+    "file:src/engines/replay_scheduler.py": {
+      "name": "replay_scheduler.py",
+      "type": "file",
+      "summary": "Schedules and orchestrates backtesting replay execution with job queuing."
+    },
+    "file:src/engines/signal_evaluation_engine.py": {
+      "name": "signal_evaluation_engine.py",
+      "type": "file",
+      "summary": "Evaluates signal quality and performance metrics across evaluation windows."
+    },
+    "file:src/engines/signal_registry_engine.py": {
+      "name": "signal_registry_engine.py",
+      "type": "file",
+      "summary": "Manages signal registry with metadata and status tracking."
+    },
+    "file:src/engines/smart_money.py": {
+      "name": "smart_money.py",
+      "type": "file",
+      "summary": "Smart money signal provider integration coordinating whale alerts and SEC filings data."
+    },
+    "file:src/engines/strategic_failure_analysis_engine.py": {
+      "name": "strategic_failure_analysis_engine.py",
+      "type": "file",
+      "summary": "Performs systematic failure analysis identifying clusters, patterns, and systemic risk drivers."
+    },
+    "file:src/engines/strategic_memory_engine.py": {
+      "name": "strategic_memory_engine.py",
+      "type": "file",
+      "summary": "Strategic memory system tracking historical patterns, narratives, and stability trends for meta-intelligence."
+    },
+    "file:scripts/embed_news_qdrant.py": {
+      "name": "embed_news_qdrant.py",
+      "type": "file",
+      "summary": "Batch script to embed news articles into Qdrant vector database using aiohttp and asyncpg for efficient parallel processing."
+    },
+    "file:src/api/routes/backtest_analytics.py": {
+      "name": "backtest_analytics.py",
+      "type": "file",
+      "summary": "API routes for backtest analytics providing engine performance rankings, trend analysis, and replay run management."
+    },
+    "file:src/api/routes/scores.py": {
+      "name": "scores.py",
+      "type": "file",
+      "summary": "API routes exposing signal scores, half-life decay metrics, and signal registry statistics."
+    },
+    "file:src/api/routes/validation.py": {
+      "name": "validation.py",
+      "type": "file",
+      "summary": "API routes for signal validation analytics: accuracy tracking, confidence calibration, and backtest execution."
+    },
+    "file:src/api/routes/validation_intelligence.py": {
+      "name": "validation_intelligence.py",
+      "type": "file",
+      "summary": "API routes wrapping validation intelligence dashboards for system health, decay analysis, and observability."
+    },
+    "file:src/api/validation_main.py": {
+      "name": "validation_main.py",
+      "type": "file",
+      "summary": "FastAPI application factory for validation analytics service with health checks and route registration."
+    },
+    "file:src/cache/redis_client.py": {
+      "name": "redis_client.py",
+      "type": "file",
+      "summary": "Redis connection pooling and caching abstractions with rate limiting and JSON serialization."
+    },
+    "file:src/core/cache.py": {
+      "name": "cache.py",
+      "type": "file",
+      "summary": "Caching layer abstractions for LLM responses and general application data with configurable TTL."
+    },
+    "file:src/core/cost_guard.py": {
+      "name": "cost_guard.py",
+      "type": "file",
+      "summary": "Cost control guard delegating to external CostController for LLM spend budgeting."
+    },
+    "file:src/core/llm.py": {
+      "name": "llm.py",
+      "type": "file",
+      "summary": "LLM request interface with caching, cost control, and provider routing for market intelligence tasks."
+    },
+    "file:src/core/model_router.py": {
+      "name": "model_router.py",
+      "type": "file",
+      "summary": "Configurable model selection and cost optimization routing for LLM task types."
+    },
+    "file:src/core/observability.py": {
+      "name": "observability.py",
+      "type": "file",
+      "summary": "Decorator for timing job execution with structured logging of start, completion, and errors."
+    },
+    "file:src/db/connection.py": {
+      "name": "connection.py",
+      "type": "file",
+      "summary": "Database connection pool initialization and cleanup using asyncpg."
+    },
+    "file:src/discord_bot/bot.py": {
+      "name": "bot.py",
+      "type": "file",
+      "summary": "Discord bot implementation for validation status and alerts with command registration."
+    },
+    "file:src/engines/engine_performance_dashboard.py": {
+      "name": "engine_performance_dashboard.py",
+      "type": "file",
+      "summary": "Engine performance analytics dashboard computing rankings, reliability, regime accuracy, and trend analysis."
+    },
+    "file:src/engines/replay_observability_dashboard.py": {
+      "name": "replay_observability_dashboard.py",
+      "type": "file",
+      "summary": "Backtest replay health, throughput, decay curves, and queue analytics for system monitoring."
+    },
+    "file:src/engines/validation_intelligence_api.py": {
+      "name": "validation_intelligence_api.py",
+      "type": "file",
+      "summary": "Comprehensive validation intelligence API providing system health, decay analysis, calibration, and failure diagnostics."
+    },
+    "file:src/market_data_logger/main.py": {
+      "name": "main.py",
+      "type": "file",
+      "summary": "Market data aggregation daemon collecting funding rates and liquidation events from Binance with WebSocket streaming."
+    },
+    "file:src/validation/backtest_engine.py": {
+      "name": "backtest_engine.py",
+      "type": "file",
+      "summary": "Backtest execution engine evaluating signal accuracy, computing metrics, and managing replay job queue."
+    },
+    "file:src/validation/metrics.py": {
+      "name": "metrics.py",
+      "type": "file",
+      "summary": "Prometheus metrics registry for validation pipeline including request counts, durations, and cycle timings."
+    },
+    "file:src/validation/signal_archiver.py": {
+      "name": "signal_archiver.py",
+      "type": "file",
+      "summary": "Long-term signal outcome archival with outcome-signal pairing, cache management, and persistence."
+    },
+    "file:src/engines/validation_alert_engine.py": {
+      "name": "validation_alert_engine.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/freetime_researcher/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/freetime_researcher/arbitration.py": {
+      "name": "arbitration.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/freetime_researcher/main.py": {
+      "name": "main.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/freetime_researcher/notify.py": {
+      "name": "notify.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/freetime_researcher/sweep.py": {
+      "name": "sweep.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/pipeline/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/pipeline/event_bus.py": {
+      "name": "event_bus.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/pipeline/tasks.py": {
+      "name": "tasks.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/pipeline/worker.py": {
+      "name": "worker.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/providers/smart_money/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/providers/smart_money/funding_flow.py": {
+      "name": "funding_flow.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/providers/smart_money/options_flow.py": {
+      "name": "options_flow.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/providers/smart_money/sec_edgar.py": {
+      "name": "sec_edgar.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/providers/smart_money/whale_alert.py": {
+      "name": "whale_alert.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/watchdog/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/watchdog/alerts.py": {
+      "name": "alerts.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/watchdog/checks.py": {
+      "name": "checks.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/watchdog/digest.py": {
+      "name": "digest.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/watchdog/docker_client.py": {
+      "name": "docker_client.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/watchdog/main.py": {
+      "name": "main.py",
+      "type": "file",
+      "summary": "Module providing core functionality for the market intelligence pipeline."
+    },
+    "file:src/api/routes/health.py": {
+      "name": "health.py",
+      "type": "file",
+      "summary": "Health check endpoints for service readiness and circuit breaker status monitoring. Validates database and Redis connectivity with cost tracking."
+    },
+    "file:src/api/routes/market.py": {
+      "name": "market.py",
+      "type": "file",
+      "summary": "API endpoints for market data retrieval, quotes, and AI-driven analysis including trend detection and market digests."
+    },
+    "file:src/api/routes/news.py": {
+      "name": "news.py",
+      "type": "file",
+      "summary": "News API endpoints for fetching market news with impact analysis and sector/ticker filtering."
+    },
+    "file:src/api/routes/trends.py": {
+      "name": "trends.py",
+      "type": "file",
+      "summary": "API endpoints for market trend detection and narrative cluster discovery using trend and narrative engines."
+    },
+    "file:src/core/config.py": {
+      "name": "config.py",
+      "type": "file",
+      "summary": "Centralized configuration management using Pydantic Settings with comprehensive environment variable parsing for all services, providers, and budgets."
+    },
+    "file:src/core/cost_control.py": {
+      "name": "cost_control.py",
+      "type": "file",
+      "summary": "Budget management and cost tracking for API providers with daily limits and provider-level tier controls."
+    },
+    "file:src/db/migrate.py": {
+      "name": "migrate.py",
+      "type": "file",
+      "summary": "Database migration runner that executes SQL migration files in order and tracks applied versions."
+    },
+    "file:src/db/repositories/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Repository module barrel that re-exports market, news, and social data repositories."
+    },
+    "file:src/db/repositories/market.py": {
+      "name": "market.py",
+      "type": "file",
+      "summary": "Data access layer for market trends, smart money events, ticker quotes, and AI outputs with async pool operations."
+    },
+    "file:src/db/repositories/news.py": {
+      "name": "news.py",
+      "type": "file",
+      "summary": "News data repository providing CRUD operations for news items with AI summaries and impact analysis."
+    },
+    "file:src/db/repositories/social.py": {
+      "name": "social.py",
+      "type": "file",
+      "summary": "Social media data repository tracking mention counts and sentiment metrics by ticker."
+    },
+    "file:src/discord_bot/handlers.py": {
+      "name": "handlers.py",
+      "type": "file",
+      "summary": "Discord bot command handlers for market insights, trends, costs, positions, and system administration spanning 30+ commands."
+    },
+    "file:src/engines/ai_analyst.py": {
+      "name": "ai_analyst.py",
+      "type": "file",
+      "summary": "AI-powered market analysis engine providing ticker analysis, market digests, and narrative generation using OpenAI/Anthropic providers."
+    },
+    "file:src/engines/confidence_engine.py": {
+      "name": "confidence_engine.py",
+      "type": "file",
+      "summary": "Calculates confidence levels for trading signals based on trend strength and technical patterns."
+    },
+    "file:src/engines/etf_rotation_engine.py": {
+      "name": "etf_rotation_engine.py",
+      "type": "file",
+      "summary": "Detects ETF rotation patterns and sector flows using velocity-based thresholds."
+    },
+    "file:src/engines/institutional_flow_engine.py": {
+      "name": "institutional_flow_engine.py",
+      "type": "file",
+      "summary": "Analyzes institutional capital flows and positions across tickers with acceleration detection."
+    },
+    "file:src/engines/narrative_engine.py": {
+      "name": "narrative_engine.py",
+      "type": "file",
+      "summary": "Identifies and clusters narrative themes in market data with scoring and relevance ranking."
+    },
+    "file:src/engines/noise_filter.py": {
+      "name": "noise_filter.py",
+      "type": "file",
+      "summary": "Filters bot noise and low-quality signals from social media using engagement thresholds and burst detection."
+    },
+    "file:src/engines/sentiment_engine.py": {
+      "name": "sentiment_engine.py",
+      "type": "file",
+      "summary": "Aggregates social media sentiment with velocity-based hype and panic detection for market signals."
+    },
+    "file:src/engines/technical_engine.py": {
+      "name": "technical_engine.py",
+      "type": "file",
+      "summary": "Technical analysis engine computing moving averages, volatility regimes, and pattern signals."
+    },
+    "file:src/engines/trend_detection.py": {
+      "name": "trend_detection.py",
+      "type": "file",
+      "summary": "Core trend detection engine that ingests news, social, and technical indicators to compute composite market trend scores and signal quality metrics."
+    },
+    "file:src/models/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Package barrel file importing and re-exporting core market, news, and social data models."
+    },
+    "file:src/models/market.py": {
+      "name": "market.py",
+      "type": "file",
+      "summary": "Defines 9 Pydantic data models for market structures including TickerQuote, MarketTrend, SmartMoneyEvent, MacroRegime, and confluence signals."
+    },
+    "file:src/models/social.py": {
+      "name": "social.py",
+      "type": "file",
+      "summary": "Defines Pydantic models for social posts and sentiment summaries extracted from Reddit, Twitter, and CryptoPanic."
+    },
+    "file:src/providers/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Package barrel importing AI, market, news, smart-money, and social data providers."
+    },
+    "file:src/providers/ai/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Barrel file exporting Anthropic, OpenAI, and Ollama LLM provider implementations."
+    },
+    "file:src/providers/ai/anthropic_provider.py": {
+      "name": "anthropic_provider.py",
+      "type": "file",
+      "summary": "Anthropic Claude API integration for text completion, with rate-limiting and cost estimation."
+    },
+    "file:src/providers/ai/ollama_provider.py": {
+      "name": "ollama_provider.py",
+      "type": "file",
+      "summary": "Local Ollama LLM endpoint integration supporting on-device model inference with timing."
+    },
+    "file:src/providers/ai/openai_provider.py": {
+      "name": "openai_provider.py",
+      "type": "file",
+      "summary": "OpenAI GPT integration with structured response parsing, rate-limiting, and usage tracking."
+    },
+    "file:src/providers/market/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Barrel file exporting market data providers: AlphaVantage, CoinGecko, Finnhub, Polygon, yfinance."
+    },
+    "file:src/providers/market/alpha_vantage.py": {
+      "name": "alpha_vantage.py",
+      "type": "file",
+      "summary": "AlphaVantage API integration for US equity quote data with global quote endpoint and health checks."
+    },
+    "file:src/providers/market/coingecko.py": {
+      "name": "coingecko.py",
+      "type": "file",
+      "summary": "CoinGecko cryptocurrency market data integration with symbol mapping, pagination, and timeout handling."
+    },
+    "file:src/providers/market/finnhub.py": {
+      "name": "finnhub.py",
+      "type": "file",
+      "summary": "Finnhub API integration for US equity quotes and macroeconomic indicator feeds with forbidden symbol tracking."
+    },
+    "file:src/providers/market/polygon.py": {
+      "name": "polygon.py",
+      "type": "file",
+      "summary": "Polygon market data integration for ticker snapshots and all-tickers endpoint with async pagination."
+    },
+    "file:src/providers/market/yfinance_provider.py": {
+      "name": "yfinance_provider.py",
+      "type": "file",
+      "summary": "yfinance-based provider for equity and crypto OHLCV data with market-hours detection and rate limiting."
+    },
+    "file:src/providers/social/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Barrel file exporting social media providers: CryptoPanic, Fear & Greed, Reddit, Twitter."
+    },
+    "file:src/providers/social/cryptopanic_social.py": {
+      "name": "cryptopanic_social.py",
+      "type": "file",
+      "summary": "CryptoPanic news platform integration extracting sentiment scores from cryptocurrency headlines."
+    },
+    "file:src/providers/social/fear_greed.py": {
+      "name": "fear_greed.py",
+      "type": "file",
+      "summary": "Crypto Fear & Greed Index API integration providing daily sentiment index for market regime detection."
+    },
+    "file:src/providers/social/reddit.py": {
+      "name": "reddit.py",
+      "type": "file",
+      "summary": "Reddit RSS feed scraper extracting ticker mentions and sentiment from subreddit discussions."
+    },
+    "file:src/providers/social/twitter.py": {
+      "name": "twitter.py",
+      "type": "file",
+      "summary": "Twitter API v2 integration extracting ticker mentions and engagement metrics from tweets."
+    },
+    "file:scripts/backfill_news.py": {
+      "name": "backfill_news.py",
+      "type": "file",
+      "summary": "Backfill script that retrieves and processes historical news data from the database, filling in missing records."
+    },
+    "file:src/engines/deduplication.py": {
+      "name": "deduplication.py",
+      "type": "file",
+      "summary": "Deduplication engine that identifies and removes duplicate news articles using content hashing and similarity scoring."
+    },
+    "file:src/engines/news_intelligence.py": {
+      "name": "news_intelligence.py",
+      "type": "file",
+      "summary": "Core news intelligence engine that orchestrates fetching, deduplicating, and processing news data from multiple providers into scored trading signals."
+    },
+    "file:src/models/news.py": {
+      "name": "news.py",
+      "type": "file",
+      "summary": "Data model for news articles with fields for content, source, timestamp, and sentiment classification."
+    },
+    "file:src/providers/base.py": {
+      "name": "base.py",
+      "type": "file",
+      "summary": "Abstract base provider class defining the interface that all data providers must implement."
+    },
+    "file:src/providers/news/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "News provider factory and barrel file that exports all individual news provider implementations."
+    },
+    "file:src/providers/news/bloomberg.py": {
+      "name": "bloomberg.py",
+      "type": "file",
+      "summary": "News provider for Bloomberg that fetches and parses news articles."
+    },
+    "file:src/providers/news/cnbc.py": {
+      "name": "cnbc.py",
+      "type": "file",
+      "summary": "News provider for Cnbc that fetches and parses news articles."
+    },
+    "file:src/providers/news/crypto_rss.py": {
+      "name": "crypto_rss.py",
+      "type": "file",
+      "summary": "News provider for Crypto Rss that fetches and parses news articles."
+    },
+    "file:src/providers/news/cryptopanic.py": {
+      "name": "cryptopanic.py",
+      "type": "file",
+      "summary": "News provider for Cryptopanic that fetches and parses news articles."
+    },
+    "file:src/providers/news/ft.py": {
+      "name": "ft.py",
+      "type": "file",
+      "summary": "News provider for Ft that fetches and parses news articles."
+    },
+    "file:src/providers/news/newsapi.py": {
+      "name": "newsapi.py",
+      "type": "file",
+      "summary": "News provider for Newsapi that fetches and parses news articles."
+    },
+    "file:src/providers/news/reddit_rss.py": {
+      "name": "reddit_rss.py",
+      "type": "file",
+      "summary": "News provider for Reddit Rss that fetches and parses news articles."
+    },
+    "file:src/providers/news/reuters.py": {
+      "name": "reuters.py",
+      "type": "file",
+      "summary": "News provider for Reuters that fetches and parses news articles."
+    },
+    "file:src/providers/news/turkish_rss.py": {
+      "name": "turkish_rss.py",
+      "type": "file",
+      "summary": "News provider for Turkish Rss that fetches and parses news articles."
+    },
+    "file:src/providers/news/yahoo_finance_rss.py": {
+      "name": "yahoo_finance_rss.py",
+      "type": "file",
+      "summary": "News provider for Yahoo Finance Rss that fetches and parses news articles."
+    },
+    "file:src/providers/resilience.py": {
+      "name": "resilience.py",
+      "type": "file",
+      "summary": "Resilience and circuit-breaker utilities for provider fault tolerance, retry logic, and graceful degradation."
+    },
+    "file:src/api/routes/feedback.py": {
+      "name": "feedback.py",
+      "type": "file",
+      "summary": "API route handlers providing feedback analytics endpoints for engine and provider performance ranking, signal type comparison, and performance trends."
+    },
+    "file:src/api/routes/intelligence.py": {
+      "name": "intelligence.py",
+      "type": "file",
+      "summary": "API route handlers exposing market intelligence endpoints for macro regime, institutional flows, and confluence signal queries."
+    },
+    "file:src/core/signal_tracer.py": {
+      "name": "signal_tracer.py",
+      "type": "file",
+      "summary": "Signal tracing utility that records signal outcomes to database with deterministic hashing for deduplication and audit trail."
+    },
+    "file:src/engines/feedback_aggregator.py": {
+      "name": "feedback_aggregator.py",
+      "type": "file",
+      "summary": "Engine that aggregates signal feedback from database, computes performance statistics for engines and data providers, and exposes ranking and historical performance queries."
+    },
+    "file:src/engines/institutional_confluence_engine.py": {
+      "name": "institutional_confluence_engine.py",
+      "type": "file",
+      "summary": "Engine that detects confluence signals when institutional flows, narratives, and macro regime align, scoring market and ticker-level signals with directional confidence."
+    },
+    "file:src/engines/macro_regime_engine.py": {
+      "name": "macro_regime_engine.py",
+      "type": "file",
+      "summary": "Engine that classifies macro regimes (bullish, bearish, sideways) by combining narrative clustering, proxy signals, fear-greed index, and keyword analysis from news."
+    },
+    "file:src/engines/mean_reversion_engine.py": {
+      "name": "mean_reversion_engine.py",
+      "type": "file",
+      "summary": "Engine that identifies mean reversion trading opportunities by analyzing extreme price moves and volatility, generating signals for oversold/overbought conditions."
+    },
+    "file:src/engines/signal_scoring_engine.py": {
+      "name": "signal_scoring_engine.py",
+      "type": "file",
+      "summary": "Engine that computes signal quality scores based on historical accuracy, predictive strength, half-life decay, and calibration error for continuous model evaluation."
+    },
+    "file:src/scheduler/jobs/daily_brief.py": {
+      "name": "daily_brief.py",
+      "type": "file",
+      "summary": "Scheduled job that gathers daily market metrics, generates AI summary via Ollama, stores result to database, and posts to Discord."
+    },
+    "file:src/scheduler/jobs/executive_report.py": {
+      "name": "executive_report.py",
+      "type": "file",
+      "summary": "Scheduled job generating weekly executive summary with performance metrics, regime analysis, engine rankings, growth indicators, and Discord notification."
+    },
+    "file:src/scheduler/jobs/trading_journal.py": {
+      "name": "trading_journal.py",
+      "type": "file",
+      "summary": "Scheduled job that compiles weekly trading activity, generates AI analysis via Ollama, stores journal entry to database, and posts summary to Discord."
+    },
+    "file:src/scheduler/worker.py": {
+      "name": "worker.py",
+      "type": "file",
+      "summary": "Main scheduler worker that orchestrates all data pipeline cycles (news, sentiment, flows, trends, mean reversion, intelligence scoring) and scheduled jobs with metrics reporting."
+    },
+    "file:signal_edge_analyzer/aggregator.py": {
+      "name": "aggregator.py",
+      "type": "file",
+      "summary": "Orchestrates metrics computation and strategy ranking cycles, aggregating performance data from outcomes and persisting ranked strategies to the database."
+    },
+    "file:signal_edge_analyzer/collector.py": {
+      "name": "collector.py",
+      "type": "file",
+      "summary": "Collects signal outcomes and recent signals from the database, providing queries for signals pending evaluation and maximum signal IDs."
+    },
+    "file:signal_edge_analyzer/db.py": {
+      "name": "db.py",
+      "type": "file",
+      "summary": "Manages PostgreSQL and Redis connections, providing pool lifecycle management, schema migrations, and health checks for database connectivity."
+    },
+    "file:signal_edge_analyzer/discord_client.py": {
+      "name": "discord_client.py",
+      "type": "file",
+      "summary": "Discord notification client that sends formatted system events, signal outcomes, metrics updates, and health status messages to configured webhook endpoints."
+    },
+    "file:signal_edge_analyzer/main.py": {
+      "name": "main.py",
+      "type": "file",
+      "summary": "Application entry point that bootstraps the service, configures logging, starts HTTP health endpoints, manages database/Redis connections, and runs the scheduler."
+    },
+    "file:signal_edge_analyzer/metrics.py": {
+      "name": "metrics.py",
+      "type": "file",
+      "summary": "Computes performance metrics for signals including win rate, returns, expectancy, Sharpe ratio, and drawdown analysis from outcome data."
+    },
+    "file:signal_edge_analyzer/models.py": {
+      "name": "models.py",
+      "type": "file",
+      "summary": "Defines core data models as dataclasses: SignalOutcome, EdgeMetrics, StrategyRank, and SystemEvent representing signal evaluation results and system state."
+    },
+    "file:signal_edge_analyzer/outcomes.py": {
+      "name": "outcomes.py",
+      "type": "file",
+      "summary": "Transforms raw signal outcome rows into SignalOutcome objects, groups outcomes by strategy, and filters evaluated signals for metric computation."
+    },
+    "file:signal_edge_analyzer/scheduler.py": {
+      "name": "scheduler.py",
+      "type": "file",
+      "summary": "Central scheduler that orchestrates background jobs including outcome collection, metrics computation, aggregation, walkforward validation, lessons pipeline, and weekly diagnostics."
+    },
+    "file:signal_edge_analyzer/walkforward.py": {
+      "name": "walkforward.py",
+      "type": "file",
+      "summary": "Performs walk-forward validation of strategies by computing historical lift metrics and routing validated signals to live or paper trading engines."
+    },
+    "file:src/api/main.py": {
+      "name": "main.py",
+      "type": "file",
+      "summary": "FastAPI application factory and lifespan context manager that initializes database, Redis, and cost control systems on startup."
+    },
+    "file:src/api/routes/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Empty module marker for the routes package."
+    },
+    "file:src/api/routes/dashboard.py": {
+      "name": "dashboard.py",
+      "type": "file",
+      "summary": "Comprehensive dashboard API endpoints providing trading performance, positions, trades, research data, and system health metrics."
+    },
+    "file:src/api/routes/edge_intelligence.py": {
+      "name": "edge_intelligence.py",
+      "type": "file",
+      "summary": "API endpoint providing edge intelligence metrics aggregating smart money positions and cluster-based performance analysis."
+    },
+    "file:src/api/routes/sentiment.py": {
+      "name": "sentiment.py",
+      "type": "file",
+      "summary": "Lightweight route module for sentiment engine and trend detection API endpoints."
+    },
+    "file:src/core/metrics.py": {
+      "name": "metrics.py",
+      "type": "file",
+      "summary": "Prometheus metrics definitions for API request rates, latencies, and database pool monitoring."
+    },
+    "file:tests/test_autopsy.py": {
+      "name": "test_autopsy.py",
+      "type": "file",
+      "summary": "Test suite for trade autopsy endpoint validating signal context, outcome evaluation, and LLM audit blocks."
+    },
+    "file:tests/test_dashboard_proxy.py": {
+      "name": "test_dashboard_proxy.py",
+      "type": "file",
+      "summary": "Test suite for dashboard proxy endpoints validating external service resilience and response merging."
+    },
+    "file:tests/test_graveyard.py": {
+      "name": "test_graveyard.py",
+      "type": "file",
+      "summary": "Test suite for graveyard endpoint verifying retired strategy lifecycle, reactivation, and data serialization."
+    },
+    "file:scripts/aggregate_stats.py": {
+      "name": "aggregate_stats.py",
+      "type": "file",
+      "summary": "Queries PostgreSQL for completed trades and computes comprehensive performance statistics including win rates, profit factors, bucket analysis by confidence, symbol, engine, and holding time, plus individual trade history with full signal context."
+    },
+    "file:scripts/governance_engine.py": {
+      "name": "governance_engine.py",
+      "type": "file",
+      "summary": "Applies governance actions derived from LLM lessons to the trading system via Redis (strategy exclusions, dynamic bans), environment file updates (threshold adjustments), database audit logging, and Discord notifications with dry-run support."
+    },
+    "file:scripts/lessons_learned.py": {
+      "name": "lessons_learned.py",
+      "type": "file",
+      "summary": "Multi-layer LLM-based governance engine (V4-V9) using Ollama that analyzes aggregated trading stats, runs memory-aware decision chains through fast (3b) and main (7b) models, applies safety filters and rule overrides, and generates governance actions."
+    },
+    "file:scripts/pipeline_smoke_test.py": {
+      "name": "pipeline_smoke_test.py",
+      "type": "file",
+      "summary": "End-to-end smoke test for the LLM lessons/governance pipeline that runs the full chain (aggregate → 6-pass LLM → governance with dry-run) and reports stage timings to verify pipeline health."
+    },
+    "file:scripts/run_lessons_pipeline.py": {
+      "name": "run_lessons_pipeline.py",
+      "type": "file",
+      "summary": "Orchestrates the full weekly lessons pipeline: fetches trade stats, runs multi-pass LLM analysis, reports findings (risk level, regime, actions, recommendations), and applies governance changes with CLI control over minimum trade count and dry-run mode."
+    },
+    "service:paper_trading_engine/Dockerfile": {
+      "name": "Dockerfile",
+      "type": "service",
+      "summary": "Docker image for the paper trading engine service. Builds a lightweight Python 3.12 container that runs the simulated trading engine on port 8021."
+    },
+    "service:signal_edge_analyzer/Dockerfile": {
+      "name": "Dockerfile",
+      "type": "service",
+      "summary": "Multi-stage Python 3.12 container build for the signal edge analyzer service, with dependency installation, shared strategy code injection, and database migration initialization."
+    },
+    "table:migrations/000_create_miniflux_db.sql": {
+      "name": "000_create_miniflux_db.sql",
+      "type": "table",
+      "summary": "Bootstrap migration that initializes the Miniflux RSS reader database schema for news ingestion."
+    },
+    "table:migrations/001_initial.sql": {
+      "name": "001_initial.sql",
+      "type": "table",
+      "summary": "Core initial schema defining 9 fundamental tables: tickers, news, social_posts, market_trends, smart_money_events, ai_outputs, provider_usage_logs, alerts, and schema_migrations with comprehensive indexing for multi-source market intelligence ingestion."
+    },
+    "table:migrations/001_initial.sql:tickers": {
+      "name": "tickers",
+      "type": "table",
+      "summary": "Master ticker registry with exchange, sector, and market cap metadata for tracking active and watched securities."
+    },
+    "table:migrations/001_initial.sql:news": {
+      "name": "news",
+      "type": "table",
+      "summary": "News articles ingested from multiple sources with sentiment scoring, ticker mentions, and AI-generated summaries for signal generation."
+    },
+    "table:migrations/001_initial.sql:social_posts": {
+      "name": "social_posts",
+      "type": "table",
+      "summary": "Social media posts from multiple platforms with engagement metrics, sentiment scores, and ticker mentions for trend detection."
+    },
+    "table:migrations/001_initial.sql:market_trends": {
+      "name": "market_trends",
+      "type": "table",
+      "summary": "Computed market trends aggregating news, social, and smart money signals with hype and panic signal flags."
+    },
+    "table:migrations/001_initial.sql:smart_money_events": {
+      "name": "smart_money_events",
+      "type": "table",
+      "summary": "Institutional trading events including whale sales, insider buys/sells, and other smart money signals."
+    },
+    "table:migrations/001_initial.sql:ai_outputs": {
+      "name": "ai_outputs",
+      "type": "table",
+      "summary": "Cache of AI model outputs with prompt hash, model used, and associated costs for cost tracking and deduplication."
+    },
+    "table:migrations/001_initial.sql:provider_usage_logs": {
+      "name": "provider_usage_logs",
+      "type": "table",
+      "summary": "External provider API usage tracking including token counts and costs for budget management and performance analysis."
+    },
+    "table:migrations/001_initial.sql:alerts": {
+      "name": "alerts",
+      "type": "table",
+      "summary": "System alerts with severity levels, types, and associated tickers for alerting on critical conditions."
+    },
+    "table:migrations/002_level2.sql": {
+      "name": "002_level2.sql",
+      "type": "table",
+      "summary": "Adds narrative clustering engine with narrative_clusters and noise_filter_log tables for detecting and filtering market narratives."
+    },
+    "table:migrations/002_level2.sql:narrative_clusters": {
+      "name": "narrative_clusters",
+      "type": "table",
+      "summary": "Detected narrative clusters with strength scores, momentum tracking, and contributing sources for narrative-based signal generation."
+    },
+    "table:migrations/002_level2.sql:noise_filter_log": {
+      "name": "noise_filter_log",
+      "type": "table",
+      "summary": "Log of filtered social posts and news marked as noise with reasons for filtering decisions."
+    },
+    "table:migrations/003_level3.sql": {
+      "name": "003_level3.sql",
+      "type": "table",
+      "summary": "Institutional intelligence layer with institutional_flows, etf_rotations, macro_regimes, and confluence_signals tables for advanced flow analysis."
+    },
+    "table:migrations/003_level3.sql:institutional_flows": {
+      "name": "institutional_flows",
+      "type": "table",
+      "summary": "Whale and insider trading flows with net flow ratios for identifying institutional positioning."
+    },
+    "table:migrations/003_level3.sql:etf_rotations": {
+      "name": "etf_rotations",
+      "type": "table",
+      "summary": "ETF sector rotations with composite scores and rotation velocity for sector-level signal generation."
+    },
+    "table:migrations/003_level3.sql:macro_regimes": {
+      "name": "macro_regimes",
+      "type": "table",
+      "summary": "Detected macro regimes with regime shifts, dominant narratives, and proxy scores for regime-dependent signal filtering."
+    },
+    "table:migrations/003_level3.sql:confluence_signals": {
+      "name": "confluence_signals",
+      "type": "table",
+      "summary": "Confluent signals where multiple signal types align on the same ticker for higher conviction trades."
+    },
+    "table:migrations/004_level4_validation.sql": {
+      "name": "004_level4_validation.sql",
+      "type": "table",
+      "summary": "Signal validation and backtesting infrastructure with signals_registry, signal_outcomes, backtest_runs, and engine_performance_metrics for comprehensive signal evaluation."
+    },
+    "table:migrations/004_level4_validation.sql:signals_registry": {
+      "name": "signals_registry",
+      "type": "table",
+      "summary": "Central registry of all trading signals with type, ticker, engine, source, and evaluation status."
+    },
+    "table:migrations/004_level4_validation.sql:signal_outcomes": {
+      "name": "signal_outcomes",
+      "type": "table",
+      "summary": "Actual price outcomes for signals evaluated at different time windows with correctness scoring."
+    },
+    "table:migrations/004_level4_validation.sql:backtest_runs": {
+      "name": "backtest_runs",
+      "type": "table",
+      "summary": "Historical backtest run metadata with accuracy metrics across multiple time windows and evaluated signal counts."
+    },
+    "table:migrations/004_level4_validation.sql:backtest_results": {
+      "name": "backtest_results",
+      "type": "table",
+      "summary": "Detailed backtest results for individual signals with predicted vs actual direction correctness and outcome scores."
+    },
+    "table:migrations/004_level4_validation.sql:engine_performance_metrics": {
+      "name": "engine_performance_metrics",
+      "type": "table",
+      "summary": "Daily engine performance metrics aggregating total signals and accuracy across 4-hour windows."
+    },
+    "table:migrations/005_signal_truth_layer.sql": {
+      "name": "005_signal_truth_layer.sql",
+      "type": "table",
+      "summary": "Signal accuracy scoring table tracking engine performance by signal type and evaluation window for truth-layer maintenance."
+    },
+    "table:migrations/005_signal_truth_layer.sql:signal_scores": {
+      "name": "signal_scores",
+      "type": "table",
+      "summary": "Computed accuracy scores for signal types by engine and window with strength and half-life decay tracking."
+    },
+    "table:migrations/006_replay_system.sql": {
+      "name": "006_replay_system.sql",
+      "type": "table",
+      "summary": "Historical replay infrastructure with replay_runs and replay_metrics for backfill analysis and signal validation across past periods."
+    },
+    "table:migrations/006_replay_system.sql:replay_runs": {
+      "name": "replay_runs",
+      "type": "table",
+      "summary": "Replay run metadata with start/end times, status, and signal evaluation counts for historical backtests."
+    },
+    "table:migrations/006_replay_system.sql:replay_metrics": {
+      "name": "replay_metrics",
+      "type": "table",
+      "summary": "Detailed replay performance metrics with precision, calibration error, and confusion matrix counts for signal quality assessment."
+    },
+    "table:migrations/007_observability.sql": {
+      "name": "007_observability.sql",
+      "type": "table",
+      "summary": "Observability layer with validation_alerts table for monitoring system health and flagging anomalies."
+    },
+    "table:migrations/007_observability.sql:validation_alerts": {
+      "name": "validation_alerts",
+      "type": "table",
+      "summary": "Alert records for validation rule violations with threshold comparisons, active status tracking, and resolution timestamps."
+    },
+    "table:migrations/008_governance.sql": {
+      "name": "008_governance.sql",
+      "type": "table",
+      "summary": "Governance decision layer with engine_trust_scores, governance_recommendations, and narrative_stability_scores for controlling signal routing."
+    },
+    "table:migrations/008_governance.sql:engine_trust_scores": {
+      "name": "engine_trust_scores",
+      "type": "table",
+      "summary": "Trust scoring for engines tracking precision, stability, and accuracy over multiple time windows with instability detection."
+    },
+    "table:migrations/008_governance.sql:governance_recommendations": {
+      "name": "governance_recommendations",
+      "type": "table",
+      "summary": "Governance action recommendations with expiration, target type, rationale, and acknowledgment tracking for decision oversight."
+    },
+    "table:migrations/008_governance.sql:narrative_stability_scores": {
+      "name": "narrative_stability_scores",
+      "type": "table",
+      "summary": "Narrative persistence tracking with stability scores and collapse detection for regime-based filtering."
+    },
+    "table:migrations/009_meta_intelligence.sql": {
+      "name": "009_meta_intelligence.sql",
+      "type": "table",
+      "summary": "Strategic meta-intelligence layer with strategic_memory_events, regime_transitions, narrative_lifecycle, failure_clusters, and meta snapshots for higher-order system monitoring."
+    },
+    "table:migrations/009_meta_intelligence.sql:strategic_memory_events": {
+      "name": "strategic_memory_events",
+      "type": "table",
+      "summary": "Strategic events recorded by the system including regime changes, failure clusters, and narrative collapses for meta-learning."
+    },
+    "table:migrations/009_meta_intelligence.sql:regime_transition_records": {
+      "name": "regime_transition_records",
+      "type": "table",
+      "summary": "Historical regime transitions with evidence of regime changes, similarity scores, and forward performance tracking."
+    },
+    "table:migrations/009_meta_intelligence.sql:narrative_lifecycle_records": {
+      "name": "narrative_lifecycle_records",
+      "type": "table",
+      "summary": "Narrative lifecycle phases from emergence through hype and collapse with lifecycle stage tracking."
+    },
+    "table:migrations/009_meta_intelligence.sql:strategic_failure_clusters": {
+      "name": "strategic_failure_clusters",
+      "type": "table",
+      "summary": "Recurring failure patterns affecting multiple engines with recurrence counts and activity status."
+    },
+    "table:migrations/009_meta_intelligence.sql:meta_intelligence_snapshots": {
+      "name": "meta_intelligence_snapshots",
+      "type": "table",
+      "summary": "Periodic system health snapshots with failure density, governance stress, stability ranking, and degradation metrics."
+    },
+    "table:migrations/010_provider_ingestion_log.sql": {
+      "name": "010_provider_ingestion_log.sql",
+      "type": "table",
+      "summary": "Data ingestion cycle logging for tracking deduplication effectiveness and provider performance."
+    },
+    "table:migrations/010_provider_ingestion_log.sql:provider_ingestion_log": {
+      "name": "provider_ingestion_log",
+      "type": "table",
+      "summary": "Per-cycle ingestion metrics including new items, exact/fuzzy/semantic duplicates, errors, and latency."
+    },
+    "table:migrations/011_signal_trace.sql": {
+      "name": "011_signal_trace.sql",
+      "type": "table",
+      "summary": "Signal lineage tracking table linking signals to their source news articles for audit trail and root cause analysis."
+    },
+    "table:migrations/011_signal_trace.sql:signal_trace": {
+      "name": "signal_trace",
+      "type": "table",
+      "summary": "Audit trail linking signals to ingestion cycles and source news articles for traceability."
+    },
+    "table:migrations/012_signal_feedback.sql": {
+      "name": "012_signal_feedback.sql",
+      "type": "table",
+      "summary": "Signal feedback and provider performance metrics with pnl_score and confidence tracking for continuous signal quality improvement."
+    },
+    "table:migrations/012_signal_feedback.sql:signal_feedback": {
+      "name": "signal_feedback",
+      "type": "table",
+      "summary": "PnL-based feedback on individual signals with confidence scores and market context assessment."
+    },
+    "table:migrations/012_signal_feedback.sql:provider_performance_metrics": {
+      "name": "provider_performance_metrics",
+      "type": "table",
+      "summary": "Daily provider-level metrics with win rate, win/loss/neutral counts, and noise ratio for provider ranking."
+    },
+    "table:migrations/013_signal_edge_analyzer.sql": {
+      "name": "013_signal_edge_analyzer.sql",
+      "type": "table",
+      "summary": "Edge analysis infrastructure with signal_edge_metrics and signal_edge_aggregations for identifying profitable signal subgroups."
+    },
+    "table:migrations/013_signal_edge_analyzer.sql:signal_edge_metrics": {
+      "name": "signal_edge_metrics",
+      "type": "table",
+      "summary": "Per-ticker, per-engine signal edge with win rates and quality scoring for identifying persistent edges."
+    },
+    "table:migrations/013_signal_edge_analyzer.sql:signal_edge_aggregations": {
+      "name": "signal_edge_aggregations",
+      "type": "table",
+      "summary": "Ranked aggregated edges with expectancy, Sharpe ratio, and average return for identifying best-performing signals."
+    },
+    "table:migrations/014_seed_tickers.sql": {
+      "name": "014_seed_tickers.sql",
+      "type": "table",
+      "summary": "Ticker data seeding migration populating initial cryptocurrency and equity tickers for market coverage."
+    },
+    "table:migrations/015_ticker_quotes.sql": {
+      "name": "015_ticker_quotes.sql",
+      "type": "table",
+      "summary": "Real-time ticker quote storage with price, volume, market cap, and timestamp for current market data."
+    },
+    "table:migrations/015_ticker_quotes.sql:ticker_quotes": {
+      "name": "ticker_quotes",
+      "type": "table",
+      "summary": "Current ticker price quotes with volume, market cap, exchange, and currency information."
+    },
+    "table:migrations/016_paper_trades.sql": {
+      "name": "016_paper_trades.sql",
+      "type": "table",
+      "summary": "Paper trading execution log with entry/exit prices, fees, PnL, and close reasons for backtesting and signal validation."
+    },
+    "table:migrations/016_paper_trades.sql:paper_trades": {
+      "name": "paper_trades",
+      "type": "table",
+      "summary": "Individual paper trade records with entry price, direction, size, fees, exit price, and PnL."
+    },
+    "table:migrations/017_narrative_persistence.sql": {
+      "name": "017_narrative_persistence.sql",
+      "type": "table",
+      "summary": "Minor migration for narrative persistence feature enablement."
+    },
+    "table:migrations/018_technical_score.sql": {
+      "name": "018_technical_score.sql",
+      "type": "table",
+      "summary": "Technical score index migration adding technical analysis scoring to market trends."
+    },
+    "table:migrations/019_signal_edge_agg_uq.sql": {
+      "name": "019_signal_edge_agg_uq.sql",
+      "type": "table",
+      "summary": "Adds uniqueness constraint to signal edge aggregations ensuring one edge per signal/ticker/direction/window combination."
+    },
+    "table:migrations/020_optimization_runs.sql": {
+      "name": "020_optimization_runs.sql",
+      "type": "table",
+      "summary": "Strategy optimization run tracking with parameters, performance metrics, and trade counts."
+    },
+    "table:migrations/020_optimization_runs.sql:optimization_runs": {
+      "name": "optimization_runs",
+      "type": "table",
+      "summary": "Parameter optimization trial records with score, win rate, Sharpe ratio, and expectancy metrics."
+    },
+    "table:migrations/021_governance_log.sql": {
+      "name": "021_governance_log.sql",
+      "type": "table",
+      "summary": "Governance action logging with governance_log and lessons_learned_runs for decision audit trail and learning capture."
+    },
+    "table:migrations/021_governance_log.sql:governance_log": {
+      "name": "governance_log",
+      "type": "table",
+      "summary": "Log of governance actions taken including evidence, expected effects, and skip reasons."
+    },
+    "table:migrations/021_governance_log.sql:lessons_learned_runs": {
+      "name": "lessons_learned_runs",
+      "type": "table",
+      "summary": "AI-generated lessons learned from trading periods with trade counts, PnL, and model information."
+    },
+    "table:migrations/022_stale_quote_alert.sql": {
+      "name": "022_stale_quote_alert.sql",
+      "type": "table",
+      "summary": "Stale quote detection for alerting when ticker data becomes outdated."
+    },
+    "table:migrations/023_funding_liquidations.sql": {
+      "name": "023_funding_liquidations.sql",
+      "type": "table",
+      "summary": "Crypto funding rates and liquidation events tracking for perpetual futures monitoring."
+    },
+    "table:migrations/023_funding_liquidations.sql:funding_rates": {
+      "name": "funding_rates",
+      "type": "table",
+      "summary": "Perpetual futures funding rates with next funding time and mark price."
+    },
+    "table:migrations/023_funding_liquidations.sql:liquidation_events": {
+      "name": "liquidation_events",
+      "type": "table",
+      "summary": "Liquidation events with side, price, quantity, and notional value for monitoring cascade risk."
+    },
+    "table:migrations/024_research_runs.sql": {
+      "name": "024_research_runs.sql",
+      "type": "table",
+      "summary": "Research run tracking with parameter sweeps, in-sample and out-of-sample performance for strategy research."
+    },
+    "table:migrations/024_research_runs.sql:research_runs": {
+      "name": "research_runs",
+      "type": "table",
+      "summary": "Research experiment metadata with parameter sweep name, performance metrics, and out-of-sample validation."
+    },
+    "table:migrations/025_infra_watchdog_alerts.sql": {
+      "name": "025_infra_watchdog_alerts.sql",
+      "type": "table",
+      "summary": "Infrastructure watchdog alerting for system health monitoring."
+    },
+    "table:migrations/026_signal_trace_ticker.sql": {
+      "name": "026_signal_trace_ticker.sql",
+      "type": "table",
+      "summary": "Adds ticker indexing to signal trace for faster lookups on signal lineage."
+    },
+    "table:migrations/028_retired_strategies.sql": {
+      "name": "028_retired_strategies.sql",
+      "type": "table",
+      "summary": "Retirement history for strategies with reason, category, performance at retirement, and potential reactivation."
+    },
+    "table:migrations/028_retired_strategies.sql:retired_strategies": {
+      "name": "retired_strategies",
+      "type": "table",
+      "summary": "Strategy retirement records with retirement reason, category, performance metrics, and reactivation tracking."
+    },
+    "table:migrations/029_personal_finance.sql": {
+      "name": "029_personal_finance.sql",
+      "type": "table",
+      "summary": "Personal finance tracking with personal_transactions and trading_journal for expense and trade journaling."
+    },
+    "table:migrations/029_personal_finance.sql:personal_transactions": {
+      "name": "personal_transactions",
+      "type": "table",
+      "summary": "Personal expense tracking with category, amount, source, and description."
+    },
+    "table:migrations/029_personal_finance.sql:trading_journal": {
+      "name": "trading_journal",
+      "type": "table",
+      "summary": "Weekly trading journal entries with trade count, PnL, and AI-generated analysis."
+    },
+    "table:migrations/030_daily_briefs.sql": {
+      "name": "030_daily_briefs.sql",
+      "type": "table",
+      "summary": "Daily brief generation storage with market summary, trade counts, and PnL snapshots."
+    },
+    "table:migrations/030_daily_briefs.sql:daily_briefs": {
+      "name": "daily_briefs",
+      "type": "table",
+      "summary": "Daily market brief with generated content, model used, trade counts, PnL, and Bitcoin price snapshot."
+    },
+    "table:migrations/031_open_position_unique.sql": {
+      "name": "031_open_position_unique.sql",
+      "type": "table",
+      "summary": "Uniqueness constraint migration ensuring only one open position per ticker."
+    },
+    "table:migrations/032_open_position_unique_per_mode.sql": {
+      "name": "032_open_position_unique_per_mode.sql",
+      "type": "table",
+      "summary": "Updated uniqueness constraint per trading mode (paper vs live)."
+    },
+    "table:migrations/033_news_impact_scoring.sql": {
+      "name": "033_news_impact_scoring.sql",
+      "type": "table",
+      "summary": "News article impact scoring indexes for finding recently published articles needing analysis."
+    },
+    "table:migrations/034_truth_router.sql": {
+      "name": "034_truth_router.sql",
+      "type": "table",
+      "summary": "Trade audit trail with llm_trade_audits table for LLM-based trade vetting and decision recording."
+    },
+    "table:migrations/034_truth_router.sql:llm_trade_audits": {
+      "name": "llm_trade_audits",
+      "type": "table",
+      "summary": "LLM-generated trade audit records with verdict, bear case reasoning, and supporting dossier."
+    },
+    "table:migrations/035_trade_reflections.sql": {
+      "name": "035_trade_reflections.sql",
+      "type": "table",
+      "summary": "Post-trade reflection records with router action, PnL, hold duration, and extracted lesson."
+    },
+    "table:migrations/035_trade_reflections.sql:trade_reflections": {
+      "name": "trade_reflections",
+      "type": "table",
+      "summary": "Trade analysis records with close reason, router decision, PnL, hold time, and learned lesson."
+    },
+    "table:migrations/036_etf_tickers.sql": {
+      "name": "036_etf_tickers.sql",
+      "type": "table",
+      "summary": "ETF ticker data seeding and index migration for ETF coverage."
+    },
+    "table:migrations/037_fix_outcome_direction_correct.sql": {
+      "name": "037_fix_outcome_direction_correct.sql",
+      "type": "table",
+      "summary": "Bug fix migration for signal outcome direction correctness calculation."
+    },
+    "table:migrations/038_equity_snapshots.sql": {
+      "name": "038_equity_snapshots.sql",
+      "type": "table",
+      "summary": "Account equity and balance snapshots with regime and drawdown tracking for portfolio health monitoring."
+    },
+    "table:migrations/038_equity_snapshots.sql:equity_snapshots": {
+      "name": "equity_snapshots",
+      "type": "table",
+      "summary": "Point-in-time equity snapshots with balance, drawdown percentage, regime, and governor state."
+    },
+    "table:migrations/039_cide_decisions.sql": {
+      "name": "039_cide_decisions.sql",
+      "type": "table",
+      "summary": "Capital allocation decisions with CIDE framework tracking requested vs recommended capital and edge stability."
+    },
+    "table:migrations/039_cide_decisions.sql:cide_decisions": {
+      "name": "cide_decisions",
+      "type": "table",
+      "summary": "Capital allocation decisions with edge stability scores, recommended capital adjustments, and reasoning."
+    },
+    "table:migrations/040_trade_post_mortems.sql": {
+      "name": "040_trade_post_mortems.sql",
+      "type": "table",
+      "summary": "Trade post-mortem analysis with AI verdict, lessons learned, and regime fit assessment."
+    },
+    "table:migrations/040_trade_post_mortems.sql:trade_post_mortems": {
+      "name": "trade_post_mortems",
+      "type": "table",
+      "summary": "AI-analyzed trade outcomes with verdict, extracted lesson, regime fit, and latency metrics."
+    },
+    "table:migrations/041_signal_trace_regime_filter.sql": {
+      "name": "041_signal_trace_regime_filter.sql",
+      "type": "table",
+      "summary": "Minimal migration for signal trace regime filtering."
+    },
+    "table:migrations/042_capital_growth_log.sql": {
+      "name": "042_capital_growth_log.sql",
+      "type": "table",
+      "summary": "Capital growth phase tracking with equity, position limits, leverage caps, and size multipliers."
+    },
+    "table:migrations/042_capital_growth_log.sql:capital_growth_log": {
+      "name": "capital_growth_log",
+      "type": "table",
+      "summary": "Phase-based capital growth milestones with equity level, position limits, and leverage adjustments."
+    },
+    "table:migrations/043_meta_strategy_runs.sql": {
+      "name": "043_meta_strategy_runs.sql",
+      "type": "table",
+      "summary": "Meta-strategy execution tracking with regime detection and engine weights."
+    },
+    "table:migrations/043_meta_strategy_runs.sql:meta_strategy_runs": {
+      "name": "meta_strategy_runs",
+      "type": "table",
+      "summary": "Meta-strategy execution records with detected regime, confidence, engine weights, and inputs."
+    },
+    "table:migrations/044_paper_trades_signal_id_unique.sql": {
+      "name": "044_paper_trades_signal_id_unique.sql",
+      "type": "table",
+      "summary": "Uniqueness constraint ensuring one paper trade per open signal."
+    },
+    "table:migrations/045_paper_trades_stop_order_ids.sql": {
+      "name": "045_paper_trades_stop_order_ids.sql",
+      "type": "table",
+      "summary": "Migration adding stop order ID tracking to paper trades."
+    },
+    "table:migrations/046_funding_payments.sql": {
+      "name": "046_funding_payments.sql",
+      "type": "table",
+      "summary": "Crypto perpetual futures funding payment tracking for P&L attribution."
+    },
+    "table:migrations/046_funding_payments.sql:funding_payments": {
+      "name": "funding_payments",
+      "type": "table",
+      "summary": "Funding payment records for each perpetual futures position with income and payment time."
+    },
+    "file:.claude/hooks/check_sql_post.sh": {
+      "name": "check_sql_post.sh",
+      "type": "file",
+      "summary": "Claude Code hook that validates SQL schema compatibility after Python file edits, running schema checks and feeding back validation errors to prevent schema drift."
+    },
+    "file:.claude/hooks/guard_env_pre.sh": {
+      "name": "guard_env_pre.sh",
+      "type": "file",
+      "summary": "Claude Code hook that enforces the paper-first trading rule by requiring explicit user approval before any .env file modifications, preventing accidental live trading config changes."
+    },
+    "file:.claude/hooks/guard_live_pre.sh": {
+      "name": "guard_live_pre.sh",
+      "type": "file",
+      "summary": "Claude Code hook that blocks shell commands setting TRADING_MODE=live without explicit user approval, enforcing a hard safety boundary for paper trading mode enforcement."
+    },
+    "document:.claude/runbooks/add_ai_model.md": {
+      "name": "add_ai_model.md",
+      "type": "document",
+      "summary": "Runbook for integrating new LLM providers into the AI Analyst Engine, covering provider implementation, pricing configuration, routing setup, and validation procedures."
+    },
+    "document:.claude/runbooks/add_news_source.md": {
+      "name": "add_news_source.md",
+      "type": "document",
+      "summary": "Operational guide for adding new news data providers to the News Intelligence Engine, including provider file creation, configuration, registry registration, and testing procedures."
+    },
+    "document:.claude/runbooks/add_provider.md": {
+      "name": "add_provider.md",
+      "type": "document",
+      "summary": "Generic runbook template for adding any provider category (news, social, AI, ticker) to the platform, with routing between category-specific guides and common integration patterns."
+    },
+    "document:.claude/runbooks/add_social_source.md": {
+      "name": "add_social_source.md",
+      "type": "document",
+      "summary": "Runbook for onboarding social media intelligence sources, covering provider implementation, community tracking, sentiment engine integration, rate limiting, and authentication setup."
+    },
+    "document:.claude/runbooks/add_ticker_source.md": {
+      "name": "add_ticker_source.md",
+      "type": "document",
+      "summary": "Guide for populating ticker/symbol data for US equities and BIST, including schema design, data source integration (Polygon.io, Finnhub), sector mapping, and verification procedures."
+    },
+    "document:.claude/runbooks/backtesting_replay.md": {
+      "name": "backtesting_replay.md",
+      "type": "document",
+      "summary": "Complete operational guide for the backtesting and replay system, covering manual replay execution via API/Redis/Python, monitoring, auto-scheduling, troubleshooting, and rollback procedures."
+    },
+    "document:.claude/runbooks/calibration_governance.md": {
+      "name": "calibration_governance.md",
+      "type": "document",
+      "summary": "Runbook for managing signal confidence calibration across engines, including diagnosis of miscalibration, confidence tier analysis, trend review, and recovery procedures for over/underconfident engines."
+    },
+    "document:.claude/runbooks/debug_pipeline.md": {
+      "name": "debug_pipeline.md",
+      "type": "document",
+      "summary": "Diagnostic guide for troubleshooting pipeline issues using a decision tree, with targeted debugging procedures for service health, providers, database, normalization, engines, and cost tracking."
+    },
+    "document:.claude/runbooks/deploy_production.md": {
+      "name": "deploy_production.md",
+      "type": "document",
+      "summary": "Complete production deployment guide covering server setup, configuration, Docker build/start, verification, log rotation, systemd service, and update procedures for the market intelligence platform."
+    },
+    "document:.claude/runbooks/governance_optimization.md": {
+      "name": "governance_optimization.md",
+      "type": "document",
+      "summary": "Operational guide for the Governance Optimization Engine that filters signals with a trust score formula, including components, recommendation types, monitoring, acknowledgment procedures, and alert types."
+    },
+    "document:.claude/runbooks/improve_sentiment_engine.md": {
+      "name": "improve_sentiment_engine.md",
+      "type": "document",
+      "summary": "Runbook for tuning the sentiment analysis system, covering VADER lexicon optimization, FinBERT replacement, LLM prompt improvement, contrarian signal detection, and velocity calculation enhancements."
+    },
+    "document:.claude/runbooks/regime_transition_analysis.md": {
+      "name": "regime_transition_analysis.md",
+      "type": "document",
+      "summary": "Runbook for analyzing market regime transitions and engine fragility, including key metrics, dangerous transition pairs, investigation procedures for instability warnings, and post-transition monitoring."
+    },
+    "document:.claude/runbooks/strategic_memory.md": {
+      "name": "strategic_memory.md",
+      "type": "document",
+      "summary": "Operational guide for the Strategic Memory and Meta-Intelligence system covering components, API endpoints, monitoring dashboards, alert types, key metrics interpretation, and operational procedures."
+    },
+    "document:.claude/runbooks/validation_alert.md": {
+      "name": "validation_alert.md",
+      "type": "document",
+      "summary": "Runbook for the Validation Alert Engine that monitors signal quality and system health, defining 8 alert types (precision collapse, calibration drift, replay failure, coverage gaps), configuration, and resolution procedures."
+    },
+    "config:.env.example": {
+      "name": ".env.example",
+      "type": "config",
+      "summary": "Configuration template defining 107 environment variables for the trading pipeline, covering application settings, trading credentials (Binance/Alpaca), external API keys, database/cache configuration, monitoring parameters, and scheduler intervals."
+    },
+    "document:CLAUDE.md": {
+      "name": "CLAUDE.md",
+      "type": "document",
+      "summary": "Claude Code project instructions covering model economy strategies, hard rules for trading safety (TRADING_MODE guardrails), database/CLI quick facts, and knowledge graph usage via Graphify."
+    },
+    "pipeline:Makefile": {
+      "name": "Makefile",
+      "type": "pipeline",
+      "summary": "Build automation with 12 targets orchestrating Docker Compose operations: preflight validation, service lifecycle (up/down/restart), deployment verification, SQL schema checking, health monitoring, and test execution."
+    },
+    "document:README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "Comprehensive project documentation describing the market intelligence pipeline architecture (6 engine layers), tech stack, setup guide for macOS/Linux/Windows (WSL), usage instructions, troubleshooting, and repository structure."
+    },
+    "service:docker-compose.yml": {
+      "name": "docker-compose.yml",
+      "type": "service",
+      "summary": "Multi-container orchestration configuration deploying 27 services including API, validation, Postgres, Redis, Prometheus, Discord bot, and specialized engines for news ingestion, sentiment analysis, smart money tracking, and signal validation."
+    },
+    "document:requirements.txt": {
+      "name": "requirements.txt",
+      "type": "document",
+      "summary": "Production Python dependencies including FastAPI/uvicorn (web framework), asyncpg/redis (persistence), aiohttp/httpx (networking), Discord.py (bot), OpenAI/Anthropic (AI), and market data clients (yfinance)."
+    },
+    "document:requirements-dev.txt": {
+      "name": "requirements-dev.txt",
+      "type": "document",
+      "summary": "Development testing dependencies with pytest as the unit test framework, intended to be installed alongside requirements.txt for local test execution without Docker."
+    },
+    "document:docs/BACKTEST_PLAYGROUND.md": {
+      "name": "BACKTEST_PLAYGROUND.md",
+      "type": "document",
+      "summary": "Instructions for launching and using an on-demand JupyterLab environment for ad-hoc backtesting and analysis against the live market-intelligence database, with a guaranteed read-only analyst Postgres role."
+    },
+    "document:docs/OBSERVABILITY.md": {
+      "name": "OBSERVABILITY.md",
+      "type": "document",
+      "summary": "Comprehensive reference guide for the signal pipeline architecture covering table schemas, end-to-end signal lifecycle from ingestion to evaluation, step-by-step debugging workflows with SQL queries, and service ports."
+    },
+    "document:docs/RETROSPECTIVE_FROM_SCRATCH.md": {
+      "name": "RETROSPECTIVE_FROM_SCRATCH.md",
+      "type": "document",
+      "summary": "Design critique from Sprint 51 identifying five structural lessons learned across 51 sprints: prioritizing ground truth over engines, backtest-first architecture, persistent state machines, unified configuration, and reduced architectural complexity."
+    },
+    "config:monitoring/homepage/bookmarks.yaml": {
+      "name": "bookmarks.yaml",
+      "type": "config",
+      "summary": "Quick bookmark shortcuts for rapid navigation to frequently accessed services like Binance and the main dashboard."
+    },
+    "file:monitoring/homepage/custom.css": {
+      "name": "custom.css",
+      "type": "file",
+      "summary": "Custom CSS styling for the Market Intelligence trading dashboard, implementing design tokens, color scheme, and layout for a dark-theme monitoring interface."
+    },
+    "config:monitoring/homepage/docker.yaml": {
+      "name": "docker.yaml",
+      "type": "config",
+      "summary": "Docker service configuration template for homepage, with commented examples for connecting to Docker sockets or TCP endpoints."
+    },
+    "file:monitoring/homepage/index.html": {
+      "name": "index.html",
+      "type": "file",
+      "summary": "Main HTML entry point for the Market Intelligence monitoring homepage dashboard, providing a unified view of trading systems, research tools, and infrastructure services."
+    },
+    "config:monitoring/homepage/kubernetes.yaml": {
+      "name": "kubernetes.yaml",
+      "type": "config",
+      "summary": "Kubernetes service configuration stub for homepage deployment, with minimal placeholder configuration."
+    },
+    "config:monitoring/homepage/proxmox.yaml": {
+      "name": "proxmox.yaml",
+      "type": "config",
+      "summary": "Proxmox hypervisor monitoring configuration for the homepage dashboard."
+    },
+    "config:monitoring/homepage/services.yaml": {
+      "name": "services.yaml",
+      "type": "config",
+      "summary": "Central service registry defining three categories (Trading, Research, Infrastructure) with 13+ services, including dashboards, signal flow, LLM chat, RSS readers, and uptime monitoring."
+    },
+    "config:monitoring/homepage/settings.yaml": {
+      "name": "settings.yaml",
+      "type": "config",
+      "summary": "Homepage UI configuration defining theme (dark, slate), layout structure with three-column grids for Trading/Research/Infrastructure sections, and quick-launch search settings."
+    },
+    "config:monitoring/homepage/widgets.yaml": {
+      "name": "widgets.yaml",
+      "type": "config",
+      "summary": "Dashboard widgets configuration defining three widget groups for displaying system metrics and status information."
+    },
+    "file:scripts/deploy.sh": {
+      "name": "deploy.sh",
+      "type": "file",
+      "summary": "Production deployment script with multi-step orchestration, automatic rollback, and trading safety layer validation. Handles Docker Compose stack lifecycle with database reset and environment validation."
+    },
+    "file:scripts/health_check.sh": {
+      "name": "health_check.sh",
+      "type": "file",
+      "summary": "Comprehensive health probe for all running services in the stack—infrastructure, APIs, scheduler, bot, validation engines, and observability components. Provides colored output and exit code signaling."
+    },
+    "file:scripts/install_autopush.sh": {
+      "name": "install_autopush.sh",
+      "type": "file",
+      "summary": "Idempotent git hook installer that sets up automatic push-to-origin on commit and fallback cron-based push every 30 minutes, preserving existing crontab entries."
+    },
+    "file:scripts/nightly_claude_diagnose.sh": {
+      "name": "nightly_claude_diagnose.sh",
+      "type": "file",
+      "summary": "Nightly autonomous diagnostic runner that invokes the /diagnose skill headless via Claude Code, generates system health reports in markdown, and posts verdicts to Discord watchdog channel."
+    },
+    "file:scripts/preflight.sh": {
+      "name": "preflight.sh",
+      "type": "file",
+      "summary": "Pre-deployment validation gating all stack starts: verifies Docker/Compose installation, .env presence and required secrets, compose config validity, port availability, and SQL schema consistency."
+    },
+    "document:scripts/sql_check_allow.txt": {
+      "name": "sql_check_allow.txt",
+      "type": "document",
+      "summary": "Configuration file for SQL schema validation allowlist, permitting verified false positives from static SQL checker to be suppressed."
+    },
+    "file:sql/verification/01_provider_activity.sql": {
+      "name": "01_provider_activity.sql",
+      "type": "file",
+      "summary": "Verification query that monitors provider ingestion activity over the last 2 hours, tracking fetch counts, error rates, latency, and duplicate detection ratios to ensure data sources are healthy and responsive."
+    },
+    "file:sql/verification/02_signal_generation.sql": {
+      "name": "02_signal_generation.sql",
+      "type": "file",
+      "summary": "Verification query that tracks signal generation rates and characteristics across engines and signal types in the last 24 hours, including signal strength distributions and directional breakdowns."
+    },
+    "file:sql/verification/03_signal_evaluation.sql": {
+      "name": "03_signal_evaluation.sql",
+      "type": "file",
+      "summary": "Verification query that reports signal evaluation outcomes grouped by engine, signal type, and evaluation window, calculating win rates and average PnL scores to assess signal quality and predictive accuracy."
+    },
+    "file:sql/verification/04_feedback_metrics.sql": {
+      "name": "04_feedback_metrics.sql",
+      "type": "file",
+      "summary": "Verification query that aggregates the latest performance metrics for both engines and data providers, reporting win rates at multiple time windows (1h, 24h, 7d) and average PnL scores."
+    },
+    "file:sql/verification/05_pipeline_integrity.sql": {
+      "name": "05_pipeline_integrity.sql",
+      "type": "file",
+      "summary": "Verification query that traces the full lifecycle of data processing cycles across ingestion, signal generation, and evaluation stages, using CTEs and outer joins to identify stalled or incomplete pipelines."
+    },
+    "document:.claude/agents/grunt.md": {
+      "name": "grunt.md",
+      "type": "document",
+      "summary": "Defines the grunt subagent directive—a cheap, fast Haiku worker for mechanical tasks like log grepping, SQL queries, and file searches to conserve token budget on the main model."
+    },
+    "document:.claude/agents/sql-reviewer.md": {
+      "name": "sql-reviewer.md",
+      "type": "document",
+      "summary": "Defines the sql-reviewer subagent (Sonnet) that reviews diffs containing SQL strings to catch schema drift—the most recurring bug class in the project."
+    },
+    "document:.claude/architecture.md": {
+      "name": "architecture.md",
+      "type": "document",
+      "summary": "Comprehensive system architecture documenting the multi-layered intelligence pipeline: providers (news, social, market), engines (intelligence, sentiment, smart money), signal scoring and replay, governance, and meta-intelligence layers with PostgreSQL and Redis persistence."
+    },
+    "config:.claude/settings.json": {
+      "name": "settings.json",
+      "type": "config",
+      "summary": "Claude Code configuration with hooks for enforcing safety rules—preventing live trading mode changes and requiring explicit deploy verification before production changes."
+    },
+    "document:.claude/skills/deploy-verify/SKILL.md": {
+      "name": "SKILL.md",
+      "type": "document",
+      "summary": "Deployment verification skill documentation covering preflight checks, deployment, health verification, landing proof, and reporting—ensuring config lands correctly in production."
+    },
+    "document:.claude/skills/diagnose/SKILL.md": {
+      "name": "SKILL.md",
+      "type": "document",
+      "summary": "Deep diagnosis skill for the trading system covering liveness checks, trade performance via price truth, router behavior, signal flow, engine metrics, guardrails, watchdog alerts, and debugging techniques."
+    },
+    "file:.gitattributes": {
+      "name": ".gitattributes",
+      "type": "file",
+      "summary": "Git attributes configuration specifying line ending handling and diff/merge strategies for project files."
+    },
+    "config:.ua/config.json": {
+      "name": "config.json",
+      "type": "config",
+      "summary": "Understand-Anything output language configuration file."
+    },
+    "file:backups/.gitkeep": {
+      "name": ".gitkeep",
+      "type": "file",
+      "summary": "Placeholder file ensuring the backups directory is tracked in version control."
+    },
+    "service:docker/api.Dockerfile": {
+      "name": "api.Dockerfile",
+      "type": "service",
+      "summary": "Multi-service Docker image building the FastAPI application, validation layer, and related services for the market intelligence platform."
+    },
+    "service:docker/bot.Dockerfile": {
+      "name": "bot.Dockerfile",
+      "type": "service",
+      "summary": "Docker image for the Telegram bot service that delivers market intelligence alerts and commands."
+    },
+    "service:docker/freetime_researcher.Dockerfile": {
+      "name": "freetime_researcher.Dockerfile",
+      "type": "service",
+      "summary": "Docker image for the freetime research service that performs deep analysis during low-traffic periods."
+    },
+    "service:docker/jupyter.Dockerfile": {
+      "name": "jupyter.Dockerfile",
+      "type": "service",
+      "summary": "Docker image providing Jupyter notebook environment for exploratory data analysis and research on market data."
+    },
+    "service:docker/market_data_logger.Dockerfile": {
+      "name": "market_data_logger.Dockerfile",
+      "type": "service",
+      "summary": "Docker image for the market data logging service that continuously ingests and persists market prices and volumes."
+    },
+    "service:docker/validation.Dockerfile": {
+      "name": "validation.Dockerfile",
+      "type": "service",
+      "summary": "Docker image for the validation service that tracks signal outcomes and manages backtest replay orchestration."
+    },
+    "service:docker/watchdog.Dockerfile": {
+      "name": "watchdog.Dockerfile",
+      "type": "service",
+      "summary": "Docker image for the watchdog service monitoring system health, triggering alerts on anomalies and guardrail violations."
+    },
+    "service:docker/worker.Dockerfile": {
+      "name": "worker.Dockerfile",
+      "type": "service",
+      "summary": "Docker image for background worker services processing scheduled tasks like news fetching, social sentiment analysis, and signal scoring."
+    },
+    "file:graphify-out/.gitkeep": {
+      "name": ".gitkeep",
+      "type": "file",
+      "summary": "Placeholder file ensuring the graphify output directory is tracked in version control."
+    },
+    "file:monitoring/homepage/custom.js": {
+      "name": "custom.js",
+      "type": "file",
+      "summary": "Monitoring dashboard UI built with vanilla JavaScript, providing interactive visualization of system metrics, trading cards, research status, infrastructure health, and quick navigation links."
+    },
+    "config:monitoring/prometheus/prometheus.yml": {
+      "name": "prometheus.yml",
+      "type": "config",
+      "summary": "Prometheus scrape configuration collecting metrics from all system services (API, validation, backtest, governance, meta-intelligence) on ports 8010–8018 with 30-second intervals."
+    },
+    "file:paper_trading_engine/capital_injection_engine.py": {
+      "name": "capital_injection_engine.py",
+      "type": "file",
+      "summary": "Capital Injection Decision Engine (CIDe) that statistically evaluates whether additional capital should be injected into live trading, enforcing hard blockers (drawdown limits, loss streaks, rejection rates) and edge stability scoring."
+    },
+    "file:paper_trading_engine/main.py": {
+      "name": "main.py",
+      "type": "file",
+      "summary": "Paper trading engine main entry point bootstrapping the trading infrastructure, establishing database and Redis connections, initializing the trading engine with metrics instrumentation, and exposing HTTP health/readiness endpoints."
+    },
+    "file:paper_trading_engine/meta_strategy.py": {
+      "name": "meta_strategy.py",
+      "type": "file",
+      "summary": "Meta-strategy selector engine that aggregates governance factors (regime accuracy, engine health, failure clusters, regime transitions) into dynamic weighting signals published to Redis for adaptive trading strategy selection."
+    },
+    "document:paper_trading_engine/requirements.txt": {
+      "name": "requirements.txt",
+      "type": "document",
+      "summary": "Python package dependencies for the paper trading engine including asyncpg, aioredis, and prometheus_client for database, cache, and metrics."
+    },
+    "file:scripts/apply_optimization.py": {
+      "name": "apply_optimization.py",
+      "type": "file",
+      "summary": "Applies optimized parameters from a run ID to .env configuration and notifies via Discord."
+    },
+    "file:scripts/backtest.py": {
+      "name": "backtest.py",
+      "type": "file",
+      "summary": "Backtesting framework for validating trading signals against historical price data and computing performance metrics."
+    },
+    "file:scripts/backup_hooks/discord-notify.sh": {
+      "name": "discord-notify.sh",
+      "type": "file",
+      "summary": "Sends Discord notifications for pipeline events and status updates via webhook."
+    },
+    "file:scripts/binance_income.py": {
+      "name": "binance_income.py",
+      "type": "file",
+      "summary": "Fetches and summarizes income records from Binance API for crypto portfolio analysis."
+    },
+    "file:scripts/check_sql_schema.py": {
+      "name": "check_sql_schema.py",
+      "type": "file",
+      "summary": "Validates SQL strings embedded in Python code against the database schema defined in migrations."
+    },
+    "file:scripts/critical_watchdog.py": {
+      "name": "critical_watchdog.py",
+      "type": "file",
+      "summary": "Monitors critical pipeline health and alerts on failures or anomalies."
+    },
+    "file:scripts/ingest_binance_history.py": {
+      "name": "ingest_binance_history.py",
+      "type": "file",
+      "summary": "Ingests historical trading data from Binance and populates the database for backtesting."
+    },
+    "file:scripts/live_readiness.py": {
+      "name": "live_readiness.py",
+      "type": "file",
+      "summary": "Validates system readiness and permissions before routing signals to live trading."
+    },
+    "file:scripts/meanrev_replay.py": {
+      "name": "meanrev_replay.py",
+      "type": "file",
+      "summary": "Replays mean-reversion trading logic against historical signals for testing and tuning."
+    },
+    "file:scripts/meanrev_seed_router.py": {
+      "name": "meanrev_seed_router.py",
+      "type": "file",
+      "summary": "Routes mean-reversion signals to trading engines based on market conditions and seed configuration."
+    },
+    "file:scripts/param_sweep.py": {
+      "name": "param_sweep.py",
+      "type": "file",
+      "summary": "Sweeps parameter ranges to optimize trading signal generation and routing strategies."
+    },
+    "file:scripts/pipeline_report.py": {
+      "name": "pipeline_report.py",
+      "type": "file",
+      "summary": "Generates comprehensive pipeline status reports including signal counts, performance, and system health."
+    },
+    "file:scripts/replay_signals.py": {
+      "name": "replay_signals.py",
+      "type": "file",
+      "summary": "Replays historical signals through the trading engine to validate signal quality and trading outcomes."
+    },
+    "file:scripts/router_walkforward.py": {
+      "name": "router_walkforward.py",
+      "type": "file",
+      "summary": "Walk-forward validation of the signal routing engine across historical periods."
+    },
+    "file:scripts/show_effective_config.py": {
+      "name": "show_effective_config.py",
+      "type": "file",
+      "summary": "Displays the effective runtime configuration after all environment variable substitutions."
+    },
+    "file:sql/create_analyst_role.sql": {
+      "name": "create_analyst_role.sql",
+      "type": "table",
+      "summary": "SQL script that creates database role for analyst users with appropriate permissions."
+    },
+    "file:src/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Python package initialization."
+    },
+    "file:src/api/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Python package initialization."
+    },
+    "file:src/cache/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Python package initialization."
+    },
+    "file:src/core/http_server.py": {
+      "name": "http_server.py",
+      "type": "file",
+      "summary": "HTTP server for API endpoints and dashboard serving."
+    },
+    "file:src/db/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Python package initialization."
+    },
+    "file:src/discord_bot/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Python package initialization."
+    },
+    "file:scripts/git-hooks/pre-push": {
+      "name": "pre-push",
+      "type": "file",
+      "summary": "Git pre-push hook that validates SQL schema consistency before commits."
+    },
+    "file:signal_edge_analyzer/requirements.txt": {
+      "name": "requirements.txt",
+      "type": "file",
+      "summary": "Python package dependencies for the signal edge analyzer module."
+    },
+    "file:src/api/static/dashboard.html": {
+      "name": "dashboard.html",
+      "type": "file",
+      "summary": "Web dashboard for monitoring pipeline status, signals, and trading performance."
+    },
+    "file:src/engines/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Empty package initialization file for the engines module."
+    },
+    "file:src/market_data_logger/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Package initialization file for market data logger module."
+    },
+    "file:src/scheduler/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Empty package initialization file for the scheduler module."
+    },
+    "file:src/scheduler/jobs/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Empty package initialization file for scheduler jobs submodule."
+    },
+    "file:src/validation/__init__.py": {
+      "name": "__init__.py",
+      "type": "file",
+      "summary": "Package initialization file for the validation module."
+    },
+    "file:src/validation/models.py": {
+      "name": "models.py",
+      "type": "file",
+      "summary": "Defines core data models for signal validation and backtest analysis: SignalRecord, SignalOutcome, BacktestRun, EnginePerformance, and AccuracySummary dataclasses."
+    },
+    "file:tests/conftest.py": {
+      "name": "conftest.py",
+      "type": "file",
+      "summary": "Pytest configuration file providing shared fixtures and mock stubs for testing framework setup."
+    },
+    "file:tests/test_binance_futures.py": {
+      "name": "test_binance_futures.py",
+      "type": "file",
+      "summary": "Comprehensive test suite for Binance Futures broker integration covering order placement, quantity rounding, leverage management, position closing, and fee calculation."
+    },
+    "file:tests/test_executor.py": {
+      "name": "test_executor.py",
+      "type": "file",
+      "summary": "Test suite for trade execution covering max hold duration by exchange, position sizing guards, slippage, and profit/loss calculation."
+    },
+    "file:tests/test_exit_priority.py": {
+      "name": "test_exit_priority.py",
+      "type": "file",
+      "summary": "Test suite validating exit priority logic including partial takes, trailing stops, age-out expiration, and stop loss with peak restart behavior."
+    },
+    "file:tests/test_portfolio.py": {
+      "name": "test_portfolio.py",
+      "type": "file",
+      "summary": "Test suite for Portfolio class covering equity calculation for long/short positions, unrealized PnL tracking, partial close operations, and pnl accumulation."
+    },
+    "file:tests/test_reconcile_ignore.py": {
+      "name": "test_reconcile_ignore.py",
+      "type": "file",
+      "summary": "Simple test file for asset ignore list parsing functionality in reconciliation module."
+    },
+    "file:tests/test_risk.py": {
+      "name": "test_risk.py",
+      "type": "file",
+      "summary": "Test suite for risk evaluation covering exchange validation, confidence checks, duplicate asset detection, position limits, risk-off penalties, pump-chasing caps, and trade fraction sizing."
+    },
+    "file:tests/test_stale_flatten.py": {
+      "name": "test_stale_flatten.py",
+      "type": "file",
+      "summary": "Brief test suite validating stale position flattening logic when data becomes outdated."
+    },
+    "file:tests/test_truth_router.py": {
+      "name": "test_truth_router.py",
+      "type": "file",
+      "summary": "Comprehensive test suite for TruthRouter covering out-of-sample (OOS) gate staleness, tradeability validation, routing logic with OOS unlocking, confidence scaling, and engine statistics."
+    }
+  },
+  "edgeTypeCounts": {
+    "contains": 615,
+    "exports": 36,
+    "imports": 445,
+    "calls": 80,
+    "tested_by": 3,
+    "deploys": 4,
+    "depends_on": 5,
+    "related": 27,
+    "documents": 10,
+    "triggers": 1,
+    "configures": 7
+  },
+  "nodeTypeCounts": {
+    "file": 243,
+    "service": 11,
+    "table": 104,
+    "document": 28,
+    "config": 11,
+    "pipeline": 1
+  },
+  "totalNodes": 398,
+  "totalEdges": 1233
+}

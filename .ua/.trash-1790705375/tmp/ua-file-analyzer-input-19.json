@@ -1,0 +1,25 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "monitoring/homepage/bookmarks.yaml", "language": "yaml", "sizeLines": 7, "fileCategory": "config"},
+    {"path": "monitoring/homepage/custom.css", "language": "css", "sizeLines": 429, "fileCategory": "markup"},
+    {"path": "monitoring/homepage/docker.yaml", "language": "yaml", "sizeLines": 10, "fileCategory": "config"},
+    {"path": "monitoring/homepage/index.html", "language": "html", "sizeLines": 540, "fileCategory": "markup"},
+    {"path": "monitoring/homepage/kubernetes.yaml", "language": "yaml", "sizeLines": 2, "fileCategory": "config"},
+    {"path": "monitoring/homepage/proxmox.yaml", "language": "yaml", "sizeLines": 5, "fileCategory": "config"},
+    {"path": "monitoring/homepage/services.yaml", "language": "yaml", "sizeLines": 72, "fileCategory": "config"},
+    {"path": "monitoring/homepage/settings.yaml", "language": "yaml", "sizeLines": 23, "fileCategory": "config"},
+    {"path": "monitoring/homepage/widgets.yaml", "language": "yaml", "sizeLines": 19, "fileCategory": "config"}
+  ],
+  "batchImportData": {
+    "monitoring/homepage/bookmarks.yaml": [],
+    "monitoring/homepage/custom.css": [],
+    "monitoring/homepage/docker.yaml": [],
+    "monitoring/homepage/index.html": [],
+    "monitoring/homepage/kubernetes.yaml": [],
+    "monitoring/homepage/proxmox.yaml": [],
+    "monitoring/homepage/services.yaml": [],
+    "monitoring/homepage/settings.yaml": [],
+    "monitoring/homepage/widgets.yaml": []
+  }
+}

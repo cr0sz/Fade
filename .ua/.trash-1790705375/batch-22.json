@@ -1,0 +1,761 @@
+{
+  "nodes": [
+    {
+      "id": "document:.claude/agents/grunt.md",
+      "type": "document",
+      "name": "grunt.md",
+      "filePath": ".claude/agents/grunt.md",
+      "summary": "Defines the grunt subagent directive\u2014a cheap, fast Haiku worker for mechanical tasks like log grepping, SQL queries, and file searches to conserve token budget on the main model.",
+      "tags": [
+        "documentation",
+        "development",
+        "subagent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/agents/sql-reviewer.md",
+      "type": "document",
+      "name": "sql-reviewer.md",
+      "filePath": ".claude/agents/sql-reviewer.md",
+      "summary": "Defines the sql-reviewer subagent (Sonnet) that reviews diffs containing SQL strings to catch schema drift\u2014the most recurring bug class in the project.",
+      "tags": [
+        "documentation",
+        "development",
+        "sql",
+        "code-review"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": ".claude/architecture.md",
+      "summary": "Comprehensive system architecture documenting the multi-layered intelligence pipeline: providers (news, social, market), engines (intelligence, sentiment, smart money), signal scoring and replay, governance, and meta-intelligence layers with PostgreSQL and Redis persistence.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.claude/settings.json",
+      "type": "config",
+      "name": "settings.json",
+      "filePath": ".claude/settings.json",
+      "summary": "Claude Code configuration with hooks for enforcing safety rules\u2014preventing live trading mode changes and requiring explicit deploy verification before production changes.",
+      "tags": [
+        "configuration",
+        "safety",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/deploy-verify/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/deploy-verify/SKILL.md",
+      "summary": "Deployment verification skill documentation covering preflight checks, deployment, health verification, landing proof, and reporting\u2014ensuring config lands correctly in production.",
+      "tags": [
+        "documentation",
+        "deployment",
+        "skill"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/diagnose/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/diagnose/SKILL.md",
+      "summary": "Deep diagnosis skill for the trading system covering liveness checks, trade performance via price truth, router behavior, signal flow, engine metrics, guardrails, watchdog alerts, and debugging techniques.",
+      "tags": [
+        "documentation",
+        "debugging",
+        "skill"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Git attributes configuration specifying line ending handling and diff/merge strategies for project files.",
+      "tags": [
+        "configuration",
+        "version-control"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".ua/config.json",
+      "summary": "Understand-Anything output language configuration file.",
+      "tags": [
+        "configuration",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backups/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "backups/.gitkeep",
+      "summary": "Placeholder file ensuring the backups directory is tracked in version control.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker/api.Dockerfile",
+      "type": "service",
+      "name": "api.Dockerfile",
+      "filePath": "docker/api.Dockerfile",
+      "summary": "Multi-service Docker image building the FastAPI application, validation layer, and related services for the market intelligence platform.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Multi-service Dockerfile with shared build stages for efficiency."
+    },
+    {
+      "id": "service:docker/bot.Dockerfile",
+      "type": "service",
+      "name": "bot.Dockerfile",
+      "filePath": "docker/bot.Dockerfile",
+      "summary": "Docker image for the Telegram bot service that delivers market intelligence alerts and commands.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker/freetime_researcher.Dockerfile",
+      "type": "service",
+      "name": "freetime_researcher.Dockerfile",
+      "filePath": "docker/freetime_researcher.Dockerfile",
+      "summary": "Docker image for the freetime research service that performs deep analysis during low-traffic periods.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker/jupyter.Dockerfile",
+      "type": "service",
+      "name": "jupyter.Dockerfile",
+      "filePath": "docker/jupyter.Dockerfile",
+      "summary": "Docker image providing Jupyter notebook environment for exploratory data analysis and research on market data.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "development"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:docker/market_data_logger.Dockerfile",
+      "type": "service",
+      "name": "market_data_logger.Dockerfile",
+      "filePath": "docker/market_data_logger.Dockerfile",
+      "summary": "Docker image for the market data logging service that continuously ingests and persists market prices and volumes.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker/validation.Dockerfile",
+      "type": "service",
+      "name": "validation.Dockerfile",
+      "filePath": "docker/validation.Dockerfile",
+      "summary": "Docker image for the validation service that tracks signal outcomes and manages backtest replay orchestration.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker/watchdog.Dockerfile",
+      "type": "service",
+      "name": "watchdog.Dockerfile",
+      "filePath": "docker/watchdog.Dockerfile",
+      "summary": "Docker image for the watchdog service monitoring system health, triggering alerts on anomalies and guardrail violations.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "monitoring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker/worker.Dockerfile",
+      "type": "service",
+      "name": "worker.Dockerfile",
+      "filePath": "docker/worker.Dockerfile",
+      "summary": "Docker image for background worker services processing scheduled tasks like news fetching, social sentiment analysis, and signal scoring.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:graphify-out/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "graphify-out/.gitkeep",
+      "summary": "Placeholder file ensuring the graphify output directory is tracked in version control.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:monitoring/homepage/custom.js",
+      "type": "file",
+      "name": "custom.js",
+      "filePath": "monitoring/homepage/custom.js",
+      "summary": "Monitoring dashboard UI built with vanilla JavaScript, providing interactive visualization of system metrics, trading cards, research status, infrastructure health, and quick navigation links.",
+      "tags": [
+        "frontend",
+        "monitoring",
+        "dashboard"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Pure JavaScript DOM construction without frameworks; uses SVG sparklines for compact metric visualization."
+    },
+    {
+      "id": "function:monitoring/homepage/custom.js:spark",
+      "type": "function",
+      "name": "spark",
+      "filePath": "monitoring/homepage/custom.js",
+      "lineRange": [
+        1,
+        25
+      ],
+      "summary": "Generates SVG sparkline paths from numeric data points for compact time-series visualization in metric cards.",
+      "tags": [
+        "utility",
+        "visualization",
+        "svg"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:monitoring/homepage/custom.js:buildSidebar",
+      "type": "function",
+      "name": "buildSidebar",
+      "filePath": "monitoring/homepage/custom.js",
+      "lineRange": [
+        87,
+        127
+      ],
+      "summary": "Constructs the left navigation sidebar with links to key dashboards (trading, research, infrastructure) and status indicators.",
+      "tags": [
+        "component",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:monitoring/homepage/custom.js:buildTopBar",
+      "type": "function",
+      "name": "buildTopBar",
+      "filePath": "monitoring/homepage/custom.js",
+      "lineRange": [
+        137,
+        161
+      ],
+      "summary": "Builds the top metric bar displaying key performance indicators (trades, research items, infrastructure metrics) with real-time timestamps.",
+      "tags": [
+        "component",
+        "metrics"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:monitoring/homepage/custom.js:buildMain",
+      "type": "function",
+      "name": "buildMain",
+      "filePath": "monitoring/homepage/custom.js",
+      "lineRange": [
+        266,
+        325
+      ],
+      "summary": "Assembles the main content area with trading cards, research cards, infrastructure status, and quick action links.",
+      "tags": [
+        "component",
+        "layout"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:monitoring/prometheus/prometheus.yml",
+      "type": "config",
+      "name": "prometheus.yml",
+      "filePath": "monitoring/prometheus/prometheus.yml",
+      "summary": "Prometheus scrape configuration collecting metrics from all system services (API, validation, backtest, governance, meta-intelligence) on ports 8010\u20138018 with 30-second intervals.",
+      "tags": [
+        "configuration",
+        "monitoring",
+        "observability"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:paper_trading_engine/capital_injection_engine.py",
+      "type": "file",
+      "name": "capital_injection_engine.py",
+      "filePath": "paper_trading_engine/capital_injection_engine.py",
+      "summary": "Capital Injection Decision Engine (CIDe) that statistically evaluates whether additional capital should be injected into live trading, enforcing hard blockers (drawdown limits, loss streaks, rejection rates) and edge stability scoring.",
+      "tags": [
+        "trading-engine",
+        "risk-management",
+        "decision-engine"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/capital_injection_engine.py:CIDe",
+      "type": "class",
+      "name": "CIDe",
+      "filePath": "paper_trading_engine/capital_injection_engine.py",
+      "lineRange": [
+        32,
+        354
+      ],
+      "summary": "Capital Injection Decision Engine class orchestrating capital injection evaluation with metrics fetching, hard blocker checks, edge stability scoring, and decision thresholding.",
+      "tags": [
+        "trading-engine",
+        "risk-management",
+        "decision-logic"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:paper_trading_engine/capital_injection_engine.py:_compute_max_loss_streak",
+      "type": "function",
+      "name": "_compute_max_loss_streak",
+      "filePath": "paper_trading_engine/capital_injection_engine.py",
+      "lineRange": [
+        361,
+        371
+      ],
+      "summary": "Utility function computing the maximum consecutive loss streak from a PnL series for hard-limit enforcement.",
+      "tags": [
+        "utility",
+        "risk-analysis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "paper_trading_engine/main.py",
+      "summary": "Paper trading engine main entry point bootstrapping the trading infrastructure, establishing database and Redis connections, initializing the trading engine with metrics instrumentation, and exposing HTTP health/readiness endpoints.",
+      "tags": [
+        "entry-point",
+        "trading-engine",
+        "infrastructure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/main.py:configure_logging",
+      "type": "function",
+      "name": "configure_logging",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        35,
+        54
+      ],
+      "summary": "Configures structured logging with JSON output or console rendering based on debug mode, using structlog processors.",
+      "tags": [
+        "utility",
+        "logging"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/main.py:_build_dsn",
+      "type": "function",
+      "name": "_build_dsn",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        97,
+        108
+      ],
+      "summary": "Constructs PostgreSQL connection DSN from environment variables with required host and database validation.",
+      "tags": [
+        "utility",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/main.py:_build_redis_url",
+      "type": "function",
+      "name": "_build_redis_url",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        111,
+        117
+      ],
+      "summary": "Builds Redis connection URL from host and port environment variables.",
+      "tags": [
+        "utility",
+        "cache"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/main.py:_attach_metrics",
+      "type": "function",
+      "name": "_attach_metrics",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        123,
+        150
+      ],
+      "summary": "Wraps the engine's process method to instrument trade metrics (opened/closed counts, portfolio balance) for Prometheus export.",
+      "tags": [
+        "utility",
+        "metrics",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:paper_trading_engine/main.py:_start_http",
+      "type": "function",
+      "name": "_start_http",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        88,
+        91
+      ],
+      "summary": "Starts an HTTP server on the specified port serving health checks and metrics for orchestration and monitoring.",
+      "tags": [
+        "utility",
+        "http",
+        "health-check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:paper_trading_engine/main.py:_main",
+      "type": "function",
+      "name": "_main",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        156,
+        202
+      ],
+      "summary": "Main asynchronous entry point initializing logging, database pool, Redis connection, portfolio, and trading engine; orchestrates graceful shutdown and error handling.",
+      "tags": [
+        "entry-point",
+        "initialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:paper_trading_engine/main.py:_Handler",
+      "type": "class",
+      "name": "_Handler",
+      "filePath": "paper_trading_engine/main.py",
+      "lineRange": [
+        64,
+        85
+      ],
+      "summary": "HTTP request handler serving /health (liveness), /ready (readiness), /metrics (Prometheus), and 404 responses.",
+      "tags": [
+        "http-handler",
+        "health-check",
+        "metrics"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:paper_trading_engine/meta_strategy.py",
+      "type": "file",
+      "name": "meta_strategy.py",
+      "filePath": "paper_trading_engine/meta_strategy.py",
+      "summary": "Meta-strategy selector engine that aggregates governance factors (regime accuracy, engine health, failure clusters, regime transitions) into dynamic weighting signals published to Redis for adaptive trading strategy selection.",
+      "tags": [
+        "trading-engine",
+        "strategy-selection",
+        "governance"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:paper_trading_engine/meta_strategy.py:MetaStrategySelector",
+      "type": "class",
+      "name": "MetaStrategySelector",
+      "filePath": "paper_trading_engine/meta_strategy.py",
+      "lineRange": [
+        23,
+        342
+      ],
+      "summary": "Orchestrates meta-strategy selection by sampling current regime, historical accuracy, engine health, failure clusters, and regime transitions to compute adaptive weighting factors published via Redis.",
+      "tags": [
+        "trading-engine",
+        "strategy-selection",
+        "governance"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:paper_trading_engine/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "paper_trading_engine/requirements.txt",
+      "summary": "Python package dependencies for the paper trading engine including asyncpg, aioredis, and prometheus_client for database, cache, and metrics.",
+      "tags": [
+        "dependency",
+        "configuration"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:paper_trading_engine/capital_injection_engine.py",
+      "target": "class:paper_trading_engine/capital_injection_engine.py:CIDe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/capital_injection_engine.py",
+      "target": "function:paper_trading_engine/capital_injection_engine.py:_compute_max_loss_streak",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/capital_injection_engine.py",
+      "target": "class:paper_trading_engine/capital_injection_engine.py:CIDe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "class:paper_trading_engine/main.py:_Handler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:configure_logging",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:_start_http",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:_build_dsn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:_build_redis_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:_attach_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "function:paper_trading_engine/main.py:_main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/main.py",
+      "target": "class:paper_trading_engine/main.py:_Handler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:paper_trading_engine/meta_strategy.py",
+      "target": "class:paper_trading_engine/meta_strategy.py:MetaStrategySelector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:paper_trading_engine/meta_strategy.py",
+      "target": "class:paper_trading_engine/meta_strategy.py:MetaStrategySelector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:monitoring/homepage/custom.js",
+      "target": "function:monitoring/homepage/custom.js:spark",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:monitoring/homepage/custom.js",
+      "target": "function:monitoring/homepage/custom.js:buildSidebar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:monitoring/homepage/custom.js",
+      "target": "function:monitoring/homepage/custom.js:buildTopBar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:monitoring/homepage/custom.js",
+      "target": "function:monitoring/homepage/custom.js:buildMain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:.claude/architecture.md",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/architecture.md",
+      "target": "file:paper_trading_engine/capital_injection_engine.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/architecture.md",
+      "target": "file:paper_trading_engine/meta_strategy.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/architecture.md",
+      "target": "config:monitoring/prometheus/prometheus.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/diagnose/SKILL.md",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/diagnose/SKILL.md",
+      "target": "file:paper_trading_engine/capital_injection_engine.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:docker/api.Dockerfile",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "service:docker/worker.Dockerfile",
+      "target": "file:paper_trading_engine/meta_strategy.py",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "config:.claude/settings.json",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:monitoring/prometheus/prometheus.yml",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:paper_trading_engine/requirements.txt",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:paper_trading_engine/requirements.txt",
+      "target": "file:paper_trading_engine/capital_injection_engine.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:paper_trading_engine/requirements.txt",
+      "target": "file:paper_trading_engine/meta_strategy.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

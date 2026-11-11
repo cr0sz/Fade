@@ -1,0 +1,242 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "docs/BACKTEST_PLAYGROUND.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 119,
+      "nonEmptyLines": 83,
+      "sections": [
+        {
+          "heading": "Backtest Playground — JupyterLab",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Start",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Stop",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Notebooks",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "Database access — read-only guarantee",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Re-running analyst role setup",
+          "level": 2,
+          "line": 93
+        },
+        {
+          "heading": "Resource limits",
+          "level": 2,
+          "line": 112
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "docs/OBSERVABILITY.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 335,
+      "nonEmptyLines": 264,
+      "sections": [
+        {
+          "heading": "Observability Guide",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Pipeline Overview",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Table Schemas",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "`provider_ingestion_log`",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "`signal_trace`",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "`signal_feedback`",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "`engine_performance_metrics`",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "`provider_performance_metrics`",
+          "level": 3,
+          "line": 139
+        },
+        {
+          "heading": "Signal Lifecycle (end-to-end)",
+          "level": 2,
+          "line": 158
+        },
+        {
+          "heading": "Debugging a Signal: Step-by-Step",
+          "level": 2,
+          "line": 185
+        },
+        {
+          "heading": "Step 1 — Find the ingestion event",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "Step 2 — Find the cycle_id",
+          "level": 3,
+          "line": 200
+        },
+        {
+          "heading": "Step 3 — Find signals emitted in that cycle",
+          "level": 3,
+          "line": 212
+        },
+        {
+          "heading": "Step 4 — Check evaluation status",
+          "level": 3,
+          "line": 225
+        },
+        {
+          "heading": "Step 5 — Check engine scores",
+          "level": 3,
+          "line": 245
+        },
+        {
+          "heading": "Step 6 — Check provider scores",
+          "level": 3,
+          "line": 262
+        },
+        {
+          "heading": "Quick Reference — Verification Queries",
+          "level": 2,
+          "line": 280
+        },
+        {
+          "heading": "Grafana Dashboards",
+          "level": 2,
+          "line": 305
+        },
+        {
+          "heading": "Ports Reference",
+          "level": 2,
+          "line": 317
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 19
+      }
+    },
+    {
+      "path": "docs/RETROSPECTIVE_FROM_SCRATCH.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 76,
+      "nonEmptyLines": 62,
+      "sections": [
+        {
+          "heading": "Retrospective: What We'd Do Differently From Scratch",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "The five structural lessons",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "1. Ground truth first, engines second",
+          "level": 3,
+          "line": 8
+        },
+        {
+          "heading": "2. Backtest-first, one code path",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "3. State machine + persistence, not in-memory flags",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "4. One config system with a landing proof",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "5. Fewer moving parts",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "Smaller things we'd keep",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "Standing guardrails added 2026-06-12",
+          "level": 2,
+          "line": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "src/engines/__init__.py", "language": "python", "sizeLines": 0, "fileCategory": "code"},
+    {"path": "src/market_data_logger/__init__.py", "language": "python", "sizeLines": 7, "fileCategory": "code"},
+    {"path": "src/scheduler/__init__.py", "language": "python", "sizeLines": 0, "fileCategory": "code"},
+    {"path": "src/scheduler/jobs/__init__.py", "language": "python", "sizeLines": 0, "fileCategory": "code"},
+    {"path": "src/validation/__init__.py", "language": "python", "sizeLines": 1, "fileCategory": "code"},
+    {"path": "src/validation/models.py", "language": "python", "sizeLines": 74, "fileCategory": "code"},
+    {"path": "tests/conftest.py", "language": "python", "sizeLines": 49, "fileCategory": "code"},
+    {"path": "tests/test_binance_futures.py", "language": "python", "sizeLines": 285, "fileCategory": "code"},
+    {"path": "tests/test_executor.py", "language": "python", "sizeLines": 241, "fileCategory": "code"},
+    {"path": "tests/test_exit_priority.py", "language": "python", "sizeLines": 241, "fileCategory": "code"},
+    {"path": "tests/test_portfolio.py", "language": "python", "sizeLines": 241, "fileCategory": "code"},
+    {"path": "tests/test_reconcile_ignore.py", "language": "python", "sizeLines": 14, "fileCategory": "code"},
+    {"path": "tests/test_risk.py", "language": "python", "sizeLines": 213, "fileCategory": "code"},
+    {"path": "tests/test_stale_flatten.py", "language": "python", "sizeLines": 15, "fileCategory": "code"},
+    {"path": "tests/test_truth_router.py", "language": "python", "sizeLines": 244, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/engines/__init__.py": [],
+    "src/market_data_logger/__init__.py": [],
+    "src/scheduler/__init__.py": [],
+    "src/scheduler/jobs/__init__.py": [],
+    "src/validation/__init__.py": [],
+    "src/validation/models.py": [],
+    "tests/conftest.py": [],
+    "tests/test_binance_futures.py": [],
+    "tests/test_executor.py": [],
+    "tests/test_exit_priority.py": [],
+    "tests/test_portfolio.py": [],
+    "tests/test_reconcile_ignore.py": [],
+    "tests/test_risk.py": [],
+    "tests/test_stale_flatten.py": [],
+    "tests/test_truth_router.py": []
+  }
+}

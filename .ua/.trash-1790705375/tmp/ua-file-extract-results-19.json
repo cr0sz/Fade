@@ -1,0 +1,208 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [
+    "monitoring/homepage/custom.css",
+    "monitoring/homepage/index.html"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 7,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 7
+    }
+  },
+  "results": [
+    {
+      "path": "monitoring/homepage/bookmarks.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "sections": [
+        {
+          "heading": "[0]",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "monitoring/homepage/docker.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "monitoring/homepage/kubernetes.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "monitoring/homepage/proxmox.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "monitoring/homepage/services.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 72,
+      "nonEmptyLines": 69,
+      "sections": [
+        {
+          "heading": "[0]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[1]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[2]",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "monitoring/homepage/settings.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "title",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "favicon",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "headerStyle",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "theme",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "color",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "cardBlur",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "useEqualHeights",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "layout",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "quicklaunch",
+          "level": 1,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "monitoring/homepage/widgets.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "sections": [
+        {
+          "heading": "[0]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[1]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[2]",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

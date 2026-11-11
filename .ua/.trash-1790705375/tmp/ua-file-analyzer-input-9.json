@@ -1,0 +1,27 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "signal_edge_analyzer/aggregator.py", "language": "python", "sizeLines": 211, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/collector.py", "language": "python", "sizeLines": 116, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/db.py", "language": "python", "sizeLines": 80, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/discord_client.py", "language": "python", "sizeLines": 150, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/main.py", "language": "python", "sizeLines": 251, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/metrics.py", "language": "python", "sizeLines": 128, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/models.py", "language": "python", "sizeLines": 81, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/outcomes.py", "language": "python", "sizeLines": 61, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/scheduler.py", "language": "python", "sizeLines": 503, "fileCategory": "code"},
+    {"path": "signal_edge_analyzer/walkforward.py", "language": "python", "sizeLines": 163, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "signal_edge_analyzer/aggregator.py": ["signal_edge_analyzer/collector.py", "signal_edge_analyzer/metrics.py", "signal_edge_analyzer/models.py", "signal_edge_analyzer/outcomes.py"],
+    "signal_edge_analyzer/collector.py": [],
+    "signal_edge_analyzer/db.py": [],
+    "signal_edge_analyzer/discord_client.py": [],
+    "signal_edge_analyzer/main.py": ["signal_edge_analyzer/db.py", "signal_edge_analyzer/discord_client.py", "signal_edge_analyzer/scheduler.py"],
+    "signal_edge_analyzer/metrics.py": ["signal_edge_analyzer/models.py"],
+    "signal_edge_analyzer/models.py": [],
+    "signal_edge_analyzer/outcomes.py": ["signal_edge_analyzer/models.py"],
+    "signal_edge_analyzer/scheduler.py": ["signal_edge_analyzer/aggregator.py", "signal_edge_analyzer/collector.py", "signal_edge_analyzer/discord_client.py", "signal_edge_analyzer/models.py", "signal_edge_analyzer/walkforward.py"],
+    "signal_edge_analyzer/walkforward.py": []
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "nodes": [
+    {
+      "id": "table:migrations/000_create_miniflux_db.sql",
+      "type": "table",
+      "name": "000_create_miniflux_db.sql",
+      "filePath": "migrations/000_create_miniflux_db.sql",
+      "summary": "Bootstrap migration that initializes the Miniflux RSS reader database schema for news ingestion.",
+      "tags": ["database", "migration", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/001_initial.sql",
+      "type": "table",
+      "name": "001_initial.sql",
+      "filePath": "migrations/001_initial.sql",
+      "summary": "Core initial schema defining 9 fundamental tables: tickers, news, social_posts, market_trends, smart_money_events, ai_outputs, provider_usage_logs, alerts, and schema_migrations with comprehensive indexing for multi-source market intelligence ingestion.",
+      "tags": ["database", "migration", "schema-definition", "data-pipeline"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:tickers",
+      "type": "table",
+      "name": "tickers",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [12, 23],
+      "summary": "Master ticker registry with exchange, sector, and market cap metadata for tracking active and watched securities.",
+      "tags": ["database", "core-entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:news",
+      "type": "table",
+      "name": "news",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [30, 47],
+      "summary": "News articles ingested from multiple sources with sentiment scoring, ticker mentions, and AI-generated summaries for signal generation.",
+      "tags": ["database", "data-source"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:social_posts",
+      "type": "table",
+      "name": "social_posts",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [60, 76],
+      "summary": "Social media posts from multiple platforms with engagement metrics, sentiment scores, and ticker mentions for trend detection.",
+      "tags": ["database", "data-source"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:market_trends",
+      "type": "table",
+      "name": "market_trends",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [84, 97],
+      "summary": "Computed market trends aggregating news, social, and smart money signals with hype and panic signal flags.",
+      "tags": ["database", "aggregation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:smart_money_events",
+      "type": "table",
+      "name": "smart_money_events",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [105, 117],
+      "summary": "Institutional trading events including whale sales, insider buys/sells, and other smart money signals.",
+      "tags": ["database", "data-source"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:ai_outputs",
+      "type": "table",
+      "name": "ai_outputs",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [125, 135],
+      "summary": "Cache of AI model outputs with prompt hash, model used, and associated costs for cost tracking and deduplication.",
+      "tags": ["database", "cost-tracking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:provider_usage_logs",
+      "type": "table",
+      "name": "provider_usage_logs",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [142, 151],
+      "summary": "External provider API usage tracking including token counts and costs for budget management and performance analysis.",
+      "tags": ["database", "observability"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/001_initial.sql:alerts",
+      "type": "table",
+      "name": "alerts",
+      "filePath": "migrations/001_initial.sql",
+      "lineRange": [158, 166],
+      "summary": "System alerts with severity levels, types, and associated tickers for alerting on critical conditions.",
+      "tags": ["database", "observability"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/002_level2.sql",
+      "type": "table",
+      "name": "002_level2.sql",
+      "filePath": "migrations/002_level2.sql",
+      "summary": "Adds narrative clustering engine with narrative_clusters and noise_filter_log tables for detecting and filtering market narratives.",
+      "tags": ["database", "migration", "narrative-engine"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/002_level2.sql:narrative_clusters",
+      "type": "table",
+      "name": "narrative_clusters",
+      "filePath": "migrations/002_level2.sql",
+      "lineRange": [19, 31],
+      "summary": "Detected narrative clusters with strength scores, momentum tracking, and contributing sources for narrative-based signal generation.",
+      "tags": ["database", "aggregation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/002_level2.sql:noise_filter_log",
+      "type": "table",
+      "name": "noise_filter_log",
+      "filePath": "migrations/002_level2.sql",
+      "lineRange": [37, 44],
+      "summary": "Log of filtered social posts and news marked as noise with reasons for filtering decisions.",
+      "tags": ["database", "quality-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/003_level3.sql",
+      "type": "table",
+      "name": "003_level3.sql",
+      "filePath": "migrations/003_level3.sql",
+      "summary": "Institutional intelligence layer with institutional_flows, etf_rotations, macro_regimes, and confluence_signals tables for advanced flow analysis.",
+      "tags": ["database", "migration", "institutional-flows"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/003_level3.sql:institutional_flows",
+      "type": "table",
+      "name": "institutional_flows",
+      "filePath": "migrations/003_level3.sql",
+      "lineRange": [10, 24],
+      "summary": "Whale and insider trading flows with net flow ratios for identifying institutional positioning.",
+      "tags": ["database", "data-source"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/003_level3.sql:etf_rotations",
+      "type": "table",
+      "name": "etf_rotations",
+      "filePath": "migrations/003_level3.sql",
+      "lineRange": [35, 46],
+      "summary": "ETF sector rotations with composite scores and rotation velocity for sector-level signal generation.",
+      "tags": ["database", "aggregation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/003_level3.sql:macro_regimes",
+      "type": "table",
+      "name": "macro_regimes",
+      "filePath": "migrations/003_level3.sql",
+      "lineRange": [55, 67],
+      "summary": "Detected macro regimes with regime shifts, dominant narratives, and proxy scores for regime-dependent signal filtering.",
+      "tags": ["database", "regime-detection"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/003_level3.sql:confluence_signals",
+      "type": "table",
+      "name": "confluence_signals",
+      "filePath": "migrations/003_level3.sql",
+      "lineRange": [76, 87],
+      "summary": "Confluent signals where multiple signal types align on the same ticker for higher conviction trades.",
+      "tags": ["database", "signal-aggregation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/004_level4_validation.sql",
+      "type": "table",
+      "name": "004_level4_validation.sql",
+      "filePath": "migrations/004_level4_validation.sql",
+      "summary": "Signal validation and backtesting infrastructure with signals_registry, signal_outcomes, backtest_runs, and engine_performance_metrics for comprehensive signal evaluation.",
+      "tags": ["database", "migration", "validation-layer"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/004_level4_validation.sql:signals_registry",
+      "type": "table",
+      "name": "signals_registry",
+      "filePath": "migrations/004_level4_validation.sql",
+      "lineRange": [15, 28],
+      "summary": "Central registry of all trading signals with type, ticker, engine, source, and evaluation status.",
+      "tags": ["database", "core-entity"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/004_level4_validation.sql:signal_outcomes",
+      "type": "table",
+      "name": "signal_outcomes",
+      "filePath": "migrations/004_level4_validation.sql",
+      "lineRange": [49, 61],
+      "summary": "Actual price outcomes for signals evaluated at different time windows with correctness scoring.",
+      "tags": ["database", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/004_level4_validation.sql:backtest_runs",
+      "type": "table",
+      "name": "backtest_runs",
+      "filePath": "migrations/004_level4_validation.sql",
+      "lineRange": [74, 88],
+      "summary": "Historical backtest run metadata with accuracy metrics across multiple time windows and evaluated signal counts.",
+      "tags": ["database", "analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/004_level4_validation.sql:backtest_results",
+      "type": "table",
+      "name": "backtest_results",
+      "filePath": "migrations/004_level4_validation.sql",
+      "lineRange": [97, 110],
+      "summary": "Detailed backtest results for individual signals with predicted vs actual direction correctness and outcome scores.",
+      "tags": ["database", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/004_level4_validation.sql:engine_performance_metrics",
+      "type": "table",
+      "name": "engine_performance_metrics",
+      "filePath": "migrations/004_level4_validation.sql",
+      "lineRange": [124, 137],
+      "summary": "Daily engine performance metrics aggregating total signals and accuracy across 4-hour windows.",
+      "tags": ["database", "observability"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/005_signal_truth_layer.sql",
+      "type": "table",
+      "name": "005_signal_truth_layer.sql",
+      "filePath": "migrations/005_signal_truth_layer.sql",
+      "summary": "Signal accuracy scoring table tracking engine performance by signal type and evaluation window for truth-layer maintenance.",
+      "tags": ["database", "migration", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/005_signal_truth_layer.sql:signal_scores",
+      "type": "table",
+      "name": "signal_scores",
+      "filePath": "migrations/005_signal_truth_layer.sql",
+      "lineRange": [19, 31],
+      "summary": "Computed accuracy scores for signal types by engine and window with strength and half-life decay tracking.",
+      "tags": ["database", "metrics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/006_replay_system.sql",
+      "type": "table",
+      "name": "006_replay_system.sql",
+      "filePath": "migrations/006_replay_system.sql",
+      "summary": "Historical replay infrastructure with replay_runs and replay_metrics for backfill analysis and signal validation across past periods.",
+      "tags": ["database", "migration", "analysis"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/006_replay_system.sql:replay_runs",
+      "type": "table",
+      "name": "replay_runs",
+      "filePath": "migrations/006_replay_system.sql",
+      "lineRange": [10, 26],
+      "summary": "Replay run metadata with start/end times, status, and signal evaluation counts for historical backtests.",
+      "tags": ["database", "analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/006_replay_system.sql:replay_metrics",
+      "type": "table",
+      "name": "replay_metrics",
+      "filePath": "migrations/006_replay_system.sql",
+      "lineRange": [38, 68],
+      "summary": "Detailed replay performance metrics with precision, calibration error, and confusion matrix counts for signal quality assessment.",
+      "tags": ["database", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/007_observability.sql",
+      "type": "table",
+      "name": "007_observability.sql",
+      "filePath": "migrations/007_observability.sql",
+      "summary": "Observability layer with validation_alerts table for monitoring system health and flagging anomalies.",
+      "tags": ["database", "migration", "observability"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/007_observability.sql:validation_alerts",
+      "type": "table",
+      "name": "validation_alerts",
+      "filePath": "migrations/007_observability.sql",
+      "lineRange": [6, 23],
+      "summary": "Alert records for validation rule violations with threshold comparisons, active status tracking, and resolution timestamps.",
+      "tags": ["database", "observability"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/008_governance.sql",
+      "type": "table",
+      "name": "008_governance.sql",
+      "filePath": "migrations/008_governance.sql",
+      "summary": "Governance decision layer with engine_trust_scores, governance_recommendations, and narrative_stability_scores for controlling signal routing.",
+      "tags": ["database", "migration", "governance"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/008_governance.sql:engine_trust_scores",
+      "type": "table",
+      "name": "engine_trust_scores",
+      "filePath": "migrations/008_governance.sql",
+      "lineRange": [18, 47],
+      "summary": "Trust scoring for engines tracking precision, stability, and accuracy over multiple time windows with instability detection.",
+      "tags": ["database", "metrics"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/008_governance.sql:governance_recommendations",
+      "type": "table",
+      "name": "governance_recommendations",
+      "filePath": "migrations/008_governance.sql",
+      "lineRange": [61, 83],
+      "summary": "Governance action recommendations with expiration, target type, rationale, and acknowledgment tracking for decision oversight.",
+      "tags": ["database", "governance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/008_governance.sql:narrative_stability_scores",
+      "type": "table",
+      "name": "narrative_stability_scores",
+      "filePath": "migrations/008_governance.sql",
+      "lineRange": [95, 110],
+      "summary": "Narrative persistence tracking with stability scores and collapse detection for regime-based filtering.",
+      "tags": ["database", "metrics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/009_meta_intelligence.sql",
+      "type": "table",
+      "name": "009_meta_intelligence.sql",
+      "filePath": "migrations/009_meta_intelligence.sql",
+      "summary": "Strategic meta-intelligence layer with strategic_memory_events, regime_transitions, narrative_lifecycle, failure_clusters, and meta snapshots for higher-order system monitoring.",
+      "tags": ["database", "migration", "meta-intelligence"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/009_meta_intelligence.sql:strategic_memory_events",
+      "type": "table",
+      "name": "strategic_memory_events",
+      "filePath": "migrations/009_meta_intelligence.sql",
+      "lineRange": [23, 46],
+      "summary": "Strategic events recorded by the system including regime changes, failure clusters, and narrative collapses for meta-learning.",
+      "tags": ["database", "analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/009_meta_intelligence.sql:regime_transition_records",
+      "type": "table",
+      "name": "regime_transition_records",
+      "filePath": "migrations/009_meta_intelligence.sql",
+      "lineRange": [62, 93],
+      "summary": "Historical regime transitions with evidence of regime changes, similarity scores, and forward performance tracking.",
+      "tags": ["database", "regime-detection"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/009_meta_intelligence.sql:narrative_lifecycle_records",
+      "type": "table",
+      "name": "narrative_lifecycle_records",
+      "filePath": "migrations/009_meta_intelligence.sql",
+      "lineRange": [106, 141],
+      "summary": "Narrative lifecycle phases from emergence through hype and collapse with lifecycle stage tracking.",
+      "tags": ["database", "analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/009_meta_intelligence.sql:strategic_failure_clusters",
+      "type": "table",
+      "name": "strategic_failure_clusters",
+      "filePath": "migrations/009_meta_intelligence.sql",
+      "lineRange": [154, 182],
+      "summary": "Recurring failure patterns affecting multiple engines with recurrence counts and activity status.",
+      "tags": ["database", "quality-control"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/009_meta_intelligence.sql:meta_intelligence_snapshots",
+      "type": "table",
+      "name": "meta_intelligence_snapshots",
+      "filePath": "migrations/009_meta_intelligence.sql",
+      "lineRange": [192, 215],
+      "summary": "Periodic system health snapshots with failure density, governance stress, stability ranking, and degradation metrics.",
+      "tags": ["database", "observability"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/010_provider_ingestion_log.sql",
+      "type": "table",
+      "name": "010_provider_ingestion_log.sql",
+      "filePath": "migrations/010_provider_ingestion_log.sql",
+      "summary": "Data ingestion cycle logging for tracking deduplication effectiveness and provider performance.",
+      "tags": ["database", "migration", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/010_provider_ingestion_log.sql:provider_ingestion_log",
+      "type": "table",
+      "name": "provider_ingestion_log",
+      "filePath": "migrations/010_provider_ingestion_log.sql",
+      "lineRange": [12, 26],
+      "summary": "Per-cycle ingestion metrics including new items, exact/fuzzy/semantic duplicates, errors, and latency.",
+      "tags": ["database", "observability"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/011_signal_trace.sql",
+      "type": "table",
+      "name": "011_signal_trace.sql",
+      "filePath": "migrations/011_signal_trace.sql",
+      "summary": "Signal lineage tracking table linking signals to their source news articles for audit trail and root cause analysis.",
+      "tags": ["database", "migration", "lineage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/011_signal_trace.sql:signal_trace",
+      "type": "table",
+      "name": "signal_trace",
+      "filePath": "migrations/011_signal_trace.sql",
+      "lineRange": [5, 19],
+      "summary": "Audit trail linking signals to ingestion cycles and source news articles for traceability.",
+      "tags": ["database", "lineage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/012_signal_feedback.sql",
+      "type": "table",
+      "name": "012_signal_feedback.sql",
+      "filePath": "migrations/012_signal_feedback.sql",
+      "summary": "Signal feedback and provider performance metrics with pnl_score and confidence tracking for continuous signal quality improvement.",
+      "tags": ["database", "migration", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/012_signal_feedback.sql:signal_feedback",
+      "type": "table",
+      "name": "signal_feedback",
+      "filePath": "migrations/012_signal_feedback.sql",
+      "lineRange": [13, 29],
+      "summary": "PnL-based feedback on individual signals with confidence scores and market context assessment.",
+      "tags": ["database", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/012_signal_feedback.sql:provider_performance_metrics",
+      "type": "table",
+      "name": "provider_performance_metrics",
+      "filePath": "migrations/012_signal_feedback.sql",
+      "lineRange": [41, 55],
+      "summary": "Daily provider-level metrics with win rate, win/loss/neutral counts, and noise ratio for provider ranking.",
+      "tags": ["database", "metrics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/013_signal_edge_analyzer.sql",
+      "type": "table",
+      "name": "013_signal_edge_analyzer.sql",
+      "filePath": "migrations/013_signal_edge_analyzer.sql",
+      "summary": "Edge analysis infrastructure with signal_edge_metrics and signal_edge_aggregations for identifying profitable signal subgroups.",
+      "tags": ["database", "migration", "analysis"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/013_signal_edge_analyzer.sql:signal_edge_metrics",
+      "type": "table",
+      "name": "signal_edge_metrics",
+      "filePath": "migrations/013_signal_edge_analyzer.sql",
+      "lineRange": [15, 34],
+      "summary": "Per-ticker, per-engine signal edge with win rates and quality scoring for identifying persistent edges.",
+      "tags": ["database", "analysis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:migrations/013_signal_edge_analyzer.sql:signal_edge_aggregations",
+      "type": "table",
+      "name": "signal_edge_aggregations",
+      "filePath": "migrations/013_signal_edge_analyzer.sql",
+      "lineRange": [59, 75],
+      "summary": "Ranked aggregated edges with expectancy, Sharpe ratio, and average return for identifying best-performing signals.",
+      "tags": ["database", "analysis"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:migrations/014_seed_tickers.sql",
+      "type": "table",
+      "name": "014_seed_tickers.sql",
+      "filePath": "migrations/014_seed_tickers.sql",
+      "summary": "Ticker data seeding migration populating initial cryptocurrency and equity tickers for market coverage.",
+      "tags": ["database", "migration", "data-load"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/015_ticker_quotes.sql",
+      "type": "table",
+      "name": "015_ticker_quotes.sql",
+      "filePath": "migrations/015_ticker_quotes.sql",
+      "summary": "Real-time ticker quote storage with price, volume, market cap, and timestamp for current market data.",
+      "tags": ["database", "migration", "data-source"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/015_ticker_quotes.sql:ticker_quotes",
+      "type": "table",
+      "name": "ticker_quotes",
+      "filePath": "migrations/015_ticker_quotes.sql",
+      "lineRange": [10, 20],
+      "summary": "Current ticker price quotes with volume, market cap, exchange, and currency information.",
+      "tags": ["database", "data-source"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/016_paper_trades.sql",
+      "type": "table",
+      "name": "016_paper_trades.sql",
+      "filePath": "migrations/016_paper_trades.sql",
+      "summary": "Paper trading execution log with entry/exit prices, fees, PnL, and close reasons for backtesting and signal validation.",
+      "tags": ["database", "migration", "trading"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/016_paper_trades.sql:paper_trades",
+      "type": "table",
+      "name": "paper_trades",
+      "filePath": "migrations/016_paper_trades.sql",
+      "lineRange": [7, 23],
+      "summary": "Individual paper trade records with entry price, direction, size, fees, exit price, and PnL.",
+      "tags": ["database", "trading"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/017_narrative_persistence.sql",
+      "type": "table",
+      "name": "017_narrative_persistence.sql",
+      "filePath": "migrations/017_narrative_persistence.sql",
+      "summary": "Minor migration for narrative persistence feature enablement.",
+      "tags": ["database", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:migrations/018_technical_score.sql",
+      "type": "table",
+      "name": "018_technical_score.sql",
+      "filePath": "migrations/018_technical_score.sql",
+      "summary": "Technical score index migration adding technical analysis scoring to market trends.",
+      "tags": ["database", "migration"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:tickers", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:news", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:social_posts", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:market_trends", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:smart_money_events", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:ai_outputs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:provider_usage_logs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/001_initial.sql", "target": "table:migrations/001_initial.sql:alerts", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/002_level2.sql", "target": "table:migrations/002_level2.sql:narrative_clusters", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/002_level2.sql", "target": "table:migrations/002_level2.sql:noise_filter_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/003_level3.sql", "target": "table:migrations/003_level3.sql:institutional_flows", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/003_level3.sql", "target": "table:migrations/003_level3.sql:etf_rotations", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/003_level3.sql", "target": "table:migrations/003_level3.sql:macro_regimes", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/003_level3.sql", "target": "table:migrations/003_level3.sql:confluence_signals", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/004_level4_validation.sql", "target": "table:migrations/004_level4_validation.sql:signals_registry", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/004_level4_validation.sql", "target": "table:migrations/004_level4_validation.sql:signal_outcomes", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/004_level4_validation.sql", "target": "table:migrations/004_level4_validation.sql:backtest_runs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/004_level4_validation.sql", "target": "table:migrations/004_level4_validation.sql:backtest_results", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/004_level4_validation.sql", "target": "table:migrations/004_level4_validation.sql:engine_performance_metrics", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/005_signal_truth_layer.sql", "target": "table:migrations/005_signal_truth_layer.sql:signal_scores", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/006_replay_system.sql", "target": "table:migrations/006_replay_system.sql:replay_runs", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/006_replay_system.sql", "target": "table:migrations/006_replay_system.sql:replay_metrics", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/007_observability.sql", "target": "table:migrations/007_observability.sql:validation_alerts", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/008_governance.sql", "target": "table:migrations/008_governance.sql:engine_trust_scores", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/008_governance.sql", "target": "table:migrations/008_governance.sql:governance_recommendations", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/008_governance.sql", "target": "table:migrations/008_governance.sql:narrative_stability_scores", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/009_meta_intelligence.sql", "target": "table:migrations/009_meta_intelligence.sql:strategic_memory_events", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/009_meta_intelligence.sql", "target": "table:migrations/009_meta_intelligence.sql:regime_transition_records", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/009_meta_intelligence.sql", "target": "table:migrations/009_meta_intelligence.sql:narrative_lifecycle_records", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/009_meta_intelligence.sql", "target": "table:migrations/009_meta_intelligence.sql:strategic_failure_clusters", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/009_meta_intelligence.sql", "target": "table:migrations/009_meta_intelligence.sql:meta_intelligence_snapshots", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/010_provider_ingestion_log.sql", "target": "table:migrations/010_provider_ingestion_log.sql:provider_ingestion_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/011_signal_trace.sql", "target": "table:migrations/011_signal_trace.sql:signal_trace", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/012_signal_feedback.sql", "target": "table:migrations/012_signal_feedback.sql:signal_feedback", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/012_signal_feedback.sql", "target": "table:migrations/012_signal_feedback.sql:provider_performance_metrics", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/013_signal_edge_analyzer.sql", "target": "table:migrations/013_signal_edge_analyzer.sql:signal_edge_metrics", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/013_signal_edge_analyzer.sql", "target": "table:migrations/013_signal_edge_analyzer.sql:signal_edge_aggregations", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/015_ticker_quotes.sql", "target": "table:migrations/015_ticker_quotes.sql:ticker_quotes", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:migrations/016_paper_trades.sql", "target": "table:migrations/016_paper_trades.sql:paper_trades", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

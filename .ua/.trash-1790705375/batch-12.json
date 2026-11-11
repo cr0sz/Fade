@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "service:paper_trading_engine/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "paper_trading_engine/Dockerfile",
+      "summary": "Docker image for the paper trading engine service. Builds a lightweight Python 3.12 container that runs the simulated trading engine on port 8021.",
+      "tags": ["containerization", "infrastructure", "deployment"],
+      "complexity": "simple",
+      "languageNotes": "Multi-stage build not used; all dependencies and code shipped in single layer. Image optimized with python:3.12-slim base to reduce size."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:paper_trading_engine/Dockerfile",
+      "target": "file:paper_trading_engine/main.py",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

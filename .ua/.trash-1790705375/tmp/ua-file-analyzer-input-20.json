@@ -1,0 +1,19 @@
+{
+  "projectRoot": "C:/Users/bekir/Documents/projeler/Fade",
+  "batchFiles": [
+    {"path": "scripts/deploy.sh", "language": "shell", "sizeLines": 245, "fileCategory": "script"},
+    {"path": "scripts/health_check.sh", "language": "shell", "sizeLines": 99, "fileCategory": "script"},
+    {"path": "scripts/install_autopush.sh", "language": "shell", "sizeLines": 41, "fileCategory": "script"},
+    {"path": "scripts/nightly_claude_diagnose.sh", "language": "shell", "sizeLines": 66, "fileCategory": "script"},
+    {"path": "scripts/preflight.sh", "language": "shell", "sizeLines": 240, "fileCategory": "script"},
+    {"path": "scripts/sql_check_allow.txt", "language": "txt", "sizeLines": 4, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "scripts/deploy.sh": [],
+    "scripts/health_check.sh": [],
+    "scripts/install_autopush.sh": [],
+    "scripts/nightly_claude_diagnose.sh": [],
+    "scripts/preflight.sh": [],
+    "scripts/sql_check_allow.txt": []
+  }
+}

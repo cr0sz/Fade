@@ -1,0 +1,1833 @@
+{
+    "edges":  [
+                  {
+                      "target":  "function:scripts/oos_reeval.py:_verdict",
+                      "direction":  "forward",
+                      "source":  "file:scripts/oos_reeval.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:scripts/oos_reeval.py:_color_for",
+                      "direction":  "forward",
+                      "source":  "file:scripts/oos_reeval.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:scripts/oos_reeval.py:main",
+                      "direction":  "forward",
+                      "source":  "file:scripts/oos_reeval.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/governance.py:engine_trust_ranking",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/governance.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/governance.py:engine_stability",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/governance.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/governance.py:noise_report",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/governance.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/governance.py:narrative_stability",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/governance.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/governance.py:governance_recommendations",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/governance.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/governance.py:recovery_analysis",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/governance.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:_disclaimer",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:historical_failure_atlas",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:regime_transition_risk_report",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:narrative_lifecycle_intelligence",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:strategic_stability_ranking",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:historical_similarity_detection",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/api/routes/meta_intelligence.py:meta_risk_dashboard",
+                      "direction":  "forward",
+                      "source":  "file:src/api/routes/meta_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/discord.py:_post",
+                      "direction":  "forward",
+                      "source":  "file:src/core/discord.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/discord.py:_ts",
+                      "direction":  "forward",
+                      "source":  "file:src/core/discord.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/discord.py:send_embed",
+                      "direction":  "forward",
+                      "source":  "file:src/core/discord.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/discord.py:send_text",
+                      "direction":  "forward",
+                      "source":  "file:src/core/discord.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/fallback.py:with_fallback",
+                      "direction":  "forward",
+                      "source":  "file:src/core/fallback.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/fallback.py:news_with_fallback",
+                      "direction":  "forward",
+                      "source":  "file:src/core/fallback.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/logging.py:utc_now",
+                      "direction":  "forward",
+                      "source":  "file:src/core/logging.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/logging.py:configure_logging",
+                      "direction":  "forward",
+                      "source":  "file:src/core/logging.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/logging.py:bind_service_context",
+                      "direction":  "forward",
+                      "source":  "file:src/core/logging.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/logging.py:bind_cycle_context",
+                      "direction":  "forward",
+                      "source":  "file:src/core/logging.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/logging.py:clear_cycle_context",
+                      "direction":  "forward",
+                      "source":  "file:src/core/logging.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/core/logging.py:get_logger",
+                      "direction":  "forward",
+                      "source":  "file:src/core/logging.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/adaptive_weighting_engine.py:AdaptiveWeightingEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/adaptive_weighting_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/backtesting_engine.py:_r",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/backtesting_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/backtesting_engine.py:BacktestingEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/backtesting_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/engine_governance_engine.py:_stability_score",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/engine_governance_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/engine_governance_engine.py:_recovery_score",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/engine_governance_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/engine_governance_engine.py:_count_dips",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/engine_governance_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/engine_governance_engine.py:_main",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/engine_governance_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/engine_governance_engine.py:EngineGovernanceEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/engine_governance_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/engine_math.py:ols_slope",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/engine_math.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/narrative_lifecycle_engine.py:_count_phases",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/narrative_lifecycle_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/narrative_lifecycle_engine.py:NarrativeLifecycleEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/narrative_lifecycle_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/narrative_stability_engine.py:_estimate_half_life",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/narrative_stability_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/narrative_stability_engine.py:NarrativeStabilityEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/narrative_stability_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/noise_contribution_engine.py:_build_contributions",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/noise_contribution_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/noise_contribution_engine.py:_pearson_correlation",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/noise_contribution_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/noise_contribution_engine.py:_detect_amplification",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/noise_contribution_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/noise_contribution_engine.py:_report_to_dict",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/noise_contribution_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/noise_contribution_engine.py:NoiseContributionEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/noise_contribution_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/outcome_tracking_engine.py:_polarity",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/outcome_tracking_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/outcome_tracking_engine.py:_delta_polarity",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/outcome_tracking_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/outcome_tracking_engine.py:_pol_to_direction",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/outcome_tracking_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/outcome_tracking_engine.py:_search_bounds",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/outcome_tracking_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/outcome_tracking_engine.py:_main",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/outcome_tracking_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/outcome_tracking_engine.py:OutcomeTrackingEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/outcome_tracking_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/regime_transition_intelligence.py:RegimeTransitionIntelligence",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/regime_transition_intelligence.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/replay_scheduler.py:_last_monday",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/replay_scheduler.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/replay_scheduler.py:_main",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/replay_scheduler.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/replay_scheduler.py:ReplayScheduler",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/replay_scheduler.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/signal_evaluation_engine.py:_search_buffer",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/signal_evaluation_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/signal_evaluation_engine.py:_build_outcome",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/signal_evaluation_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/signal_evaluation_engine.py:_main",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/signal_evaluation_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/signal_evaluation_engine.py:SignalEvaluationEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/signal_evaluation_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/signal_registry_engine.py:_main",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/signal_registry_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/signal_registry_engine.py:SignalRegistryEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/signal_registry_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/smart_money.py:SmartMoneyEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/smart_money.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/strategic_failure_analysis_engine.py:StrategicFailureAnalysisEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/strategic_failure_analysis_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/strategic_memory_engine.py:_atlas_summary",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/strategic_memory_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "function:src/engines/strategic_memory_engine.py:_main",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/strategic_memory_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  },
+                  {
+                      "target":  "class:src/engines/strategic_memory_engine.py:StrategicMemoryEngine",
+                      "direction":  "forward",
+                      "source":  "file:src/engines/strategic_memory_engine.py",
+                      "type":  "contains",
+                      "weight":  1
+                  }
+              ],
+    "nodes":  [
+                  {
+                      "id":  "file:scripts/oos_reeval.py",
+                      "name":  "oos_reeval.py",
+                      "tags":  [
+                                   "utility",
+                                   "signal-validation",
+                                   "discord-integration",
+                                   "script"
+                               ],
+                      "complexity":  "moderate",
+                      "filePath":  "scripts/oos_reeval.py",
+                      "type":  "file",
+                      "summary":  "Out-of-sample revaluation script that fetches Redis signal data, computes verdicts for different time windows, and sends results to Discord."
+                  },
+                  {
+                      "id":  "file:src/api/routes/governance.py",
+                      "name":  "governance.py",
+                      "tags":  [
+                                   "api-handler",
+                                   "engine-governance",
+                                   "routing"
+                               ],
+                      "complexity":  "moderate",
+                      "filePath":  "src/api/routes/governance.py",
+                      "type":  "file",
+                      "summary":  "API route handlers for engine governance operations including trust ranking, stability analysis, noise reporting, and recovery strategies."
+                  },
+                  {
+                      "id":  "file:src/api/routes/meta_intelligence.py",
+                      "name":  "meta_intelligence.py",
+                      "tags":  [
+                                   "api-handler",
+                                   "meta-intelligence",
+                                   "risk-analysis"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "type":  "file",
+                      "summary":  "API route handlers for strategic meta-intelligence including failure analysis, regime transitions, narrative lifecycles, and system-wide risk dashboards."
+                  },
+                  {
+                      "id":  "file:src/core/__init__.py",
+                      "name":  "__init__.py",
+                      "tags":  [
+                                   "barrel",
+                                   "package-init"
+                               ],
+                      "complexity":  "simple",
+                      "filePath":  "src/core/__init__.py",
+                      "type":  "file",
+                      "summary":  "Empty package initialization file for the core module."
+                  },
+                  {
+                      "id":  "file:src/core/discord.py",
+                      "name":  "discord.py",
+                      "tags":  [
+                                   "notification",
+                                   "integration",
+                                   "utility"
+                               ],
+                      "complexity":  "simple",
+                      "filePath":  "src/core/discord.py",
+                      "type":  "file",
+                      "summary":  "Discord webhook integration providing embed and text message posting with error handling and timestamping."
+                  },
+                  {
+                      "id":  "file:src/core/fallback.py",
+                      "name":  "fallback.py",
+                      "tags":  [
+                                   "utility",
+                                   "decorator",
+                                   "resilience"
+                               ],
+                      "complexity":  "simple",
+                      "filePath":  "src/core/fallback.py",
+                      "type":  "file",
+                      "summary":  "Fallback mechanism decorator that retries multiple strategies with timeouts and logs warnings on partial failures."
+                  },
+                  {
+                      "id":  "file:src/core/logging.py",
+                      "name":  "logging.py",
+                      "tags":  [
+                                   "utility",
+                                   "logging",
+                                   "configuration"
+                               ],
+                      "complexity":  "simple",
+                      "filePath":  "src/core/logging.py",
+                      "type":  "file",
+                      "summary":  "Structured logging configuration using structlog with context binding for service and cycle tracking."
+                  },
+                  {
+                      "id":  "file:src/engines/adaptive_weighting_engine.py",
+                      "name":  "adaptive_weighting_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "governance",
+                                   "recommendation"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/adaptive_weighting_engine.py",
+                      "type":  "file",
+                      "summary":  "Engine generating adaptive weighting recommendations for calibration, engine prioritization, and narrative adjustments with persistence to database."
+                  },
+                  {
+                      "id":  "file:src/engines/backtesting_engine.py",
+                      "name":  "backtesting_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "backtesting",
+                                   "replay"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/backtesting_engine.py",
+                      "type":  "file",
+                      "summary":  "Backtesting/replay engine executing signal combinations through historical periods, computing detailed metrics per regime and narrative."
+                  },
+                  {
+                      "id":  "file:src/engines/engine_governance_engine.py",
+                      "name":  "engine_governance_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "core-governance",
+                                   "orchestration"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/engine_governance_engine.py",
+                      "type":  "file",
+                      "summary":  "Core engine governance system providing trust rankings, stability detection, recovery analysis, and cross-engine metrics aggregation."
+                  },
+                  {
+                      "id":  "file:src/engines/engine_math.py",
+                      "name":  "engine_math.py",
+                      "tags":  [
+                                   "utility",
+                                   "math",
+                                   "engine-support"
+                               ],
+                      "complexity":  "simple",
+                      "filePath":  "src/engines/engine_math.py",
+                      "type":  "file",
+                      "summary":  "Utility math functions for engine calculations."
+                  },
+                  {
+                      "id":  "file:src/engines/narrative_lifecycle_engine.py",
+                      "name":  "narrative_lifecycle_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "narrative",
+                                   "governance"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/narrative_lifecycle_engine.py",
+                      "type":  "file",
+                      "summary":  "Tracks narrative lifecycle stages and transitions with stability indicators and governance metrics."
+                  },
+                  {
+                      "id":  "file:src/engines/narrative_stability_engine.py",
+                      "name":  "narrative_stability_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "narrative",
+                                   "stability"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/narrative_stability_engine.py",
+                      "type":  "file",
+                      "summary":  "Analyzes narrative stability across signal windows with mathematical scoring models."
+                  },
+                  {
+                      "id":  "file:src/engines/noise_contribution_engine.py",
+                      "name":  "noise_contribution_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "noise-filtering",
+                                   "metrics"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/noise_contribution_engine.py",
+                      "type":  "file",
+                      "summary":  "Quantifies individual engine and provider contributions to system noise levels."
+                  },
+                  {
+                      "id":  "file:src/engines/outcome_tracking_engine.py",
+                      "name":  "outcome_tracking_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "validation",
+                                   "performance"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "type":  "file",
+                      "summary":  "Tracks realized outcomes of trading signals against actual price movements for performance evaluation."
+                  },
+                  {
+                      "id":  "file:src/engines/regime_transition_intelligence.py",
+                      "name":  "regime_transition_intelligence.py",
+                      "tags":  [
+                                   "engine",
+                                   "regime",
+                                   "risk-analysis"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/regime_transition_intelligence.py",
+                      "type":  "file",
+                      "summary":  "Analyzes market regime transitions and their systemic risk implications."
+                  },
+                  {
+                      "id":  "file:src/engines/replay_scheduler.py",
+                      "name":  "replay_scheduler.py",
+                      "tags":  [
+                                   "engine",
+                                   "backtesting",
+                                   "orchestration"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/replay_scheduler.py",
+                      "type":  "file",
+                      "summary":  "Schedules and orchestrates backtesting replay execution with job queuing."
+                  },
+                  {
+                      "id":  "file:src/engines/signal_evaluation_engine.py",
+                      "name":  "signal_evaluation_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "signal-quality",
+                                   "evaluation"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/signal_evaluation_engine.py",
+                      "type":  "file",
+                      "summary":  "Evaluates signal quality and performance metrics across evaluation windows."
+                  },
+                  {
+                      "id":  "file:src/engines/signal_registry_engine.py",
+                      "name":  "signal_registry_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "signal-registry",
+                                   "metadata"
+                               ],
+                      "complexity":  "moderate",
+                      "filePath":  "src/engines/signal_registry_engine.py",
+                      "type":  "file",
+                      "summary":  "Manages signal registry with metadata and status tracking."
+                  },
+                  {
+                      "id":  "file:src/engines/smart_money.py",
+                      "name":  "smart_money.py",
+                      "tags":  [
+                                   "engine",
+                                   "smart-money",
+                                   "provider-integration"
+                               ],
+                      "complexity":  "moderate",
+                      "filePath":  "src/engines/smart_money.py",
+                      "type":  "file",
+                      "summary":  "Smart money signal provider integration coordinating whale alerts and SEC filings data."
+                  },
+                  {
+                      "id":  "file:src/engines/strategic_failure_analysis_engine.py",
+                      "name":  "strategic_failure_analysis_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "failure-analysis",
+                                   "risk-analysis"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/strategic_failure_analysis_engine.py",
+                      "type":  "file",
+                      "summary":  "Performs systematic failure analysis identifying clusters, patterns, and systemic risk drivers."
+                  },
+                  {
+                      "id":  "file:src/engines/strategic_memory_engine.py",
+                      "name":  "strategic_memory_engine.py",
+                      "tags":  [
+                                   "engine",
+                                   "memory",
+                                   "meta-intelligence"
+                               ],
+                      "complexity":  "complex",
+                      "filePath":  "src/engines/strategic_memory_engine.py",
+                      "type":  "file",
+                      "summary":  "Strategic memory system tracking historical patterns, narratives, and stability trends for meta-intelligence."
+                  },
+                  {
+                      "id":  "function:scripts/oos_reeval.py:_verdict",
+                      "filePath":  "scripts/oos_reeval.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_verdict",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _verdict",
+                      "lineRange":  [
+                                        33,
+                                        50
+                                    ]
+                  },
+                  {
+                      "id":  "function:scripts/oos_reeval.py:_color_for",
+                      "filePath":  "scripts/oos_reeval.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_color_for",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _color_for",
+                      "lineRange":  [
+                                        53,
+                                        58
+                                    ]
+                  },
+                  {
+                      "id":  "function:scripts/oos_reeval.py:main",
+                      "filePath":  "scripts/oos_reeval.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "main",
+                      "type":  "function",
+                      "complexity":  "complex",
+                      "summary":  "Function main",
+                      "lineRange":  [
+                                        61,
+                                        153
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/governance.py:engine_trust_ranking",
+                      "filePath":  "src/api/routes/governance.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "engine_trust_ranking",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function engine_trust_ranking",
+                      "lineRange":  [
+                                        25,
+                                        42
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/governance.py:engine_stability",
+                      "filePath":  "src/api/routes/governance.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "engine_stability",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function engine_stability",
+                      "lineRange":  [
+                                        46,
+                                        71
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/governance.py:noise_report",
+                      "filePath":  "src/api/routes/governance.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "noise_report",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function noise_report",
+                      "lineRange":  [
+                                        75,
+                                        89
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/governance.py:narrative_stability",
+                      "filePath":  "src/api/routes/governance.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "narrative_stability",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function narrative_stability",
+                      "lineRange":  [
+                                        93,
+                                        104
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/governance.py:governance_recommendations",
+                      "filePath":  "src/api/routes/governance.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "governance_recommendations",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function governance_recommendations",
+                      "lineRange":  [
+                                        108,
+                                        122
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/governance.py:recovery_analysis",
+                      "filePath":  "src/api/routes/governance.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "recovery_analysis",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function recovery_analysis",
+                      "lineRange":  [
+                                        126,
+                                        141
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:_disclaimer",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_disclaimer",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _disclaimer",
+                      "lineRange":  [
+                                        32,
+                                        33
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:historical_failure_atlas",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "historical_failure_atlas",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function historical_failure_atlas",
+                      "lineRange":  [
+                                        37,
+                                        62
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:regime_transition_risk_report",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "regime_transition_risk_report",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function regime_transition_risk_report",
+                      "lineRange":  [
+                                        66,
+                                        90
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:narrative_lifecycle_intelligence",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "narrative_lifecycle_intelligence",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function narrative_lifecycle_intelligence",
+                      "lineRange":  [
+                                        94,
+                                        110
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:strategic_stability_ranking",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "strategic_stability_ranking",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function strategic_stability_ranking",
+                      "lineRange":  [
+                                        114,
+                                        144
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:historical_similarity_detection",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "historical_similarity_detection",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function historical_similarity_detection",
+                      "lineRange":  [
+                                        148,
+                                        183
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/api/routes/meta_intelligence.py:meta_risk_dashboard",
+                      "filePath":  "src/api/routes/meta_intelligence.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "meta_risk_dashboard",
+                      "type":  "function",
+                      "complexity":  "complex",
+                      "summary":  "Function meta_risk_dashboard",
+                      "lineRange":  [
+                                        187,
+                                        275
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/discord.py:_post",
+                      "filePath":  "src/core/discord.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_post",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _post",
+                      "lineRange":  [
+                                        29,
+                                        43
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/discord.py:_ts",
+                      "filePath":  "src/core/discord.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_ts",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _ts",
+                      "lineRange":  [
+                                        46,
+                                        47
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/discord.py:send_embed",
+                      "filePath":  "src/core/discord.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "send_embed",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function send_embed",
+                      "lineRange":  [
+                                        50,
+                                        63
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/discord.py:send_text",
+                      "filePath":  "src/core/discord.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "send_text",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function send_text",
+                      "lineRange":  [
+                                        66,
+                                        67
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/fallback.py:with_fallback",
+                      "filePath":  "src/core/fallback.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "with_fallback",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function with_fallback",
+                      "lineRange":  [
+                                        26,
+                                        58
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/fallback.py:news_with_fallback",
+                      "filePath":  "src/core/fallback.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "news_with_fallback",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function news_with_fallback",
+                      "lineRange":  [
+                                        61,
+                                        67
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/logging.py:utc_now",
+                      "filePath":  "src/core/logging.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "utc_now",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function utc_now",
+                      "lineRange":  [
+                                        12,
+                                        14
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/logging.py:configure_logging",
+                      "filePath":  "src/core/logging.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "configure_logging",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function configure_logging",
+                      "lineRange":  [
+                                        17,
+                                        47
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/logging.py:bind_service_context",
+                      "filePath":  "src/core/logging.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "bind_service_context",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function bind_service_context",
+                      "lineRange":  [
+                                        50,
+                                        52
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/logging.py:bind_cycle_context",
+                      "filePath":  "src/core/logging.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "bind_cycle_context",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function bind_cycle_context",
+                      "lineRange":  [
+                                        55,
+                                        57
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/logging.py:clear_cycle_context",
+                      "filePath":  "src/core/logging.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "clear_cycle_context",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function clear_cycle_context",
+                      "lineRange":  [
+                                        60,
+                                        62
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/core/logging.py:get_logger",
+                      "filePath":  "src/core/logging.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "get_logger",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function get_logger",
+                      "lineRange":  [
+                                        65,
+                                        66
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/adaptive_weighting_engine.py:AdaptiveWeightingEngine",
+                      "filePath":  "src/engines/adaptive_weighting_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "AdaptiveWeightingEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class AdaptiveWeightingEngine",
+                      "lineRange":  [
+                                        64,
+                                        441
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/backtesting_engine.py:_r",
+                      "filePath":  "src/engines/backtesting_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_r",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _r",
+                      "lineRange":  [
+                                        551,
+                                        553
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/backtesting_engine.py:BacktestingEngine",
+                      "filePath":  "src/engines/backtesting_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "BacktestingEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class BacktestingEngine",
+                      "lineRange":  [
+                                        62,
+                                        548
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/engine_governance_engine.py:_stability_score",
+                      "filePath":  "src/engines/engine_governance_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_stability_score",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _stability_score",
+                      "lineRange":  [
+                                        482,
+                                        493
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/engine_governance_engine.py:_recovery_score",
+                      "filePath":  "src/engines/engine_governance_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_recovery_score",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _recovery_score",
+                      "lineRange":  [
+                                        496,
+                                        518
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/engine_governance_engine.py:_count_dips",
+                      "filePath":  "src/engines/engine_governance_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_count_dips",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _count_dips",
+                      "lineRange":  [
+                                        521,
+                                        539
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/engine_governance_engine.py:_main",
+                      "filePath":  "src/engines/engine_governance_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_main",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _main",
+                      "lineRange":  [
+                                        544,
+                                        591
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/engine_governance_engine.py:EngineGovernanceEngine",
+                      "filePath":  "src/engines/engine_governance_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "EngineGovernanceEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class EngineGovernanceEngine",
+                      "lineRange":  [
+                                        116,
+                                        477
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/engine_math.py:ols_slope",
+                      "filePath":  "src/engines/engine_math.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "ols_slope",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function ols_slope",
+                      "lineRange":  [
+                                        10,
+                                        21
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/narrative_lifecycle_engine.py:_count_phases",
+                      "filePath":  "src/engines/narrative_lifecycle_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_count_phases",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _count_phases",
+                      "lineRange":  [
+                                        414,
+                                        419
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/narrative_lifecycle_engine.py:NarrativeLifecycleEngine",
+                      "filePath":  "src/engines/narrative_lifecycle_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "NarrativeLifecycleEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class NarrativeLifecycleEngine",
+                      "lineRange":  [
+                                        66,
+                                        411
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/narrative_stability_engine.py:_estimate_half_life",
+                      "filePath":  "src/engines/narrative_stability_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_estimate_half_life",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _estimate_half_life",
+                      "lineRange":  [
+                                        228,
+                                        249
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/narrative_stability_engine.py:NarrativeStabilityEngine",
+                      "filePath":  "src/engines/narrative_stability_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "NarrativeStabilityEngine",
+                      "type":  "class",
+                      "complexity":  "moderate",
+                      "summary":  "Class NarrativeStabilityEngine",
+                      "lineRange":  [
+                                        48,
+                                        223
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/noise_contribution_engine.py:_build_contributions",
+                      "filePath":  "src/engines/noise_contribution_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_build_contributions",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _build_contributions",
+                      "lineRange":  [
+                                        155,
+                                        181
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/noise_contribution_engine.py:_pearson_correlation",
+                      "filePath":  "src/engines/noise_contribution_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_pearson_correlation",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _pearson_correlation",
+                      "lineRange":  [
+                                        184,
+                                        195
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/noise_contribution_engine.py:_detect_amplification",
+                      "filePath":  "src/engines/noise_contribution_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_detect_amplification",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _detect_amplification",
+                      "lineRange":  [
+                                        198,
+                                        243
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/noise_contribution_engine.py:_report_to_dict",
+                      "filePath":  "src/engines/noise_contribution_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_report_to_dict",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _report_to_dict",
+                      "lineRange":  [
+                                        246,
+                                        278
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/noise_contribution_engine.py:NoiseContributionEngine",
+                      "filePath":  "src/engines/noise_contribution_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "NoiseContributionEngine",
+                      "type":  "class",
+                      "complexity":  "moderate",
+                      "summary":  "Class NoiseContributionEngine",
+                      "lineRange":  [
+                                        65,
+                                        150
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/outcome_tracking_engine.py:_polarity",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_polarity",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _polarity",
+                      "lineRange":  [
+                                        61,
+                                        67
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/outcome_tracking_engine.py:_delta_polarity",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_delta_polarity",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _delta_polarity",
+                      "lineRange":  [
+                                        70,
+                                        76
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/outcome_tracking_engine.py:_pol_to_direction",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_pol_to_direction",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _pol_to_direction",
+                      "lineRange":  [
+                                        79,
+                                        80
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/outcome_tracking_engine.py:_search_bounds",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_search_bounds",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _search_bounds",
+                      "lineRange":  [
+                                        83,
+                                        92
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/outcome_tracking_engine.py:_main",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_main",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _main",
+                      "lineRange":  [
+                                        412,
+                                        448
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/outcome_tracking_engine.py:OutcomeTrackingEngine",
+                      "filePath":  "src/engines/outcome_tracking_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "OutcomeTrackingEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class OutcomeTrackingEngine",
+                      "lineRange":  [
+                                        107,
+                                        407
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/regime_transition_intelligence.py:RegimeTransitionIntelligence",
+                      "filePath":  "src/engines/regime_transition_intelligence.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "RegimeTransitionIntelligence",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class RegimeTransitionIntelligence",
+                      "lineRange":  [
+                                        54,
+                                        486
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/replay_scheduler.py:_last_monday",
+                      "filePath":  "src/engines/replay_scheduler.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_last_monday",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _last_monday",
+                      "lineRange":  [
+                                        317,
+                                        320
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/replay_scheduler.py:_main",
+                      "filePath":  "src/engines/replay_scheduler.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_main",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _main",
+                      "lineRange":  [
+                                        325,
+                                        352
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/replay_scheduler.py:ReplayScheduler",
+                      "filePath":  "src/engines/replay_scheduler.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "ReplayScheduler",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class ReplayScheduler",
+                      "lineRange":  [
+                                        83,
+                                        312
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/signal_evaluation_engine.py:_search_buffer",
+                      "filePath":  "src/engines/signal_evaluation_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_search_buffer",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _search_buffer",
+                      "lineRange":  [
+                                        370,
+                                        379
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/signal_evaluation_engine.py:_build_outcome",
+                      "filePath":  "src/engines/signal_evaluation_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_build_outcome",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _build_outcome",
+                      "lineRange":  [
+                                        382,
+                                        405
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/signal_evaluation_engine.py:_main",
+                      "filePath":  "src/engines/signal_evaluation_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_main",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _main",
+                      "lineRange":  [
+                                        410,
+                                        451
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/signal_evaluation_engine.py:SignalEvaluationEngine",
+                      "filePath":  "src/engines/signal_evaluation_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "SignalEvaluationEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class SignalEvaluationEngine",
+                      "lineRange":  [
+                                        61,
+                                        365
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/signal_registry_engine.py:_main",
+                      "filePath":  "src/engines/signal_registry_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_main",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _main",
+                      "lineRange":  [
+                                        273,
+                                        289
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/signal_registry_engine.py:SignalRegistryEngine",
+                      "filePath":  "src/engines/signal_registry_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "SignalRegistryEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class SignalRegistryEngine",
+                      "lineRange":  [
+                                        48,
+                                        268
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/smart_money.py:SmartMoneyEngine",
+                      "filePath":  "src/engines/smart_money.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "SmartMoneyEngine",
+                      "type":  "class",
+                      "complexity":  "moderate",
+                      "summary":  "Class SmartMoneyEngine",
+                      "lineRange":  [
+                                        25,
+                                        139
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/strategic_failure_analysis_engine.py:StrategicFailureAnalysisEngine",
+                      "filePath":  "src/engines/strategic_failure_analysis_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "StrategicFailureAnalysisEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class StrategicFailureAnalysisEngine",
+                      "lineRange":  [
+                                        67,
+                                        571
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/strategic_memory_engine.py:_atlas_summary",
+                      "filePath":  "src/engines/strategic_memory_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_atlas_summary",
+                      "type":  "function",
+                      "complexity":  "simple",
+                      "summary":  "Function _atlas_summary",
+                      "lineRange":  [
+                                        722,
+                                        741
+                                    ]
+                  },
+                  {
+                      "id":  "function:src/engines/strategic_memory_engine.py:_main",
+                      "filePath":  "src/engines/strategic_memory_engine.py",
+                      "tags":  [
+                                   "function",
+                                   "utility"
+                               ],
+                      "name":  "_main",
+                      "type":  "function",
+                      "complexity":  "moderate",
+                      "summary":  "Function _main",
+                      "lineRange":  [
+                                        746,
+                                        795
+                                    ]
+                  },
+                  {
+                      "id":  "class:src/engines/strategic_memory_engine.py:StrategicMemoryEngine",
+                      "filePath":  "src/engines/strategic_memory_engine.py",
+                      "tags":  [
+                                   "class",
+                                   "data-model"
+                               ],
+                      "name":  "StrategicMemoryEngine",
+                      "type":  "class",
+                      "complexity":  "complex",
+                      "summary":  "Class StrategicMemoryEngine",
+                      "lineRange":  [
+                                        97,
+                                        717
+                                    ]
+                  }
+              ]
+}

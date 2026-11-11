@@ -1,0 +1,1293 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 14,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 14,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 14
+    }
+  },
+  "results": [
+    {
+      "path": ".claude/runbooks/add_ai_model.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 106,
+      "nonEmptyLines": 90,
+      "sections": [
+        {
+          "heading": "Runbook: Add AI Model/Provider",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Step-by-Step Execution",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Step 1: Create AI provider file",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Step 2: Add pricing constants",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Step 3: Register in AI provider router",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Step 4: Add to cost routing thresholds",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "Step 5: Add config",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Files to Modify",
+          "level": 2,
+          "line": 82
+        },
+        {
+          "heading": "Validation Steps",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 97
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 13
+      }
+    },
+    {
+      "path": ".claude/runbooks/add_news_source.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 81,
+      "nonEmptyLines": 66,
+      "sections": [
+        {
+          "heading": "Runbook: Add News Source",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Step-by-Step Execution",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Step 1: Create provider file",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Step 2: Add provider config",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Step 3: Register provider in registry",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Step 4: Add .env variables",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Step 5: Update News Intelligence Engine",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "Step 6: Write provider test",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "Files to Modify",
+          "level": 2,
+          "line": 59
+        },
+        {
+          "heading": "Validation Steps",
+          "level": 2,
+          "line": 66
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".claude/runbooks/add_provider.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 88,
+      "nonEmptyLines": 69,
+      "sections": [
+        {
+          "heading": "Runbook: Add Any Provider (Generic)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Step-by-Step Execution",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Step 1: Choose the correct category runbook",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Step 2: Create provider file",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "Step 3: Add configuration",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Step 4: Register provider",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "Step 5: Add cost tracking",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Step 6: Connect to engine",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Files to Modify",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Validation Steps",
+          "level": 2,
+          "line": 74
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 80
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".claude/runbooks/add_social_source.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 88,
+      "nonEmptyLines": 73,
+      "sections": [
+        {
+          "heading": "Runbook: Add Social Media Source",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Step-by-Step Execution",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Step 1: Create social provider",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Step 2: Define tracked communities/channels",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "Step 3: Register provider",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Step 4: Connect to Sentiment Engine",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "Step 5: Configure rate limiting",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Step 6: Handle auth refresh",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Files to Modify",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Validation Steps",
+          "level": 2,
+          "line": 73
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 80
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".claude/runbooks/add_ticker_source.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 121,
+      "nonEmptyLines": 103,
+      "sections": [
+        {
+          "heading": "Runbook: Add Ticker/Symbol Source",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Step-by-Step Execution",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Step 1: Understand ticker table schema",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Step 2: For US Equities — use Polygon.io ticker list",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Step 3: For BIST — use Finnhub or manual CSV",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Step 4: Add sector mapping",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Step 5: Mark tickers as watched",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "Step 6: Verify ticker extraction",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "Files to Modify",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "Validation Steps",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 119
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".claude/runbooks/backtesting_replay.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 192,
+      "nonEmptyLines": 143,
+      "sections": [
+        {
+          "heading": "Runbook: Backtesting & Replay System",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Components",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "New Tables (migration 006)",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Redis Keys",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "Running a Manual Replay",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Via API",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Via Redis (direct push)",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "Via Python (embedded)",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Monitoring a Replay Run",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Scheduling Auto-Replays",
+          "level": 2,
+          "line": 82
+        },
+        {
+          "heading": "Validation Steps",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "Rollback Steps",
+          "level": 2,
+          "line": 133
+        },
+        {
+          "heading": "Rollback a specific run",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "Rollback migration 006",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "Rollback Docker services",
+          "level": 3,
+          "line": 151
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 159
+        },
+        {
+          "heading": "Retry Behaviour",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "State and Changelog Update Instructions",
+          "level": 2,
+          "line": 178
+        },
+        {
+          "heading": "Related Runbooks",
+          "level": 2,
+          "line": 189
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 20
+      }
+    },
+    {
+      "path": ".claude/runbooks/calibration_governance.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 157,
+      "nonEmptyLines": 115,
+      "sections": [
+        {
+          "heading": "Runbook: Calibration Governance",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Calibration Targets",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "What \"Recalibrate\" Means Operationally",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Diagnosing Calibration Issues",
+          "level": 2,
+          "line": 48
+        },
+        {
+          "heading": "Step 1: Check which engines are miscalibrated",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "Step 2: Drill into the specific confidence tier",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Step 3: Review calibration trend",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "Step 4: Check governance recommendation",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "Overconfident Engines",
+          "level": 2,
+          "line": 106
+        },
+        {
+          "heading": "Underconfident Engines",
+          "level": 2,
+          "line": 120
+        },
+        {
+          "heading": "Calibration Stability Check (Grafana)",
+          "level": 2,
+          "line": 133
+        },
+        {
+          "heading": "Calibration Recovery SLA",
+          "level": 2,
+          "line": 145
+        },
+        {
+          "heading": "Related Runbooks",
+          "level": 2,
+          "line": 155
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".claude/runbooks/debug_pipeline.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 168,
+      "nonEmptyLines": 142,
+      "sections": [
+        {
+          "heading": "Runbook: Debug Pipeline Issues",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Diagnosis Decision Tree",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Step 1: Service Health Check",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Step 2: Provider Health Check",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "Step 3: Database Debug",
+          "level": 2,
+          "line": 76
+        },
+        {
+          "heading": "Step 4: Normalization Debug",
+          "level": 2,
+          "line": 96
+        },
+        {
+          "heading": "Step 5: Engine Debug",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "Step 6: Cost/Budget Debug",
+          "level": 2,
+          "line": 136
+        },
+        {
+          "heading": "Common Fixes",
+          "level": 2,
+          "line": 150
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 161
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 13
+      }
+    },
+    {
+      "path": ".claude/runbooks/deploy_production.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 164,
+      "nonEmptyLines": 131,
+      "sections": [
+        {
+          "heading": "Runbook: Deploy to Production",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Step-by-Step Execution",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Step 1: Server preparation",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "Step 2: Clone and configure",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Step 3: Required .env keys (MUST be set)",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "Step 4: Build and start services",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "Step 5: Verify deployment",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "Step 6: Set up log rotation",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Step 7: Set up systemd service (optional, auto-start on reboot)",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "Updating Production",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 138
+        },
+        {
+          "heading": "Monitoring Commands",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": ".claude/runbooks/governance_optimization.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 211,
+      "nonEmptyLines": 159,
+      "sections": [
+        {
+          "heading": "Runbook: Governance Optimization Engine",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Components",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "New Tables (migration 008)",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "Trust Score Formula",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Recommendation Types",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "Monitoring",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "Checking Trust Scores",
+          "level": 2,
+          "line": 94
+        },
+        {
+          "heading": "Acknowledging Recommendations",
+          "level": 2,
+          "line": 125
+        },
+        {
+          "heading": "Governance Alert Types (Phase 4 additions)",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "Rollback Steps",
+          "level": 2,
+          "line": 158
+        },
+        {
+          "heading": "Stop governance engine",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "Rollback migration 008",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "Remove governance router from API",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 185
+        },
+        {
+          "heading": "State and Changelog Update Instructions",
+          "level": 2,
+          "line": 197
+        },
+        {
+          "heading": "Related Runbooks",
+          "level": 2,
+          "line": 208
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    },
+    {
+      "path": ".claude/runbooks/improve_sentiment_engine.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 135,
+      "nonEmptyLines": 111,
+      "sections": [
+        {
+          "heading": "Runbook: Improve Sentiment Engine",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Preconditions",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Current Architecture",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Step-by-Step: Improving VADER Component",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Option A: Tune VADER lexicon for financial terms",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "Option B: Replace VADER with FinBERT",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "Step-by-Step: Improving LLM Sentiment Component",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "Improve the sentiment prompt",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Add contrarian signal detection",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "Step-by-Step: Improving Velocity Calculation",
+          "level": 2,
+          "line": 91
+        },
+        {
+          "heading": "Validation After Changes",
+          "level": 2,
+          "line": 102
+        },
+        {
+          "heading": "Rollback Strategy",
+          "level": 2,
+          "line": 126
+        },
+        {
+          "heading": "Update Instructions",
+          "level": 2,
+          "line": 132
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".claude/runbooks/regime_transition_analysis.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 97,
+      "nonEmptyLines": 84,
+      "sections": [
+        {
+          "heading": "Regime Transition Analysis Runbook",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Key Metrics",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Dangerous Transition Pairs (Historical)",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Investigation Procedures",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "When `transition_instability_warning` fires",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "Historical Danger Assessment for a Specific Transition Pair",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Engine Fragility Ranking Across All Transitions",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Post-Transition Monitoring Protocol",
+          "level": 2,
+          "line": 81
+        },
+        {
+          "heading": "Invariants",
+          "level": 2,
+          "line": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": ".claude/runbooks/strategic_memory.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 170,
+      "nonEmptyLines": 144,
+      "sections": [
+        {
+          "heading": "Strategic Memory + Meta-Intelligence Runbook",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Service Overview",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Components Built",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Tables Created",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "API Endpoints",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Alert Types Added (Phase 5)",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "Monitoring",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "Manual Queries",
+          "level": 2,
+          "line": 64
+        },
+        {
+          "heading": "Grafana Dashboards (Phase 5)",
+          "level": 2,
+          "line": 109
+        },
+        {
+          "heading": "Interpreting Metrics",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "Strategic Instability Index (0–100)",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "Governance Stress Score (0–100)",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "Recurring Failure Density (0–100)",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "Narrative Lifecycle Phases",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "Operational Procedures",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "After Governance Stress Spike Alert",
+          "level": 3,
+          "line": 145
+        },
+        {
+          "heading": "After Transition Instability Warning",
+          "level": 3,
+          "line": 152
+        },
+        {
+          "heading": "After Strategic Instability Alert",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "Strict Invariants",
+          "level": 2,
+          "line": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 20
+      }
+    },
+    {
+      "path": ".claude/runbooks/validation_alert.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 215,
+      "nonEmptyLines": 162,
+      "sections": [
+        {
+          "heading": "Runbook: Validation Alert Engine",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Purpose",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Components",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "New Table (migration 007)",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Alert Types",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Configuration",
+          "level": 2,
+          "line": 50
+        },
+        {
+          "heading": "Telegram Alert Format",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "Checking Alert State",
+          "level": 2,
+          "line": 87
+        },
+        {
+          "heading": "Resolving Alerts",
+          "level": 2,
+          "line": 113
+        },
+        {
+          "heading": "Validation Steps (after deploy)",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "Rollback Steps",
+          "level": 2,
+          "line": 169
+        },
+        {
+          "heading": "Stop alert service",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "Rollback migration 007",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "Rollback new API endpoints",
+          "level": 3,
+          "line": 183
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 188
+        },
+        {
+          "heading": "State and Changelog Update Instructions",
+          "level": 2,
+          "line": 200
+        },
+        {
+          "heading": "Related Runbooks",
+          "level": 2,
+          "line": 211
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    }
+  ]
+}
